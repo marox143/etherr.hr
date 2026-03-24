@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="hr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Etherr</title>
+    <meta name="description" content="" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="floating-grid" id="floatingGrid" aria-hidden="true"></div>
+
+    <header class="site-header" id="top">
+      <div class="container header-inner">
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="headerPanel">
+          <span class="menu-icon" aria-hidden="true"></span>
+          <span class="sr-only" data-i18n="menu.toggle"></span>
+        </button>
+
+        <div class="header-panel" id="headerPanel">
+          <nav class="site-nav" aria-label="Primary navigation">
+            <a href="#about" data-i18n="nav.about"></a>
+            <a href="#services" data-i18n="nav.services"></a>
+            <a href="#contact" data-i18n="nav.contact"></a>
+          </nav>
+          <div class="lang-switch" role="group" aria-label="Language switcher">
+            <button class="lang-btn is-active" type="button" data-lang="hr">HR</button>
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="de">DE</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero section">
+        <div class="container hero-grid">
+          <div class="hero-content reveal">
+            <p class="eyebrow" data-i18n="hero.eyebrow"></p>
+            <h1 data-i18n="hero.title"></h1>
+            <p class="hero-subtitle" data-i18n="hero.subtitle"></p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#contact" data-i18n="hero.primaryCta"></a>
+              <a class="btn btn-secondary" href="#services" data-i18n="hero.secondaryCta"></a>
+            </div>
+          </div>
+
+          <div class="hero-art reveal" aria-hidden="true">
+            <div class="hero-cloud">
+              <span class="cloud-orb cloud-orb-a"></span>
+              <span class="cloud-orb cloud-orb-b"></span>
+              <span class="cloud-orb cloud-orb-c"></span>
+              <div class="hero-logo-mark">
+                <img src="assets/logo.png" alt="" width="220" height="220" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="about section" id="about">
+        <div class="container about-grid">
+          <div class="section-intro reveal">
+            <p class="section-tag" data-i18n="about.tag"></p>
+            <h2 data-i18n="about.title"></h2>
+          </div>
+          <div class="about-copy reveal">
+            <p data-i18n="about.p1"></p>
+            <p data-i18n="about.p2"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="services section" id="services">
+        <div class="container">
+          <div class="section-intro reveal">
+            <p class="section-tag" data-i18n="services.tag"></p>
+            <h2 data-i18n="services.title"></h2>
+            <p class="section-note" data-i18n="services.intro"></p>
+          </div>
+
+          <div class="service-categories" id="serviceCategories"></div>
+        </div>
+      </section>
+
+      <section class="contact section" id="contact">
+        <div class="container">
+          <div class="contact-card reveal">
+            <p class="section-tag" data-i18n="contact.tag"></p>
+            <h2 data-i18n="contact.title"></h2>
+            <p class="section-note" data-i18n="contact.text"></p>
+            <div class="contact-links">
+              <a class="contact-link" href="tel:+385916309012">+385 91 6309 012</a>
+              <a class="contact-link" href="mailto:info@etherr.hr">info@etherr.hr</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <a class="footer-brand" href="#top" aria-label="Etherr">
+          <img src="assets/logo.png" alt="Etherr logo" width="28" height="28" />
+          <span>Etherr</span>
+        </a>
+        <p data-footer-copy></p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
