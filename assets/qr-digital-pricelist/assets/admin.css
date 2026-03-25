@@ -1,0 +1,416 @@
+/* QR Digital Pricelist Admin Styles */
+
+/* Meta Boxes */
+.qr-digital-pricelist-meta {
+    margin: 10px 0;
+}
+
+.qr-digital-pricelist-field {
+    margin-bottom: 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.qr-digital-pricelist-field:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.qr-digital-pricelist-field label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.qr-digital-pricelist-field input[type="text"],
+.qr-digital-pricelist-field input[type="number"],
+.qr-digital-pricelist-field select {
+    width: 100%;
+    max-width: 300px;
+}
+
+.qr-digital-pricelist-field input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.qr-digital-pricelist-field .description {
+    color: #666;
+    font-style: italic;
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+/* Variants */
+.qr-variants-container {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    background: #f9f9f9;
+    margin-bottom: 10px;
+}
+
+.qr-variant-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    position: relative;
+}
+
+.qr-variant-row:last-child {
+    margin-bottom: 0;
+}
+
+.qr-variant-fields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    flex: 1;
+}
+
+.qr-variant-field {
+    min-width: 120px;
+}
+
+.qr-variant-field label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 3px;
+    color: #333;
+}
+
+.qr-variant-field input,
+.qr-variant-field select {
+    width: 100%;
+    min-width: 80px;
+}
+
+.qr-variant-field input[type="checkbox"] {
+    margin-top: 5px;
+}
+
+.qr-variant-actions {
+    display: flex;
+    align-items: flex-end;
+    margin-left: 10px;
+}
+
+.qr-variant-actions .button {
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.qr-variant-placeholder {
+    background: #f0f0f0;
+    border: 2px dashed #ccc;
+    height: 60px;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+#qr-add-variant {
+    margin-top: 10px;
+}
+
+/* Dashboard */
+.qr-digital-pricelist-dashboard {
+    max-width: 1200px;
+}
+
+.qr-digital-pricelist-welcome {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.qr-digital-pricelist-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.qr-digital-pricelist-stat {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.qr-digital-pricelist-stat h3 {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.qr-digital-pricelist-stat .stat-number {
+    font-size: 36px;
+    font-weight: bold;
+    color: #0073aa;
+    margin-bottom: 15px;
+}
+
+.qr-digital-pricelist-quick-actions h3 {
+    margin-bottom: 15px;
+}
+
+.quick-actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.quick-action {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.2s ease;
+}
+
+.quick-action:hover {
+    border-color: #0073aa;
+    box-shadow: 0 2px 5px rgba(0, 115, 170, 0.1);
+}
+
+.quick-action .dashicons {
+    font-size: 24px;
+    margin-right: 10px;
+    color: #0073aa;
+}
+
+.quick-action.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.qr-digital-pricelist-usage {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.qr-digital-pricelist-usage h3 {
+    margin-top: 0;
+}
+
+.usage-instructions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.usage-method {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.usage-method h4 {
+    margin-top: 0;
+    color: #0073aa;
+}
+
+.usage-method code {
+    background: #f0f0f0;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+.usage-method ul {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+/* Units Page */
+.qr-digital-pricelist-units .form-table td {
+    padding: 15px 10px;
+}
+
+.qr-digital-pricelist-units input[type="text"] {
+    width: 300px;
+    max-width: 100%;
+}
+
+/* Settings Page */
+.qr-digital-pricelist-usage-info {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+.qr-digital-pricelist-usage-info h3 {
+    margin-top: 0;
+    color: #0073aa;
+}
+
+.qr-digital-pricelist-usage-info h4 {
+    color: #333;
+}
+
+.qr-digital-pricelist-usage-info code {
+    background: #f0f0f0;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+.qr-digital-pricelist-usage-info ul,
+.qr-digital-pricelist-usage-info ol {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.qr-digital-pricelist-usage-info li {
+    margin-bottom: 5px;
+}
+
+/* List Tables */
+.wp-list-table .column-qr_enabled,
+.wp-list-table .column-qr_sort_order,
+.wp-list-table .column-qr_variants {
+    width: 80px;
+    text-align: center;
+}
+
+.wp-list-table .column-qr_sort_order {
+    width: 100px;
+}
+
+.wp-list-table .column-qr_variants {
+    width: 100px;
+}
+
+/* Form Validation */
+.qr-digital-pricelist-form input.error,
+.qr-digital-pricelist-form select.error {
+    border-color: #dc3232;
+    box-shadow: 0 0 0 1px #dc3232;
+}
+
+.qr-digital-pricelist-form-error {
+    margin-bottom: 15px;
+}
+
+/* Responsive */
+@media screen and (max-width: 782px) {
+    .qr-variant-fields {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .qr-variant-field {
+        min-width: 100%;
+    }
+    
+    .qr-variant-actions {
+        align-items: flex-start;
+        margin-left: 0;
+        margin-top: 10px;
+    }
+    
+    .quick-actions-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .qr-digital-pricelist-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .usage-instructions {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Loading States */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #0073aa;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Tooltips */
+.qr-digital-pricelist-tooltip {
+    position: relative;
+    cursor: help;
+}
+
+.qr-digital-pricelist-tooltip::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 1000;
+}
+
+.qr-digital-pricelist-tooltip:hover::before {
+    opacity: 1;
+}
+
+/* Copy to Clipboard */
+.qr-digital-pricelist-shortcode-copy {
+    background: #0073aa;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-left: 5px;
+    transition: background-color 0.2s ease;
+}
+
+.qr-digital-pricelist-shortcode-copy:hover {
+    background: #005a87;
+}
+
+.qr-digital-pricelist-shortcode-copy:active {
+    background: #004570;
+}

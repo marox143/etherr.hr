@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Etherr</title>
     <meta name="description" content="" />
+    <link rel="icon" href="assets/logo.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,8 +15,10 @@
     />
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
-    <div class="floating-grid" id="floatingGrid" aria-hidden="true"></div>
+  <body data-page="home">
+    <div class="floating-grid" id="floatingGrid" aria-hidden="true">
+      <canvas class="network-canvas" id="networkCanvas" aria-hidden="true"></canvas>
+    </div>
 
     <header class="site-header" id="top">
       <div class="container header-inner">
@@ -22,11 +26,15 @@
           <span class="menu-icon" aria-hidden="true"></span>
           <span class="sr-only" data-i18n="menu.toggle"></span>
         </button>
+        <a class="header-center-logo" href="#top" aria-label="Etherr">
+          <img src="assets/logo.png" alt="Etherr logo" width="52" height="52" />
+        </a>
 
         <div class="header-panel" id="headerPanel">
           <nav class="site-nav" aria-label="Primary navigation">
             <a href="#about" data-i18n="nav.about"></a>
             <a href="#services" data-i18n="nav.services"></a>
+            <a href="projekti.html" data-i18n="nav.projects"></a>
             <a href="#contact" data-i18n="nav.contact"></a>
           </nav>
           <div class="lang-switch" role="group" aria-label="Language switcher">
@@ -40,6 +48,11 @@
 
     <main>
       <section class="hero section">
+        <div class="hero-cloud-layer" aria-hidden="true">
+          <span class="hero-cloud hero-cloud-primary"></span>
+          <span class="hero-cloud hero-cloud-secondary"></span>
+        </div>
+
         <div class="container hero-grid">
           <div class="hero-content reveal">
             <p class="eyebrow" data-i18n="hero.eyebrow"></p>
@@ -52,13 +65,8 @@
           </div>
 
           <div class="hero-art reveal" aria-hidden="true">
-            <div class="hero-cloud">
-              <span class="cloud-orb cloud-orb-a"></span>
-              <span class="cloud-orb cloud-orb-b"></span>
-              <span class="cloud-orb cloud-orb-c"></span>
-              <div class="hero-logo-mark">
-                <img src="assets/logo.png" alt="" width="220" height="220" />
-              </div>
+            <div class="hero-logo-mark">
+              <img src="assets/logo.png" alt="" width="220" height="220" />
             </div>
           </div>
         </div>
@@ -96,7 +104,7 @@
             <h2 data-i18n="contact.title"></h2>
             <p class="section-note" data-i18n="contact.text"></p>
             <div class="contact-links">
-              <a class="contact-link" href="tel:+385916309012">+385 91 6309 012</a>
+              <a class="contact-link" href="tel:+385916309013">+385 91 6309 013</a>
               <a class="contact-link" href="mailto:info@etherr.hr">info@etherr.hr</a>
             </div>
           </div>

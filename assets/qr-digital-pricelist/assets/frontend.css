@@ -1,0 +1,984 @@
+/* QR Digital Pricelist Frontend Styles */
+
+/* Base Styles */
+:root {
+    --qr-font-stack: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --qr-font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+@font-face {
+    font-family: 'BarberChop';
+    src: url('../assets/Fonts/BarberChop.otf') format('opentype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'OutOfTune';
+    src: url('../assets/Fonts/out_of_tune.ttf') format('truetype');
+    font-display: swap;
+}
+
+
+.qr-digital-pricelist-category-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    padding: 0 20px 0 0;
+    box-sizing: border-box;
+}
+
+.qr-digital-pricelist-category-icon {
+    width: 2.8rem;
+    height: 2.8rem;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.6;
+    flex-shrink: 0;
+    animation: qrCategoryIconSway 2.4s ease-in-out infinite;
+    margin-left: 20px;
+}
+
+@keyframes qrCategoryIconSway {
+    0% { transform: rotate(-8deg); }
+    50% { transform: rotate(8deg); }
+    100% { transform: rotate(-8deg); }
+}
+
+body.qr-pricelist-fullscreen {
+    background-color: #050505 !important;
+    min-height: 100vh;
+}
+
+.qr-digital-pricelist-shell {
+    --qr-pricelist-wallpaper: url('../assets/Images/background.png');
+    width: 100vw;
+    margin-left: calc((100% - 100vw) / 2);
+    margin-right: calc((100% - 100vw) / 2);
+    min-height: 100vh;
+    padding: 32px 0 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.qr-digital-pricelist-wallpaper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: var(--qr-vh, 100vh);
+    background-image: var(--qr-pricelist-wallpaper);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -2;
+    pointer-events: none;
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+.qr-digital-pricelist-floating-logo {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 1;
+}
+
+.qr-digital-pricelist-floating-logo img {
+    position: absolute;
+    width: 64px;
+    height: auto;
+    filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.25));
+    pointer-events: auto;
+}
+
+.qr-digital-pricelist-floating-logo img[src*="mic.png"] {
+    width: 48px;
+}
+
+.qr-digital-pricelist-floating-logo img[src*="keef_logo.png"] {
+    width: 42px;
+}
+
+.qr-logo-burst {
+    position: fixed;
+    width: 28px;
+    height: auto;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 1;
+    transform: translate(0, 0) scale(0.8);
+    transition: transform 420ms ease-out, opacity 420ms ease-out;
+    will-change: transform, opacity;
+}
+
+.qr-category-fall {
+    position: fixed;
+    width: 42px;
+    height: auto;
+    pointer-events: none;
+    z-index: -2;
+    opacity: 0.6;
+    filter: brightness(0) invert(1);
+    transform: translate(-50%, -50%) scale(0.95);
+    transition: transform 5250ms cubic-bezier(0.22, 0.7, 0.3, 1), opacity 5250ms ease-out;
+    will-change: transform, opacity;
+}
+
+.qr-digital-pricelist-items {
+    transition: max-height 0.9s ease;
+    max-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    display: none;
+}
+
+.qr-digital-pricelist-items.collapsed {
+    max-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    display: none;
+}
+
+body.qr-pricelist-fullscreen .wp-site-blocks,
+body.qr-pricelist-fullscreen main,
+body.qr-pricelist-fullscreen .site,
+body.qr-pricelist-fullscreen .entry-content,
+body.qr-pricelist-fullscreen .wp-block-post-content {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.qr-digital-pricelist {
+    width: min(960px, 100%);
+    margin: 0 auto;
+    position: relative;
+    padding: 0;
+    font-family: var(--qr-font-stack);
+    line-height: 1.6;
+    color: #f5f5f5;
+    box-sizing: border-box;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.qr-digital-pricelist::before {
+    content: none;
+}
+
+@keyframes arrowBounce {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(4px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .qr-digital-pricelist-shell {
+        padding: 48px 0 120px;
+    }
+}
+
+/* Header */
+.qr-digital-pricelist-header {
+    position: relative;
+    text-align: center;
+    margin-bottom: 24px;
+    padding: 12px 0 0;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+    font-family: var(--qr-font-stack);
+}
+
+.qr-digital-pricelist-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: #f4f4f4;
+    line-height: 1.2;
+}
+
+.qr-digital-pricelist-label {
+    font-size: 4.2rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    color: rgba(0, 0, 0, 0.9);
+    -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.9);
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.9);
+    text-transform: uppercase;
+    margin: 0 0 10px 0;
+    font-family: 'BarberChop', var(--qr-font-heading);
+}
+
+.qr-digital-pricelist-label.is-trembling {
+    animation: qrCjenikQuake 680ms ease-out;
+}
+
+@keyframes qrCjenikQuake {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    10% { transform: translate(-2px, 1px) rotate(-1deg); }
+    20% { transform: translate(2px, -2px) rotate(1.2deg); }
+    35% { transform: translate(-3px, 0) rotate(-0.8deg); }
+    50% { transform: translate(3px, 2px) rotate(1deg); }
+    65% { transform: translate(-2px, -1px) rotate(-0.6deg); }
+    80% { transform: translate(1px, 1px) rotate(0.4deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes breathe {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.09); }
+}
+
+.qr-digital-pricelist-logo {
+    width: clamp(200px, 50vw, 420px);
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.45));
+    transform-origin: center;
+    transform: perspective(1200px) rotateY(0deg);
+    will-change: transform;
+    transition: filter 0.3s ease;
+    cursor: pointer;
+    user-select: none;
+}
+
+.qr-digital-pricelist-logo.is-spinning {
+    filter: drop-shadow(0 12px 26px rgba(0, 0, 0, 0.55)) brightness(1.1);
+}
+
+ .qr-digital-pricelist-logo-stage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.qr-digital-pricelist-info-trigger {
+    position: fixed;
+    top: clamp(12px, 3vw, 28px);
+    right: clamp(12px, 3vw, 28px);
+    width: 64px;
+    height: 64px;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.3;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    z-index: 50;
+    animation: breathe 4s ease-in-out infinite;
+}
+
+.qr-digital-pricelist-info-trigger:hover,
+.qr-digital-pricelist-info-trigger:focus-visible {
+    transform: scale(1.08);
+    outline: none;
+}
+
+.qr-digital-pricelist-info-icon {
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+    filter: invert(1);
+}
+
+.qr-digital-pricelist-scroll-to-top {
+    position: fixed;
+    bottom: clamp(12px, 3vw, 28px);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    width: clamp(42px, 4vw, 48px);
+    height: clamp(42px, 4vw, 48px);
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.3;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    z-index: 50;
+    animation: scroll-bounce 2s ease-in-out infinite;
+}
+
+.qr-digital-pricelist-scroll-to-top:hover,
+.qr-digital-pricelist-scroll-to-top:focus-visible {
+    transform: scale(1.08);
+    outline: none;
+}
+
+.qr-digital-pricelist-scroll-to-top img {
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+    filter: invert(1);
+}
+
+@keyframes scroll-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.qr-digital-pricelist-info-modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 5vh;
+    z-index: 9999;
+}
+
+.qr-digital-pricelist-info-modal[hidden] {
+    display: none;
+}
+
+.qr-digital-pricelist-info-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.qr-digital-pricelist-info-content {
+    position: relative;
+    width: min(80vw, 400px);
+    max-height: 0;
+    margin: 0 auto;
+    background: rgba(25, 25, 25, 0.95);
+    background: rgba(8, 8, 10, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 18px;
+    padding: 32px;
+    text-align: center;
+    color: #f5f5f5;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: max-height 1.9s ease;
+}
+
+.qr-digital-pricelist-info-content.info-open {
+    max-height: 80vh;
+}
+
+.qr-digital-pricelist-info-text {
+    white-space: normal;
+    font-size: 1rem;
+    line-height: 1.5;
+    overflow-y: auto;
+    flex: 1;
+    padding-right: 8px;
+    margin-right: -4px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.45) transparent;
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.qr-digital-pricelist-info-text::-webkit-scrollbar {
+    width: 4px;
+}
+
+.qr-digital-pricelist-info-text::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.qr-digital-pricelist-info-text::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 10px;
+}
+
+.qr-digital-pricelist-info-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border: none !important;
+    background: transparent;
+    box-shadow: none;
+    appearance: none;
+    color: #fff;
+    font-size: 3rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 12px;
+    width: auto;
+    height: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+    text-align: center;
+    font-family: inherit;
+}
+
+.qr-digital-pricelist-info-close:focus,
+.qr-digital-pricelist-info-close:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+
+@media screen and (max-width: 600px) {
+    .qr-digital-pricelist-info-trigger {
+        width: 32px;
+        height: 32px;
+        top: 8px;
+        right: 8px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+    }
+
+    .qr-digital-pricelist-scroll-to-top {
+        width: 32px;
+        height: 32px;
+        bottom: 8px;
+        right: 8px;
+    }
+}
+
+/* Categories */
+.qr-digital-pricelist-category {
+    margin: 0 auto 28px auto;
+    background: transparent !important;
+    border-radius: 18px;
+    overflow: visible;
+    box-shadow: none !important;
+    border: none;
+    width: 100%;
+    max-width: min(960px, 92vw);
+}
+
+.qr-digital-pricelist-category-toggle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    background: rgba(5, 5, 5, 0.82);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 22px;
+    padding: 12px 14px 12px 0;
+    cursor: pointer;
+    text-align: center;
+    gap: 0;
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(12px);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    font-family: 'OutOfTune', 'BarberChop', var(--qr-font-heading), var(--qr-font-stack);
+    font-size: 0.1rem;
+    font-weight: 50;
+}
+
+.qr-digital-pricelist-category-toggle:hover,
+.qr-digital-pricelist-category-toggle:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 25px 58px rgba(0, 0, 0, 0.65);
+    border-color: rgba(255, 255, 255, 0.2);
+    outline: none;
+}
+
+.qr-digital-pricelist-category-toggle::after {
+    content: none;
+}
+
+.qr-digital-pricelist-arrow {
+    width: 26px;
+    height: 26px;
+    opacity: 0.75;
+    filter: brightness(0) invert(1);
+    animation: arrowBounce 1.8s ease-in-out infinite;
+}
+
+.qr-digital-pricelist-arrow-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 14px;
+    margin-top: 3px;
+    padding-bottom: 0;
+    width: 100%;
+}
+
+.qr-digital-pricelist-items[hidden] {
+    display: none;
+}
+
+.qr-digital-pricelist-category-title {
+    font-size: 1.85rem;
+    font-weight: 700;
+    margin: 0;
+    padding: 0 0 4px 20px;
+    text-align: center;
+    color: #f4f4f4;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    position: relative;
+    width: auto;
+    flex: 1;
+    font-family: inherit;
+    vertical-align: middle;
+}
+
+.qr-digital-pricelist-category-indicator {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: auto;
+    margin-left: 0;
+    border: none;
+    border-radius: 0;
+    background: none;
+}
+
+.qr-digital-pricelist-category-indicator-icon {
+width: 25px;
+height: 25px;
+object-fit: contain;
+filter: brightness(0) invert(1);
+opacity: 0.5;
+}
+
+.qr-digital-pricelist-category-indicator-icon.is-pulsing {
+animation: qrIndicatorPulse 220ms ease-out;
+}
+
+@keyframes qrIndicatorPulse {
+0% { transform: scale(1); }
+30% { transform: scale(1.14); }
+100% { transform: scale(1); }
+}
+
+.qr-digital-pricelist-category-description {
+margin: 0 20px 20px 20px;
+color: rgba(255, 255, 255, 0.7);
+font-style: italic;
+font-size: 0.95rem;
+    margin: 0 20px 20px 20px;
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+    font-size: 0.95rem;
+}
+
+/* Items Container */
+.qr-digital-pricelist-items {
+    padding: 32px 20px 32px 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 18px;
+    margin-top: 20px;
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.45);
+}
+
+/* Items */
+.qr-digital-pricelist-item {
+    margin-bottom: 0px;
+    padding: 5px 5px 5px 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.qr-digital-pricelist-item:last-child {
+    margin-bottom: 0;
+    padding: 5px 5px 5px 5px;
+    border-bottom: none;
+}
+
+.qr-digital-pricelist-item-title {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin: 0;
+    color: #fefefe;
+}
+
+.qr-digital-pricelist-item-description {
+    margin: 10px 0 0;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Subsections */
+.qr-digital-pricelist-subsections {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.qr-digital-pricelist-subsection {
+    padding: 10px 0 0;
+}
+
+.qr-digital-pricelist-subsection-title {
+    font-size: 1.33rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #fff;
+    font-weight: 700;
+    text-decoration: underline;
+    margin: 0 0 10px 0;
+}
+
+/* Variant rows */
+
+.qr-digital-pricelist-variants {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.qr-digital-pricelist-variant-row {
+    display: grid;
+    grid-template-columns: 60% 20% 20%;
+    align-items: center;
+    font-size: 1rem;
+    color: #f2f2f2;
+    min-height: 50px;
+    column-gap: 12px;
+    padding: 5px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.qr-digital-pricelist-item-name,
+.qr-digital-pricelist-volume,
+.qr-digital-pricelist-price {
+    min-width: 0;
+    line-height: 1.3;
+}
+
+.qr-digital-pricelist-item-name {
+    font-weight: 200;
+    text-align: left;
+    font-size: 1.33rem;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.qr-digital-pricelist-volume {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: 200;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.92rem;
+}
+
+.qr-digital-pricelist-price {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    justify-self: end;
+    padding-right: 20px;
+    text-align: right;
+    font-weight: 700;
+    color: #dcdcdc;
+    font-size: 1.53rem;
+}
+
+.qr-digital-pricelist-price {
+    white-space: nowrap;
+}
+
+/* Empty State */
+.qr-digital-pricelist-empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.qr-digital-pricelist-empty::before {
+    content: "📋";
+    display: block;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .qr-digital-pricelist {
+        padding: 15px;
+    }
+    
+    .qr-digital-pricelist-title {
+        font-size: 2rem;
+    }
+    
+    .qr-digital-pricelist-category-title {
+        font-size: 1.5rem;
+        padding: 15px 15px 10px 15px;
+    }
+    
+    .qr-digital-pricelist-category-description {
+        margin: 0 15px 15px 15px;
+    }
+    
+    .qr-digital-pricelist-items {
+        padding: 0 15px 15px 15px;
+    }
+    
+    .qr-digital-pricelist-item-title {
+        font-size: 1.2rem;
+    }
+    
+    .qr-digital-pricelist-variants {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0px;
+    }
+    
+    .qr-digital-pricelist-variant {
+        justify-content: space-between;
+        padding: 0px 0px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .qr-digital-pricelist-category-toggle {
+        padding: 14px 12px 14px;
+    }
+
+    .qr-digital-pricelist-category-head {
+        justify-content: center;
+        padding: 0 56px 0 0;
+    }
+
+    .qr-digital-pricelist-category-title {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .qr-digital-pricelist-category-title {
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .qr-digital-pricelist {
+        padding: 10px;
+    }
+    
+    .qr-digital-pricelist-title {
+        font-size: 1.8rem;
+    }
+    
+    .qr-digital-pricelist-category-title {
+        font-size: 1.3rem;
+    }
+    
+    .qr-digital-pricelist-item-title {
+        font-size: 1.1rem;
+        font-weight: 300;
+    }
+    
+    .qr-digital-pricelist-variant {
+        font-size: 0.9rem;
+    }
+    
+    .qr-digital-pricelist-price {
+        font-size: 1rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .qr-digital-pricelist {
+        max-width: none;
+        padding: 0;
+        box-shadow: none;
+    }
+    
+    .qr-digital-pricelist-category {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+    }
+    
+    .qr-digital-pricelist-item {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+    
+    .qr-digital-pricelist-variant {
+        background: transparent;
+        border: 1px solid #ccc;
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    .qr-digital-pricelist {
+        color: #000;
+    }
+    
+    .qr-digital-pricelist-category {
+        border: 2px solid #000;
+    }
+    
+    .qr-digital-pricelist-item {
+        border-bottom: 2px solid #000;
+    }
+    
+    .qr-digital-pricelist-variant {
+        border: 2px solid #000;
+        background: transparent;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .qr-digital-pricelist,
+    .qr-digital-pricelist-category,
+    .qr-digital-pricelist-variant {
+        background: transparent !important;
+        box-shadow: none !important;
+    }
+}
+
+/* Animation and Transitions */
+.qr-digital-pricelist-category {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.qr-digital-pricelist-item {
+    animation: fadeInLeft 0.3s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0) rotate(0deg); }
+    10% { transform: translateX(-6px) rotate(-4deg); }
+    20% { transform: translateX(6px) rotate(4deg); }
+    30% { transform: translateX(-6px) rotate(-4deg); }
+    40% { transform: translateX(6px) rotate(4deg); }
+    50% { transform: translateX(-6px) rotate(-4deg); }
+    60% { transform: translateX(6px) rotate(4deg); }
+    70% { transform: translateX(-6px) rotate(-4deg); }
+    80% { transform: translateX(6px) rotate(4deg); }
+    90% { transform: translateX(-6px) rotate(-4deg); }
+}
+
+@keyframes shake-small {
+    0%, 100% { transform: translateX(0) rotate(0deg); }
+    10% { transform: translateX(-2px) rotate(-1deg); }
+    20% { transform: translateX(2px) rotate(1deg); }
+    30% { transform: translateX(-2px) rotate(-1deg); }
+    40% { transform: translateX(2px) rotate(1deg); }
+    50% { transform: translateX(-2px) rotate(-1deg); }
+    60% { transform: translateX(2px) rotate(1deg); }
+    70% { transform: translateX(-2px) rotate(-1deg); }
+    80% { transform: translateX(2px) rotate(1deg); }
+    90% { transform: translateX(-2px) rotate(-1deg); }
+}
+
+@keyframes breathe-click {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.5); }
+}
+
+@keyframes info-slide-in {
+    0% { transform: translateY(-24px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes info-slide-out {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(24px); opacity: 0; }
+}
+
+@keyframes shrink-click {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.9); }
+    100% { transform: scale(1); }
+}
+
+.qr-digital-pricelist-category-icon.is-clicked,
+.qr-digital-pricelist-category-indicator-icon.is-clicked {
+    animation: breathe-click 1s ease-in-out;
+}
+
+.qr-digital-pricelist-category-icon.is-collapse-clicked,
+.qr-digital-pricelist-category-indicator-icon.is-collapse-clicked {
+    animation: shrink-click 0.5s ease-in-out;
+}
+
+.qr-digital-pricelist-category-title.is-clicked {
+    animation: shake-small 1s ease-in-out;
+}
+
+/* Focus Styles for Accessibility */
+.qr-digital-pricelist-variant:focus,
+.qr-digital-pricelist-variant:hover:focus {
+    outline: 2px solid #0073aa;
+    outline-offset: 2px;
+}
+
+/* Touch-friendly for mobile */
+@media (hover: none) and (pointer: coarse) {
+    .qr-digital-pricelist-variant {
+        padding: 12px 15px;
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+/* Category fall animation */
+.qr-category-fall {
+    position: fixed;
+    pointer-events: none;
+    z-index: 0;
+    width: 48px;
+    height: 48px;
+    opacity: 0.7;
+    transition: transform 7.8s ease-out, opacity 7.6s ease-out;
+    will-change: transform, opacity;
+    filter: brightness(0) invert(1);
+}
+
+.qr-digital-pricelist-category {
+    position: relative;
+    z-index: 2;
+}

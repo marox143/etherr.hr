@@ -1,0 +1,194 @@
+/* QR Digital Pricelist Block Editor Styles */
+
+.qr-digital-pricelist-block-preview {
+    border: 1px dashed #ddd;
+    border-radius: 4px;
+    padding: 20px;
+    background: #f9f9f9;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.qr-digital-pricelist-preview-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.qr-digital-pricelist-preview-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+    color: #222;
+}
+
+.qr-digital-pricelist-preview-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.qr-digital-pricelist-preview-category {
+    margin-bottom: 30px;
+    background: #fff;
+    border-radius: 6px;
+    padding: 15px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.qr-digital-pricelist-preview-category-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+    color: #222;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.qr-digital-pricelist-preview-items {
+    padding: 0;
+}
+
+.qr-digital-pricelist-preview-item {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.qr-digital-pricelist-preview-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.qr-digital-pricelist-preview-item-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+    color: #222;
+}
+
+.qr-digital-pricelist-preview-variants {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.qr-digital-pricelist-preview-variant {
+    display: inline-block;
+    padding: 6px 10px;
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.qr-digital-pricelist-preview-note {
+    margin-top: 15px;
+    padding: 10px;
+    background: #e7f3ff;
+    border: 1px solid #b3d9ff;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: #0066cc;
+}
+
+/* Block editor sidebar styles */
+.wp-block-qr-digital-pricelist-pricelist .components-panel__body {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.wp-block-qr-digital-pricelist-pricelist .components-panel__body:last-child {
+    border-bottom: none;
+}
+
+.wp-block-qr-digital-pricelist-pricelist .components-base-control {
+    margin-bottom: 16px;
+}
+
+.wp-block-qr-digital-pricelist-pricelist .components-base-control:last-child {
+    margin-bottom: 0;
+}
+
+.wp-block-qr-digital-pricelist-pricelist .components-toggle-control__label {
+    font-weight: 600;
+}
+
+.wp-block-qr-digital-pricelist-pricelist .components-text-control__label {
+    font-weight: 600;
+}
+
+.wp-block-qr-digital-pricelist-pricelist .components-text-control__help {
+    font-style: italic;
+    color: #666;
+}
+
+/* Block selection styles */
+.wp-block-qr-digital-pricelist-pricelist.is-selected .qr-digital-pricelist-block-preview {
+    border-color: #0073aa;
+    box-shadow: 0 0 0 1px #0073aa;
+}
+
+.wp-block-qr-digital-pricelist-pricelist.is-hovered .qr-digital-pricelist-block-preview {
+    border-color: #0073aa;
+}
+
+/* Multi-select styles */
+.wp-block-qr-digital-pricelist-pricelist.is-multi-selected .qr-digital-pricelist-block-preview {
+    border-color: #0073aa;
+    background: #f0f6fc;
+}
+
+/* Responsive in editor */
+@media screen and (max-width: 768px) {
+    .qr-digital-pricelist-preview-variants {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .qr-digital-pricelist-preview-variant {
+        display: block;
+        text-align: center;
+    }
+}
+
+/* Dark mode for editor */
+.is-dark-theme .qr-digital-pricelist-block-preview {
+    background: #2d2d2d;
+    border-color: #555;
+}
+
+.is-dark-theme .qr-digital-pricelist-preview-header {
+    border-bottom-color: #555;
+}
+
+.is-dark-theme .qr-digital-pricelist-preview-title,
+.is-dark-theme .qr-digital-pricelist-preview-category-title,
+.is-dark-theme .qr-digital-pricelist-preview-item-title {
+    color: #f0f0f0;
+}
+
+.is-dark-theme .qr-digital-pricelist-preview-category {
+    background: #1a1a1a;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.is-dark-theme .qr-digital-pricelist-preview-category-title {
+    border-bottom-color: #555;
+}
+
+.is-dark-theme .qr-digital-pricelist-preview-item {
+    border-bottom-color: #555;
+}
+
+.is-dark-theme .qr-digital-pricelist-preview-variant {
+    background: #3a3a3a;
+    border-color: #555;
+    color: #e0e0e0;
+}
+
+.is-dark-theme .qr-digital-pricelist-preview-note {
+    background: #1a3a52;
+    border-color: #2d5a7a;
+    color: #4da6ff;
+}

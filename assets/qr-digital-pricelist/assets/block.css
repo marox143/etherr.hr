@@ -1,0 +1,49 @@
+/* QR Digital Pricelist Block Frontend Styles */
+
+/* These styles are loaded when the block is used on the frontend */
+/* They complement the main frontend.css file */
+
+.wp-block-qr-digital-pricelist-pricelist {
+    margin: 2rem 0;
+}
+
+.wp-block-qr-digital-pricelist-pricelist .qr-digital-pricelist {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Block-specific overrides for better integration */
+.wp-block-qr-digital-pricelist-pricelist .qr-digital-pricelist-header {
+    margin: 0 0 2rem 0;
+}
+
+.wp-block-qr-digital-pricelist-pricelist .qr-digital-pricelist-category {
+    margin-bottom: 3rem;
+}
+
+.wp-block-qr-digital-pricelist-pricelist .qr-digital-pricelist-item {
+    margin-bottom: 2rem;
+}
+
+/* Alignment support */
+.wp-block-qr-digital-pricelist-pricelist.alignfull {
+    margin: 2rem calc(-50vw + 50%);
+}
+
+.wp-block-qr-digital-pricelist-pricelist.alignwide {
+    margin: 2rem calc(-25vw + 50%);
+}
+
+@media screen and (max-width: 1200px) {
+    .wp-block-qr-digital-pricelist-pricelist.alignwide {
+        margin: 2rem -2rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .wp-block-qr-digital-pricelist-pricelist.alignfull,
+    .wp-block-qr-digital-pricelist-pricelist.alignwide {
+        margin: 2rem -1rem;
+    }
+}

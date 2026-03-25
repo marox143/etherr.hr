@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="hr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Etherr | Projekti</title>
+    <meta name="description" content="" />
+    <link rel="icon" href="assets/logo.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="projects">
+    <div class="floating-grid" id="floatingGrid" aria-hidden="true">
+      <canvas class="network-canvas" id="networkCanvas" aria-hidden="true"></canvas>
+    </div>
+
+    <header class="site-header" id="top">
+      <div class="container header-inner">
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="headerPanel">
+          <span class="menu-icon" aria-hidden="true"></span>
+          <span class="sr-only" data-i18n="menu.toggle"></span>
+        </button>
+        <a class="header-center-logo" href="#top" aria-label="Etherr">
+          <img src="assets/logo.png" alt="Etherr logo" width="52" height="52" />
+        </a>
+
+        <div class="header-panel" id="headerPanel">
+          <nav class="site-nav" aria-label="Primary navigation">
+            <a href="index.html#about" data-i18n="nav.about"></a>
+            <a href="index.html#services" data-i18n="nav.services"></a>
+            <a href="projekti.html" data-i18n="nav.projects" aria-current="page"></a>
+            <a href="index.html#contact" data-i18n="nav.contact"></a>
+          </nav>
+          <div class="lang-switch" role="group" aria-label="Language switcher">
+            <button class="lang-btn is-active" type="button" data-lang="hr">HR</button>
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="de">DE</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-main page-main-projects">
+      <section class="page-shell section project-showcase">
+        <div class="container page-shell-inner">
+          <div class="project-device-stage">
+            <div class="project-showcase-layout">
+              <div class="project-phone-stage reveal">
+                <div class="project-phone" aria-label="Keef mobile bar price list preview">
+                  <div class="project-phone-screen">
+                    <iframe
+                      class="project-phone-iframe"
+                      src="keef-demo.html"
+                      title="Keef mobile bar price list"
+                      loading="lazy"
+                      scrolling="no"
+                    ></iframe>
+                  </div>
+                  <img
+                    class="project-phone-frame"
+                    src="assets/phone.png"
+                    alt="Phone mockup displaying the Keef price list"
+                    width="978"
+                    height="1938"
+                  />
+                </div>
+              </div>
+              <article class="project-summary reveal" aria-labelledby="project-keef-title">
+                <div class="project-summary-content">
+                  <p class="project-summary-tag" data-i18n="pages.projects.showcase.tag"></p>
+                  <div class="project-summary-copy">
+                    <h1 id="project-keef-title" data-i18n="pages.projects.showcase.title"></h1>
+                    <p data-i18n="pages.projects.showcase.text"></p>
+                  </div>
+                  <div class="project-summary-meta">
+                    <span data-i18n="pages.projects.showcase.meta"></span>
+                    <a
+                      class="project-summary-link"
+                      href="https://keef.hr/"
+                      target="_blank"
+                      rel="noreferrer"
+                      data-i18n="pages.projects.showcase.link"
+                    ></a>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-shell section project-showcase project-showcase-secondary">
+        <div class="container page-shell-inner">
+          <div class="project-device-stage">
+            <div class="project-showcase-layout project-showcase-layout-reversed">
+              <article class="project-summary reveal" aria-labelledby="project-kota-title">
+                <div class="project-summary-content">
+                  <p class="project-summary-tag" data-i18n="pages.projects.kota.tag"></p>
+                  <div class="project-summary-copy">
+                    <h2 id="project-kota-title" data-i18n="pages.projects.kota.title"></h2>
+                    <p data-i18n="pages.projects.kota.text"></p>
+                  </div>
+                  <div class="project-summary-meta">
+                    <span data-i18n="pages.projects.kota.meta"></span>
+                    <a
+                      class="project-summary-link"
+                      href="https://kotasamobor.hr/"
+                      target="_blank"
+                      rel="noreferrer"
+                      data-i18n="pages.projects.kota.link"
+                    ></a>
+                  </div>
+                </div>
+              </article>
+              <div class="project-laptop-stage reveal">
+                <div class="project-laptop" aria-label="Kota Samobor desktop website preview">
+                  <div class="project-laptop-screen" aria-hidden="true">
+                    <div class="project-kota-showcase">
+                      <div class="project-kota-slideshow">
+                        <img
+                          class="project-kota-slide is-active"
+                          src="assets/kota/kota-samobor-slider1.jpg"
+                          alt=""
+                          width="1500"
+                          height="630"
+                        />
+                        <img
+                          class="project-kota-slide"
+                          src="assets/kota/kota-samobor-slider2.jpg"
+                          alt=""
+                          width="1500"
+                          height="630"
+                        />
+                        <img
+                          class="project-kota-slide"
+                          src="assets/kota/kota-samobor-slider3.jpg"
+                          alt=""
+                          width="1500"
+                          height="630"
+                        />
+                        <img
+                          class="project-kota-slide"
+                          src="assets/kota/kota-samobor-slider4.jpg"
+                          alt=""
+                          width="1500"
+                          height="630"
+                        />
+                      </div>
+                      <div class="project-kota-ui">
+                        <div class="project-kota-notice">
+                          SVIM REGISTRIRANIM KUPCIMA OMOGUĆUJEMO 10% TRAJNOG POPUSTA. ZA NARUDŽBE VEĆE OD 85 € DOSTAVA JE BESPLATNA.
+                        </div>
+                        <div class="project-kota-header">
+                          <div class="project-kota-brand">
+                            <div class="project-kota-brand-line">
+                              <span class="project-kota-brand-mark">KS</span>
+                              <span class="project-kota-brand-separator">|</span>
+                              <span class="project-kota-brand-name">KOTA SAMOBOR</span>
+                            </div>
+                            <p>Vaš partner u svijetu ljepote i njege</p>
+                          </div>
+                          <div class="project-kota-nav">
+                            <span class="is-active">NASLOVNA</span>
+                            <span>WEBSHOP</span>
+                            <span>O NAMA</span>
+                            <span>KONTAKT</span>
+                            <span>KORISNIČKI RAČUN</span>
+                            <span class="project-kota-cart" aria-hidden="true">🛒</span>
+                          </div>
+                        </div>
+                        <div class="project-kota-hero-copy">
+                          <h3>VAŠ PARTNER U SVIJETU LJEPOTE I NJEGE</h3>
+                          <p>Vrhunski proizvodi i oprema za kozmetičke i frizerske salone na jednom mjestu.</p>
+                          <div class="project-kota-actions">
+                            <span class="project-kota-button is-outline">ISTRAŽI PONUDU</span>
+                            <span class="project-kota-button is-solid">PRIJAVA I REGISTRACIJA</span>
+                          </div>
+                        </div>
+                        <div class="project-kota-benefits">
+                          <div class="project-kota-benefit">
+                            <strong>ŠIROK ASORTIMAN</strong>
+                            <span>Više od 500 proizvoda za kozmetičare i frizere</span>
+                          </div>
+                          <div class="project-kota-benefit">
+                            <strong>BRZA DOSTAVA</strong>
+                            <span>Narudžbe šaljemo unutar 24h</span>
+                          </div>
+                          <div class="project-kota-benefit">
+                            <strong>PROVJERENI BRANDOVI</strong>
+                            <span>Proizvodi koje koriste profesionalci</span>
+                          </div>
+                          <div class="project-kota-benefit">
+                            <strong>PODRŠKA I SAVJETOVANJE</strong>
+                            <span>Pomažemo vam odabrati najbolje za vaš salon</span>
+                          </div>
+                          <div class="project-kota-benefit is-highlight">
+                            <strong>10% TRAJNOG POPUSTA</strong>
+                            <span>Za registrirane kupce i dostavu besplatnu za narudžbe veće od 85 €</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <img
+                    class="project-laptop-frame"
+                    src="assets/laptop.png"
+                    alt="Laptop mockup displaying the Kota Samobor website"
+                    width="1000"
+                    height="600"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <a class="footer-brand" href="#top" aria-label="Etherr">
+          <img src="assets/logo.png" alt="Etherr logo" width="28" height="28" />
+          <span>Etherr</span>
+        </a>
+        <p data-footer-copy></p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
