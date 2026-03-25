@@ -114,6 +114,8 @@ a{text-decoration-thickness:1px!important;text-underline-offset:.1em}:where(.wp-
 <meta name="msapplication-TileImage" content="https://keef.hr/wp-content/uploads/2026/01/cropped-keef-270x270.png" />
     <style id="etherr-keef-demo-overrides">
       html, body {
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
         scrollbar-width: none !important;
         overscroll-behavior: none !important;
       }
@@ -1066,6 +1068,26 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
       event.stopPropagation();
     },
     true
+  );
+
+  window.addEventListener(
+    "wheel",
+    function (event) {
+      if (event.ctrlKey) {
+        return;
+      }
+
+      if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) {
+        return;
+      }
+
+      window.scrollBy({
+        top: event.deltaY,
+        behavior: "auto"
+      });
+      event.preventDefault();
+    },
+    { passive: false }
   );
 
   window.addEventListener("message", function (event) {

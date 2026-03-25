@@ -11,12 +11,18 @@ const translations = {
           title: "Etherr | Projekti",
           description: "Pregled Etherr projekata, demo rješenja i digitalnih proizvoda.",
         },
+        flip: "Okreni karticu projekta",
         showcase: {
           tag: "Istaknuti projekt",
           title: "Keef Bar mobilni QR cjenik.",
           text: "Interaktivni mobilni prikaz barske ponude s jasnim kategorijama, brzim pregledom artikala i iskustvom optimiziranim za skeniranje QR koda.",
           meta: "QR cjenik / mobilni prikaz",
           link: "Posjeti keef.hr",
+          backTag: "Admin i zaliha",
+          backTitle: "Admin panel za cijene i inventar.",
+          backText:
+            "Zaposlenici mogu brzo ažurirati cijene, sakriti rasprodane artikle i održavati ponudu točnom bez kompliciranog procesa.",
+          backMeta: "Admin panel / cijene i zaliha",
         },
         kota: {
           tag: "Istaknuti projekt",
@@ -24,6 +30,47 @@ const translations = {
           text: "Desktop prikaz webshopa s istaknutim hero sliderom, rotirajućim naslovnim vizualima i jasnom strukturom ponude za profesionalnu kozmetiku i frizersku opremu.",
           meta: "Webshop / desktop prikaz",
           link: "Posjeti kotasamobor.hr",
+          backTag: "Naplate i prodaja",
+          backTitle: "Webshop s integriranim plaćanjima.",
+          backText:
+            "Katalog, košarica i online naplata povezani su u pregledan prodajni tok koji podržava svakodnevne narudžbe i jednostavno upravljanje ponudom.",
+          backMeta: "Webshop / naplata i checkout",
+        },
+        juvy: {
+          tag: "Istaknuti projekt",
+          title: "Juvy Skin mobilni skincare webshop.",
+          text: "Mobilni prikaz skincare webshopa s video hero sekcijom, jasnom navigacijom i urednim prijelazom prema shopu, priči brenda i kontaktu.",
+          meta: "Skincare webshop / mobilni prikaz",
+          link: "Posjeti juvyskin.com",
+          backTag: "Desktop iskustvo",
+          backTitle: "Desktop verzija dostupna je na linku.",
+          backText:
+            "Na telefonu je prikazan responzivni mobilni webshop, dok je puna desktop prezentacija s proširenim sadržajem i kompletnim pregledom trgovine dostupna na juvyskin.com.",
+          backMeta: "Desktop webshop / live pregled",
+        },
+        keepgoing: {
+          tag: "Istaknuti projekt",
+          title: "Keep Going desktop web stranica.",
+          text: "Desktop prikaz web stranice za terapiju i osobni razvoj s full-width hero sliderom, jasnom navigacijom i sadržajem koji vodi prema upoznavanju, uslugama, blogu i kontaktu.",
+          meta: "Osobni brand / desktop prikaz",
+          link: "Posjeti keepgoing.hr",
+          backTag: "Upiti i sadržaj",
+          backTitle: "Sadržajni funnel s jasnim CTA tokovima.",
+          backText:
+            "Hero sekcije, stručni sadržaj i kontakt točke rade zajedno kao miran i pregledan tok koji korisnika vodi prema upitu i upoznavanju terapijskog procesa.",
+          backMeta: "Sadržaj / CTA i kontakt",
+        },
+        almagea: {
+          tag: "Istaknuti projekt",
+          title: "Almagea desktop webshop.",
+          text: "Desktop prikaz webshopa dodataka prehrani s preglednim landing sekcijama, jasnim kategorijama proizvoda i sadržajnom stranicom koja vodi od brenda do kupnje.",
+          meta: "Webshop / desktop prikaz",
+          link: "Posjeti almagea.hr",
+          backTag: "Prodaja i naplata",
+          backTitle: "Webshop s promocijama, popustima i checkoutom.",
+          backText:
+            "Prodajni tok povezuje dodatke prehrani, promotivne kampanje, loyalty pogodnosti i online naplatu u iskustvo koje podržava i edukativni sadržaj i direktnu kupnju.",
+          backMeta: "Webshop / promocije i checkout",
         },
       },
     },
@@ -106,7 +153,7 @@ const translations = {
       text: "Pošaljite upit ili nas nazovite. Odgovaramo brzo i konkretno.",
     },
     footer: {
-      copy: "© {year} Etherr. Sva prava pridržana.",
+      copy: "© {year} Etherr",
     },
   },
   en: {
@@ -121,12 +168,18 @@ const translations = {
           title: "Etherr | Projects",
           description: "A look at Etherr projects, demo solutions and digital products.",
         },
+        flip: "Flip project card",
         showcase: {
           tag: "Featured project",
           title: "Keef Bar mobile QR menu.",
           text: "An interactive mobile bar menu with clear categories, fast item browsing and a phone-first experience built for QR code visits.",
           meta: "QR menu / mobile view",
           link: "Visit keef.hr",
+          backTag: "Admin and stock",
+          backTitle: "Admin panel for prices and inventory.",
+          backText:
+            "Staff can quickly update prices, hide sold-out items and keep the live menu accurate without a complicated workflow.",
+          backMeta: "Admin panel / pricing and stock",
         },
         kota: {
           tag: "Featured project",
@@ -134,6 +187,47 @@ const translations = {
           text: "A desktop storefront preview with the animated hero slider, rotating landing visuals and a clear product structure for professional beauty and salon supplies.",
           meta: "Webshop / desktop view",
           link: "Visit kotasamobor.hr",
+          backTag: "Payments and sales",
+          backTitle: "Webshop with integrated payments.",
+          backText:
+            "The catalog, cart and online checkout are tied into one streamlined ecommerce flow for daily orders and practical merchandising.",
+          backMeta: "Webshop / payments and checkout",
+        },
+        juvy: {
+          tag: "Featured project",
+          title: "Juvy Skin mobile skincare webshop.",
+          text: "A mobile skincare storefront with a video-led hero, clean navigation and a polished path into the shop, brand story and contact flow.",
+          meta: "Skincare webshop / mobile view",
+          link: "Visit juvyskin.com",
+          backTag: "Desktop experience",
+          backTitle: "The desktop version is available on the live link.",
+          backText:
+            "This phone preview shows the responsive mobile storefront, while the full desktop presentation with the broader catalog and brand content is visible on juvyskin.com.",
+          backMeta: "Desktop webshop / live preview",
+        },
+        keepgoing: {
+          tag: "Featured project",
+          title: "Keep Going desktop website.",
+          text: "A desktop therapy and personal-growth website with a full-width hero slider, clear navigation and a long-form content path into the about page, services, blog and contact.",
+          meta: "Personal brand / desktop view",
+          link: "Visit keepgoing.hr",
+          backTag: "Leads and content",
+          backTitle: "A content funnel with clear CTA paths.",
+          backText:
+            "Hero sections, editorial content and contact touchpoints work together in a calm, readable flow that guides visitors toward inquiries and understanding the therapy process.",
+          backMeta: "Content / CTAs and contact",
+        },
+        almagea: {
+          tag: "Featured project",
+          title: "Almagea desktop webshop.",
+          text: "A desktop supplements storefront with well-structured landing sections, clear product categories and a long-form page flow that moves from brand story to purchase.",
+          meta: "Webshop / desktop view",
+          link: "Visit almagea.hr",
+          backTag: "Sales and checkout",
+          backTitle: "Webshop with promotions, discounts and checkout.",
+          backText:
+            "The sales flow ties together supplements, campaign blocks, loyalty perks and online payments in a storefront built for both editorial storytelling and direct conversion.",
+          backMeta: "Webshop / promotions and checkout",
         },
       },
     },
@@ -216,7 +310,7 @@ const translations = {
       text: "Send us a project brief or call directly. You will get a clear response quickly.",
     },
     footer: {
-      copy: "© {year} Etherr. All rights reserved.",
+      copy: "© {year} Etherr",
     },
   },
   de: {
@@ -231,12 +325,18 @@ const translations = {
           title: "Etherr | Projekte",
           description: "Einblick in Etherr Projekte, Demo-Loesungen und digitale Produkte.",
         },
+        flip: "Projektkarte drehen",
         showcase: {
           tag: "Ausgewähltes Projekt",
           title: "Keef Bar mobiler QR-Getraenkekatalog.",
           text: "Eine interaktive mobile Barkarte mit klaren Kategorien, schneller Artikelnavigation und einem auf QR-Aufrufe optimierten Smartphone-Erlebnis.",
           meta: "QR-Menü / mobile Ansicht",
           link: "keef.hr öffnen",
+          backTag: "Admin und Bestand",
+          backTitle: "Adminpanel für Preise und Inventar.",
+          backText:
+            "Mitarbeitende können Preise schnell anpassen, ausverkaufte Artikel ausblenden und die Karte ohne komplizierten Ablauf aktuell halten.",
+          backMeta: "Adminpanel / Preise und Bestand",
         },
         kota: {
           tag: "Ausgewähltes Projekt",
@@ -244,6 +344,47 @@ const translations = {
           text: "Eine Desktop-Vorschau des Webshops mit animiertem Hero-Slider, wechselnden Startvisuals und klarer Produktstruktur für professionelle Beauty- und Salonartikel.",
           meta: "Webshop / Desktop-Ansicht",
           link: "kotasamobor.hr öffnen",
+          backTag: "Zahlung und Verkauf",
+          backTitle: "Webshop mit integrierten Zahlungen.",
+          backText:
+            "Katalog, Warenkorb und Online-Checkout sind in einen klaren Verkaufsfluss eingebunden, der tägliche Bestellungen und eine einfache Angebotsverwaltung unterstützt.",
+          backMeta: "Webshop / Zahlung und Checkout",
+        },
+        juvy: {
+          tag: "Ausgewähltes Projekt",
+          title: "Juvy Skin mobiler Skincare-Webshop.",
+          text: "Eine mobile Skincare-Storefront mit Video-Hero, klarer Navigation und sauberem Einstieg in Shop, Markenstory und Kontaktfluss.",
+          meta: "Skincare-Webshop / mobile Ansicht",
+          link: "juvyskin.com öffnen",
+          backTag: "Desktop-Erlebnis",
+          backTitle: "Die Desktop-Version ist über den Link verfügbar.",
+          backText:
+            "Diese Smartphone-Vorschau zeigt den responsiven mobilen Shop, während die vollständige Desktop-Präsentation mit erweitertem Katalog und Markeninhalten auf juvyskin.com sichtbar ist.",
+          backMeta: "Desktop-Webshop / Live-Vorschau",
+        },
+        keepgoing: {
+          tag: "Ausgewähltes Projekt",
+          title: "Keep Going Desktop-Website.",
+          text: "Eine Desktop-Vorschau einer Therapie- und Personal-Development-Website mit großem Hero-Slider, klarer Navigation und einem langen Content-Fluss zu Über-mich, Leistungen, Blog und Kontakt.",
+          meta: "Personal Brand / Desktop-Ansicht",
+          link: "keepgoing.hr öffnen",
+          backTag: "Anfragen und Content",
+          backTitle: "Content-Funnel mit klaren CTA-Wegen.",
+          backText:
+            "Hero-Bereiche, redaktionelle Inhalte und Kontaktpunkte arbeiten in einem ruhigen, gut lesbaren Flow zusammen und führen Besucher zu Anfragen und zum Verständnis des Therapieprozesses.",
+          backMeta: "Content / CTA und Kontakt",
+        },
+        almagea: {
+          tag: "Ausgewähltes Projekt",
+          title: "Almagea Desktop-Webshop.",
+          text: "Eine Desktop-Vorschau des Nahrungsergänzungs-Webshops mit klar gegliederten Landing-Sektionen, übersichtlichen Produktkategorien und einer langen Seitenstruktur vom Markenauftritt bis zum Kauf.",
+          meta: "Webshop / Desktop-Ansicht",
+          link: "almagea.hr öffnen",
+          backTag: "Verkauf und Checkout",
+          backTitle: "Webshop mit Aktionen, Rabatten und Checkout.",
+          backText:
+            "Der Verkaufsfluss verbindet Nahrungsergänzungen, Kampagnenflächen, Loyalty-Vorteile und Online-Zahlung in einer Storefront, die Content und direkte Conversion zusammenführt.",
+          backMeta: "Webshop / Aktionen und Checkout",
         },
       },
     },
@@ -326,7 +467,7 @@ const translations = {
       text: "Senden Sie uns Ihr Anliegen oder rufen Sie direkt an. Sie erhalten schnell eine klare Rückmeldung.",
     },
     footer: {
-      copy: "© {year} Etherr. Alle Rechte vorbehalten.",
+      copy: "© {year} Etherr",
     },
   },
 };
@@ -348,6 +489,8 @@ const dom = {
   serviceCategories: document.getElementById("serviceCategories"),
   projectPhoneScreens: document.querySelectorAll(".project-phone-screen"),
   projectLaptopScreens: document.querySelectorAll(".project-laptop-screen"),
+  projectLaptopEmbedScreens: document.querySelectorAll(".project-laptop-screen-embed"),
+  projectSummaryCards: document.querySelectorAll(".project-summary"),
   kotaSlideshows: document.querySelectorAll(".project-kota-slideshow"),
 };
 
@@ -929,29 +1072,73 @@ function getProjectKotaViewportSize(screen) {
   };
 }
 
+function getProjectKotaContentHeight(screen) {
+  const host = screen.closest(".project-laptop") || screen;
+  const styles = getComputedStyle(host);
+  const contentHeight = Number.parseFloat(styles.getPropertyValue("--project-kota-content-height"));
+  return Number.isFinite(contentHeight) && contentHeight > 0 ? contentHeight : 1340;
+}
+
 function syncProjectKotaScreenScale(screen) {
+  const scrollLayer = screen.querySelector(".project-kota-scroll");
   const showcase = screen.querySelector(".project-kota-showcase");
-  if (!(showcase instanceof HTMLElement)) {
+  if (!(showcase instanceof HTMLElement) || !(scrollLayer instanceof HTMLElement)) {
     return;
   }
 
   const host = screen.closest(".project-laptop") || screen;
   const styles = getComputedStyle(host);
-  const { width: viewportWidth, height: viewportHeight } = getProjectKotaViewportSize(screen);
+  const { width: viewportWidth } = getProjectKotaViewportSize(screen);
+  const contentHeight = getProjectKotaContentHeight(screen);
   const overscanRight = Number.parseFloat(styles.getPropertyValue("--project-kota-overscan-right"));
   const overscanBottom = Number.parseFloat(styles.getPropertyValue("--project-kota-overscan-bottom"));
-  const targetWidth = screen.clientWidth + (Number.isFinite(overscanRight) ? overscanRight : 0);
-  const targetHeight = screen.clientHeight + (Number.isFinite(overscanBottom) ? overscanBottom : 0);
+  const extraRight = Number.isFinite(overscanRight) ? overscanRight : 0;
+  const extraBottom = Number.isFinite(overscanBottom) ? overscanBottom : 0;
+  const targetWidth = screen.clientWidth + extraRight;
   const scaleX = viewportWidth > 0 ? targetWidth / viewportWidth : 1;
-  const scaleY = viewportHeight > 0 ? targetHeight / viewportHeight : 1;
-  const safeScale = Math.min(
-    Number.isFinite(scaleX) && scaleX > 0 ? scaleX : 1,
-    Number.isFinite(scaleY) && scaleY > 0 ? scaleY : 1
-  );
+  const safeScale = Number.isFinite(scaleX) && scaleX > 0 ? scaleX : 1;
 
   screen.style.setProperty("--project-kota-screen-scale", safeScale.toFixed(5));
   screen.style.setProperty("--project-kota-screen-offset-x", "0px");
   screen.style.setProperty("--project-kota-screen-offset-y", "0px");
+  screen.style.setProperty("--project-kota-scroll-width", `${Math.ceil(viewportWidth * safeScale)}px`);
+  screen.style.setProperty("--project-kota-scroll-height", `${Math.ceil(contentHeight * safeScale + extraBottom)}px`);
+}
+
+function syncProjectLaptopEmbedScale(screen) {
+  const iframe = screen.querySelector(".project-laptop-iframe");
+  if (!(iframe instanceof HTMLIFrameElement)) {
+    return 1;
+  }
+
+  const host = screen.closest(".project-laptop") || screen;
+  const styles = getComputedStyle(host);
+  const viewportWidth = Number.parseFloat(styles.getPropertyValue("--project-laptop-embed-viewport-width"));
+  const viewportHeight = Number.parseFloat(styles.getPropertyValue("--project-laptop-embed-viewport-height"));
+  const safeViewportWidth = Number.isFinite(viewportWidth) && viewportWidth > 0 ? viewportWidth : 1440;
+  const safeViewportHeight = Number.isFinite(viewportHeight) && viewportHeight > 0 ? viewportHeight : 900;
+  const scaleX = screen.clientWidth / safeViewportWidth;
+  const scaleY = screen.clientHeight / safeViewportHeight;
+  const safeScale = Number.isFinite(Math.min(scaleX, scaleY)) && Math.min(scaleX, scaleY) > 0 ? Math.min(scaleX, scaleY) : 1;
+
+  const overscanLeft = Number.parseFloat(styles.getPropertyValue("--project-laptop-embed-overscan-left"));
+  const overscanTop = Number.parseFloat(styles.getPropertyValue("--project-laptop-embed-overscan-top"));
+  const overscanRight = Number.parseFloat(styles.getPropertyValue("--project-laptop-embed-overscan-right"));
+  const overscanBottom = Number.parseFloat(styles.getPropertyValue("--project-laptop-embed-overscan-bottom"));
+
+  const leftOverscan = Number.isFinite(overscanLeft) ? overscanLeft / safeScale : 0;
+  const topOverscan = Number.isFinite(overscanTop) ? overscanTop / safeScale : 0;
+  const rightOverscan = Number.isFinite(overscanRight) ? overscanRight / safeScale : 0;
+  const bottomOverscan = Number.isFinite(overscanBottom) ? overscanBottom / safeScale : 0;
+  const inlineOverscan = leftOverscan + rightOverscan;
+  const blockOverscan = topOverscan + bottomOverscan;
+
+  screen.style.setProperty("--project-laptop-embed-scale", safeScale.toFixed(5));
+  screen.style.setProperty("--project-laptop-embed-overscan-inline", `${inlineOverscan.toFixed(3)}px`);
+  screen.style.setProperty("--project-laptop-embed-overscan-block", `${blockOverscan.toFixed(3)}px`);
+  screen.style.setProperty("--project-laptop-embed-offset-x", `${(-leftOverscan * safeScale).toFixed(3)}px`);
+  screen.style.setProperty("--project-laptop-embed-offset-y", `${(-topOverscan * safeScale).toFixed(3)}px`);
+  return safeScale;
 }
 
 function initProjectPhoneScreens() {
@@ -1021,6 +1208,136 @@ function initProjectLaptopScreens() {
     }
 
     syncScreen();
+  });
+}
+
+function initProjectLaptopEmbedScreens() {
+  if (!dom.projectLaptopEmbedScreens.length) {
+    return;
+  }
+
+  dom.projectLaptopEmbedScreens.forEach((screen) => {
+    if (!(screen instanceof HTMLElement) || screen.dataset.embedScaleBound === "true") {
+      return;
+    }
+
+    const iframe = screen.querySelector(".project-laptop-iframe");
+    if (!(iframe instanceof HTMLIFrameElement)) {
+      return;
+    }
+
+    screen.dataset.embedScaleBound = "true";
+    const syncScreen = () => {
+      syncProjectLaptopEmbedScale(screen);
+    };
+
+    if ("ResizeObserver" in window) {
+      const resizeObserver = new ResizeObserver(() => {
+        syncScreen();
+      });
+      resizeObserver.observe(screen);
+    } else {
+      window.addEventListener("resize", syncScreen);
+    }
+
+    iframe.addEventListener("load", () => {
+      syncScreen();
+    });
+
+    syncScreen();
+  });
+}
+
+function initProjectSummaryCards() {
+  if (!dom.projectSummaryCards.length) {
+    return;
+  }
+
+  dom.projectSummaryCards.forEach((summary) => {
+    if (!(summary instanceof HTMLElement) || summary.dataset.flipBound === "true") {
+      return;
+    }
+
+    const trigger = summary.querySelector(".project-summary-flip-trigger");
+    const backFace = summary.querySelector(".project-summary-face-back");
+    const frontFace = summary.querySelector(".project-summary-face-front");
+    if (!(trigger instanceof HTMLButtonElement) || !(backFace instanceof HTMLElement) || !(frontFace instanceof HTMLElement)) {
+      return;
+    }
+
+    summary.dataset.flipBound = "true";
+
+    const syncFlipState = () => {
+      const isFlipped = summary.classList.contains("is-flipped");
+      trigger.setAttribute("aria-pressed", isFlipped ? "true" : "false");
+      frontFace.setAttribute("aria-hidden", isFlipped ? "true" : "false");
+      backFace.setAttribute("aria-hidden", isFlipped ? "false" : "true");
+    };
+
+    trigger.addEventListener("click", () => {
+      summary.classList.toggle("is-flipped");
+      syncFlipState();
+    });
+
+    syncFlipState();
+  });
+}
+
+function syncProjectSummaryHeights() {
+  if (!dom.projectSummaryCards.length) {
+    return;
+  }
+
+  dom.projectSummaryCards.forEach((summary) => {
+    if (!(summary instanceof HTMLElement)) {
+      return;
+    }
+
+    summary.style.height = "";
+
+    const faces = summary.querySelectorAll(".project-summary-face");
+    const computedStyles = window.getComputedStyle(summary);
+    const minHeight = Number.parseFloat(computedStyles.minHeight) || 0;
+
+    let targetHeight = minHeight;
+
+    faces.forEach((face) => {
+      if (!(face instanceof HTMLElement)) {
+        return;
+      }
+
+      const contentBlock = face.querySelector(".project-summary-content");
+      if (!(contentBlock instanceof HTMLElement)) {
+        return;
+      }
+
+      const contentStyles = window.getComputedStyle(contentBlock);
+      const paddingTop = Number.parseFloat(contentStyles.paddingTop) || 0;
+      const paddingBottom = Number.parseFloat(contentStyles.paddingBottom) || 0;
+      const rowGap =
+        Number.parseFloat(contentStyles.rowGap || contentStyles.gap || "0") || 0;
+
+      const blocks = [
+        contentBlock.querySelector(".project-summary-tag"),
+        contentBlock.querySelector(".project-summary-copy"),
+        contentBlock.querySelector(".project-summary-meta"),
+      ].filter((block) => block instanceof HTMLElement);
+
+      const contentHeight = blocks.reduce((totalHeight, block) => {
+        if (!(block instanceof HTMLElement)) {
+          return totalHeight;
+        }
+
+        return totalHeight + block.scrollHeight;
+      }, 0);
+
+      const totalGapHeight = Math.max(blocks.length - 1, 0) * rowGap;
+      const requiredHeight = paddingTop + paddingBottom + contentHeight + totalGapHeight + 2;
+
+      targetHeight = Math.max(targetHeight, requiredHeight);
+    });
+
+    summary.style.height = `${Math.ceil(targetHeight)}px`;
   });
 }
 
@@ -1527,6 +1844,7 @@ function setLanguage(langKey) {
   renderServices(currentLang);
   updateLanguageButtons();
   closeMenu();
+  window.requestAnimationFrame(syncProjectSummaryHeights);
 }
 
 function initEvents() {
@@ -1602,6 +1920,7 @@ function initEvents() {
     resizeTimer = window.setTimeout(() => {
       startNetworkLayer();
       updateHeaderLogoDocking();
+      syncProjectSummaryHeights();
     }, 160);
   });
 
@@ -1629,9 +1948,17 @@ function init() {
   initHeroClouds();
   initProjectPhoneScreens();
   initProjectLaptopScreens();
+  initProjectLaptopEmbedScreens();
+  initProjectSummaryCards();
   initProjectKotaSlideshows();
   startNetworkLayer();
   setLanguage("hr");
+  syncProjectSummaryHeights();
+  if (document.fonts?.ready) {
+    document.fonts.ready.then(() => {
+      syncProjectSummaryHeights();
+    });
+  }
   initEvents();
   updateHeaderState();
   setHeaderLogoDocked(computeShouldDockHeaderLogo(), { animate: false });
