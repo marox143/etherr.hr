@@ -1,0 +1,1087 @@
+<!doctype html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reservation Schedule Demo</title>
+    <style>
+      :root {
+        --bg: #eef3f5;
+        --panel: #ffffff;
+        --line: #d7dce4;
+        --ink: #1e2a37;
+        --muted: #64748b;
+        --hour-col: 28px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        font-family: "Manrope", "Segoe UI", system-ui, sans-serif;
+        color: var(--ink);
+        background: var(--bg);
+      }
+
+      .sr-app {
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+        display: grid;
+        grid-template-rows: auto auto minmax(0, 1fr);
+        gap: 8px;
+      }
+
+      .sr-toolbar {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .sr-year {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      .sr-year-select,
+      .sr-month,
+      .sr-week-btn,
+      .sr-week-label {
+        border: 1px solid #c8d0db;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
+        color: #334155;
+        border-radius: 999px;
+        font-size: 11px;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        height: 30px;
+        padding: 0 12px;
+      }
+
+      .sr-year-select {
+        font-size: 22px;
+        letter-spacing: 0;
+        text-transform: none;
+        min-width: 72px;
+      }
+
+      .sr-months {
+        display: inline-flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .sr-month {
+        min-width: 38px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+
+      .sr-month.is-current {
+        border-color: #6b82a5;
+        font-weight: 700;
+        color: #1f2f45;
+      }
+
+      .sr-week-nav {
+        margin-left: auto;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .sr-week-btn {
+        width: 28px;
+        padding: 0;
+        cursor: pointer;
+        font-size: 16px;
+        line-height: 1;
+      }
+
+      .sr-week-label {
+        text-transform: none;
+        letter-spacing: 0;
+        font-size: 13px;
+        min-width: 92px;
+      }
+
+      .sr-chips {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .sr-chip {
+        border: 0;
+        border-radius: 999px;
+        color: #fff;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 6px 12px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        background: var(--chip-color, #64748b);
+      }
+
+      .sr-chip[draggable="true"] {
+        cursor: grab;
+      }
+
+      .sr-chip.is-active {
+        box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.25);
+      }
+
+      .sr-chip-bubble {
+        width: 18px;
+        height: 18px;
+        border-radius: 999px;
+        background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), transparent 45%),
+          rgba(255, 255, 255, 0.3);
+        box-shadow: inset 0 2px 6px rgba(255, 255, 255, 0.35), inset 0 -4px 8px rgba(0, 0, 0, 0.18);
+      }
+
+      .sr-calendar {
+        min-height: 0;
+        background: var(--panel);
+        border: 1px solid #d3d9e2;
+        border-radius: 14px;
+        padding: 8px;
+        display: grid;
+        grid-template-columns: var(--hour-col) minmax(0, 1fr);
+        gap: 6px;
+      }
+
+      .sr-times {
+        position: relative;
+      }
+
+      .sr-times-header {
+        height: 48px;
+      }
+
+      .sr-times-body {
+        position: relative;
+        height: calc(100% - 48px);
+      }
+
+      .sr-time-label {
+        position: absolute;
+        right: 0;
+        transform: translateY(-6px);
+        font-size: 10px;
+        color: #8fa0b6;
+      }
+
+      .sr-days {
+        min-width: 0;
+        min-height: 0;
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 6px;
+      }
+
+      .sr-day {
+        min-width: 0;
+        border: 1px solid #d6dce5;
+        border-radius: 10px;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .sr-day.is-sunday {
+        background: #f1f5f9;
+      }
+
+      .sr-day-header {
+        height: 48px;
+        padding: 6px 7px 4px;
+        border-bottom: 1px solid #d6dce5;
+        background: #f8fafc;
+        display: grid;
+        align-content: center;
+        gap: 2px;
+      }
+
+      .sr-day-name {
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      .sr-day-date {
+        font-size: 11px;
+        font-weight: 600;
+        color: #63748a;
+        line-height: 1;
+      }
+
+      .sr-day-body {
+        position: relative;
+        min-height: 0;
+        flex: 1 1 auto;
+        background-image: repeating-linear-gradient(to bottom, #e9edf3 0, #e9edf3 1px, transparent 1px, transparent 48px);
+      }
+
+      .sr-closed {
+        position: absolute;
+        left: 0;
+        right: 0;
+        background: repeating-linear-gradient(
+          45deg,
+          rgba(148, 163, 184, 0.15) 0,
+          rgba(148, 163, 184, 0.15) 6px,
+          rgba(226, 232, 240, 0.35) 6px,
+          rgba(226, 232, 240, 0.35) 12px
+        );
+        pointer-events: none;
+      }
+
+      .sr-shift {
+        position: absolute;
+        top: 0;
+        left: calc(var(--left, 0%) + 3px);
+        width: calc(var(--width, 100%) - 6px);
+        height: 40px;
+        border-radius: 8px;
+        border-left: 4px solid var(--shift-color, #64748b);
+        background: var(--shift-bg, rgba(100, 116, 139, 0.2));
+        color: #0f172a;
+        font-size: 11px;
+        padding: 22px 5px 4px;
+        overflow: hidden;
+        cursor: grab;
+      }
+
+      .sr-shift.is-dragging {
+        opacity: 0.86;
+        cursor: grabbing;
+      }
+
+      .sr-shift-name {
+        display: block;
+        font-weight: 700;
+        line-height: 1.1;
+      }
+
+      .sr-shift-time {
+        display: block;
+        margin-top: 2px;
+        font-size: 10px;
+        color: #2f3e53;
+        line-height: 1.2;
+      }
+
+      .sr-shift-handle {
+        position: absolute;
+        right: 5px;
+        width: 16px;
+        height: 16px;
+        border-radius: 999px;
+        background: var(--shift-color, #64748b);
+        box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.45), inset 0 -3px 6px rgba(0, 0, 0, 0.18);
+        cursor: ns-resize;
+      }
+
+      .sr-shift-handle::before,
+      .sr-shift-handle::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+      }
+
+      .sr-shift-handle::before {
+        top: 2px;
+        border-bottom: 4px solid rgba(255, 255, 255, 0.95);
+      }
+
+      .sr-shift-handle::after {
+        bottom: 2px;
+        border-top: 4px solid rgba(255, 255, 255, 0.95);
+      }
+
+      .sr-shift-handle--start {
+        top: 4px;
+      }
+
+      .sr-shift-handle--end {
+        bottom: 4px;
+      }
+
+      .sr-day-body.is-drop-target {
+        outline: 2px dashed rgba(22, 184, 178, 0.7);
+        outline-offset: -2px;
+      }
+
+      @media (max-width: 1100px) {
+        .sr-app {
+          padding: 7px;
+          gap: 6px;
+        }
+
+        .sr-toolbar {
+          gap: 6px;
+        }
+
+        .sr-month,
+        .sr-week-btn,
+        .sr-week-label,
+        .sr-year-select {
+          height: 27px;
+        }
+
+        .sr-month {
+          min-width: 34px;
+          padding: 0 9px;
+          font-size: 10px;
+        }
+
+        .sr-day-name {
+          font-size: 12px;
+        }
+
+        .sr-day-date {
+          font-size: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sr-app" id="srApp">
+      <div class="sr-toolbar">
+        <select class="sr-year-select" id="srYearSelect" aria-label="Year"></select>
+        <div class="sr-months" id="srMonths"></div>
+        <div class="sr-week-nav">
+          <button class="sr-week-btn" id="srWeekPrev" type="button" aria-label="Previous week">&lsaquo;</button>
+          <button class="sr-week-label" id="srWeekLabel" type="button"></button>
+          <button class="sr-week-btn" id="srWeekNext" type="button" aria-label="Next week">&rsaquo;</button>
+        </div>
+      </div>
+
+      <div class="sr-chips" id="srChips"></div>
+
+      <div class="sr-calendar" id="srCalendar">
+        <div class="sr-times">
+          <div class="sr-times-header"></div>
+          <div class="sr-times-body" id="srTimesBody"></div>
+        </div>
+        <div class="sr-days" id="srDays"></div>
+      </div>
+    </div>
+
+    <script>
+      (() => {
+        const DAY_MINUTES = 24 * 60;
+        const START_HOUR = 8;
+        const END_HOUR = 20;
+        const SNAP_MINUTES = 30;
+        const MIN_SHIFT_MINUTES = 60;
+        const DEFAULT_SHIFT_MINUTES = 8 * 60;
+
+        const LOCALES = {
+          hr: {
+            week: "Tjedan",
+            prevWeekLabel: "Prethodni tjedan",
+            nextWeekLabel: "Sljedeci tjedan",
+            months: ["SIJ", "VELJ", "OŽU", "TRA", "SVI", "LIP", "SRP", "KOL", "RUJ", "LI", "STU", "PRO"],
+            days: ["PON", "UTO", "SRI", "CET", "PET", "SUB", "NED"],
+            employees: ["Mia", "Luka", "Marta", "Dino"],
+          },
+          en: {
+            week: "Week",
+            prevWeekLabel: "Previous week",
+            nextWeekLabel: "Next week",
+            months: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"],
+            days: ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"],
+            employees: ["Emma", "Liam", "Olivia", "Noah"],
+          },
+          de: {
+            week: "Woche",
+            prevWeekLabel: "Vorherige Woche",
+            nextWeekLabel: "Naechste Woche",
+            months: ["JAN", "FEB", "MAR", "APR", "MAI", "JUN", "JUL", "AUG", "SEP", "OKT", "NOV", "DEZ"],
+            days: ["MO", "DI", "MI", "DO", "FR", "SA", "SO"],
+            employees: ["Hanna", "Lukas", "Mila", "Jonas"],
+          },
+        };
+
+        const EMPLOYEE_STYLES = {
+          1: { color: "#ff1313", bg: "rgba(255, 19, 19, 0.22)" },
+          2: { color: "#1f49ff", bg: "rgba(31, 73, 255, 0.22)" },
+          3: { color: "#48a630", bg: "rgba(72, 166, 48, 0.22)" },
+          4: { color: "#e2a22a", bg: "rgba(226, 162, 42, 0.24)" },
+        };
+
+        const yearSelect = document.getElementById("srYearSelect");
+        const monthsWrap = document.getElementById("srMonths");
+        const weekLabel = document.getElementById("srWeekLabel");
+        const weekPrev = document.getElementById("srWeekPrev");
+        const weekNext = document.getElementById("srWeekNext");
+        const chipsWrap = document.getElementById("srChips");
+        const timesBody = document.getElementById("srTimesBody");
+        const daysWrap = document.getElementById("srDays");
+
+        const params = new URLSearchParams(window.location.search);
+        let currentLang = LOCALES[params.get("lang")] ? params.get("lang") : "hr";
+        let currentWeekStart = new Date(2026, 2, 23);
+        let selectedYear = currentWeekStart.getFullYear();
+        let activeEmployeeId = 1;
+        let nextShiftId = 1;
+
+        const shifts = [];
+        seedShifts();
+
+        function seedShifts() {
+          const initial = [
+            [0, 1, 8 * 60, 16 * 60],
+            [0, 2, 10 * 60, 18 * 60],
+            [0, 3, 12 * 60 + 30, 20 * 60],
+            [1, 3, 8 * 60, 16 * 60],
+            [1, 4, 10 * 60, 18 * 60],
+            [1, 2, 12 * 60 + 30, 20 * 60],
+            [2, 2, 8 * 60, 16 * 60],
+            [2, 3, 8 * 60, 16 * 60],
+            [2, 1, 12 * 60, 20 * 60],
+            [2, 4, 12 * 60, 20 * 60],
+            [3, 2, 8 * 60, 16 * 60],
+            [3, 1, 9 * 60, 17 * 60],
+            [3, 4, 11 * 60, 19 * 60],
+            [3, 3, 13 * 60, 20 * 60],
+            [4, 2, 8 * 60, 16 * 60],
+            [4, 3, 8 * 60, 13 * 60],
+            [4, 4, 16 * 60, 20 * 60],
+            [4, 1, 13 * 60, 20 * 60],
+            [5, 3, 8 * 60, 13 * 60],
+            [5, 2, 8 * 60, 13 * 60],
+          ];
+
+          initial.forEach(([day, employeeId, start, end]) => {
+            shifts.push({
+              id: nextShiftId++,
+              day,
+              employeeId,
+              start,
+              end,
+            });
+          });
+        }
+
+        function locale() {
+          return LOCALES[currentLang] || LOCALES.hr;
+        }
+
+        function employeeName(employeeId) {
+          const idx = Math.max(0, Math.min((employeeId || 1) - 1, locale().employees.length - 1));
+          return locale().employees[idx];
+        }
+
+        function formatDateLabel(date) {
+          const dd = String(date.getDate()).padStart(2, "0");
+          const mm = String(date.getMonth() + 1).padStart(2, "0");
+          const yyyy = String(date.getFullYear());
+          return `${dd}.${mm}.${yyyy}.`;
+        }
+
+        function formatTime(minutes) {
+          const h = String(Math.floor(minutes / 60)).padStart(2, "0");
+          const m = String(minutes % 60).padStart(2, "0");
+          return `${h}:${m}`;
+        }
+
+        function weekStartForDate(date) {
+          const d = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+          const day = d.getDay();
+          const diff = (day + 6) % 7;
+          d.setDate(d.getDate() - diff);
+          return d;
+        }
+
+        function firstMondayOfMonth(year, monthIndex) {
+          return weekStartForDate(new Date(year, monthIndex, 1));
+        }
+
+        function isoWeekNumber(date) {
+          const tmp = new Date(date);
+          tmp.setHours(0, 0, 0, 0);
+          tmp.setDate(tmp.getDate() + 3 - ((tmp.getDay() + 6) % 7));
+          const week1 = new Date(tmp.getFullYear(), 0, 4);
+          return 1 + Math.round(((tmp - week1) / 86400000 - 3 + ((week1.getDay() + 6) % 7)) / 7);
+        }
+
+        function roundToStep(minutes, step) {
+          return Math.round(minutes / step) * step;
+        }
+
+        function clamp(value, min, max) {
+          return Math.min(Math.max(value, min), max);
+        }
+
+        function getOpenWindow(dayIndex) {
+          if (dayIndex === 6) {
+            return null;
+          }
+
+          if (dayIndex === 5) {
+            return { start: 8 * 60, end: 13 * 60 };
+          }
+
+          return { start: START_HOUR * 60, end: END_HOUR * 60 };
+        }
+
+        function dayDate(dayIndex) {
+          const d = new Date(currentWeekStart);
+          d.setDate(currentWeekStart.getDate() + dayIndex);
+          return d;
+        }
+
+        function buildYearOptions() {
+          const center = selectedYear;
+          const years = [center - 2, center - 1, center, center + 1, center + 2];
+          yearSelect.innerHTML = "";
+          years.forEach((year) => {
+            const option = document.createElement("option");
+            option.value = String(year);
+            option.textContent = String(year);
+            if (year === selectedYear) {
+              option.selected = true;
+            }
+            yearSelect.appendChild(option);
+          });
+        }
+
+        function renderToolbar() {
+          const l = locale();
+          selectedYear = currentWeekStart.getFullYear();
+          document.documentElement.lang = currentLang;
+
+          buildYearOptions();
+
+          weekPrev.setAttribute("aria-label", l.prevWeekLabel);
+          weekNext.setAttribute("aria-label", l.nextWeekLabel);
+          weekLabel.textContent = `${l.week} ${isoWeekNumber(currentWeekStart)}`;
+
+          monthsWrap.innerHTML = "";
+          for (let month = 0; month < 12; month++) {
+            const button = document.createElement("button");
+            button.type = "button";
+            button.className = "sr-month";
+            button.textContent = l.months[month];
+            if (month === currentWeekStart.getMonth()) {
+              button.classList.add("is-current");
+            }
+            button.addEventListener("click", () => {
+              currentWeekStart = firstMondayOfMonth(selectedYear, month);
+              renderAll();
+            });
+            monthsWrap.appendChild(button);
+          }
+        }
+
+        function renderChips() {
+          chipsWrap.innerHTML = "";
+
+          [1, 2, 3, 4].forEach((employeeId) => {
+            const chip = document.createElement("button");
+            chip.type = "button";
+            chip.className = "sr-chip";
+            if (employeeId === activeEmployeeId) {
+              chip.classList.add("is-active");
+            }
+            chip.setAttribute("draggable", "true");
+            chip.dataset.employeeId = String(employeeId);
+            chip.style.setProperty("--chip-color", EMPLOYEE_STYLES[employeeId].color);
+            chip.innerHTML = `<span>${employeeName(employeeId)}</span><span class="sr-chip-bubble" aria-hidden="true"></span>`;
+
+            chip.addEventListener("click", () => {
+              activeEmployeeId = employeeId;
+              renderChips();
+            });
+
+            chip.addEventListener("dragstart", (event) => {
+              activeEmployeeId = employeeId;
+              chip.classList.add("is-active");
+              event.dataTransfer.setData("text/plain", String(employeeId));
+            });
+
+            chipsWrap.appendChild(chip);
+          });
+        }
+
+        function renderTimes() {
+          timesBody.innerHTML = "";
+          const totalMinutes = (END_HOUR - START_HOUR) * 60;
+          for (let hour = START_HOUR; hour <= END_HOUR; hour++) {
+            const label = document.createElement("div");
+            label.className = "sr-time-label";
+            label.textContent = String(hour).padStart(2, "0");
+            const offset = (hour - START_HOUR) * 60;
+            label.style.top = `${(offset / totalMinutes) * 100}%`;
+            timesBody.appendChild(label);
+          }
+        }
+
+        function shiftsByDay(dayIndex) {
+          return shifts.filter((shift) => shift.day === dayIndex).sort((a, b) => a.start - b.start);
+        }
+
+        function layoutColumns(dayShifts) {
+          const events = dayShifts.map((shift) => ({ shift, start: shift.start, end: shift.end, col: 0 }));
+          events.sort((a, b) => a.start - b.start);
+
+          const groups = [];
+          let current = [];
+          let currentEnd = -1;
+
+          events.forEach((event) => {
+            if (!current.length || event.start < currentEnd) {
+              current.push(event);
+              currentEnd = Math.max(currentEnd, event.end);
+            } else {
+              groups.push(current);
+              current = [event];
+              currentEnd = event.end;
+            }
+          });
+
+          if (current.length) {
+            groups.push(current);
+          }
+
+          const byId = new Map();
+          groups.forEach((group) => {
+            const colEnds = [];
+            group.forEach((event) => {
+              let col = colEnds.findIndex((end) => end <= event.start);
+              if (col === -1) {
+                col = colEnds.length;
+                colEnds.push(event.end);
+              } else {
+                colEnds[col] = event.end;
+              }
+              event.col = col;
+            });
+
+            const colCount = Math.max(1, colEnds.length);
+            group.forEach((event) => {
+              byId.set(event.shift.id, { col: event.col, colCount });
+            });
+          });
+
+          return byId;
+        }
+
+        function buildShiftElement(shift, columnMeta, dayBody) {
+          const block = document.createElement("div");
+          block.className = "sr-shift";
+          block.dataset.shiftId = String(shift.id);
+          block.dataset.day = String(shift.day);
+
+          const totalMinutes = (END_HOUR - START_HOUR) * 60;
+          const top = ((shift.start - START_HOUR * 60) / totalMinutes) * 100;
+          const height = ((shift.end - shift.start) / totalMinutes) * 100;
+
+          const width = 100 / columnMeta.colCount;
+          const left = columnMeta.col * width;
+
+          block.style.top = `${top}%`;
+          block.style.height = `${height}%`;
+          block.style.setProperty("--left", `${left}%`);
+          block.style.setProperty("--width", `${width}%`);
+          block.style.setProperty("--shift-color", EMPLOYEE_STYLES[shift.employeeId].color);
+          block.style.setProperty("--shift-bg", EMPLOYEE_STYLES[shift.employeeId].bg);
+
+          const name = document.createElement("strong");
+          name.className = "sr-shift-name";
+          name.textContent = employeeName(shift.employeeId);
+
+          const time = document.createElement("span");
+          time.className = "sr-shift-time";
+          time.textContent = `${formatTime(shift.start)} - ${formatTime(shift.end)}`;
+
+          const handleStart = document.createElement("span");
+          handleStart.className = "sr-shift-handle sr-shift-handle--start";
+          handleStart.setAttribute("aria-hidden", "true");
+
+          const handleEnd = document.createElement("span");
+          handleEnd.className = "sr-shift-handle sr-shift-handle--end";
+          handleEnd.setAttribute("aria-hidden", "true");
+
+          block.append(name, time, handleStart, handleEnd);
+          bindShiftInteractions(block, dayBody);
+          return block;
+        }
+
+        function renderDays() {
+          const l = locale();
+          daysWrap.innerHTML = "";
+
+          for (let dayIndex = 0; dayIndex < 6; dayIndex++) {
+            const openWindow = getOpenWindow(dayIndex);
+            const dayShifts = shiftsByDay(dayIndex);
+            const columnMap = layoutColumns(dayShifts);
+            const date = dayDate(dayIndex);
+
+            const day = document.createElement("div");
+            day.className = "sr-day";
+
+            const header = document.createElement("div");
+            header.className = "sr-day-header";
+
+            const dayName = document.createElement("span");
+            dayName.className = "sr-day-name";
+            dayName.textContent = l.days[dayIndex];
+
+            const dateLabel = document.createElement("span");
+            dateLabel.className = "sr-day-date";
+            dateLabel.textContent = formatDateLabel(date);
+
+            header.append(dayName, dateLabel);
+
+            const body = document.createElement("div");
+            body.className = "sr-day-body";
+            body.dataset.dayIndex = String(dayIndex);
+            bindDayInteractions(body);
+
+            const totalMinutes = (END_HOUR - START_HOUR) * 60;
+
+            if (!openWindow) {
+              const closed = document.createElement("div");
+              closed.className = "sr-closed";
+              closed.style.top = "0";
+              closed.style.height = "100%";
+              body.appendChild(closed);
+            } else {
+              if (openWindow.start > START_HOUR * 60) {
+                const topClosed = document.createElement("div");
+                topClosed.className = "sr-closed";
+                topClosed.style.top = "0";
+                topClosed.style.height = `${((openWindow.start - START_HOUR * 60) / totalMinutes) * 100}%`;
+                body.appendChild(topClosed);
+              }
+              if (openWindow.end < END_HOUR * 60) {
+                const bottomClosed = document.createElement("div");
+                bottomClosed.className = "sr-closed";
+                bottomClosed.style.top = `${((openWindow.end - START_HOUR * 60) / totalMinutes) * 100}%`;
+                bottomClosed.style.height = `${((END_HOUR * 60 - openWindow.end) / totalMinutes) * 100}%`;
+                body.appendChild(bottomClosed);
+              }
+            }
+
+            dayShifts.forEach((shift) => {
+              const meta = columnMap.get(shift.id) || { col: 0, colCount: 1 };
+              body.appendChild(buildShiftElement(shift, meta, body));
+            });
+
+            day.append(header, body);
+            daysWrap.appendChild(day);
+          }
+        }
+
+        function renderAll() {
+          renderToolbar();
+          renderChips();
+          renderTimes();
+          renderDays();
+        }
+
+        function getPointerMinutes(dayBody, clientY) {
+          const rect = dayBody.getBoundingClientRect();
+          const relativeY = clamp(clientY - rect.top, 0, rect.height);
+          const totalMinutes = (END_HOUR - START_HOUR) * 60;
+          const minutes = START_HOUR * 60 + (relativeY / rect.height) * totalMinutes;
+          return roundToStep(minutes, SNAP_MINUTES);
+        }
+
+        function clampShiftToWindow(start, duration, dayIndex) {
+          const open = getOpenWindow(dayIndex);
+          if (!open) {
+            return null;
+          }
+
+          const safeDuration = Math.max(MIN_SHIFT_MINUTES, Math.min(duration, open.end - open.start));
+          const safeStart = clamp(start, open.start, open.end - safeDuration);
+          return { start: safeStart, end: safeStart + safeDuration };
+        }
+
+        function shiftById(shiftId) {
+          return shifts.find((item) => item.id === shiftId);
+        }
+
+        function dayBodyByIndex(dayIndex) {
+          return daysWrap.querySelector(`.sr-day-body[data-day-index="${dayIndex}"]`);
+        }
+
+        function findDayBodyFromPoint(clientX, clientY) {
+          const target = document.elementFromPoint(clientX, clientY);
+          return target ? target.closest(".sr-day-body") : null;
+        }
+
+        function bindDayInteractions(dayBody) {
+          if (dayBody.dataset.bound === "1") {
+            return;
+          }
+
+          dayBody.dataset.bound = "1";
+
+          dayBody.addEventListener("dragover", (event) => {
+            event.preventDefault();
+            const dayIdx = Number(dayBody.dataset.dayIndex);
+            if (!getOpenWindow(dayIdx)) {
+              dayBody.classList.remove("is-drop-target");
+              return;
+            }
+            dayBody.classList.add("is-drop-target");
+          });
+
+          dayBody.addEventListener("dragleave", () => {
+            dayBody.classList.remove("is-drop-target");
+          });
+
+          dayBody.addEventListener("drop", (event) => {
+            event.preventDefault();
+            dayBody.classList.remove("is-drop-target");
+
+            const employeeId = Number(event.dataTransfer.getData("text/plain") || activeEmployeeId);
+            if (!employeeId) {
+              return;
+            }
+
+            const dayIdx = Number(dayBody.dataset.dayIndex);
+            const pointerStart = getPointerMinutes(dayBody, event.clientY);
+            const range = clampShiftToWindow(pointerStart, DEFAULT_SHIFT_MINUTES, dayIdx);
+            if (!range) {
+              return;
+            }
+
+            shifts.push({
+              id: nextShiftId++,
+              day: dayIdx,
+              employeeId,
+              start: range.start,
+              end: range.end,
+            });
+
+            activeEmployeeId = employeeId;
+            renderAll();
+          });
+
+          dayBody.addEventListener("dblclick", (event) => {
+            const dayIdx = Number(dayBody.dataset.dayIndex);
+            const pointerStart = getPointerMinutes(dayBody, event.clientY);
+            const range = clampShiftToWindow(pointerStart, DEFAULT_SHIFT_MINUTES, dayIdx);
+            if (!range) {
+              return;
+            }
+
+            shifts.push({
+              id: nextShiftId++,
+              day: dayIdx,
+              employeeId: activeEmployeeId,
+              start: range.start,
+              end: range.end,
+            });
+
+            renderAll();
+          });
+        }
+
+        function bindShiftInteractions(block) {
+          if (block.dataset.bound === "1") {
+            return;
+          }
+
+          block.dataset.bound = "1";
+          const shiftId = Number(block.dataset.shiftId);
+
+          const handleStart = block.querySelector(".sr-shift-handle--start");
+          const handleEnd = block.querySelector(".sr-shift-handle--end");
+
+          block.addEventListener("mousedown", (event) => {
+            if (event.target === handleStart || event.target === handleEnd) {
+              return;
+            }
+
+            event.preventDefault();
+            const shift = shiftById(shiftId);
+            if (!shift) {
+              return;
+            }
+
+            const originDuration = shift.end - shift.start;
+            const rect = block.getBoundingClientRect();
+            const pointerOffset = event.clientY - rect.top;
+
+            block.classList.add("is-dragging");
+
+            const onMove = (moveEvent) => {
+              const targetBody = findDayBodyFromPoint(moveEvent.clientX, moveEvent.clientY) || dayBodyByIndex(shift.day);
+              if (!targetBody) {
+                return;
+              }
+
+              const dayIdx = Number(targetBody.dataset.dayIndex);
+              const rectDay = targetBody.getBoundingClientRect();
+              const y = moveEvent.clientY - rectDay.top - pointerOffset;
+              const totalMinutes = (END_HOUR - START_HOUR) * 60;
+              const minutes = START_HOUR * 60 + (clamp(y, 0, rectDay.height) / rectDay.height) * totalMinutes;
+              const snapped = roundToStep(minutes, SNAP_MINUTES);
+              const range = clampShiftToWindow(snapped, originDuration, dayIdx);
+              if (!range) {
+                return;
+              }
+
+              shift.day = dayIdx;
+              shift.start = range.start;
+              shift.end = range.end;
+              renderDays();
+            };
+
+            const onUp = () => {
+              document.removeEventListener("mousemove", onMove);
+              document.removeEventListener("mouseup", onUp);
+              block.classList.remove("is-dragging");
+            };
+
+            document.addEventListener("mousemove", onMove);
+            document.addEventListener("mouseup", onUp);
+          });
+
+          if (handleEnd) {
+            handleEnd.addEventListener("mousedown", (event) => {
+              event.preventDefault();
+              event.stopPropagation();
+
+              const shift = shiftById(shiftId);
+              if (!shift) {
+                return;
+              }
+
+              const onMove = (moveEvent) => {
+                const dayBody = dayBodyByIndex(shift.day);
+                if (!dayBody) {
+                  return;
+                }
+                const open = getOpenWindow(shift.day);
+                if (!open) {
+                  return;
+                }
+
+                const pointer = getPointerMinutes(dayBody, moveEvent.clientY);
+                const minEnd = shift.start + MIN_SHIFT_MINUTES;
+                const nextEnd = clamp(roundToStep(pointer, SNAP_MINUTES), minEnd, open.end);
+                shift.end = nextEnd;
+                renderDays();
+              };
+
+              const onUp = () => {
+                document.removeEventListener("mousemove", onMove);
+                document.removeEventListener("mouseup", onUp);
+              };
+
+              document.addEventListener("mousemove", onMove);
+              document.addEventListener("mouseup", onUp);
+            });
+          }
+
+          if (handleStart) {
+            handleStart.addEventListener("mousedown", (event) => {
+              event.preventDefault();
+              event.stopPropagation();
+
+              const shift = shiftById(shiftId);
+              if (!shift) {
+                return;
+              }
+
+              const onMove = (moveEvent) => {
+                const dayBody = dayBodyByIndex(shift.day);
+                if (!dayBody) {
+                  return;
+                }
+                const open = getOpenWindow(shift.day);
+                if (!open) {
+                  return;
+                }
+
+                const pointer = getPointerMinutes(dayBody, moveEvent.clientY);
+                const maxStart = shift.end - MIN_SHIFT_MINUTES;
+                const nextStart = clamp(roundToStep(pointer, SNAP_MINUTES), open.start, maxStart);
+                shift.start = nextStart;
+                renderDays();
+              };
+
+              const onUp = () => {
+                document.removeEventListener("mousemove", onMove);
+                document.removeEventListener("mouseup", onUp);
+              };
+
+              document.addEventListener("mousemove", onMove);
+              document.addEventListener("mouseup", onUp);
+            });
+          }
+        }
+
+        function setLanguage(nextLang) {
+          if (!LOCALES[nextLang]) {
+            return;
+          }
+
+          currentLang = nextLang;
+          renderAll();
+        }
+
+        function handleParentMessage(event) {
+          const data = event && event.data ? event.data : null;
+          if (!data || data.type !== "etherr-reservation-lang") {
+            return;
+          }
+          setLanguage(data.lang);
+        }
+
+        weekPrev.addEventListener("click", () => {
+          currentWeekStart = new Date(currentWeekStart.getFullYear(), currentWeekStart.getMonth(), currentWeekStart.getDate() - 7);
+          renderAll();
+        });
+
+        weekNext.addEventListener("click", () => {
+          currentWeekStart = new Date(currentWeekStart.getFullYear(), currentWeekStart.getMonth(), currentWeekStart.getDate() + 7);
+          renderAll();
+        });
+
+        weekLabel.addEventListener("click", () => {
+          currentWeekStart = weekStartForDate(new Date());
+          renderAll();
+        });
+
+        yearSelect.addEventListener("change", () => {
+          const value = Number(yearSelect.value);
+          if (!Number.isFinite(value)) {
+            return;
+          }
+          selectedYear = value;
+          currentWeekStart = firstMondayOfMonth(selectedYear, currentWeekStart.getMonth());
+          renderAll();
+        });
+
+        window.addEventListener("message", handleParentMessage);
+        renderAll();
+      })();
+    </script>
+  </body>
+</html>

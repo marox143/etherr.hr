@@ -6,12 +6,24 @@ const translations = {
         "Etherr razvija web sustave, automatizacije i AI integracije za tvrtke koje trebaju pouzdanu digitalnu infrastrukturu.",
     },
     pages: {
+      about: {
+        meta: {
+          title: "Etherr | O nama",
+          description: "Saznajte kako Etherr pristupa razvoju digitalnih sustava, automatizacije i dugoročno održive arhitekture.",
+        },
+      },
       projects: {
         meta: {
           title: "Etherr | Projekti",
           description: "Pregled Etherr projekata, demo rješenja i digitalnih proizvoda.",
         },
         flip: "Okreni karticu projekta",
+        intro: {
+          eyebrow: "Pregled projekata i live demonstracija",
+          title: "Projekti koji pokazuju naš digitalni pristup.",
+          subtitle:
+            "Od mobilnih i desktop webshop iskustava do rezervacijskih tokova, ovdje su primjeri stvarnih implementacija i interaktivnih prikaza koje možemo prilagoditi vašem poslovanju.",
+        },
         showcase: {
           tag: "Istaknuti projekt",
           title: "Keef Bar mobilni QR cjenik.",
@@ -23,6 +35,35 @@ const translations = {
           backText:
             "Zaposlenici mogu brzo ažurirati cijene, sakriti rasprodane artikle i održavati ponudu točnom bez kompliciranog procesa.",
           backMeta: "Admin panel / cijene i zaliha",
+        },
+        reservation: {
+          tag: "Istaknuti projekt",
+          title: "Rezervacijski sustav za uslužne timove.",
+          text: "Ovdje pripremamo prikaz sustava za rezervacije, termine i operativne potvrde. Kartica ostavlja prostor za budući live iframe i detalje implementacije.",
+          meta: "Rezervacije / pregled sustava",
+          link: "Demo uskoro",
+          mainToggle: "Prikaži info karticu rezervacijskog sustava",
+          panelToggle: "Otvori live prikaz rezervacija",
+          panelFlip: "Prikaži drugu stranu live prikaza",
+          backTag: "Administracija i tokovi",
+          backTitle: "Pozadina projekta i operativna logika.",
+          backText:
+            "Na poleđini ćemo dodati više informacija o kalendarima, dostupnosti, obavijestima i povezivanju rezervacijskog toka s internim procesima.",
+          backMeta: "Administracija / detalji uskoro",
+          stageTitle: "Mjesto za live prikaz 1",
+          stageText: "Ovdje ostavljamo prostor za budući iframe rezervacijskog sustava.",
+          panelBackStageTitle: "Mjesto za live prikaz 2",
+          panelBackStageText: "Na drugoj strani prikazat ćemo još jedan dio rezervacijskog sustava i povezane operativne korake.",
+          backStageTitle: "Rezerviran prostor",
+          backStageText: "Ista zona koristit će se za dodatni pregled toka i live demonstraciju.",
+        },
+        ripple: {
+          tag: "Istaknuti projekt",
+          title: "Ripple dashboard za praćenje projekta.",
+          text: "Projektni pregled partnera, radnih paketa i statusa aktivnosti u jednoj kontrolnoj ploči. U live prikazu možete prebaciti na Gantt i pratiti izvedbu kroz mjesece.",
+          meta: "Projektni dashboard / partneri, statusi i Gantt",
+          mainToggle: "Prikaži info karticu Ripple projekta",
+          panelToggle: "Otvori live prikaz Ripple dashboarda",
         },
         kota: {
           tag: "Istaknuti projekt",
@@ -72,12 +113,25 @@ const translations = {
             "Prodajni tok povezuje dodatke prehrani, promotivne kampanje, loyalty pogodnosti i online naplatu u iskustvo koje podržava i edukativni sadržaj i direktnu kupnju.",
           backMeta: "Webshop / promocije i checkout",
         },
+        dfa: {
+          tag: "Istaknuti projekt",
+          title: "Designing the Future Academy platforma.",
+          text: "Desktop prikaz edukacijske platforme s full-width hero sliderom, preglednim sekcijama programa i jasnim putanjama prema sadržaju o akademiji, modulima i partnerstvima.",
+          meta: "Edukacijska platforma / desktop prikaz",
+          link: "Posjeti dfa.fablab.hr",
+          backTag: "Program i zajednica",
+          backTitle: "Nacionalni projekt za digitalne vještine i otpornost.",
+          backText:
+            "Platforma predstavlja DFA inicijativu, FabAcademy pristup i sadržaje koji povezuju inovacije, praktične module i podršku lokalnim zajednicama.",
+          backMeta: "Edukacija / moduli i partneri",
+        },
       },
     },
     menu: {
       toggle: "Otvori izbornik",
     },
     nav: {
+      home: "Početna",
       about: "O nama",
       services: "Usluge",
       projects: "Projekti",
@@ -96,6 +150,34 @@ const translations = {
       title: "Inženjerski pristup bez suvišne kompleksnosti.",
       p1: "Radimo s tvrtkama koje trebaju stabilan digitalni temelj: od prilagođenih web aplikacija do povezivanja alata i podataka.",
       p2: "Svaki projekt vodimo jasno i transparentno. Definiramo arhitekturu, implementaciju i operativni model koji tim može dugoročno održavati.",
+      p3: "Etherr spaja razvoj, automatizaciju i podatke u jedno operativno rješenje koje timovi stvarno koriste svaki dan.",
+      techTag: "Tehnološki fokus",
+      techTitle: "Tehnologije na kojima gradimo.",
+      techLead: "Radimo s modernim web i cloud stackom koji je provjeren u produkciji i prilagođen realnim poslovnim tokovima.",
+      techBullet1: "Frontend: React, Next.js, TypeScript i modularni UI sustavi.",
+      techBullet2: "Backend: Node.js, PHP i Python servisi s jasnim API slojem.",
+      techBullet3: "Podaci: PostgreSQL/MySQL modeli, ETL tokovi i pregledni dashboardi.",
+      techBullet4: "Cloud i DevOps: Docker, CI/CD, automatizirane isporuke i monitoring.",
+      stackLabel: "Primjeri stacka",
+      stack1: "React / Next.js",
+      stack2: "Node.js / PHP",
+      stack3: "Python",
+      stack4: "PostgreSQL",
+      stack5: "Docker / CI-CD",
+      stack6: "AI / LLM integracije",
+      deliveryTag: "Operativna isporuka",
+      deliveryTitle: "Kako vodimo projekte.",
+      deliveryLead: "Kratki bulletini koje slijedimo da bi isporuka bila stabilna, predvidiva i mjerljiva.",
+      deliveryBullet1: "Jasni sprint ciljevi, prioriteti i transparentan status rada.",
+      deliveryBullet2: "Dokumentirana arhitektura prilagođena dugoročnom održavanju.",
+      deliveryBullet3: "Integracije s postojećim alatima bez prekida poslovnih procesa.",
+      deliveryBullet4: "Mjerenje rezultata kroz performanse, stabilnost i stvarni ROI.",
+      icon1Title: "Web platforme",
+      icon1Text: "Razvijamo brze i skalabilne aplikacije za prodaju, operacije i interne procese.",
+      icon2Title: "Automatizacija",
+      icon2Text: "Povezujemo alate i uklanjamo ručni rad tamo gdje usporava tim.",
+      icon3Title: "Podaci i AI",
+      icon3Text: "Od dashboarda do AI asistenta, podatke pretvaramo u konkretne odluke.",
     },
     services: {
       tag: "Što radimo",
@@ -163,12 +245,24 @@ const translations = {
         "Etherr builds web systems, automation workflows and AI integrations for companies that need dependable digital infrastructure.",
     },
     pages: {
+      about: {
+        meta: {
+          title: "Etherr | About",
+          description: "Learn how Etherr approaches digital systems, automation and long-term maintainable delivery.",
+        },
+      },
       projects: {
         meta: {
           title: "Etherr | Projects",
           description: "A look at Etherr projects, demo solutions and digital products.",
         },
         flip: "Flip project card",
+        intro: {
+          eyebrow: "Project showcase and live demos",
+          title: "Projects that show our digital delivery approach.",
+          subtitle:
+            "From mobile and desktop webshop experiences to reservation workflows, this page highlights real implementations and interactive previews we can tailor to your operations.",
+        },
         showcase: {
           tag: "Featured project",
           title: "Keef Bar mobile QR menu.",
@@ -180,6 +274,35 @@ const translations = {
           backText:
             "Staff can quickly update prices, hide sold-out items and keep the live menu accurate without a complicated workflow.",
           backMeta: "Admin panel / pricing and stock",
+        },
+        reservation: {
+          tag: "Featured project",
+          title: "Reservation system for service teams.",
+          text: "This card is reserved for a booking and scheduling system preview. It already keeps room for a future live iframe and a more detailed implementation breakdown.",
+          meta: "Reservations / system preview",
+          link: "Demo soon",
+          mainToggle: "Show the reservation info card",
+          panelToggle: "Open the live reservation preview",
+          panelFlip: "Show the other side of the live preview",
+          backTag: "Admin and flows",
+          backTitle: "Project logic and operational layer.",
+          backText:
+            "We will use the back side to explain calendars, availability, notifications and how the reservation flow connects with internal operations.",
+          backMeta: "Admin / details soon",
+          stageTitle: "Space for live preview 1",
+          stageText: "This area is reserved for the future reservation-system iframe.",
+          panelBackStageTitle: "Space for live preview 2",
+          panelBackStageText: "The reverse side will present another system view and the operational part that supports the reservation flow.",
+          backStageTitle: "Reserved stage area",
+          backStageText: "The same zone will hold an alternate live view and more of the workflow later on.",
+        },
+        ripple: {
+          tag: "Featured project",
+          title: "Ripple project tracking dashboard.",
+          text: "A consolidated view of partners, work packages and execution status in one operational dashboard. In the live panel, users can switch to the Gantt view and track progress month by month.",
+          meta: "Project dashboard / partners, status and Gantt",
+          mainToggle: "Show Ripple project info card",
+          panelToggle: "Open Ripple live dashboard preview",
         },
         kota: {
           tag: "Featured project",
@@ -229,12 +352,25 @@ const translations = {
             "The sales flow ties together supplements, campaign blocks, loyalty perks and online payments in a storefront built for both editorial storytelling and direct conversion.",
           backMeta: "Webshop / promotions and checkout",
         },
+        dfa: {
+          tag: "Featured project",
+          title: "Designing the Future Academy platform.",
+          text: "A desktop preview of an education-focused platform with a full-width hero slider, structured program sections and clear paths to academy, module and partner content.",
+          meta: "Education platform / desktop view",
+          link: "Visit dfa.fablab.hr",
+          backTag: "Program and community",
+          backTitle: "A national initiative for digital skills and resilience.",
+          backText:
+            "The platform presents the DFA initiative, FabAcademy-inspired learning paths and content that connects innovation, practical modules and local community support.",
+          backMeta: "Education / modules and partners",
+        },
       },
     },
     menu: {
       toggle: "Open menu",
     },
     nav: {
+      home: "Home",
       about: "About",
       services: "Services",
       projects: "Projects",
@@ -253,6 +389,34 @@ const translations = {
       title: "Engineering-first delivery without unnecessary complexity.",
       p1: "We work with companies that need a stable digital foundation, from custom web applications to connected tools and data flows.",
       p2: "Every project is run with clear structure and direct communication. We define architecture, implementation and an operating model your team can maintain long-term.",
+      p3: "Etherr combines development, automation and data into one operational setup teams can use confidently every day.",
+      techTag: "Technology focus",
+      techTitle: "Technologies we actively deliver with.",
+      techLead: "We build on a modern web and cloud stack proven in production and aligned with real operational needs.",
+      techBullet1: "Frontend: React, Next.js, TypeScript and modular UI systems.",
+      techBullet2: "Backend: Node.js, PHP and Python services with a clear API layer.",
+      techBullet3: "Data: PostgreSQL/MySQL models, ETL flows and decision-ready dashboards.",
+      techBullet4: "Cloud & DevOps: Docker, CI/CD pipelines, automated delivery and monitoring.",
+      stackLabel: "Typical stack",
+      stack1: "React / Next.js",
+      stack2: "Node.js / PHP",
+      stack3: "Python",
+      stack4: "PostgreSQL",
+      stack5: "Docker / CI-CD",
+      stack6: "AI / LLM integrations",
+      deliveryTag: "Delivery model",
+      deliveryTitle: "How we run projects.",
+      deliveryLead: "Short operational bulletins we follow to keep delivery reliable, predictable and measurable.",
+      deliveryBullet1: "Clear sprint goals, priorities and transparent status visibility.",
+      deliveryBullet2: "Documented architecture designed for long-term maintainability.",
+      deliveryBullet3: "Integrations with existing tools without operational disruptions.",
+      deliveryBullet4: "Outcome tracking through performance, stability and real ROI.",
+      icon1Title: "Web platforms",
+      icon1Text: "We build fast, scalable applications for sales, operations and internal workflows.",
+      icon2Title: "Automation",
+      icon2Text: "We connect tools and remove repetitive manual steps that slow teams down.",
+      icon3Title: "Data & AI",
+      icon3Text: "From dashboards to AI copilots, we turn data into practical decisions.",
     },
     services: {
       tag: "What we do",
@@ -320,12 +484,24 @@ const translations = {
         "Etherr entwickelt Websysteme, Automatisierung und AI-Integrationen für Unternehmen mit hohen Anforderungen an digitale Stabilität.",
     },
     pages: {
+      about: {
+        meta: {
+          title: "Etherr | Über uns",
+          description: "Erfahren Sie, wie Etherr digitale Systeme, Automatisierung und langfristig wartbare technische Umsetzung angeht.",
+        },
+      },
       projects: {
         meta: {
           title: "Etherr | Projekte",
           description: "Einblick in Etherr Projekte, Demo-Loesungen und digitale Produkte.",
         },
         flip: "Projektkarte drehen",
+        intro: {
+          eyebrow: "Projektübersicht und Live-Demos",
+          title: "Projekte, die unseren digitalen Ansatz zeigen.",
+          subtitle:
+            "Von mobilen und Desktop-Webshop-Erlebnissen bis zu Reservierungsabläufen zeigen wir hier reale Umsetzungen und interaktive Vorschauen, die wir auf Ihren Betrieb anpassen können.",
+        },
         showcase: {
           tag: "Ausgewähltes Projekt",
           title: "Keef Bar mobiler QR-Getraenkekatalog.",
@@ -337,6 +513,35 @@ const translations = {
           backText:
             "Mitarbeitende können Preise schnell anpassen, ausverkaufte Artikel ausblenden und die Karte ohne komplizierten Ablauf aktuell halten.",
           backMeta: "Adminpanel / Preise und Bestand",
+        },
+        reservation: {
+          tag: "Ausgewähltes Projekt",
+          title: "Reservierungssystem für Serviceteams.",
+          text: "Diese Karte bereitet die Vorschau eines Buchungs- und Termin-Systems vor. Sie lässt bereits Platz für ein späteres Live-iframe und eine genauere Darstellung der Umsetzung.",
+          meta: "Reservierungen / Systemvorschau",
+          link: "Demo folgt",
+          mainToggle: "Informationskarte des Reservierungssystems anzeigen",
+          panelToggle: "Live-Reservierungsvorschau öffnen",
+          panelFlip: "Andere Seite der Live-Vorschau anzeigen",
+          backTag: "Admin und Abläufe",
+          backTitle: "Projektlogik und operative Ebene.",
+          backText:
+            "Auf der Rückseite ergänzen wir später mehr Informationen zu Kalendern, Verfügbarkeit, Benachrichtigungen und zur Verbindung des Reservierungsflusses mit internen Prozessen.",
+          backMeta: "Admin / Details folgen",
+          stageTitle: "Platz für Live-Vorschau 1",
+          stageText: "Dieser Bereich bleibt für das künftige Reservierungs-iframe frei.",
+          panelBackStageTitle: "Platz für Live-Vorschau 2",
+          panelBackStageText: "Auf der Rückseite zeigen wir später einen weiteren Systembereich und die operativen Schritte hinter dem Reservierungsablauf.",
+          backStageTitle: "Reservierte Fläche",
+          backStageText: "Dieselbe Zone wird später eine alternative Live-Ansicht und weitere Workflow-Details aufnehmen.",
+        },
+        ripple: {
+          tag: "Ausgewähltes Projekt",
+          title: "Ripple Dashboard für Projektsteuerung.",
+          text: "Zentrale Übersicht über Partner, Arbeitspakete und Umsetzungsstatus in einem operativen Projekt-Dashboard. In der Live-Ansicht kann in das Gantt-Layout gewechselt und der Monatsverlauf verfolgt werden.",
+          meta: "Projekt-Dashboard / Partner, Status und Gantt",
+          mainToggle: "Informationskarte des Ripple-Projekts anzeigen",
+          panelToggle: "Live-Dashboard-Vorschau von Ripple öffnen",
         },
         kota: {
           tag: "Ausgewähltes Projekt",
@@ -386,12 +591,25 @@ const translations = {
             "Der Verkaufsfluss verbindet Nahrungsergänzungen, Kampagnenflächen, Loyalty-Vorteile und Online-Zahlung in einer Storefront, die Content und direkte Conversion zusammenführt.",
           backMeta: "Webshop / Aktionen und Checkout",
         },
+        dfa: {
+          tag: "Ausgewähltes Projekt",
+          title: "Designing the Future Academy Plattform.",
+          text: "Eine Desktop-Vorschau einer Bildungsplattform mit Full-Width-Hero-Slider, klar strukturierten Programmsektionen und direkten Wegen zu Inhalten über Akademie, Module und Partnerschaften.",
+          meta: "Bildungsplattform / Desktop-Ansicht",
+          link: "dfa.fablab.hr öffnen",
+          backTag: "Programm und Community",
+          backTitle: "Nationales Projekt für digitale Kompetenzen und Resilienz.",
+          backText:
+            "Die Plattform zeigt die DFA-Initiative, FabAcademy-orientierte Lernpfade und Inhalte, die Innovation, praktische Module und Unterstützung lokaler Communities verbinden.",
+          backMeta: "Bildung / Module und Partner",
+        },
       },
     },
     menu: {
       toggle: "Menü öffnen",
     },
     nav: {
+      home: "Startseite",
       about: "Über uns",
       services: "Leistungen",
       projects: "Projekte",
@@ -410,6 +628,34 @@ const translations = {
       title: "Engineering-orientierte Umsetzung ohne unnötige Komplexität.",
       p1: "Wir arbeiten mit Unternehmen, die ein stabiles digitales Fundament benötigen: von individuellen Webanwendungen bis zur Verbindung von Tools und Daten.",
       p2: "Jedes Projekt wird strukturiert und transparent geführt. Wir definieren Architektur, Umsetzung und ein Betriebsmodell, das Ihr Team langfristig tragen kann.",
+      p3: "Etherr verbindet Entwicklung, Automatisierung und Daten in ein operatives Setup, das Teams im Alltag sicher nutzen können.",
+      techTag: "Technologischer Fokus",
+      techTitle: "Technologien, mit denen wir liefern.",
+      techLead: "Wir arbeiten mit einem modernen Web- und Cloud-Stack, der in der Praxis erprobt ist und zu realen Abläufen passt.",
+      techBullet1: "Frontend: React, Next.js, TypeScript und modulare UI-Systeme.",
+      techBullet2: "Backend: Node.js-, PHP- und Python-Services mit klarer API-Schicht.",
+      techBullet3: "Daten: PostgreSQL/MySQL-Modelle, ETL-Flows und aussagekräftige Dashboards.",
+      techBullet4: "Cloud & DevOps: Docker, CI/CD, automatisierte Deployments und Monitoring.",
+      stackLabel: "Typischer Stack",
+      stack1: "React / Next.js",
+      stack2: "Node.js / PHP",
+      stack3: "Python",
+      stack4: "PostgreSQL",
+      stack5: "Docker / CI-CD",
+      stack6: "AI / LLM-Integration",
+      deliveryTag: "Liefermodell",
+      deliveryTitle: "So steuern wir Projekte.",
+      deliveryLead: "Kurze operative Bulletins, damit Umsetzung verlässlich, planbar und messbar bleibt.",
+      deliveryBullet1: "Klare Sprint-Ziele, Prioritäten und transparenter Status.",
+      deliveryBullet2: "Dokumentierte Architektur für langfristige Wartbarkeit.",
+      deliveryBullet3: "Integration in bestehende Tools ohne Unterbrechung der Abläufe.",
+      deliveryBullet4: "Erfolgsmessung über Performance, Stabilität und realen ROI.",
+      icon1Title: "Web-Plattformen",
+      icon1Text: "Wir entwickeln schnelle, skalierbare Anwendungen für Vertrieb, Betrieb und interne Prozesse.",
+      icon2Title: "Automatisierung",
+      icon2Text: "Wir verbinden Tools und entfernen repetitive manuelle Schritte, die Teams ausbremsen.",
+      icon3Title: "Daten & AI",
+      icon3Text: "Von Dashboards bis AI-Copilot: Wir machen Daten zu umsetzbaren Entscheidungen.",
     },
     services: {
       tag: "Leistungen",
@@ -472,30 +718,44 @@ const translations = {
   },
 };
 
-const currentPage = document.body.dataset.page || "home";
-const dom = {
-  header: document.querySelector(".site-header"),
-  menuToggle: document.querySelector(".menu-toggle"),
-  headerCenterLogo: document.querySelector(".header-center-logo"),
-  headerCenterLogoImg: document.querySelector(".header-center-logo img"),
-  navLinks: document.querySelectorAll(".site-nav a"),
-  langButtons: document.querySelectorAll(".lang-btn"),
-  metaDescription: document.querySelector('meta[name="description"]'),
-  footerCopy: document.querySelector("[data-footer-copy]"),
-  networkCanvas: document.getElementById("networkCanvas"),
-  heroLogoMark: document.querySelector(".hero-logo-mark"),
-  heroLogoImg: document.querySelector(".hero-logo-mark img"),
-  heroClouds: document.querySelectorAll(".hero-cloud"),
-  serviceCategories: document.getElementById("serviceCategories"),
-  projectPhoneScreens: document.querySelectorAll(".project-phone-screen"),
-  projectLaptopScreens: document.querySelectorAll(".project-laptop-screen"),
-  projectLaptopEmbedScreens: document.querySelectorAll(".project-laptop-screen-embed"),
-  projectSummaryCards: document.querySelectorAll(".project-summary"),
-  kotaSlideshows: document.querySelectorAll(".project-kota-slideshow"),
-};
+let currentPage = document.body.dataset.page || "home";
+let dom = {};
+
+function cacheDom() {
+  currentPage = document.body.dataset.page || "home";
+  dom = {
+    header: document.querySelector(".site-header"),
+    menuToggle: document.querySelector(".menu-toggle"),
+    headerCenterLogo: document.querySelector(".header-center-logo"),
+    headerCenterLogoImg: document.querySelector(".header-center-logo img"),
+    navLinks: document.querySelectorAll(".site-nav a"),
+    langButtons: document.querySelectorAll(".lang-btn"),
+    metaDescription: document.querySelector('meta[name="description"]'),
+    footerCopy: document.querySelector("[data-footer-copy]"),
+    networkCanvas: document.getElementById("networkCanvas"),
+    heroLogoMark: document.querySelector(".hero-logo-mark"),
+    heroLogoImg: document.querySelector(".hero-logo-mark img"),
+    heroClouds: document.querySelectorAll(".hero-cloud"),
+    serviceCategories: document.getElementById("serviceCategories"),
+    projectPhoneScreens: document.querySelectorAll(".project-phone-screen"),
+    projectLaptopScreens: document.querySelectorAll(".project-laptop-screen"),
+    projectLaptopEmbedScreens: document.querySelectorAll(".project-laptop-screen-embed"),
+    projectSummaryCards: document.querySelectorAll(".project-summary"),
+    projectReservationPanels: document.querySelectorAll(".project-reservation-panel"),
+    reservationScheduleFrames: document.querySelectorAll("[data-reservation-schedule-frame]"),
+    kotaSlideshows: document.querySelectorAll(".project-kota-slideshow"),
+  };
+}
+
+cacheDom();
 
 let currentLang = "hr";
 let serviceRows = [];
+const LANGUAGE_STORAGE_KEY = "etherr-language";
+const APP_ORIGIN = window.location.origin;
+let eventsInitialized = false;
+let isNavigating = false;
+const kotaSlideshowIntervals = [];
 const prefersReducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 const networkState = {
   ctx: null,
@@ -721,6 +981,10 @@ function animateLogoMorph({ fromRect, toRect, toElement = null, onDone, cleanupD
 }
 
 function computeShouldDockHeaderLogo() {
+  if (currentPage !== "home") {
+    return true;
+  }
+
   const heroRect = getElementRect(dom.heroLogoMark);
   const headerRect = getElementRect(dom.header);
   if (!heroRect || !headerRect) {
@@ -803,8 +1067,7 @@ function toggleMenu() {
 
 function applyStaticText(langKey) {
   const locale = translations[langKey];
-  const pageMeta =
-    currentPage === "projects" && locale.pages?.projects?.meta ? locale.pages.projects.meta : locale.meta;
+  const pageMeta = locale.pages?.[currentPage]?.meta || locale.meta;
   document.documentElement.lang = langKey;
   document.title = pageMeta.title;
 
@@ -1283,6 +1546,154 @@ function initProjectSummaryCards() {
   });
 }
 
+function initProjectReservationPanels() {
+  if (!dom.projectReservationPanels.length) {
+    return;
+  }
+
+  dom.projectReservationPanels.forEach((panel) => {
+    if (!(panel instanceof HTMLElement) || panel.dataset.bound === "true") {
+      return;
+    }
+
+    const trigger = panel.querySelector(".project-reservation-panel-trigger");
+    const flipTriggers = panel.querySelectorAll(".project-reservation-panel-flip-trigger");
+    const frontFace = panel.querySelector(".project-reservation-panel-face-front");
+    const backFace = panel.querySelector(".project-reservation-panel-face-back");
+    const row = panel.closest(".project-reservation-row");
+    const mainTrigger =
+      row instanceof HTMLElement ? row.querySelector(".project-reservation-main-trigger") : null;
+    if (!(trigger instanceof HTMLButtonElement)) {
+      return;
+    }
+
+    panel.dataset.bound = "true";
+
+    const isOpen = () =>
+      row instanceof HTMLElement ? row.classList.contains("is-open") : panel.classList.contains("is-open");
+
+    const setOpen = (nextState) => {
+      if (row instanceof HTMLElement) {
+        row.classList.toggle("is-open", nextState);
+      } else {
+        panel.classList.toggle("is-open", nextState);
+      }
+      syncState();
+    };
+
+    const syncState = () => {
+      const open = isOpen();
+      trigger.setAttribute("aria-expanded", String(open));
+      panel.classList.toggle("is-open", open);
+      if (mainTrigger instanceof HTMLButtonElement) {
+        mainTrigger.setAttribute("aria-expanded", String(!open));
+      }
+      if (!open) {
+        panel.classList.remove("is-flipped");
+      }
+      const flipped = panel.classList.contains("is-flipped");
+      flipTriggers.forEach((flipTrigger) => {
+        if (flipTrigger instanceof HTMLButtonElement) {
+          flipTrigger.setAttribute("aria-pressed", String(flipped));
+        }
+      });
+      if (frontFace instanceof HTMLElement && backFace instanceof HTMLElement) {
+        frontFace.setAttribute("aria-hidden", flipped ? "true" : "false");
+        backFace.setAttribute("aria-hidden", flipped ? "false" : "true");
+      }
+    };
+
+    trigger.addEventListener("click", (event) => {
+      event.stopPropagation();
+      setOpen(!isOpen());
+    });
+
+    panel.addEventListener("click", (event) => {
+      if (isOpen()) {
+        return;
+      }
+
+      if (event.target instanceof HTMLElement && event.target.closest(".project-reservation-panel-trigger")) {
+        return;
+      }
+
+      setOpen(true);
+    });
+
+    if (mainTrigger instanceof HTMLButtonElement) {
+      mainTrigger.addEventListener("click", (event) => {
+        event.stopPropagation();
+        setOpen(false);
+      });
+    }
+
+    flipTriggers.forEach((flipTrigger) => {
+      if (!(flipTrigger instanceof HTMLButtonElement)) {
+        return;
+      }
+
+      flipTrigger.addEventListener("click", (event) => {
+        event.stopPropagation();
+        if (!isOpen()) {
+          return;
+        }
+
+        panel.classList.toggle("is-flipped");
+        syncState();
+      });
+    });
+
+    syncState();
+  });
+}
+
+function syncReservationScheduleFrames() {
+  if (!dom.reservationScheduleFrames.length) {
+    return;
+  }
+
+  dom.reservationScheduleFrames.forEach((frame) => {
+    if (!(frame instanceof HTMLIFrameElement) || !frame.contentWindow) {
+      return;
+    }
+
+    frame.contentWindow.postMessage(
+      {
+        type: "etherr-reservation-lang",
+        lang: currentLang,
+      },
+      "*"
+    );
+  });
+}
+
+function initReservationScheduleFrames() {
+  if (!dom.reservationScheduleFrames.length) {
+    return;
+  }
+
+  dom.reservationScheduleFrames.forEach((frame) => {
+    if (!(frame instanceof HTMLIFrameElement) || frame.dataset.langBound === "true") {
+      return;
+    }
+
+    frame.dataset.langBound = "true";
+    frame.addEventListener("load", () => {
+      if (!frame.contentWindow) {
+        return;
+      }
+
+      frame.contentWindow.postMessage(
+        {
+          type: "etherr-reservation-lang",
+          lang: currentLang,
+        },
+        "*"
+      );
+    });
+  });
+}
+
 function syncProjectSummaryHeights() {
   if (!dom.projectSummaryCards.length) {
     return;
@@ -1341,6 +1752,58 @@ function syncProjectSummaryHeights() {
   });
 }
 
+function syncProjectReservationBannerHeight() {
+  const rows = Array.from(document.querySelectorAll(".project-reservation-row"));
+  const referenceTitle = document.querySelector("#project-almagea-title");
+  const referenceCard =
+    referenceTitle instanceof HTMLElement ? referenceTitle.closest(".project-summary") : null;
+
+  if (!rows.length || !(referenceCard instanceof HTMLElement)) {
+    return;
+  }
+
+  if (window.innerWidth <= 980) {
+    rows.forEach((row) => {
+      if (!(row instanceof HTMLElement)) {
+        return;
+      }
+      const banner = row.querySelector(".project-summary-reservation-main");
+      const panel = row.querySelector(".project-reservation-panel");
+      row.style.height = "";
+      if (banner instanceof HTMLElement) {
+        banner.style.height = "";
+      }
+      if (panel instanceof HTMLElement) {
+        panel.style.height = "";
+      }
+    });
+    return;
+  }
+
+  const referenceHeight = Math.ceil(referenceCard.getBoundingClientRect().height);
+  if (referenceHeight > 0) {
+    rows.forEach((row) => {
+      if (!(row instanceof HTMLElement)) {
+        return;
+      }
+      const banner = row.querySelector(".project-summary-reservation-main");
+      const panel = row.querySelector(".project-reservation-panel");
+      row.style.height = `${referenceHeight}px`;
+      if (banner instanceof HTMLElement) {
+        banner.style.height = `${referenceHeight}px`;
+      }
+      if (panel instanceof HTMLElement) {
+        panel.style.height = `${referenceHeight}px`;
+      }
+    });
+  }
+}
+
+function syncProjectCardLayout() {
+  syncProjectSummaryHeights();
+  syncProjectReservationBannerHeight();
+}
+
 function initProjectKotaSlideshows() {
   if (!dom.kotaSlideshows.length) {
     return;
@@ -1369,13 +1832,20 @@ function initProjectKotaSlideshows() {
     let activeIndex = 0;
     const stepMs = 3600;
 
-    window.setInterval(() => {
+    const intervalId = window.setInterval(() => {
       const nextIndex = (activeIndex + 1) % slides.length;
       slides[activeIndex].classList.remove("is-active");
       slides[nextIndex].classList.add("is-active");
       activeIndex = nextIndex;
     }, stepMs);
+    kotaSlideshowIntervals.push(intervalId);
   });
+}
+
+function clearPageScopedEffects() {
+  while (kotaSlideshowIntervals.length) {
+    window.clearInterval(kotaSlideshowIntervals.pop());
+  }
 }
 
 function buildNetworkNodes() {
@@ -1840,28 +2310,270 @@ function setLanguage(langKey) {
   }
 
   currentLang = langKey;
+  try {
+    window.localStorage.setItem(LANGUAGE_STORAGE_KEY, currentLang);
+  } catch (_error) {
+    // Ignore storage access issues and continue with the in-memory language.
+  }
   applyStaticText(currentLang);
   renderServices(currentLang);
   updateLanguageButtons();
+  syncReservationScheduleFrames();
   closeMenu();
-  window.requestAnimationFrame(syncProjectSummaryHeights);
+  window.requestAnimationFrame(syncProjectCardLayout);
+}
+
+function getStoredLanguage() {
+  try {
+    const stored = window.localStorage.getItem(LANGUAGE_STORAGE_KEY);
+    return translations[stored] ? stored : null;
+  } catch (_error) {
+    return null;
+  }
+}
+
+function getAutoDetectedLanguage() {
+  const locales = Array.isArray(window.navigator.languages) && window.navigator.languages.length
+    ? window.navigator.languages
+    : [window.navigator.language || ""];
+
+  const normalize = (value) => String(value || "").trim().replace(/_/g, "-").toLowerCase();
+  const croatianRegions = new Set(["hr", "si", "ba", "rs", "me", "al", "xk", "kv"]);
+  const germanRegions = new Set(["de", "at", "ch"]);
+  const croatianLanguages = new Set(["hr", "sl", "bs", "sr", "sq"]);
+
+  for (const locale of locales.map(normalize)) {
+    if (!locale) {
+      continue;
+    }
+
+    const [language = "", region = ""] = locale.split("-");
+    if (region && croatianRegions.has(region)) {
+      return "hr";
+    }
+    if (region && germanRegions.has(region)) {
+      return "de";
+    }
+    if (croatianLanguages.has(language)) {
+      return "hr";
+    }
+    if (language === "de") {
+      return "de";
+    }
+  }
+
+  return "en";
+}
+
+function normalizePathname(pathname) {
+  const value = String(pathname || "/");
+  if (value === "/") {
+    return "/index.html";
+  }
+  return value.endsWith("/") ? `${value}index.html` : value;
+}
+
+function isSameDocumentHashNavigation(url) {
+  return normalizePathname(url.pathname) === normalizePathname(window.location.pathname) && Boolean(url.hash);
+}
+
+function isInternalNavigationLink(link) {
+  if (!(link instanceof HTMLAnchorElement)) {
+    return false;
+  }
+
+  const rawHref = link.getAttribute("href");
+  if (!rawHref || rawHref.startsWith("#")) {
+    return false;
+  }
+
+  if (link.target && link.target !== "_self") {
+    return false;
+  }
+
+  if (link.hasAttribute("download")) {
+    return false;
+  }
+
+  const url = new URL(link.href, window.location.href);
+  if (url.origin !== APP_ORIGIN) {
+    return false;
+  }
+
+  const protocol = url.protocol.toLowerCase();
+  if (protocol !== "http:" && protocol !== "https:") {
+    return false;
+  }
+
+  return true;
+}
+
+function scrollToHash(hash, { smooth = true } = {}) {
+  if (!hash) {
+    window.scrollTo({ top: 0, behavior: smooth ? "smooth" : "auto" });
+    return;
+  }
+
+  const target = document.querySelector(hash);
+  if (target instanceof HTMLElement) {
+    target.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "start" });
+    return;
+  }
+
+  window.scrollTo({ top: 0, behavior: smooth ? "smooth" : "auto" });
+}
+
+function refreshSharedShell() {
+  if (typeof window.renderSharedHeader === "function") {
+    window.renderSharedHeader();
+  }
+  cacheDom();
+}
+
+function initPageContent() {
+  cacheDom();
+  serviceRows = [];
+  observeReveals();
+  initHeroClouds();
+  initProjectPhoneScreens();
+  initProjectLaptopScreens();
+  initProjectLaptopEmbedScreens();
+  initProjectSummaryCards();
+  initProjectReservationPanels();
+  initReservationScheduleFrames();
+  initProjectKotaSlideshows();
+  applyStaticText(currentLang);
+  renderServices(currentLang);
+  updateLanguageButtons();
+  syncReservationScheduleFrames();
+  syncProjectCardLayout();
+  updateHeaderState();
+  setHeaderLogoDocked(computeShouldDockHeaderLogo(), { animate: false });
+  if (document.fonts?.ready) {
+    document.fonts.ready.then(() => {
+      syncProjectCardLayout();
+    });
+  }
+}
+
+async function navigateTo(urlLike, { replace = false, smoothScroll = false } = {}) {
+  const targetUrl = new URL(urlLike, window.location.href);
+  const targetPath = normalizePathname(targetUrl.pathname);
+  const currentPath = normalizePathname(window.location.pathname);
+
+  if (targetPath === currentPath) {
+    const nextHref = `${targetPath}${targetUrl.hash}`;
+    if (replace) {
+      window.history.replaceState({}, "", nextHref);
+    } else if (nextHref !== `${currentPath}${window.location.hash}`) {
+      window.history.pushState({}, "", nextHref);
+    }
+    scrollToHash(targetUrl.hash, { smooth: smoothScroll });
+    closeMenu();
+    return;
+  }
+
+  if (isNavigating) {
+    return;
+  }
+
+  isNavigating = true;
+  clearPageScopedEffects();
+  cleanupLogoMorph();
+
+  try {
+    const response = await window.fetch(targetPath, {
+      headers: {
+        "X-Requested-With": "EtherrSPA",
+      },
+    });
+
+    if (!response.ok) {
+      window.location.href = targetUrl.href;
+      return;
+    }
+
+    const html = await response.text();
+    const parser = new DOMParser();
+    const nextDocument = parser.parseFromString(html, "text/html");
+    const nextMain = nextDocument.querySelector("main");
+    const currentMain = document.querySelector("main");
+
+    if (!(nextMain instanceof HTMLElement) || !(currentMain instanceof HTMLElement)) {
+      window.location.href = targetUrl.href;
+      return;
+    }
+
+    document.body.dataset.page = nextDocument.body?.dataset?.page || "home";
+    currentMain.replaceWith(document.importNode(nextMain, true));
+
+    if (replace) {
+      window.history.replaceState({}, "", `${targetPath}${targetUrl.hash}`);
+    } else {
+      window.history.pushState({}, "", `${targetPath}${targetUrl.hash}`);
+    }
+
+    refreshSharedShell();
+    initPageContent();
+    scrollToHash(targetUrl.hash, { smooth: smoothScroll });
+    closeMenu();
+  } catch (_error) {
+    window.location.href = targetUrl.href;
+  } finally {
+    isNavigating = false;
+  }
 }
 
 function initEvents() {
-  dom.menuToggle.addEventListener("click", toggleMenu);
+  if (eventsInitialized) {
+    return;
+  }
 
-  dom.langButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      setLanguage(button.dataset.lang);
-    });
-  });
-
-  dom.navLinks.forEach((link) => {
-    link.addEventListener("click", closeMenu);
-  });
+  eventsInitialized = true;
 
   document.addEventListener("click", (event) => {
     const target = event.target;
+    const element = target instanceof Element ? target : null;
+    const menuToggle = element?.closest(".menu-toggle");
+    const langButton = element?.closest(".lang-btn");
+    const navLink = element?.closest("a");
+
+    if (menuToggle instanceof HTMLButtonElement) {
+      toggleMenu();
+      return;
+    }
+
+    if (langButton instanceof HTMLButtonElement && langButton.dataset.lang) {
+      setLanguage(langButton.dataset.lang);
+      return;
+    }
+
+    if (navLink instanceof HTMLAnchorElement) {
+      const isHeaderNavLink = navLink.closest(".site-nav") instanceof HTMLElement;
+
+      if (currentPage === "home" && navLink.classList.contains("nav-home-link")) {
+        event.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+        closeMenu();
+        return;
+      }
+
+      if (isInternalNavigationLink(navLink)) {
+        const targetUrl = new URL(navLink.href, window.location.href);
+        if (!isSameDocumentHashNavigation(targetUrl)) {
+          event.preventDefault();
+          navigateTo(targetUrl.href, { smoothScroll: false });
+          return;
+        }
+      }
+
+      if (isHeaderNavLink) {
+        closeMenu();
+      }
+    }
 
     if (!dom.header.contains(event.target)) {
       closeMenu();
@@ -1920,7 +2632,7 @@ function initEvents() {
     resizeTimer = window.setTimeout(() => {
       startNetworkLayer();
       updateHeaderLogoDocking();
-      syncProjectSummaryHeights();
+      syncProjectCardLayout();
     }, 160);
   });
 
@@ -1941,27 +2653,17 @@ function initEvents() {
       drawNetworkLayer(window.performance.now());
     }
   });
+
+  window.addEventListener("popstate", () => {
+    navigateTo(window.location.href, { replace: true, smoothScroll: false });
+  });
 }
 
 function init() {
-  observeReveals();
-  initHeroClouds();
-  initProjectPhoneScreens();
-  initProjectLaptopScreens();
-  initProjectLaptopEmbedScreens();
-  initProjectSummaryCards();
-  initProjectKotaSlideshows();
+  initPageContent();
   startNetworkLayer();
-  setLanguage("hr");
-  syncProjectSummaryHeights();
-  if (document.fonts?.ready) {
-    document.fonts.ready.then(() => {
-      syncProjectSummaryHeights();
-    });
-  }
+  setLanguage(getStoredLanguage() || getAutoDetectedLanguage());
   initEvents();
-  updateHeaderState();
-  setHeaderLogoDocked(computeShouldDockHeaderLogo(), { animate: false });
 }
 
 init();

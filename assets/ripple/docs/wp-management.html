@@ -1,0 +1,1073 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RIPPLE - Data Management</title>
+  <style>
+    :root {
+      --bg: #f0f5f7;
+      --panel: #ffffff;
+      --ink: #143744;
+      --muted: #45626f;
+      --line: #d6e2e8;
+      --accent: #0f698a;
+      --accent-soft: #d7edf6;
+      --ok: #2f855a;
+      --warn: #b7791f;
+      --risk: #c05621;
+      --block: #9b2c2c;
+      --quiet: #4a6b77;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "IBM Plex Sans", "Source Sans 3", "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 12%, #ddecf4 0%, transparent 35%),
+        radial-gradient(circle at 86% 82%, #e7f3e4 0%, transparent 36%),
+        var(--bg);
+    }
+
+    body.is-locked {
+      overflow: hidden;
+    }
+
+    .wrap {
+      max-width: 1700px;
+      margin: 0 auto;
+      padding: 20px 16px 34px;
+    }
+
+    .hero {
+      border-radius: 16px;
+      background: linear-gradient(128deg, #0d5f7c 0%, #11495f 100%);
+      color: #f1faff;
+      padding: 18px 20px;
+      box-shadow: 0 14px 26px rgba(16, 60, 76, 0.22);
+      display: flex;
+      gap: 16px;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      min-height: 126px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.34rem;
+      letter-spacing: 0.2px;
+    }
+
+    .hero p {
+      margin: 8px 0 0;
+      color: #dcf2fb;
+      font-size: 0.9rem;
+      max-width: 760px;
+      line-height: 1.45;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .hero-links a {
+      color: #f0fbff;
+      text-decoration: none;
+      border: 1px solid rgba(240, 251, 255, 0.35);
+      border-radius: 999px;
+      padding: 6px 11px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .login-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      background: rgba(9, 34, 44, 0.56);
+      backdrop-filter: blur(2px);
+    }
+
+    .login-overlay.hidden {
+      display: none;
+    }
+
+    .login-card {
+      width: min(420px, calc(100vw - 28px));
+      border: 1px solid #c9dde7;
+      border-radius: 14px;
+      background: #ffffff;
+      box-shadow: 0 18px 36px rgba(10, 43, 55, 0.28);
+      padding: 18px 16px 14px;
+    }
+
+    .login-card h2 {
+      margin: 0;
+      font-size: 1.07rem;
+      color: #134356;
+    }
+
+    .login-card p {
+      margin: 8px 0 12px;
+      color: #44626e;
+      font-size: 0.86rem;
+      line-height: 1.4;
+    }
+
+    .login-row {
+      margin-bottom: 10px;
+    }
+
+    .login-row label {
+      display: block;
+      margin-bottom: 6px;
+      color: #47636f;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2px;
+    }
+
+    .login-error {
+      min-height: 18px;
+      margin-top: 8px;
+      color: #9b2c2c;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .login-note {
+      margin-top: 7px;
+      color: #5f7983;
+      font-size: 0.72rem;
+      line-height: 1.35;
+    }
+
+    .toolbar {
+      margin-top: 14px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: 0 8px 18px rgba(18, 54, 68, 0.08);
+      padding: 12px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 0.84rem;
+      line-height: 1.45;
+    }
+
+    .meta strong {
+      color: #1a4d60;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    button,
+    .button-like {
+      border: 1px solid #a8c9d7;
+      border-radius: 9px;
+      background: #f6fcff;
+      color: #124457;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 7px 11px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    button.primary {
+      border-color: #0f698a;
+      background: #0f698a;
+      color: #f4fcff;
+    }
+
+    button.danger {
+      border-color: #b94b4b;
+      background: #fff6f6;
+      color: #8f2f2f;
+    }
+
+    .status-banner {
+      margin-top: 10px;
+      border-radius: 10px;
+      padding: 9px 11px;
+      font-size: 0.8rem;
+      border: 1px solid #b6d4df;
+      color: #1d4e60;
+      background: #ebf7fc;
+    }
+
+    .status-banner.warn {
+      border-color: #e8cfa1;
+      background: #fff8ea;
+      color: #8f5a08;
+    }
+
+    .summary {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--panel);
+      padding: 10px 11px;
+      box-shadow: 0 8px 16px rgba(17, 55, 69, 0.07);
+    }
+
+    .stat .label {
+      color: var(--muted);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      font-weight: 700;
+    }
+
+    .stat .value {
+      margin-top: 4px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #124357;
+    }
+
+    .panel {
+      margin-top: 14px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--panel);
+      box-shadow: 0 8px 18px rgba(19, 55, 69, 0.08);
+      overflow: hidden;
+    }
+
+    .panel h2 {
+      margin: 0;
+      font-size: 1rem;
+      padding: 12px 14px 9px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #fcfeff 0%, #f5fafc 100%);
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .panel h2 small {
+      font-size: 0.73rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .table-wrap {
+      overflow: auto;
+      max-height: 58vh;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      min-width: 1000px;
+      font-size: 0.8rem;
+    }
+
+    th,
+    td {
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 7px 6px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      position: sticky;
+      top: 0;
+      z-index: 3;
+      background: #eef6fa;
+      color: #1a4a5e;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2px;
+      white-space: nowrap;
+    }
+
+    td.sticky,
+    th.sticky {
+      position: sticky;
+      left: 0;
+      z-index: 2;
+      background: #f7fbfd;
+      min-width: 122px;
+      max-width: 160px;
+    }
+
+    th.sticky {
+      z-index: 4;
+      background: #eaf4f9;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid #bad2dd;
+      border-radius: 7px;
+      padding: 5px 6px;
+      font-size: 0.78rem;
+      color: #173f4f;
+      background: #fcfeff;
+      font-family: inherit;
+    }
+
+    input[type="number"] {
+      min-width: 66px;
+    }
+
+    textarea {
+      min-height: 56px;
+      resize: vertical;
+      line-height: 1.32;
+    }
+
+    .readonly {
+      font-family: "IBM Plex Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+      color: #1f5265;
+      font-size: 0.76rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .filter-row {
+      display: flex;
+      gap: 10px;
+      padding: 10px 12px;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      background: #f8fcfe;
+      flex-wrap: wrap;
+    }
+
+    .filter-row label {
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2px;
+    }
+
+    .status-pill {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 3px 8px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      white-space: nowrap;
+      border: 1px solid transparent;
+    }
+
+    .status-pill.not_started {
+      background: #edf3f6;
+      color: var(--quiet);
+      border-color: #cad7de;
+    }
+
+    .status-pill.in_progress {
+      background: #e4f5fb;
+      color: #135670;
+      border-color: #b8dcec;
+    }
+
+    .status-pill.at_risk {
+      background: #fff1df;
+      color: var(--risk);
+      border-color: #f2c88e;
+    }
+
+    .status-pill.blocked {
+      background: #fdecec;
+      color: var(--block);
+      border-color: #efb9b9;
+    }
+
+    .status-pill.done {
+      background: #e4f4e9;
+      color: var(--ok);
+      border-color: #b8dfc6;
+    }
+
+    .footnote {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.76rem;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 1100px) {
+      .toolbar {
+        grid-template-columns: 1fr;
+      }
+
+      .button-row {
+        justify-content: flex-start;
+      }
+
+      .summary {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 700px) {
+      .summary {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="is-locked">
+  <div class="login-overlay" id="loginOverlay">
+    <form class="login-card" id="loginForm" autocomplete="off">
+      <h2>Manage Data Access</h2>
+      <p>Enter the password to unlock this page.</p>
+      <div class="login-row">
+        <label for="loginPassword">Password</label>
+        <input id="loginPassword" type="password" autocomplete="current-password" required>
+      </div>
+      <button class="primary" type="submit">Unlock</button>
+      <div class="login-error" id="loginError"></div>
+      <div class="login-note">This is a simple client-side lock for convenience, not strong security.</div>
+    </form>
+  </div>
+
+  <div class="wrap">
+    <section class="hero">
+      <div>
+        <h1>RIPPLE Data Management</h1>
+        <p>Proposal-derived fields are locked. Only status and description are editable. This version has no authentication and stores draft data in browser local storage.</p>
+      </div>
+      <div class="hero-links">
+        <a href="./wp-partner-overview.html">Open Overview</a>
+        <a href="./wp-gantt-overview.html">Open Gantt</a>
+      </div>
+    </section>
+
+    <section class="toolbar">
+      <div class="meta" id="metaInfo"></div>
+      <div class="button-row">
+        <button class="primary" id="saveBtn" type="button">Save Local Draft</button>
+        <button id="reloadBtn" type="button">Reload</button>
+        <button id="exportBtn" type="button">Export JSON</button>
+        <button id="importBtn" type="button">Import JSON</button>
+        <button class="danger" id="resetBtn" type="button">Reset To Defaults</button>
+      </div>
+    </section>
+
+    <div class="status-banner" id="statusBanner">Loaded default data.</div>
+    <input type="file" id="importFile" accept="application/json" hidden>
+
+    <section class="summary" id="summary"></section>
+
+    <section class="panel">
+      <h2>
+        Work Packages
+        <small>Proposal fields locked; edit status and description only</small>
+      </h2>
+      <div class="table-wrap">
+        <table id="wpTable"></table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>
+        Tasks
+        <small>Proposal fields locked; edit status and description only</small>
+      </h2>
+      <div class="filter-row">
+        <label for="taskFilter">Filter by WP</label>
+        <select id="taskFilter"></select>
+      </div>
+      <div class="table-wrap">
+        <table id="taskTable"></table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>
+        Deliverables
+        <small>Proposal fields locked; edit status and description only</small>
+      </h2>
+      <div class="table-wrap">
+        <table id="deliverableTable"></table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>
+        Milestones
+        <small>Proposal fields locked; edit status and description only</small>
+      </h2>
+      <div class="table-wrap">
+        <table id="milestoneTable"></table>
+      </div>
+    </section>
+
+    <p class="footnote">No authentication is enabled in this version. Anyone with access to this page in this browser can edit status/description draft values. Fixed project structure is always restored from the proposal baseline.</p>
+  </div>
+
+  <script src="./ripple-data.js"></script>
+  <script>
+    const LOGIN_PASSWORD = "Fablab_2026";
+    const LOGIN_SESSION_KEY = "ripple_manage_unlocked_v1";
+
+    const STATUS_LABEL = {
+      not_started: "Not Started",
+      in_progress: "In Progress",
+      at_risk: "At Risk",
+      blocked: "Blocked",
+      done: "Done"
+    };
+
+    const MONTH_MIN = 1;
+    const MONTH_MAX = 48;
+
+    const metaInfoEl = document.getElementById("metaInfo");
+    const statusBannerEl = document.getElementById("statusBanner");
+    const summaryEl = document.getElementById("summary");
+
+    const wpTableEl = document.getElementById("wpTable");
+    const taskTableEl = document.getElementById("taskTable");
+    const deliverableTableEl = document.getElementById("deliverableTable");
+    const milestoneTableEl = document.getElementById("milestoneTable");
+
+    const taskFilterEl = document.getElementById("taskFilter");
+
+    const saveBtn = document.getElementById("saveBtn");
+    const reloadBtn = document.getElementById("reloadBtn");
+    const exportBtn = document.getElementById("exportBtn");
+    const importBtn = document.getElementById("importBtn");
+    const importFileEl = document.getElementById("importFile");
+    const resetBtn = document.getElementById("resetBtn");
+    const loginOverlayEl = document.getElementById("loginOverlay");
+    const loginFormEl = document.getElementById("loginForm");
+    const loginPasswordEl = document.getElementById("loginPassword");
+    const loginErrorEl = document.getElementById("loginError");
+
+    let loaded = RippleData.load();
+    let state = RippleData.normalizeData(loaded.data);
+    let dirty = false;
+    let appInitialized = false;
+
+    function escapeHtml(value) {
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+
+    function clampMonth(value) {
+      const numeric = Math.round(Number(value));
+      if (!Number.isFinite(numeric)) {
+        return MONTH_MIN;
+      }
+      return Math.max(MONTH_MIN, Math.min(MONTH_MAX, numeric));
+    }
+
+    function monthListToString(values) {
+      return values.join(",");
+    }
+
+    function parseMonthList(raw) {
+      const chunks = String(raw)
+        .split(",")
+        .map((part) => part.trim())
+        .filter(Boolean);
+
+      const set = new Set();
+      for (const chunk of chunks) {
+        set.add(clampMonth(chunk));
+      }
+      return Array.from(set).sort((a, b) => a - b);
+    }
+
+    function statusSelectHtml(selected, attrs) {
+      let options = "";
+      for (const status of RippleData.STATUS_VALUES) {
+        options += `<option value="${status}"${selected === status ? " selected" : ""}>${STATUS_LABEL[status]}</option>`;
+      }
+      return `<select ${attrs}>${options}</select>`;
+    }
+
+    function statusPill(status) {
+      const safe = RippleData.STATUS_VALUES.includes(status) ? status : "not_started";
+      return `<span class="status-pill ${safe}">${STATUS_LABEL[safe]}</span>`;
+    }
+
+    function markDirty(message) {
+      dirty = true;
+      setStatus(message || "Unsaved changes in current session.", "warn");
+      renderMeta();
+    }
+
+    function setStatus(message, level) {
+      statusBannerEl.textContent = message;
+      statusBannerEl.className = "status-banner";
+      if (level === "warn") {
+        statusBannerEl.classList.add("warn");
+      }
+    }
+
+    function setLoginError(message) {
+      loginErrorEl.textContent = message || "";
+    }
+
+    function lockPage() {
+      document.body.classList.add("is-locked");
+      loginOverlayEl.classList.remove("hidden");
+    }
+
+    function unlockPage() {
+      document.body.classList.remove("is-locked");
+      loginOverlayEl.classList.add("hidden");
+    }
+
+    function formatIsoDate(iso) {
+      if (!iso) {
+        return "never";
+      }
+      const date = new Date(iso);
+      if (Number.isNaN(date.getTime())) {
+        return iso;
+      }
+      return date.toLocaleString();
+    }
+
+    function totalPm(partner) {
+      return partner.pm.reduce((sum, value) => sum + Number(value || 0), 0);
+    }
+
+    function renderMeta() {
+      const sourceLabel = loaded.source === "local" ? "local draft" : "default data";
+      const updated = formatIsoDate(state.meta.updatedAt);
+      metaInfoEl.innerHTML =
+        `<strong>Source:</strong> ${sourceLabel} | ` +
+        `<strong>Storage key:</strong> <code>${RippleData.STORAGE_KEY}</code> | ` +
+        `<strong>Last saved:</strong> ${updated} | ` +
+        `<strong>Session state:</strong> ${dirty ? "unsaved changes" : "clean"}`;
+    }
+
+    function renderSummary() {
+      const statusCounts = {
+        not_started: 0,
+        in_progress: 0,
+        at_risk: 0,
+        blocked: 0,
+        done: 0
+      };
+
+      for (const task of state.tasks) {
+        statusCounts[task.status] += 1;
+      }
+
+      const totalPmValue = state.partners.reduce((sum, partner) => sum + totalPm(partner), 0);
+
+      summaryEl.innerHTML = `
+        <article class="stat">
+          <div class="label">Work Packages</div>
+          <div class="value">${state.wps.length}</div>
+        </article>
+        <article class="stat">
+          <div class="label">Partners</div>
+          <div class="value">${state.partners.length}</div>
+        </article>
+        <article class="stat">
+          <div class="label">Tasks</div>
+          <div class="value">${state.tasks.length}</div>
+        </article>
+        <article class="stat">
+          <div class="label">Total PM Allocation</div>
+          <div class="value">${totalPmValue}</div>
+        </article>
+      `;
+    }
+
+    function renderTaskFilter() {
+      const current = taskFilterEl.value || "ALL";
+      let html = `<option value="ALL">All WPs</option>`;
+      for (const wp of state.wps) {
+        html += `<option value="${escapeHtml(wp.id)}">${escapeHtml(wp.id)} - ${escapeHtml(wp.title)}</option>`;
+      }
+      taskFilterEl.innerHTML = html;
+      taskFilterEl.value = state.wps.some((wp) => wp.id === current) ? current : "ALL";
+    }
+
+    function renderWpTable() {
+      let html = "<thead><tr>" +
+        "<th class=\"sticky\">WP</th>" +
+        "<th>Title</th>" +
+        "<th>Lead</th>" +
+        "<th>Total PM</th>" +
+        "<th>Start</th>" +
+        "<th>End</th>" +
+        "<th>Status</th>" +
+        "<th>Description</th>" +
+        "</tr></thead><tbody>";
+
+      state.wps.forEach((wp, index) => {
+        html += "<tr>";
+        html += `<td class="sticky readonly">${escapeHtml(wp.id)}</td>`;
+        html += `<td>${escapeHtml(wp.title)}</td>`;
+        html += `<td class="readonly">${escapeHtml(wp.lead)}</td>`;
+        html += `<td class="readonly">${wp.total}</td>`;
+        html += `<td class="readonly">M${wp.startMonth}</td>`;
+        html += `<td class="readonly">M${wp.endMonth}</td>`;
+        html += `<td>${statusSelectHtml(wp.status, `data-type="wp" data-index="${index}" data-field="status"`)}</td>`;
+        html += `<td><textarea data-type="wp" data-index="${index}" data-field="description">${escapeHtml(wp.description)}</textarea></td>`;
+        html += "</tr>";
+      });
+
+      html += "</tbody>";
+      wpTableEl.innerHTML = html;
+    }
+
+    function renderTaskTable() {
+      const filterWp = taskFilterEl.value || "ALL";
+
+      let html = "<thead><tr>" +
+        "<th class=\"sticky\">Task</th>" +
+        "<th>WP</th>" +
+        "<th>Label</th>" +
+        "<th>Start</th>" +
+        "<th>End</th>" +
+        "<th>Lead</th>" +
+        "<th>Participants</th>" +
+        "<th>Status</th>" +
+        "<th>Description</th>" +
+        "</tr></thead><tbody>";
+
+      state.tasks.forEach((task, index) => {
+        if (filterWp !== "ALL" && task.wpId !== filterWp) {
+          return;
+        }
+
+        const participantsValue = task.participants === "ALL" ? "ALL" : task.participants.join(",");
+
+        html += "<tr>";
+        html += `<td class="sticky readonly">${escapeHtml(task.id)}</td>`;
+        html += `<td class="readonly">${escapeHtml(task.wpId)}</td>`;
+        html += `<td>${escapeHtml(task.label)}</td>`;
+        html += `<td class="readonly">M${task.startMonth}</td>`;
+        html += `<td class="readonly">M${task.endMonth}</td>`;
+        html += `<td class="readonly">${escapeHtml(task.lead)}</td>`;
+        html += `<td>${escapeHtml(participantsValue)}</td>`;
+        html += `<td>${statusSelectHtml(task.status, `data-type="task" data-index="${index}" data-field="status"`)}</td>`;
+        html += `<td><textarea data-type="task" data-index="${index}" data-field="description">${escapeHtml(task.description)}</textarea></td>`;
+        html += "</tr>";
+      });
+
+      html += "</tbody>";
+      taskTableEl.innerHTML = html;
+    }
+
+    function renderDeliverablesTable() {
+      let html = "<thead><tr>" +
+        "<th class=\"sticky\">Deliverable</th>" +
+        "<th>WP</th>" +
+        "<th>Title</th>" +
+        "<th>Due Months</th>" +
+        "<th>Status</th>" +
+        "<th>Description</th>" +
+        "</tr></thead><tbody>";
+
+      state.deliverables.forEach((deliverable, index) => {
+        html += "<tr>";
+        html += `<td class="sticky readonly">${escapeHtml(deliverable.id)}</td>`;
+        html += `<td class="readonly">${escapeHtml(deliverable.wpId)}</td>`;
+        html += `<td>${escapeHtml(deliverable.title)}</td>`;
+        html += `<td class="readonly">${escapeHtml(monthListToString(deliverable.dueMonths))}</td>`;
+        html += `<td>${statusSelectHtml(deliverable.status, `data-type="deliverable" data-index="${index}" data-field="status"`)}</td>`;
+        html += `<td><textarea data-type="deliverable" data-index="${index}" data-field="description">${escapeHtml(deliverable.description)}</textarea></td>`;
+        html += "</tr>";
+      });
+
+      html += "</tbody>";
+      deliverableTableEl.innerHTML = html;
+    }
+
+    function renderMilestoneTable() {
+      let html = "<thead><tr>" +
+        "<th class=\"sticky\">Milestone</th>" +
+        "<th>WP</th>" +
+        "<th>Title</th>" +
+        "<th>Due</th>" +
+        "<th>Status</th>" +
+        "<th>Verification</th>" +
+        "<th>Description</th>" +
+        "</tr></thead><tbody>";
+
+      state.milestones.forEach((milestone, index) => {
+        html += "<tr>";
+        html += `<td class="sticky readonly">${escapeHtml(milestone.id)}</td>`;
+        html += `<td class="readonly">${escapeHtml(milestone.wpId)}</td>`;
+        html += `<td>${escapeHtml(milestone.title)}</td>`;
+        html += `<td class="readonly">M${milestone.dueMonth}</td>`;
+        html += `<td>${statusSelectHtml(milestone.status, `data-type="milestone" data-index="${index}" data-field="status"`)}</td>`;
+        html += `<td class="readonly">${escapeHtml(milestone.verification)}</td>`;
+        html += `<td><textarea data-type="milestone" data-index="${index}" data-field="description">${escapeHtml(milestone.description)}</textarea></td>`;
+        html += "</tr>";
+      });
+
+      html += "</tbody>";
+      milestoneTableEl.innerHTML = html;
+    }
+
+    function renderAll() {
+      renderMeta();
+      renderSummary();
+      renderTaskFilter();
+      renderWpTable();
+      renderTaskTable();
+      renderDeliverablesTable();
+      renderMilestoneTable();
+    }
+
+    function ensureAppInitialized() {
+      if (appInitialized) {
+        return;
+      }
+      renderAll();
+      setStatus(`Loaded ${loaded.source === "local" ? "local draft" : "default data"}.`, "info");
+      appInitialized = true;
+    }
+
+    function onTableInput(event) {
+      const target = event.target;
+      if (!(target instanceof HTMLElement)) {
+        return;
+      }
+
+      const type = target.dataset.type;
+      const field = target.dataset.field;
+      if (!type) {
+        return;
+      }
+      if (!field) {
+        return;
+      }
+
+      if (type === "wp") {
+        const index = Number(target.dataset.index);
+        const wp = state.wps[index];
+        if (!wp) return;
+
+        if (field === "description" || field === "status") {
+          wp[field] = target.value.trim();
+        } else {
+          return;
+        }
+
+        markDirty(`Updated ${wp.id} (${field}).`);
+        renderSummary();
+        return;
+      }
+
+      if (type === "task") {
+        const index = Number(target.dataset.index);
+        const task = state.tasks[index];
+        if (!task) return;
+
+        if (field === "description" || field === "status") {
+          task[field] = target.value.trim();
+        } else {
+          return;
+        }
+
+        markDirty(`Updated ${task.id} (${field}).`);
+        renderSummary();
+        return;
+      }
+
+      if (type === "deliverable") {
+        const index = Number(target.dataset.index);
+        const deliverable = state.deliverables[index];
+        if (!deliverable) return;
+
+        if (field === "description" || field === "status") {
+          deliverable[field] = target.value.trim();
+        } else {
+          return;
+        }
+
+        markDirty(`Updated ${deliverable.id} (${field}).`);
+        return;
+      }
+
+      if (type === "milestone") {
+        const index = Number(target.dataset.index);
+        const milestone = state.milestones[index];
+        if (!milestone) return;
+
+        if (field === "description" || field === "status") {
+          milestone[field] = target.value.trim();
+        } else {
+          return;
+        }
+
+        markDirty(`Updated ${milestone.id} (${field}).`);
+      }
+    }
+
+    function saveDraft() {
+      state = RippleData.save(state);
+      loaded = { source: "local", data: state };
+      dirty = false;
+      renderAll();
+      setStatus("Draft saved to local storage.", "info");
+    }
+
+    function reloadDraft() {
+      if (dirty && !window.confirm("Discard unsaved changes and reload saved data?")) {
+        return;
+      }
+      loaded = RippleData.load();
+      state = RippleData.normalizeData(loaded.data);
+      dirty = false;
+      renderAll();
+      setStatus(`Reloaded ${loaded.source === "local" ? "local draft" : "default data"}.`, "info");
+    }
+
+    function resetDefaults() {
+      if (!window.confirm("Reset local draft and load defaults? This cannot be undone.")) {
+        return;
+      }
+      RippleData.clear();
+      loaded = RippleData.load();
+      state = RippleData.normalizeData(loaded.data);
+      dirty = false;
+      renderAll();
+      setStatus("Local draft cleared. Default data loaded.", "info");
+    }
+
+    function exportJson() {
+      const content = RippleData.exportText(state);
+      const blob = new Blob([content], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const date = new Date();
+      const stamp = `${date.getFullYear()}${String(date.getMonth() + 1).padStart(2, "0")}${String(date.getDate()).padStart(2, "0")}`;
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `ripple-data-${stamp}.json`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+      setStatus("Exported current dataset to JSON.", "info");
+    }
+
+    function importJson(file) {
+      if (!file) {
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const text = String(reader.result || "");
+          state = RippleData.importText(text);
+          dirty = true;
+          renderAll();
+          setStatus("Imported JSON into session. Save to persist locally.", "warn");
+        } catch (error) {
+          setStatus(`Import failed: ${error.message}`, "warn");
+        }
+      };
+      reader.readAsText(file, "utf-8");
+    }
+
+    function handleLoginSubmit(event) {
+      event.preventDefault();
+      const entered = loginPasswordEl.value;
+      if (entered === LOGIN_PASSWORD) {
+        sessionStorage.setItem(LOGIN_SESSION_KEY, "1");
+        setLoginError("");
+        loginPasswordEl.value = "";
+        unlockPage();
+        ensureAppInitialized();
+        return;
+      }
+      setLoginError("Wrong password. Try again.");
+      loginPasswordEl.select();
+    }
+
+    function initAuth() {
+      const unlocked = sessionStorage.getItem(LOGIN_SESSION_KEY) === "1";
+      if (unlocked) {
+        unlockPage();
+        ensureAppInitialized();
+        return;
+      }
+      lockPage();
+      setLoginError("");
+      setTimeout(() => {
+        loginPasswordEl.focus();
+      }, 0);
+    }
+
+    taskFilterEl.addEventListener("change", () => {
+      renderTaskTable();
+    });
+
+    wpTableEl.addEventListener("change", onTableInput);
+    taskTableEl.addEventListener("change", onTableInput);
+    deliverableTableEl.addEventListener("change", onTableInput);
+    milestoneTableEl.addEventListener("change", onTableInput);
+
+    saveBtn.addEventListener("click", saveDraft);
+    reloadBtn.addEventListener("click", reloadDraft);
+    exportBtn.addEventListener("click", exportJson);
+    resetBtn.addEventListener("click", resetDefaults);
+
+    importBtn.addEventListener("click", () => {
+      importFileEl.click();
+    });
+
+    importFileEl.addEventListener("change", (event) => {
+      const file = event.target.files && event.target.files[0];
+      importJson(file);
+      importFileEl.value = "";
+    });
+
+    loginFormEl.addEventListener("submit", handleLoginSubmit);
+
+    initAuth();
+  </script>
+</body>
+</html>

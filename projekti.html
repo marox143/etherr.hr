@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Etherr | Projekti</title>
     <meta name="description" content="" />
-    <link rel="icon" href="assets/logo.png" type="image/png" />
-    <link rel="apple-touch-icon" href="assets/logo.png" />
+    <link rel="icon" href="assets/images/logo.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/images/logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -20,34 +20,20 @@
       <canvas class="network-canvas" id="networkCanvas" aria-hidden="true"></canvas>
     </div>
 
-    <header class="site-header" id="top">
-      <div class="container header-inner">
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="headerPanel">
-          <span class="menu-icon" aria-hidden="true"></span>
-          <span class="sr-only" data-i18n="menu.toggle"></span>
-        </button>
-        <a class="header-center-logo" href="#top" aria-label="Etherr">
-          <img src="assets/logo.png" alt="Etherr logo" width="52" height="52" />
-        </a>
-
-        <div class="header-panel" id="headerPanel">
-          <nav class="site-nav" aria-label="Primary navigation">
-            <a href="index.html#about" data-i18n="nav.about"></a>
-            <a href="index.html#services" data-i18n="nav.services"></a>
-            <a href="projekti.html" data-i18n="nav.projects" aria-current="page"></a>
-            <a href="index.html#contact" data-i18n="nav.contact"></a>
-          </nav>
-          <div class="lang-switch" role="group" aria-label="Language switcher">
-            <button class="lang-btn is-active" type="button" data-lang="hr">HR</button>
-            <button class="lang-btn" type="button" data-lang="en">EN</button>
-            <button class="lang-btn" type="button" data-lang="de">DE</button>
-          </div>
-        </div>
-      </div>
-    </header>
+    <header class="site-header" id="top" data-shared-header></header>
 
     <main class="page-main page-main-projects">
-      <section class="page-shell section project-showcase">
+      <section class="page-shell section projects-intro-section">
+        <div class="container page-shell-inner">
+          <div class="projects-intro reveal">
+            <p class="eyebrow" data-i18n="pages.projects.intro.eyebrow"></p>
+            <h1 class="projects-intro-title" data-i18n="pages.projects.intro.title"></h1>
+            <p class="hero-subtitle projects-intro-subtitle" data-i18n="pages.projects.intro.subtitle"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-shell section project-showcase project-showcase-secondary">
         <div class="container page-shell-inner">
           <div class="project-device-stage">
             <div class="project-showcase-layout project-showcase-layout-reversed">
@@ -113,7 +99,7 @@
                   </div>
                   <img
                     class="project-laptop-frame"
-                    src="assets/laptop.png"
+                    src="assets/images/laptop.png"
                     alt="Laptop mockup displaying the Almagea website"
                     width="1000"
                     height="600"
@@ -142,14 +128,14 @@
                   </div>
                   <img
                     class="project-phone-frame"
-                    src="assets/phone.png"
+                    src="assets/images/phone.png"
                     alt="Phone mockup displaying the Keef price list"
                     width="978"
                     height="1938"
                   />
                 </div>
               </div>
-              <article class="project-summary reveal" aria-labelledby="project-keef-title">
+              <article class="project-summary project-summary-keef reveal" aria-labelledby="project-keef-title">
                 <div class="project-summary-card">
                   <div class="project-summary-face project-summary-face-front">
                     <div class="project-summary-content">
@@ -195,6 +181,83 @@
                   <span class="sr-only" data-i18n="pages.projects.flip"></span>
                 </button>
               </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-shell section project-showcase">
+        <div class="container page-shell-inner">
+          <div class="project-device-stage">
+            <div class="project-showcase-banner">
+              <div class="project-reservation-row">
+                <article
+                  class="project-summary project-summary-wide project-summary-reservation-main reveal"
+                  aria-labelledby="project-reservation-title"
+                >
+                  <div class="project-summary-card">
+                    <div class="project-summary-face project-summary-face-front">
+                      <div class="project-summary-content">
+                        <p class="project-summary-tag" data-i18n="pages.projects.reservation.tag"></p>
+                        <div class="project-summary-copy">
+                          <h2 id="project-reservation-title" data-i18n="pages.projects.reservation.title"></h2>
+                          <p data-i18n="pages.projects.reservation.text"></p>
+                        </div>
+                        <div class="project-summary-meta">
+                          <span data-i18n="pages.projects.reservation.meta"></span>
+                        </div>
+                      </div>
+                      <span class="project-summary-glyph project-summary-glyph-calendar" aria-hidden="true"></span>
+                    </div>
+                  </div>
+                  <button class="project-reservation-main-trigger" type="button" aria-expanded="true">
+                    <span class="sr-only" data-i18n="pages.projects.reservation.mainToggle"></span>
+                  </button>
+                </article>
+
+                <aside class="project-reservation-panel reveal" aria-label="Reservation system live preview placeholder">
+                  <div class="project-reservation-panel-card">
+                    <div class="project-reservation-panel-face project-reservation-panel-face-front">
+                      <div class="project-reservation-panel-content">
+                        <div class="project-reservation-panel-frame project-reservation-panel-frame-live" aria-hidden="true">
+                          <iframe
+                            class="project-reservation-live-embed"
+                            data-reservation-schedule-frame
+                            src="reservation-schedule-demo.html?lang=hr"
+                            title="Reservation schedule demo"
+                            loading="lazy"
+                          ></iframe>
+                        </div>
+                        <button class="project-reservation-panel-flip-trigger project-reservation-panel-flip-trigger-bottom" type="button" aria-pressed="false">
+                          <span class="project-reservation-panel-flip-rail" aria-hidden="true"></span>
+                          <span class="sr-only" data-i18n="pages.projects.reservation.panelFlip"></span>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="project-reservation-panel-face project-reservation-panel-face-back" aria-hidden="true">
+                      <div class="project-reservation-panel-content">
+                        <div class="project-reservation-panel-frame project-reservation-panel-frame-live" aria-hidden="true">
+                          <iframe
+                            class="project-reservation-live-embed"
+                            data-reservation-schedule-frame
+                            src="reservation-calendar-demo.html?lang=hr"
+                            title="Reservation calendar demo"
+                            loading="lazy"
+                          ></iframe>
+                        </div>
+                        <button class="project-reservation-panel-flip-trigger project-reservation-panel-flip-trigger-top" type="button" aria-pressed="false">
+                          <span class="project-reservation-panel-flip-rail" aria-hidden="true"></span>
+                          <span class="sr-only" data-i18n="pages.projects.reservation.panelFlip"></span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="project-reservation-panel-trigger" type="button" aria-expanded="false">
+                    <span class="project-reservation-panel-rail" aria-hidden="true"></span>
+                    <span class="sr-only" data-i18n="pages.projects.reservation.panelToggle"></span>
+                  </button>
+                </aside>
+              </div>
             </div>
           </div>
         </div>
@@ -364,7 +427,7 @@
                   </div>
                   <img
                     class="project-laptop-frame"
-                    src="assets/laptop.png"
+                    src="assets/images/laptop.png"
                     alt="Laptop mockup displaying the Kota Samobor website"
                     width="1000"
                     height="600"
@@ -394,14 +457,14 @@
                   </div>
                   <img
                     class="project-phone-frame"
-                    src="assets/phone.png"
+                    src="assets/images/phone.png"
                     alt="Phone mockup displaying the Juvy Skin webshop"
                     width="978"
                     height="1938"
                   />
                 </div>
               </div>
-              <article class="project-summary reveal" aria-labelledby="project-juvy-title">
+              <article class="project-summary project-summary-juvy reveal" aria-labelledby="project-juvy-title">
                 <div class="project-summary-card">
                   <div class="project-summary-face project-summary-face-front">
                     <div class="project-summary-content">
@@ -447,6 +510,141 @@
                   <span class="sr-only" data-i18n="pages.projects.flip"></span>
                 </button>
               </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-shell section project-showcase project-showcase-secondary">
+        <div class="container page-shell-inner">
+          <div class="project-device-stage">
+            <div class="project-showcase-layout project-showcase-layout-reversed">
+              <article class="project-summary reveal" aria-labelledby="project-dfa-title">
+                <div class="project-summary-card">
+                  <div class="project-summary-face project-summary-face-front">
+                    <div class="project-summary-content">
+                      <p class="project-summary-tag" data-i18n="pages.projects.dfa.tag"></p>
+                      <div class="project-summary-copy">
+                        <h2 id="project-dfa-title" data-i18n="pages.projects.dfa.title"></h2>
+                        <p data-i18n="pages.projects.dfa.text"></p>
+                      </div>
+                      <div class="project-summary-meta">
+                        <span data-i18n="pages.projects.dfa.meta"></span>
+                        <a
+                          class="project-summary-link"
+                          href="https://dfa.fablab.hr/"
+                          target="_blank"
+                          rel="noreferrer"
+                          data-i18n="pages.projects.dfa.link"
+                        ></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="project-summary-face project-summary-face-back" aria-hidden="true">
+                    <div class="project-summary-content">
+                      <p class="project-summary-tag" data-i18n="pages.projects.dfa.backTag"></p>
+                      <div class="project-summary-copy">
+                        <h2 data-i18n="pages.projects.dfa.backTitle"></h2>
+                        <p data-i18n="pages.projects.dfa.backText"></p>
+                      </div>
+                      <div class="project-summary-meta">
+                        <span data-i18n="pages.projects.dfa.backMeta"></span>
+                        <a
+                          class="project-summary-link"
+                          href="https://dfa.fablab.hr/"
+                          target="_blank"
+                          rel="noreferrer"
+                          data-i18n="pages.projects.dfa.link"
+                        ></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button class="project-summary-flip-trigger" type="button" aria-pressed="false">
+                  <span class="project-summary-flip-rail" aria-hidden="true"></span>
+                  <span class="sr-only" data-i18n="pages.projects.flip"></span>
+                </button>
+              </article>
+              <div class="project-laptop-stage reveal">
+                <div class="project-laptop project-laptop-dfa" aria-label="Designing the Future Academy desktop website preview">
+                  <div class="project-laptop-screen project-laptop-screen-static" tabindex="0" aria-label="Scrollable Designing the Future Academy desktop website preview">
+                    <div class="project-almagea-page">
+                      <img
+                        class="project-almagea-screenshot"
+                        src="assets/dfa/dfa_screen.jpg"
+                        alt=""
+                        width="1902"
+                        height="5322"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                  <img
+                    class="project-laptop-frame"
+                    src="assets/images/laptop.png"
+                    alt="Laptop mockup displaying the Designing the Future Academy website"
+                    width="1000"
+                    height="600"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-shell section project-showcase">
+        <div class="container page-shell-inner">
+          <div class="project-device-stage">
+            <div class="project-showcase-banner">
+              <div class="project-reservation-row project-reservation-row-no-flip">
+                <aside class="project-reservation-panel reveal" aria-label="Project timeline live preview">
+                  <div class="project-reservation-panel-card">
+                    <div class="project-reservation-panel-face project-reservation-panel-face-front">
+                      <div class="project-reservation-panel-content">
+                        <div class="project-reservation-panel-frame project-reservation-panel-frame-live" aria-hidden="true">
+                          <iframe
+                            class="project-reservation-live-embed"
+                            data-reservation-schedule-frame
+                            src="assets/ripple/dist/ripple-hosting/wp-partner-overview.html"
+                            title="Project timeline partner overview demo"
+                            loading="lazy"
+                            scrolling="yes"
+                          ></iframe>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="project-reservation-panel-trigger" type="button" aria-expanded="false">
+                    <span class="project-reservation-panel-rail" aria-hidden="true"></span>
+                    <span class="sr-only" data-i18n="pages.projects.ripple.panelToggle"></span>
+                  </button>
+                </aside>
+
+                <article
+                  class="project-summary project-summary-wide project-summary-reservation-main reveal"
+                  aria-labelledby="project-reservation-title-copy"
+                >
+                  <div class="project-summary-card">
+                    <div class="project-summary-face project-summary-face-front">
+                      <div class="project-summary-content">
+                        <p class="project-summary-tag" data-i18n="pages.projects.ripple.tag"></p>
+                        <div class="project-summary-copy">
+                          <h2 id="project-reservation-title-copy" data-i18n="pages.projects.ripple.title"></h2>
+                          <p data-i18n="pages.projects.ripple.text"></p>
+                        </div>
+                        <div class="project-summary-meta">
+                          <span data-i18n="pages.projects.ripple.meta"></span>
+                        </div>
+                      </div>
+                      <span class="project-summary-glyph project-summary-glyph-dashboard" aria-hidden="true"></span>
+                    </div>
+                  </div>
+                  <button class="project-reservation-main-trigger" type="button" aria-expanded="true">
+                    <span class="sr-only" data-i18n="pages.projects.ripple.mainToggle"></span>
+                  </button>
+                </article>
+              </div>
             </div>
           </div>
         </div>
@@ -515,7 +713,7 @@
                   </div>
                   <img
                     class="project-laptop-frame"
-                    src="assets/laptop.png"
+                    src="assets/images/laptop.png"
                     alt="Laptop mockup displaying the Keep Going website"
                     width="1000"
                     height="600"
@@ -533,13 +731,14 @@
       <div class="container footer-inner">
         <div class="footer-signature">
           <a class="footer-brand" href="#top" aria-label="Etherr">
-            <img src="assets/logo.png" alt="Etherr logo" width="28" height="28" />
+            <img src="assets/images/logo.png" alt="Etherr logo" width="28" height="28" />
           </a>
           <p data-footer-copy></p>
         </div>
       </div>
     </footer>
 
+    <script src="shared-header.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

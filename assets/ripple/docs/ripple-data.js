@@ -1,0 +1,1128 @@
+(function initRippleData(global) {
+  "use strict";
+
+  const STORAGE_KEY = "ripple_project_data_v1";
+  const MONTH_MIN = 1;
+  const MONTH_MAX = 48;
+
+  const STATUS_VALUES = [
+    "not_started",
+    "in_progress",
+    "at_risk",
+    "blocked",
+    "done"
+  ];
+
+  const DEFAULT_DATA = {
+    meta: {
+      project: "RIPPLE",
+      months: 48,
+      updatedAt: null
+    },
+    wps: [
+      {
+        id: "WP1",
+        title: "Citizen Participation & Social Innovation",
+        lead: "Lichen",
+        total: 90,
+        startMonth: 1,
+        endMonth: 36,
+        status: "not_started",
+        description: "Build participatory foundations with municipalities, schools, NGOs, citizens, and local ecosystems."
+      },
+      {
+        id: "WP2",
+        title: "Co-Design Circular Solutions & Open-Source Tools",
+        lead: "TransfoLAB",
+        total: 94,
+        startMonth: 1,
+        endMonth: 30,
+        status: "not_started",
+        description: "Identify, co-design, prototype, and operationalize low-cost/open-source prevention, collection, and circular transformation tools."
+      },
+      {
+        id: "WP3",
+        title: "Sustainability Education Programs",
+        lead: "CoLab",
+        total: 102,
+        startMonth: 1,
+        endMonth: 48,
+        status: "not_started",
+        description: "Build education and training modules for municipalities, schools, and communities, then iterate through pilot feedback."
+      },
+      {
+        id: "WP4",
+        title: "Toolbox & Replication Strategies",
+        lead: "UZAF",
+        total: 121,
+        startMonth: 1,
+        endMonth: 48,
+        status: "not_started",
+        description: "Consolidate project methods/tools into a practical toolbox and replication framework for public authorities and stakeholders."
+      },
+      {
+        id: "WP5",
+        title: "Digital Monitoring Tools & Open Data Platform",
+        lead: "ICCS",
+        total: 121,
+        startMonth: 6,
+        endMonth: 48,
+        status: "not_started",
+        description: "Deliver monitoring dashboards, open platform interoperability, and impact measurement from baseline to endline."
+      },
+      {
+        id: "WP6",
+        title: "Local Pilot Programs",
+        lead: "Commonspace",
+        total: 162,
+        startMonth: 12,
+        endMonth: 48,
+        status: "not_started",
+        description: "Demonstrate and validate interventions in Mediterranean pilot contexts under real operating conditions."
+      },
+      {
+        id: "WP7",
+        title: "Communication, Dissemination & Exploitation",
+        lead: "FLZG",
+        total: 113,
+        startMonth: 1,
+        endMonth: 48,
+        status: "not_started",
+        description: "Ensure visibility, uptake, replication, exploitation, and policy translation of results."
+      },
+      {
+        id: "WP8",
+        title: "Coordination & Governance",
+        lead: "UZAF",
+        total: 61,
+        startMonth: 1,
+        endMonth: 48,
+        status: "not_started",
+        description: "Project-wide governance, quality/risk control, ethics/data compliance, and strategic alignment with Mission Ocean."
+      }
+    ],
+    partners: [
+      { id: "UZAF", name: "UZAF", long: "University of Zagreb Faculty of Architecture", group: "TIP", pm: [5, 5, 8, 15, 4, 4, 16, 21] },
+      { id: "CoLab", name: "CoLab House", long: "CoLab House", group: "TEP", pm: [6, 12, 16, 9, 7, 14, 6, 2] },
+      { id: "Commonspace", name: "Commonspace", long: "Commonspace", group: "TEP", pm: [8, 10, 5, 5, 5, 12, 5, 2] },
+      { id: "CSIC", name: "CSIC", long: "Spanish National Research Council", group: "TIP", pm: [4, 0, 6, 8, 23, 4, 2, 2] },
+      { id: "KYVELI", name: "KYVELI", long: "KYVELI Single Member S.A.", group: "TEP", pm: [11, 7, 7, 8, 10, 26, 12, 4] },
+      { id: "ICCS", name: "ICCS", long: "Institute of Communication and Computer Systems", group: "TIP", pm: [0, 0, 10, 6, 25, 3, 2, 2] },
+      { id: "DECODE", name: "DECODE", long: "DECODE I.K.E", group: "TIP", pm: [3, 6, 8, 6, 2, 12, 4, 2] },
+      { id: "TransfoLAB", name: "TransfoLAB BCN", long: "TransfoLAB BCN", group: "TIP", pm: [3, 14, 12, 9, 2, 17, 8, 4] },
+      { id: "TechnAI", name: "TechnAI", long: "TechnAI Technology Culture and Society", group: "TIP", pm: [3, 0, 2, 6, 16, 2, 2, 2] },
+      { id: "FLZG", name: "FabLab ZG", long: "FabLab Zagreb", group: "TIP", pm: [5, 11, 10, 8, 0, 12, 19, 4] },
+      { id: "Lichen", name: "Lichen", long: "Associacio Lichen Innovacion Social", group: "TEP", pm: [22, 2, 0, 9, 0, 4, 4, 2] },
+      { id: "DUNEA", name: "DUNEA", long: "Regional Agency DUNEA", group: "TEP", pm: [8, 7, 6, 7, 8, 24, 8, 4] },
+      { id: "IEEI", name: "IEEI", long: "Institute of Entrepreneurial Education and Innovation", group: "TIP", pm: [3, 10, 4, 9, 0, 0, 12, 2] },
+      { id: "ZTKDU", name: "ZTKDU", long: "Community of Technical Culture Dubrovnik-Neretva County", group: "TEP", pm: [4, 6, 0, 8, 12, 2, 4, 2] },
+      { id: "TeamLabs", name: "TeamLabs", long: "TeamLabs Barcelona", group: "TEP", pm: [3, 4, 6, 6, 5, 23, 6, 4] },
+      { id: "UNIDU", name: "UNIDU", long: "University of Dubrovnik", group: "TIP", pm: [2, 0, 2, 2, 2, 3, 3, 2] }
+    ],
+    tasks: [
+      {
+        id: "T1.1",
+        wpId: "WP1",
+        label: "Stakeholder participation",
+        description: "Participatory diagnosis and engagement with pilot site stakeholders.",
+        lead: "Commonspace",
+        participants: ["CoLab", "Lichen", "TransfoLAB", "IEEI", "UNIDU", "DUNEA"],
+        startMonth: 1,
+        endMonth: 12,
+        status: "not_started"
+      },
+      {
+        id: "T1.2",
+        wpId: "WP1",
+        label: "Stakeholder collaboration framework",
+        description: "Define collaboration structures, inclusion rules, and operational governance.",
+        lead: "Lichen",
+        participants: ["ICCS", "Commonspace", "TechnAI", "IEEI", "ZTKDU"],
+        startMonth: 3,
+        endMonth: 12,
+        status: "not_started"
+      },
+      {
+        id: "T1.3",
+        wpId: "WP1",
+        label: "Citizen engagement strategies",
+        description: "Run citizen science protocols, awareness campaigns, and engagement tactics.",
+        lead: "Lichen",
+        participants: ["CoLab", "Commonspace", "TransfoLAB", "KYVELI", "DUNEA", "TeamLabs", "FLZG", "ZTKDU", "UNIDU"],
+        startMonth: 6,
+        endMonth: 36,
+        status: "not_started"
+      },
+      {
+        id: "T2.1",
+        wpId: "WP2",
+        label: "Mapping existing open-source solutions",
+        description: "Screen existing low-tech/open-source solutions for project relevance.",
+        lead: "CoLab",
+        participants: ["TransfoLAB", "DECODE", "FLZG", "TeamLabs"],
+        startMonth: 1,
+        endMonth: 12,
+        status: "not_started"
+      },
+      {
+        id: "T2.2",
+        wpId: "WP2",
+        label: "Co-design sessions in makerspaces/fab-labs",
+        description: "Facilitate collaborative design workshops with stakeholders and makerspaces.",
+        lead: "TransfoLAB",
+        participants: ["CoLab", "Commonspace", "FLZG", "ZTKDU", "TeamLabs"],
+        startMonth: 6,
+        endMonth: 18,
+        status: "not_started"
+      },
+      {
+        id: "T2.3",
+        wpId: "WP2",
+        label: "Prototyping and pilot testing",
+        description: "Build and test selected open-source prototypes under pilot conditions.",
+        lead: "FLZG",
+        participants: ["TransfoLAB", "CoLab", "DECODE", "ZTKDU", "TeamLabs"],
+        startMonth: 6,
+        endMonth: 18,
+        status: "not_started"
+      },
+      {
+        id: "T2.4",
+        wpId: "WP2",
+        label: "Circular transformation pilots",
+        description: "Pilot circular business and transformation actions with local actors.",
+        lead: "IEEI",
+        participants: ["CoLab", "Commonspace", "Lichen", "TransfoLAB", "ZTKDU", "TeamLabs"],
+        startMonth: 12,
+        endMonth: 24,
+        status: "not_started"
+      },
+      {
+        id: "T2.5",
+        wpId: "WP2",
+        label: "Integration with removal technologies and procurement templates",
+        description: "Prepare integration pathways and procurement-ready templates.",
+        lead: "TransfoLAB",
+        participants: ["CoLab", "KYVELI", "TeamLabs", "DUNEA", "ZTKDU", "FLZG"],
+        startMonth: 12,
+        endMonth: 30,
+        status: "not_started"
+      },
+      {
+        id: "T3.1",
+        wpId: "WP3",
+        label: "Education framework design",
+        description: "Define the structure and learning outcomes for sustainability training.",
+        lead: "CoLab",
+        participants: ["TransfoLAB", "DECODE", "IEEI"],
+        startMonth: 1,
+        endMonth: 12,
+        status: "not_started"
+      },
+      {
+        id: "T3.2",
+        wpId: "WP3",
+        label: "Development of training modules",
+        description: "Create and package training modules for core target groups.",
+        lead: "DECODE",
+        participants: ["CoLab", "TransfoLAB", "CSIC", "ICCS", "TeamLabs"],
+        startMonth: 6,
+        endMonth: 18,
+        status: "not_started"
+      },
+      {
+        id: "T3.3",
+        wpId: "WP3",
+        label: "Evaluation and iteration of education programs",
+        description: "Iterate education modules using pilot evidence and evaluation feedback.",
+        lead: "TransfoLAB",
+        participants: ["CoLab", "DECODE", "IEEI", "UNIDU", "UZAF", "TeamLabs"],
+        startMonth: 18,
+        endMonth: 48,
+        status: "not_started"
+      },
+      {
+        id: "T4.1",
+        wpId: "WP4",
+        label: "Toolbox architecture and content design",
+        description: "Design toolbox structure and content model for practical use.",
+        lead: "CoLab",
+        participants: ["TransfoLAB", "Lichen", "IEEI"],
+        startMonth: 1,
+        endMonth: 18,
+        status: "not_started"
+      },
+      {
+        id: "T4.2",
+        wpId: "WP4",
+        label: "Compilation of guides, playbooks and methodologies",
+        description: "Compile validated methods, guides, and operational playbooks.",
+        lead: "UZAF",
+        participants: ["DECODE", "CoLab", "CSIC", "IEEI", "UNIDU"],
+        startMonth: 6,
+        endMonth: 18,
+        status: "not_started"
+      },
+      {
+        id: "T4.3",
+        wpId: "WP4",
+        label: "Replication and scalability framework",
+        description: "Define replication pathways and scale-up framework for wider uptake.",
+        lead: "UZAF",
+        participants: ["Commonspace", "KYVELI", "DUNEA", "FLZG"],
+        startMonth: 36,
+        endMonth: 48,
+        status: "not_started"
+      },
+      {
+        id: "T4.4",
+        wpId: "WP4",
+        label: "Integration of digital tools and dashboards",
+        description: "Integrate decision support dashboards into the toolbox ecosystem.",
+        lead: "ICCS",
+        participants: ["TechnAI", "ZTKDU"],
+        startMonth: 18,
+        endMonth: 42,
+        status: "not_started"
+      },
+      {
+        id: "T4.5",
+        wpId: "WP4",
+        label: "Toolbox validation with stakeholders",
+        description: "Validate toolbox usability and relevance with external stakeholders.",
+        lead: "Commonspace",
+        participants: ["CoLab", "Lichen", "TransfoLAB", "ICCS", "FLZG", "IEEI"],
+        startMonth: 30,
+        endMonth: 48,
+        status: "not_started"
+      },
+      {
+        id: "T5.1",
+        wpId: "WP5",
+        label: "Digital tools and dashboards",
+        description: "Develop and deploy dashboards and core digital monitoring services.",
+        lead: "ICCS",
+        participants: ["TechnAI", "ZTKDU"],
+        startMonth: 6,
+        endMonth: 36,
+        status: "not_started"
+      },
+      {
+        id: "T5.2",
+        wpId: "WP5",
+        label: "Digital platform and toolbox integration",
+        description: "Connect platform capabilities with toolbox processes and outputs.",
+        lead: "ICCS",
+        participants: ["TechnAI", "ZTKDU"],
+        startMonth: 9,
+        endMonth: 42,
+        status: "not_started"
+      },
+      {
+        id: "T5.3",
+        wpId: "WP5",
+        label: "Monitoring protocols and baseline assessment",
+        description: "Establish baseline indicators and protocolized monitoring setup.",
+        lead: "CSIC",
+        participants: ["TransfoLAB", "CoLab", "KYVELI", "TeamLabs", "ZTKDU", "DUNEA", "UNIDU"],
+        startMonth: 6,
+        endMonth: 24,
+        status: "not_started"
+      },
+      {
+        id: "T5.4",
+        wpId: "WP5",
+        label: "Endline monitoring and impact validation",
+        description: "Complete endline monitoring and quantify intervention impact.",
+        lead: "CSIC",
+        participants: ["TransfoLAB", "CoLab", "KYVELI", "TeamLabs", "ZTKDU", "DUNEA", "UNIDU"],
+        startMonth: 23,
+        endMonth: 45,
+        status: "not_started"
+      },
+      {
+        id: "T6.1",
+        wpId: "WP6",
+        label: "Pilot preparation and site selection",
+        description: "Prepare local governance and select pilot deployment sites.",
+        lead: "TeamLabs",
+        participants: ["Commonspace", "TransfoLAB", "KYVELI", "DUNEA", "UNIDU"],
+        startMonth: 18,
+        endMonth: 24,
+        status: "not_started"
+      },
+      {
+        id: "T6.2",
+        wpId: "WP6",
+        label: "Deployment of removal technologies",
+        description: "Deploy and validate removal technologies in pilot contexts.",
+        lead: "FLZG",
+        participants: ["TransfoLAB", "DECODE", "KYVELI", "TeamLabs", "DUNEA"],
+        startMonth: 24,
+        endMonth: 36,
+        status: "not_started"
+      },
+      {
+        id: "T6.3",
+        wpId: "WP6",
+        label: "Implementation of prevention actions",
+        description: "Run prevention actions including campaigns and waste interventions.",
+        lead: "KYVELI",
+        participants: ["Commonspace", "Lichen", "TeamLabs", "DUNEA"],
+        startMonth: 24,
+        endMonth: 42,
+        status: "not_started"
+      },
+      {
+        id: "T6.4",
+        wpId: "WP6",
+        label: "Circular transformation and social entrepreneurship initiatives",
+        description: "Implement circular and entrepreneurship pilots based on local needs.",
+        lead: "TransfoLAB",
+        participants: ["FLZG", "CoLab", "DECODE", "TeamLabs", "KYVELI", "DUNEA"],
+        startMonth: 18,
+        endMonth: 48,
+        status: "not_started"
+      },
+      {
+        id: "T7.1",
+        wpId: "WP7",
+        label: "Communication strategy and branding",
+        description: "Maintain communication strategy, identity, and branding assets.",
+        lead: "FLZG",
+        participants: "ALL",
+        startMonth: 1,
+        endMonth: 48,
+        status: "not_started"
+      },
+      {
+        id: "T7.2",
+        wpId: "WP7",
+        label: "Dissemination to science, industry, policy and civil society",
+        description: "Deliver dissemination actions to all core stakeholder segments.",
+        lead: "TechnAI",
+        participants: "ALL",
+        startMonth: 1,
+        endMonth: 48,
+        status: "not_started"
+      },
+      {
+        id: "T7.3",
+        wpId: "WP7",
+        label: "Exploitation strategy",
+        description: "Develop exploitation pathways and value realization strategy.",
+        lead: "UZAF",
+        participants: "ALL",
+        startMonth: 1,
+        endMonth: 48,
+        status: "not_started"
+      },
+      {
+        id: "T7.4",
+        wpId: "WP7",
+        label: "Associated Regions scheme",
+        description: "Run open call and support replication with associated regions.",
+        lead: "UZAF",
+        participants: "ALL",
+        startMonth: 9,
+        endMonth: 48,
+        status: "not_started"
+      },
+      {
+        id: "T8.1",
+        wpId: "WP8",
+        label: "Overall management and coordination",
+        description: "Run project management, reporting, and daily coordination.",
+        lead: "UZAF",
+        participants: "ALL",
+        startMonth: 1,
+        endMonth: 48,
+        status: "not_started"
+      },
+      {
+        id: "T8.2",
+        wpId: "WP8",
+        label: "Kick-off and regular project meetings",
+        description: "Coordinate project meetings and steering structures.",
+        lead: "UZAF",
+        participants: "ALL",
+        startMonth: 1,
+        endMonth: 48,
+        status: "not_started"
+      },
+      {
+        id: "T8.3",
+        wpId: "WP8",
+        label: "Risk and quality management",
+        description: "Operate risk monitoring and quality assurance processes.",
+        lead: "UZAF",
+        participants: "ALL",
+        startMonth: 1,
+        endMonth: 48,
+        status: "not_started"
+      },
+      {
+        id: "T8.4",
+        wpId: "WP8",
+        label: "Data management and ethics",
+        description: "Ensure FAIR/GDPR-aligned data governance and ethics compliance.",
+        lead: "UZAF",
+        participants: ["ICCS"],
+        startMonth: 1,
+        endMonth: 48,
+        status: "not_started"
+      },
+      {
+        id: "T8.5",
+        wpId: "WP8",
+        label: "Strategic coordination with Mission Ocean",
+        description: "Align with Mission Ocean and linked EU initiatives.",
+        lead: "UZAF",
+        participants: "ALL",
+        startMonth: 1,
+        endMonth: 48,
+        status: "not_started"
+      }
+    ],
+    deliverables: [
+      {
+        id: "D1.1",
+        wpId: "WP1",
+        title: "Participatory Diagnosis Report",
+        dueMonths: [12],
+        status: "not_started",
+        description: "Pilot-level participatory findings."
+      },
+      {
+        id: "D1.2",
+        wpId: "WP1",
+        title: "Stakeholder Collaboration Framework",
+        dueMonths: [12],
+        status: "not_started",
+        description: "Governance and participation framework."
+      },
+      {
+        id: "D1.3",
+        wpId: "WP1",
+        title: "Citizen Engagement Strategies and Implementation Report",
+        dueMonths: [18],
+        status: "not_started",
+        description: "Citizen science and engagement package."
+      },
+      {
+        id: "D2.1",
+        wpId: "WP2",
+        title: "Technical Solutions Overview and procurement framework",
+        dueMonths: [18],
+        status: "not_started",
+        description: "Mapping and framework for municipal uptake."
+      },
+      {
+        id: "D2.2",
+        wpId: "WP2",
+        title: "Technology Assessment and Prototyping Report",
+        dueMonths: [18],
+        status: "not_started",
+        description: "Co-design/prototype validation evidence."
+      },
+      {
+        id: "D3.1",
+        wpId: "WP3",
+        title: "Education and Training Modules",
+        dueMonths: [24],
+        status: "not_started",
+        description: "Education material package."
+      },
+      {
+        id: "D3.2",
+        wpId: "WP3",
+        title: "Evaluation of Education and Training Modules",
+        dueMonths: [48],
+        status: "not_started",
+        description: "End-cycle evaluation and refinement."
+      },
+      {
+        id: "D4.1",
+        wpId: "WP4",
+        title: "Toolbox compilation",
+        dueMonths: [24],
+        status: "not_started",
+        description: "First consolidated toolbox content."
+      },
+      {
+        id: "D4.2",
+        wpId: "WP4",
+        title: "Toolbox Validation report",
+        dueMonths: [48],
+        status: "not_started",
+        description: "Stakeholder validation of toolbox."
+      },
+      {
+        id: "D5.1",
+        wpId: "WP5",
+        title: "Digital tools and dashboard architecture specifications",
+        dueMonths: [12],
+        status: "not_started",
+        description: "Architecture and design baseline."
+      },
+      {
+        id: "D5.2",
+        wpId: "WP5",
+        title: "Final digital tools and dashboards",
+        dueMonths: [36],
+        status: "not_started",
+        description: "Validated predictive dashboards."
+      },
+      {
+        id: "D5.3",
+        wpId: "WP5",
+        title: "Platform architecture and interoperability plan",
+        dueMonths: [24],
+        status: "not_started",
+        description: "Interoperability with EU infrastructures."
+      },
+      {
+        id: "D5.4",
+        wpId: "WP5",
+        title: "Final Toolbox digital platform",
+        dueMonths: [48],
+        status: "not_started",
+        description: "Full operational platform."
+      },
+      {
+        id: "D5.5",
+        wpId: "WP5",
+        title: "Impact assessment report",
+        dueMonths: [48],
+        status: "not_started",
+        description: "Baseline-endline impact evidence."
+      },
+      {
+        id: "D6.1",
+        wpId: "WP6",
+        title: "Pilot site action plans",
+        dueMonths: [12],
+        status: "not_started",
+        description: "Site and implementation plans."
+      },
+      {
+        id: "D6.2",
+        wpId: "WP6",
+        title: "Pilot implementation and impact validation report",
+        dueMonths: [48],
+        status: "not_started",
+        description: "Consolidated pilot validation."
+      },
+      {
+        id: "D7.1",
+        wpId: "WP7",
+        title: "PDEC",
+        dueMonths: [6],
+        status: "not_started",
+        description: "Dissemination, exploitation, and communication plan."
+      },
+      {
+        id: "D7.2",
+        wpId: "WP7",
+        title: "Communication Toolkit",
+        dueMonths: [9],
+        status: "not_started",
+        description: "Branding and templates."
+      },
+      {
+        id: "D7.3",
+        wpId: "WP7",
+        title: "ARs Open Call Package",
+        dueMonths: [12],
+        status: "not_started",
+        description: "Associated Regions call package."
+      },
+      {
+        id: "D7.4",
+        wpId: "WP7",
+        title: "IP and Exploitation Manual",
+        dueMonths: [12],
+        status: "not_started",
+        description: "IP/ownership/exploitation guidance."
+      },
+      {
+        id: "D7.5",
+        wpId: "WP7",
+        title: "Exploitation, policy briefs and replication guidance",
+        dueMonths: [42],
+        status: "not_started",
+        description: "Policy and uptake package."
+      },
+      {
+        id: "D7.6",
+        wpId: "WP7",
+        title: "Final Dissemination and Exploitation Report",
+        dueMonths: [48],
+        status: "not_started",
+        description: "Final impact and uptake reporting."
+      },
+      {
+        id: "D8.1",
+        wpId: "WP8",
+        title: "Project management plan and timeline",
+        dueMonths: [2],
+        status: "not_started",
+        description: "Governance and reporting setup."
+      },
+      {
+        id: "D8.2",
+        wpId: "WP8",
+        title: "Quality Assurance and Risk Plan",
+        dueMonths: [3],
+        status: "not_started",
+        description: "Quality assurance and risk framework."
+      },
+      {
+        id: "D8.3",
+        wpId: "WP8",
+        title: "Data Management Plan (DMP)",
+        dueMonths: [6],
+        status: "not_started",
+        description: "FAIR data framework."
+      },
+      {
+        id: "D8.4",
+        wpId: "WP8",
+        title: "Administrative and financial reporting",
+        dueMonths: [12, 24, 36, 48],
+        status: "not_started",
+        description: "Periodic management reporting."
+      },
+      {
+        id: "D8.5",
+        wpId: "WP8",
+        title: "Final project report",
+        dueMonths: [48],
+        status: "not_started",
+        description: "Final consolidated report."
+      }
+    ],
+    milestones: [
+      {
+        id: "M1",
+        title: "Governance and quality framework established",
+        dueMonth: 3,
+        wpId: "WP8",
+        verification: "D8.1, D8.2, D8.3",
+        status: "not_started",
+        description: "Management structures and quality rules are active."
+      },
+      {
+        id: "M2",
+        title: "Communication and dissemination strategy operational",
+        dueMonth: 9,
+        wpId: "WP7",
+        verification: "D7.1, D7.2",
+        status: "not_started",
+        description: "Communication assets and campaign channels are live."
+      },
+      {
+        id: "M3",
+        title: "Citizen participation baseline completed",
+        dueMonth: 12,
+        wpId: "WP1",
+        verification: "D1.1, D1.2",
+        status: "not_started",
+        description: "Participation baseline and collaboration framework completed."
+      },
+      {
+        id: "M4",
+        title: "Digital tools architecture and pilot baselines validated",
+        dueMonth: 12,
+        wpId: "WP5",
+        verification: "D5.1, D6.1",
+        status: "not_started",
+        description: "Core architecture and site baselines approved."
+      },
+      {
+        id: "M5",
+        title: "Associated Regions open call launched",
+        dueMonth: 12,
+        wpId: "WP7",
+        verification: "D7.3",
+        status: "not_started",
+        description: "Open call package published and active."
+      },
+      {
+        id: "M6",
+        title: "Citizen engagement protocols operational",
+        dueMonth: 18,
+        wpId: "WP1",
+        verification: "D1.3",
+        status: "not_started",
+        description: "Citizen engagement actions are implemented in pilots."
+      },
+      {
+        id: "M7",
+        title: "Technical solutions mapped and prototyped",
+        dueMonth: 18,
+        wpId: "WP2",
+        verification: "D2.1, D2.2",
+        status: "not_started",
+        description: "Solution portfolio and prototypes validated."
+      },
+      {
+        id: "M8",
+        title: "Education modules available",
+        dueMonth: 24,
+        wpId: "WP3",
+        verification: "D3.1",
+        status: "not_started",
+        description: "Education package is available for target groups."
+      },
+      {
+        id: "M9",
+        title: "Toolbox first version compiled",
+        dueMonth: 24,
+        wpId: "WP4",
+        verification: "D4.1",
+        status: "not_started",
+        description: "First integrated toolbox release is published."
+      },
+      {
+        id: "M10",
+        title: "Interoperable platform and monitoring framework ready",
+        dueMonth: 24,
+        wpId: "WP5",
+        verification: "D5.3",
+        status: "not_started",
+        description: "Interoperable platform and monitoring framework are operational."
+      },
+      {
+        id: "M11",
+        title: "Dashboards and predictive tools operational",
+        dueMonth: 36,
+        wpId: "WP5",
+        verification: "D5.2",
+        status: "not_started",
+        description: "Predictive dashboards are deployed and in use."
+      },
+      {
+        id: "M12",
+        title: "Policy briefs and replication guidance prepared",
+        dueMonth: 42,
+        wpId: "WP7",
+        verification: "D7.5",
+        status: "not_started",
+        description: "Policy and replication documents are available."
+      },
+      {
+        id: "M13",
+        title: "Pilot implementation consolidated",
+        dueMonth: 48,
+        wpId: "WP6",
+        verification: "D6.2",
+        status: "not_started",
+        description: "Pilot results and validation evidence are consolidated."
+      },
+      {
+        id: "M14",
+        title: "Final toolbox and digital tools validated and published",
+        dueMonth: 48,
+        wpId: "WP5",
+        verification: "D3.2, D4.2, D5.4",
+        status: "not_started",
+        description: "Final integrated toolbox and digital platform released."
+      },
+      {
+        id: "M15",
+        title: "Project finalized and impact documented",
+        dueMonth: 48,
+        wpId: "WP8",
+        verification: "D7.6, D8.5",
+        status: "not_started",
+        description: "Final reporting and impact evidence completed."
+      }
+    ]
+  };
+
+  function clone(value) {
+    return JSON.parse(JSON.stringify(value));
+  }
+
+  function asString(value, fallback) {
+    if (typeof value === "string" && value.trim()) {
+      return value.trim();
+    }
+    return fallback;
+  }
+
+  function asNumber(value, fallback) {
+    const parsed = Number(value);
+    if (Number.isFinite(parsed)) {
+      return parsed;
+    }
+    return fallback;
+  }
+
+  function clampMonth(value, fallback) {
+    const numeric = Math.round(asNumber(value, fallback));
+    return Math.max(MONTH_MIN, Math.min(MONTH_MAX, numeric));
+  }
+
+  function normalizeStatus(value) {
+    return STATUS_VALUES.includes(value) ? value : "not_started";
+  }
+
+  function sanitizeId(value, fallback) {
+    return asString(value, fallback).replace(/\s+/g, "");
+  }
+
+  function uniqueNumbers(values) {
+    const seen = new Set();
+    const months = [];
+    for (const value of values) {
+      const month = clampMonth(value, MONTH_MIN);
+      if (!seen.has(month)) {
+        seen.add(month);
+        months.push(month);
+      }
+    }
+    months.sort((a, b) => a - b);
+    return months;
+  }
+
+  function normalizeWp(wp, index) {
+    const fallback = DEFAULT_DATA.wps[index] || DEFAULT_DATA.wps[0];
+    const startMonth = clampMonth(wp && wp.startMonth, fallback.startMonth);
+    const endMonth = clampMonth(wp && wp.endMonth, fallback.endMonth);
+    return {
+      id: sanitizeId(wp && wp.id, fallback.id),
+      title: asString(wp && wp.title, fallback.title),
+      lead: sanitizeId(wp && wp.lead, fallback.lead),
+      total: Math.max(0, Math.round(asNumber(wp && wp.total, fallback.total))),
+      startMonth: Math.min(startMonth, endMonth),
+      endMonth: Math.max(startMonth, endMonth),
+      status: normalizeStatus(wp && wp.status),
+      description: asString(wp && wp.description, fallback.description)
+    };
+  }
+
+  function normalizePartner(partner, wpCount, index) {
+    const fallback = DEFAULT_DATA.partners[index] || DEFAULT_DATA.partners[0];
+    const normalized = {
+      id: sanitizeId(partner && partner.id, fallback.id),
+      name: asString(partner && partner.name, fallback.name),
+      long: asString(partner && partner.long, fallback.long),
+      group: asString(partner && partner.group, fallback.group),
+      pm: []
+    };
+
+    const inputPm = Array.isArray(partner && partner.pm) ? partner.pm : fallback.pm;
+    for (let i = 0; i < wpCount; i += 1) {
+      normalized.pm.push(Math.max(0, Math.round(asNumber(inputPm[i], 0))));
+    }
+
+    return normalized;
+  }
+
+  function normalizeParticipants(participants) {
+    if (participants === "ALL") {
+      return "ALL";
+    }
+    if (!Array.isArray(participants)) {
+      return [];
+    }
+
+    const set = new Set();
+    for (const id of participants) {
+      const clean = sanitizeId(id, "");
+      if (clean) {
+        set.add(clean);
+      }
+    }
+    return Array.from(set);
+  }
+
+  function normalizeTask(task, index) {
+    const fallback = DEFAULT_DATA.tasks[index] || DEFAULT_DATA.tasks[0];
+    const startMonth = clampMonth(task && task.startMonth, fallback.startMonth);
+    const endMonth = clampMonth(task && task.endMonth, fallback.endMonth);
+
+    return {
+      id: sanitizeId(task && task.id, fallback.id),
+      wpId: sanitizeId(task && task.wpId, fallback.wpId),
+      label: asString(task && task.label, fallback.label),
+      description: asString(task && task.description, fallback.description),
+      lead: sanitizeId(task && task.lead, fallback.lead),
+      participants: normalizeParticipants(task && task.participants),
+      startMonth: Math.min(startMonth, endMonth),
+      endMonth: Math.max(startMonth, endMonth),
+      status: normalizeStatus(task && task.status)
+    };
+  }
+
+  function normalizeDeliverable(deliverable, index) {
+    const fallback = DEFAULT_DATA.deliverables[index] || DEFAULT_DATA.deliverables[0];
+    const dueMonthsInput = Array.isArray(deliverable && deliverable.dueMonths)
+      ? deliverable.dueMonths
+      : fallback.dueMonths;
+
+    return {
+      id: sanitizeId(deliverable && deliverable.id, fallback.id),
+      wpId: sanitizeId(deliverable && deliverable.wpId, fallback.wpId),
+      title: asString(deliverable && deliverable.title, fallback.title),
+      dueMonths: uniqueNumbers(dueMonthsInput),
+      status: normalizeStatus(deliverable && deliverable.status),
+      description: asString(deliverable && deliverable.description, fallback.description)
+    };
+  }
+
+  function normalizeMilestone(milestone, index) {
+    const fallback = DEFAULT_DATA.milestones[index] || DEFAULT_DATA.milestones[0];
+    return {
+      id: sanitizeId(milestone && milestone.id, fallback.id),
+      title: asString(milestone && milestone.title, fallback.title),
+      dueMonth: clampMonth(milestone && milestone.dueMonth, fallback.dueMonth),
+      wpId: sanitizeId(milestone && milestone.wpId, fallback.wpId),
+      verification: asString(milestone && milestone.verification, fallback.verification),
+      status: normalizeStatus(milestone && milestone.status),
+      description: asString(milestone && milestone.description, fallback.description)
+    };
+  }
+
+  function findByIdOrIndex(items, id, index) {
+    if (!Array.isArray(items)) {
+      return null;
+    }
+    const found = items.find((item) => sanitizeId(item && item.id, "") === id);
+    if (found) {
+      return found;
+    }
+    return items[index] || null;
+  }
+
+  // Keep all proposal-derived structure immutable; only runtime status/description fields are editable.
+  function normalizeData(input) {
+    const base = clone(DEFAULT_DATA);
+    if (!input || typeof input !== "object") {
+      return base;
+    }
+
+    if (input.meta && typeof input.meta === "object") {
+      base.meta.updatedAt = typeof input.meta.updatedAt === "string" ? input.meta.updatedAt : null;
+    }
+
+    for (let i = 0; i < base.wps.length; i += 1) {
+      const fixed = base.wps[i];
+      const fromInput = findByIdOrIndex(input.wps, fixed.id, i);
+      if (!fromInput) {
+        continue;
+      }
+      fixed.status = normalizeStatus(fromInput.status);
+      fixed.description = asString(fromInput.description, fixed.description);
+    }
+
+    for (let i = 0; i < base.tasks.length; i += 1) {
+      const fixed = base.tasks[i];
+      const fromInput = findByIdOrIndex(input.tasks, fixed.id, i);
+      if (!fromInput) {
+        continue;
+      }
+      fixed.status = normalizeStatus(fromInput.status);
+      fixed.description = asString(fromInput.description, fixed.description);
+    }
+
+    for (let i = 0; i < base.deliverables.length; i += 1) {
+      const fixed = base.deliverables[i];
+      const fromInput = findByIdOrIndex(input.deliverables, fixed.id, i);
+      if (!fromInput) {
+        continue;
+      }
+      fixed.status = normalizeStatus(fromInput.status);
+      fixed.description = asString(fromInput.description, fixed.description);
+    }
+
+    for (let i = 0; i < base.milestones.length; i += 1) {
+      const fixed = base.milestones[i];
+      const fromInput = findByIdOrIndex(input.milestones, fixed.id, i);
+      if (!fromInput) {
+        continue;
+      }
+      fixed.status = normalizeStatus(fromInput.status);
+      fixed.description = asString(fromInput.description, fixed.description);
+    }
+
+    return base;
+  }
+
+  function toTaskMap(tasks, wps) {
+    const map = {};
+    for (const wp of wps) {
+      map[wp.id] = [];
+    }
+    for (const task of tasks) {
+      if (!map[task.wpId]) {
+        map[task.wpId] = [];
+      }
+      map[task.wpId].push({
+        id: task.id,
+        label: task.label,
+        description: task.description,
+        lead: task.lead,
+        participants: task.participants,
+        startMonth: task.startMonth,
+        endMonth: task.endMonth,
+        status: task.status
+      });
+    }
+
+    for (const wpId of Object.keys(map)) {
+      map[wpId].sort((a, b) => a.id.localeCompare(b.id, undefined, { numeric: true }));
+    }
+
+    return map;
+  }
+
+  function load() {
+    try {
+      const raw = global.localStorage.getItem(STORAGE_KEY);
+      if (!raw) {
+        return { data: clone(DEFAULT_DATA), source: "default" };
+      }
+      const parsed = JSON.parse(raw);
+      return { data: normalizeData(parsed), source: "local" };
+    } catch (error) {
+      console.warn("Failed to read local data, falling back to defaults", error);
+      return { data: clone(DEFAULT_DATA), source: "default" };
+    }
+  }
+
+  function save(data) {
+    const normalized = normalizeData(data);
+    normalized.meta.updatedAt = new Date().toISOString();
+    global.localStorage.setItem(STORAGE_KEY, JSON.stringify(normalized));
+    return clone(normalized);
+  }
+
+  function clear() {
+    global.localStorage.removeItem(STORAGE_KEY);
+  }
+
+  function exportText(data) {
+    return JSON.stringify(normalizeData(data), null, 2);
+  }
+
+  function importText(text) {
+    const parsed = JSON.parse(text);
+    return normalizeData(parsed);
+  }
+
+  global.RippleData = {
+    STORAGE_KEY,
+    STATUS_VALUES,
+    DEFAULT_DATA: clone(DEFAULT_DATA),
+    load,
+    save,
+    clear,
+    normalizeData,
+    toTaskMap,
+    exportText,
+    importText
+  };
+})(window);

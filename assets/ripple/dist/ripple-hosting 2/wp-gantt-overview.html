@@ -1,0 +1,763 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RIPPLE - Gantt Overview (M1-M48)</title>
+  <style>
+    :root {
+      --bg: #eef4f7;
+      --panel: #ffffff;
+      --line: #d7e3e9;
+      --ink: #123541;
+      --muted: #4c6873;
+      --accent: #0e6987;
+      --accent-deep: #12495f;
+      --track: #f7fbfd;
+      --ns: #9fb0b9;
+      --ip: #2f7f9c;
+      --risk: #cc7b2d;
+      --blocked: #b64545;
+      --done: #2f8d5d;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "IBM Plex Sans", "Source Sans 3", "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 8%, #dceef7 0%, transparent 34%),
+        radial-gradient(circle at 88% 88%, #e3f3e8 0%, transparent 38%),
+        var(--bg);
+    }
+
+    .wrap {
+      max-width: 1700px;
+      margin: 0 auto;
+      padding: 20px 16px 34px;
+    }
+
+    .hero {
+      border-radius: 16px;
+      background: linear-gradient(128deg, #0d5f7c 0%, #11495f 100%);
+      color: #f1faff;
+      padding: 18px 20px;
+      box-shadow: 0 14px 26px rgba(16, 60, 76, 0.22);
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      min-height: 126px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.34rem;
+      letter-spacing: 0.2px;
+    }
+
+    .hero p {
+      margin: 8px 0 0;
+      color: #dcf2fb;
+      font-size: 0.9rem;
+      max-width: 760px;
+      line-height: 1.45;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .hero-links a {
+      color: #f0fbff;
+      text-decoration: none;
+      border: 1px solid rgba(240, 251, 255, 0.35);
+      border-radius: 999px;
+      padding: 6px 11px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .controls,
+    .legend,
+    .stats,
+    .panel {
+      margin-top: 14px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      box-shadow: 0 9px 18px rgba(21, 60, 75, 0.08);
+    }
+
+    .controls {
+      padding: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .control-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    label {
+      font-size: 0.76rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.25px;
+      font-weight: 700;
+    }
+
+    select,
+    input[type="checkbox"] {
+      accent-color: var(--accent);
+    }
+
+    select {
+      border: 1px solid #b8cfd9;
+      border-radius: 8px;
+      padding: 6px 9px;
+      min-width: 220px;
+      font-size: 0.82rem;
+      color: #113b4a;
+      background: #fcfeff;
+      font-family: inherit;
+    }
+
+    .source-chip {
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 0.74rem;
+      border: 1px solid #c7d9e0;
+      background: #edf5f9;
+      color: #1a4f62;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .legend {
+      padding: 10px 12px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      background: #f3f8fb;
+      border: 1px solid #d2e1e8;
+      color: #295162;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      display: inline-block;
+    }
+
+    .dot.not_started { background: var(--ns); }
+    .dot.in_progress { background: var(--ip); }
+    .dot.at_risk { background: var(--risk); }
+    .dot.blocked { background: var(--blocked); }
+    .dot.done { background: var(--done); }
+    .dot.partner { background: #1f7a99; }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 8px;
+      padding: 10px;
+    }
+
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fbfeff;
+      padding: 8px 9px;
+    }
+
+    .stat .k {
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.2px;
+      font-weight: 700;
+    }
+
+    .stat .v {
+      margin-top: 3px;
+      font-size: 1.02rem;
+      color: #114558;
+      font-weight: 700;
+    }
+
+    .panel h2 {
+      margin: 0;
+      padding: 11px 14px 8px;
+      font-size: 1.02rem;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #fcfeff 0%, #f6fafc 100%);
+    }
+
+    .panel h2 small {
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-left: 8px;
+    }
+
+    .gantt-wrap {
+      overflow: auto;
+      max-height: 62vh;
+      scrollbar-gutter: stable;
+    }
+
+    .gantt-table {
+      min-width: 1560px;
+    }
+
+    .gantt-header,
+    .gantt-row {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .gantt-header {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: #f3f8fb;
+    }
+
+    .gantt-label {
+      padding: 8px 8px;
+      border-right: 1px solid var(--line);
+      background: #f9fcfe;
+      position: sticky;
+      left: 0;
+      z-index: 4;
+      min-height: 38px;
+    }
+
+    .gantt-header .gantt-label {
+      z-index: 6;
+      background: #edf5f9;
+    }
+
+    .label-id {
+      font-size: 0.74rem;
+      font-weight: 800;
+      color: #11495f;
+    }
+
+    .label-main {
+      margin-top: 2px;
+      font-size: 0.8rem;
+      color: #1d4a5b;
+      line-height: 1.3;
+    }
+
+    .label-meta {
+      margin-top: 2px;
+      font-size: 0.72rem;
+      color: #4e6771;
+      line-height: 1.3;
+    }
+
+    .status-pill {
+      display: inline-block;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      padding: 2px 7px;
+      font-size: 0.67rem;
+      font-weight: 700;
+      margin-left: 4px;
+      white-space: nowrap;
+    }
+
+    .status-pill.not_started { background: #ecf2f5; border-color: #cad8de; color: #4c6872; }
+    .status-pill.in_progress { background: #e2f3f9; border-color: #b8d8e4; color: #165972; }
+    .status-pill.at_risk { background: #fff1e2; border-color: #f1c994; color: #aa6219; }
+    .status-pill.blocked { background: #fdecee; border-color: #eeb8bc; color: #992f33; }
+    .status-pill.done { background: #e2f2e7; border-color: #b6ddc4; color: #2b7f53; }
+
+    .gantt-cells {
+      position: relative;
+      padding: 0;
+      min-height: 44px;
+      background: var(--track);
+      background-image: linear-gradient(to right, rgba(156, 180, 191, 0.42) 1px, transparent 1px);
+      background-size: calc(100% / 48) 100%;
+      background-position: left top;
+    }
+
+    .months {
+      display: grid;
+      grid-template-columns: repeat(48, minmax(0, 1fr));
+      gap: 0;
+      font-size: 0.62rem;
+      color: #58717c;
+      font-weight: 700;
+      letter-spacing: 0.15px;
+      height: 44px;
+    }
+
+    .months span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0;
+      border-right: 1px solid rgba(160, 183, 194, 0.28);
+    }
+
+    .months span.major {
+      background: #eaf3f8;
+      color: #355765;
+    }
+
+    .bar {
+      position: absolute;
+      top: 10px;
+      height: 22px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      padding: 2px 8px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #0f3b4a;
+    }
+
+    .bar.wp {
+      top: 8px;
+      height: 26px;
+      font-size: 0.72rem;
+      border-width: 1px;
+    }
+
+    .bar.not_started { background: #dee8ed; border-color: #bfced6; color: #3f5e6b; }
+    .bar.in_progress { background: #d8edf7; border-color: #9fc8da; color: #145770; }
+    .bar.at_risk { background: #ffe9d0; border-color: #e6bd85; color: #995312; }
+    .bar.blocked { background: #fbdde0; border-color: #e2a5ac; color: #8d232d; }
+    .bar.done { background: #dff1e4; border-color: #a6d1b5; color: #236844; }
+
+    .bar .role {
+      font-size: 0.62rem;
+      border-radius: 999px;
+      border: 1px solid rgba(16, 56, 70, 0.22);
+      background: rgba(255, 255, 255, 0.5);
+      padding: 1px 5px;
+      line-height: 1;
+    }
+
+    .wp-row .gantt-label {
+      background: #f1f7fa;
+    }
+
+    .task-row .gantt-label {
+      padding-left: 20px;
+      background: #fbfeff;
+    }
+
+    .partner-row .gantt-label {
+      background: #f8fcfe;
+    }
+
+    .partner-bar {
+      position: absolute;
+      top: 10px;
+      height: 22px;
+      border-radius: 999px;
+      border: 1px solid #99c1d1;
+      background: linear-gradient(90deg, #d8ecf4 0%, #bcdceb 100%);
+      color: #0f4d64;
+      font-size: 0.68rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      padding: 2px 8px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .empty-note {
+      padding: 10px 12px;
+      color: #4c6772;
+      font-size: 0.8rem;
+    }
+
+    .footer-note {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.77rem;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 1180px) {
+      .stats {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .gantt-header,
+      .gantt-row {
+        grid-template-columns: 270px 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .controls {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div>
+        <h1>RIPPLE Gantt Overview (M1-M48)</h1>
+        <p>Timeline view of project activities and partner involvement across all 48 months. This page uses the same shared dataset as the overview and management pages.</p>
+      </div>
+      <div class="hero-links">
+        <a href="./wp-partner-overview.html">Open Dashboard</a>
+        <a href="./wp-management.html">Manage Data</a>
+      </div>
+    </section>
+
+    <section class="controls">
+      <div class="control-row">
+        <label for="wpFilter">WP Filter</label>
+        <select id="wpFilter"></select>
+      </div>
+      <div class="control-row">
+        <label for="includeAllTasks">Partner Involvement Rule</label>
+        <label style="text-transform:none;letter-spacing:0;color:#315261;font-size:0.82rem;font-weight:600;display:flex;align-items:center;gap:8px;">
+          <input type="checkbox" id="includeAllTasks">
+          Include consortium-wide tasks (`participants = ALL`)
+        </label>
+      </div>
+      <div class="source-chip" id="sourceChip"></div>
+    </section>
+
+    <section class="legend">
+      <span class="chip"><span class="dot not_started"></span>Not Started</span>
+      <span class="chip"><span class="dot in_progress"></span>In Progress</span>
+      <span class="chip"><span class="dot at_risk"></span>At Risk</span>
+      <span class="chip"><span class="dot blocked"></span>Blocked</span>
+      <span class="chip"><span class="dot done"></span>Done</span>
+      <span class="chip"><span class="dot partner"></span>Partner involvement interval</span>
+    </section>
+
+    <section class="stats" id="stats"></section>
+
+    <section class="panel">
+      <h2>Activity Timeline <small>WP rows and task rows from M1 to M48</small></h2>
+      <div class="gantt-wrap" id="activityWrap"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Partner Involvement Timeline <small>When each partner is active based on task windows</small></h2>
+      <div class="gantt-wrap" id="partnerWrap"></div>
+    </section>
+
+    <p class="footer-note">Interpretation note: partner activity is derived from task lead/participant assignments and task month ranges. You can include or exclude consortium-wide tasks (`participants = ALL`) using the control above.</p>
+  </div>
+
+  <script src="./ripple-data.js"></script>
+  <script>
+    const MONTHS = 48;
+    const STATUS_LABEL = {
+      not_started: "Not Started",
+      in_progress: "In Progress",
+      at_risk: "At Risk",
+      blocked: "Blocked",
+      done: "Done"
+    };
+
+    const wpFilterEl = document.getElementById("wpFilter");
+    const includeAllTasksEl = document.getElementById("includeAllTasks");
+    const sourceChipEl = document.getElementById("sourceChip");
+    const statsEl = document.getElementById("stats");
+    const activityWrapEl = document.getElementById("activityWrap");
+    const partnerWrapEl = document.getElementById("partnerWrap");
+
+    const loaded = RippleData.load();
+    const data = RippleData.normalizeData(loaded.data);
+    const tasksByWp = RippleData.toTaskMap(data.tasks, data.wps);
+
+    function esc(value) {
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/\"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+
+    function byIdNumeric(a, b) {
+      return a.id.localeCompare(b.id, undefined, { numeric: true });
+    }
+
+    function barStyle(startMonth, endMonth) {
+      const startOffset = Math.max(0, startMonth - 1);
+      const span = Math.max(1, endMonth - startMonth + 1);
+      return `left:calc((100% / ${MONTHS}) * ${startOffset});width:calc((100% / ${MONTHS}) * ${span});`;
+    }
+
+    function statusPill(status) {
+      const safe = STATUS_LABEL[status] ? status : "not_started";
+      return `<span class="status-pill ${safe}">${STATUS_LABEL[safe]}</span>`;
+    }
+
+    function buildMonthsHtml() {
+      let html = "<div class=\"months\">";
+      for (let m = 1; m <= MONTHS; m += 1) {
+        const major = m === 1 || m % 6 === 0;
+        html += `<span class="${major ? "major" : ""}">M${m}</span>`;
+      }
+      html += "</div>";
+      return html;
+    }
+
+    function taskInvolvesPartner(task, partnerId, includeAll) {
+      if (task.lead === partnerId) {
+        return true;
+      }
+      if (task.participants === "ALL") {
+        return includeAll;
+      }
+      return task.participants.includes(partnerId);
+    }
+
+    function partnerIntervals(partnerId, tasks, includeAll) {
+      const months = new Array(MONTHS + 1).fill(0);
+      let involvedTasks = 0;
+      let leadTasks = 0;
+
+      for (const task of tasks) {
+        if (!taskInvolvesPartner(task, partnerId, includeAll)) {
+          continue;
+        }
+        involvedTasks += 1;
+        if (task.lead === partnerId) {
+          leadTasks += 1;
+        }
+        for (let m = task.startMonth; m <= task.endMonth; m += 1) {
+          months[m] += 1;
+        }
+      }
+
+      const intervals = [];
+      let start = null;
+      for (let m = 1; m <= MONTHS; m += 1) {
+        if (months[m] > 0 && start === null) {
+          start = m;
+        }
+        if ((months[m] === 0 || m === MONTHS) && start !== null) {
+          const end = months[m] === 0 ? (m - 1) : m;
+          intervals.push({ startMonth: start, endMonth: end });
+          start = null;
+        }
+      }
+
+      const activeMonths = months.filter((value, index) => index > 0 && value > 0).length;
+      return { intervals, involvedTasks, leadTasks, activeMonths };
+    }
+
+    function renderWpFilter() {
+      const current = wpFilterEl.value || "ALL";
+      let html = `<option value="ALL">All WPs</option>`;
+      for (const wp of data.wps) {
+        html += `<option value="${esc(wp.id)}">${esc(wp.id)} - ${esc(wp.title)}</option>`;
+      }
+      wpFilterEl.innerHTML = html;
+      wpFilterEl.value = data.wps.some((wp) => wp.id === current) ? current : "ALL";
+    }
+
+    function filteredWps() {
+      const selected = wpFilterEl.value || "ALL";
+      if (selected === "ALL") {
+        return data.wps;
+      }
+      return data.wps.filter((wp) => wp.id === selected);
+    }
+
+    function filteredTasks(wps) {
+      const ids = new Set(wps.map((wp) => wp.id));
+      return data.tasks
+        .filter((task) => ids.has(task.wpId))
+        .sort((a, b) => {
+          if (a.wpId !== b.wpId) {
+            return a.wpId.localeCompare(b.wpId, undefined, { numeric: true });
+          }
+          return byIdNumeric(a, b);
+        });
+    }
+
+    function renderStats(wps, tasks) {
+      const includeAll = includeAllTasksEl.checked;
+      const selectedPartnerData = data.partners.map((partner) => partnerIntervals(partner.id, tasks, includeAll));
+      const activePartners = selectedPartnerData.filter((item) => item.activeMonths > 0).length;
+      const avgActiveMonths = selectedPartnerData.length
+        ? (selectedPartnerData.reduce((sum, item) => sum + item.activeMonths, 0) / selectedPartnerData.length)
+        : 0;
+
+      const statusCount = { not_started: 0, in_progress: 0, at_risk: 0, blocked: 0, done: 0 };
+      for (const task of tasks) {
+        statusCount[task.status] += 1;
+      }
+
+      statsEl.innerHTML = `
+        <article class="stat"><div class="k">WPs In View</div><div class="v">${wps.length}</div></article>
+        <article class="stat"><div class="k">Tasks In View</div><div class="v">${tasks.length}</div></article>
+        <article class="stat"><div class="k">Active Partners</div><div class="v">${activePartners}/${data.partners.length}</div></article>
+        <article class="stat"><div class="k">Avg Partner Active Months</div><div class="v">${avgActiveMonths.toFixed(1)}</div></article>
+        <article class="stat"><div class="k">Tasks In Progress</div><div class="v">${statusCount.in_progress}</div></article>
+        <article class="stat"><div class="k">Tasks At Risk/Blocked</div><div class="v">${statusCount.at_risk + statusCount.blocked}</div></article>
+      `;
+    }
+
+    function renderActivityTimeline(wps, tasks) {
+      if (!wps.length) {
+        activityWrapEl.innerHTML = "<div class='empty-note'>No WP matches the current filter.</div>";
+        return;
+      }
+
+      let html = `<div class="gantt-table">`;
+      html += `
+        <div class="gantt-header">
+          <div class="gantt-label"><strong>Activity</strong></div>
+          <div class="gantt-cells">${buildMonthsHtml()}</div>
+        </div>
+      `;
+
+      for (const wp of wps) {
+        html += `
+          <div class="gantt-row wp-row">
+            <div class="gantt-label">
+              <div class="label-id">${esc(wp.id)} ${statusPill(wp.status)}</div>
+              <div class="label-main">${esc(wp.title)}</div>
+              <div class="label-meta">Lead: ${esc(wp.lead)} | ${wp.total} PM | M${wp.startMonth}-M${wp.endMonth}</div>
+            </div>
+            <div class="gantt-cells" title="${esc(wp.description)}">
+              <div class="bar wp ${wp.status}" style="${barStyle(wp.startMonth, wp.endMonth)}">${esc(wp.id)} Window</div>
+            </div>
+          </div>
+        `;
+
+        const wpTasks = tasks.filter((task) => task.wpId === wp.id);
+        for (const task of wpTasks) {
+          const roleNote = task.participants === "ALL" ? "ALL participants" : `${task.participants.length} participants`;
+          html += `
+            <div class="gantt-row task-row">
+              <div class="gantt-label">
+                <div class="label-id">${esc(task.id)} ${statusPill(task.status)}</div>
+                <div class="label-main">${esc(task.label)}</div>
+                <div class="label-meta">Lead: ${esc(task.lead)} | M${task.startMonth}-M${task.endMonth} | ${roleNote}</div>
+              </div>
+              <div class="gantt-cells" title="${esc(task.description)}">
+                <div class="bar ${task.status}" style="${barStyle(task.startMonth, task.endMonth)}">
+                  <span class="role">Lead ${esc(task.lead)}</span>
+                  <span>${esc(task.label)}</span>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+      }
+
+      html += "</div>";
+      activityWrapEl.innerHTML = html;
+    }
+
+    function renderPartnerTimeline(tasks) {
+      const includeAll = includeAllTasksEl.checked;
+      let html = `<div class="gantt-table">`;
+      html += `
+        <div class="gantt-header">
+          <div class="gantt-label"><strong>Partner</strong></div>
+          <div class="gantt-cells">${buildMonthsHtml()}</div>
+        </div>
+      `;
+
+      for (const partner of data.partners) {
+        const info = partnerIntervals(partner.id, tasks, includeAll);
+        html += `
+          <div class="gantt-row partner-row">
+            <div class="gantt-label">
+              <div class="label-id">${esc(partner.id)}</div>
+              <div class="label-main">${esc(partner.name)}</div>
+              <div class="label-meta">Tasks: ${info.involvedTasks} | Lead tasks: ${info.leadTasks} | Active months: ${info.activeMonths}</div>
+            </div>
+            <div class="gantt-cells">
+        `;
+
+        for (const interval of info.intervals) {
+          html += `<div class="partner-bar" style="${barStyle(interval.startMonth, interval.endMonth)}">M${interval.startMonth}-M${interval.endMonth}</div>`;
+        }
+
+        html += "</div></div>";
+      }
+
+      html += "</div>";
+      partnerWrapEl.innerHTML = html;
+    }
+
+    function renderAll() {
+      const wps = filteredWps();
+      const tasks = filteredTasks(wps);
+      renderStats(wps, tasks);
+      renderActivityTimeline(wps, tasks);
+      renderPartnerTimeline(tasks);
+    }
+
+    function init() {
+      sourceChipEl.textContent = loaded.source === "local" ? "Source: Local Draft" : "Source: Default Data";
+      renderWpFilter();
+      renderAll();
+    }
+
+    wpFilterEl.addEventListener("change", renderAll);
+    includeAllTasksEl.addEventListener("change", renderAll);
+
+    init();
+  </script>
+</body>
+</html>

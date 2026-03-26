@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Etherr</title>
     <meta name="description" content="" />
-    <link rel="icon" href="assets/logo.png" type="image/png" />
-    <link rel="apple-touch-icon" href="assets/logo.png" />
+    <link rel="icon" href="assets/images/logo.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/images/logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -20,31 +20,7 @@
       <canvas class="network-canvas" id="networkCanvas" aria-hidden="true"></canvas>
     </div>
 
-    <header class="site-header" id="top">
-      <div class="container header-inner">
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="headerPanel">
-          <span class="menu-icon" aria-hidden="true"></span>
-          <span class="sr-only" data-i18n="menu.toggle"></span>
-        </button>
-        <a class="header-center-logo" href="#top" aria-label="Etherr">
-          <img src="assets/logo.png" alt="Etherr logo" width="52" height="52" />
-        </a>
-
-        <div class="header-panel" id="headerPanel">
-          <nav class="site-nav" aria-label="Primary navigation">
-            <a href="#about" data-i18n="nav.about"></a>
-            <a href="#services" data-i18n="nav.services"></a>
-            <a href="projekti.html" data-i18n="nav.projects"></a>
-            <a href="#contact" data-i18n="nav.contact"></a>
-          </nav>
-          <div class="lang-switch" role="group" aria-label="Language switcher">
-            <button class="lang-btn is-active" type="button" data-lang="hr">HR</button>
-            <button class="lang-btn" type="button" data-lang="en">EN</button>
-            <button class="lang-btn" type="button" data-lang="de">DE</button>
-          </div>
-        </div>
-      </div>
-    </header>
+    <header class="site-header" id="top" data-shared-header></header>
 
     <main>
       <section class="hero section">
@@ -66,21 +42,8 @@
 
           <div class="hero-art reveal" aria-hidden="true">
             <div class="hero-logo-mark">
-              <img src="assets/logo.png" alt="" width="220" height="220" />
+              <img src="assets/images/logo.png" alt="" width="220" height="220" />
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="about section" id="about">
-        <div class="container about-grid">
-          <div class="section-intro reveal">
-            <p class="section-tag" data-i18n="about.tag"></p>
-            <h2 data-i18n="about.title"></h2>
-          </div>
-          <div class="about-copy reveal">
-            <p data-i18n="about.p1"></p>
-            <p data-i18n="about.p2"></p>
           </div>
         </div>
       </section>
@@ -116,13 +79,14 @@
       <div class="container footer-inner">
         <div class="footer-signature">
           <a class="footer-brand" href="#top" aria-label="Etherr">
-            <img src="assets/logo.png" alt="Etherr logo" width="28" height="28" />
+            <img src="assets/images/logo.png" alt="Etherr logo" width="28" height="28" />
           </a>
           <p data-footer-copy></p>
         </div>
       </div>
     </footer>
 
+    <script src="shared-header.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

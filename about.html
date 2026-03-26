@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="hr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Etherr | O nama</title>
+    <meta name="description" content="" />
+    <link rel="icon" href="assets/images/logo.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/images/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="about">
+    <div class="floating-grid" id="floatingGrid" aria-hidden="true">
+      <canvas class="network-canvas" id="networkCanvas" aria-hidden="true"></canvas>
+    </div>
+
+    <header class="site-header" id="top" data-shared-header></header>
+
+    <main>
+      <section class="page-shell section projects-intro-section">
+        <div class="container page-shell-inner">
+          <div class="projects-intro reveal">
+            <p class="eyebrow" data-i18n="about.tag"></p>
+            <h1 class="projects-intro-title" data-i18n="about.title"></h1>
+          </div>
+        </div>
+      </section>
+
+      <section class="about section" id="about">
+        <div class="container about-grid">
+          <div class="section-intro reveal">
+            <p class="section-tag" data-i18n="about.tag"></p>
+            <h2 data-i18n="about.title"></h2>
+          </div>
+          <div class="about-copy reveal">
+            <p data-i18n="about.p1"></p>
+            <p data-i18n="about.p2"></p>
+            <p data-i18n="about.p3"></p>
+          </div>
+        </div>
+
+        <div class="container about-extended-grid">
+          <article class="about-info-panel about-info-panel-tech reveal">
+            <p class="about-panel-tag" data-i18n="about.techTag"></p>
+            <h3 data-i18n="about.techTitle"></h3>
+            <p class="about-panel-lead" data-i18n="about.techLead"></p>
+            <ul class="about-bullet-list">
+              <li data-i18n="about.techBullet1"></li>
+              <li data-i18n="about.techBullet2"></li>
+              <li data-i18n="about.techBullet3"></li>
+              <li data-i18n="about.techBullet4"></li>
+            </ul>
+            <p class="about-stack-label" data-i18n="about.stackLabel"></p>
+            <div class="about-tech-stack" aria-label="Technology stack tags">
+              <span data-i18n="about.stack1"></span>
+              <span data-i18n="about.stack2"></span>
+              <span data-i18n="about.stack3"></span>
+              <span data-i18n="about.stack4"></span>
+              <span data-i18n="about.stack5"></span>
+              <span data-i18n="about.stack6"></span>
+            </div>
+          </article>
+
+          <article class="about-info-panel about-info-panel-delivery reveal">
+            <p class="about-panel-tag" data-i18n="about.deliveryTag"></p>
+            <h3 data-i18n="about.deliveryTitle"></h3>
+            <p class="about-panel-lead" data-i18n="about.deliveryLead"></p>
+            <ul class="about-bullet-list">
+              <li data-i18n="about.deliveryBullet1"></li>
+              <li data-i18n="about.deliveryBullet2"></li>
+              <li data-i18n="about.deliveryBullet3"></li>
+              <li data-i18n="about.deliveryBullet4"></li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="container about-icon-grid">
+          <article class="about-icon-card reveal">
+            <span class="about-icon-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="presentation">
+                <rect x="4" y="5" width="16" height="14" rx="2"></rect>
+                <line x1="8" y1="10" x2="16" y2="10"></line>
+                <line x1="8" y1="14" x2="13" y2="14"></line>
+              </svg>
+            </span>
+            <h3 data-i18n="about.icon1Title"></h3>
+            <p data-i18n="about.icon1Text"></p>
+          </article>
+
+          <article class="about-icon-card reveal">
+            <span class="about-icon-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="presentation">
+                <path d="M8 6h8"></path>
+                <path d="M7 10h10"></path>
+                <path d="M6 14h12"></path>
+                <circle cx="8" cy="18" r="1.2"></circle>
+                <circle cx="12" cy="18" r="1.2"></circle>
+                <circle cx="16" cy="18" r="1.2"></circle>
+              </svg>
+            </span>
+            <h3 data-i18n="about.icon2Title"></h3>
+            <p data-i18n="about.icon2Text"></p>
+          </article>
+
+          <article class="about-icon-card reveal">
+            <span class="about-icon-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="presentation">
+                <path d="M5 16l4-4 3 3 7-7"></path>
+                <path d="M19 11V8h-3"></path>
+                <rect x="4" y="4" width="16" height="16" rx="3"></rect>
+              </svg>
+            </span>
+            <h3 data-i18n="about.icon3Title"></h3>
+            <p data-i18n="about.icon3Text"></p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-signature">
+          <a class="footer-brand" href="#top" aria-label="Etherr">
+            <img src="assets/images/logo.png" alt="Etherr logo" width="28" height="28" />
+          </a>
+          <p data-footer-copy></p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="shared-header.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

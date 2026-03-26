@@ -1,0 +1,1908 @@
+<!doctype html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reservation Calendar Demo</title>
+    <style>
+      :root {
+        --bg: #eef3f5;
+        --panel: #ffffff;
+        --ink: #1e2a37;
+        --hour-col: 28px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        font-family: "Manrope", "Segoe UI", system-ui, sans-serif;
+        color: var(--ink);
+        background: var(--bg);
+      }
+
+      .sr-app {
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+        display: grid;
+        grid-template-rows: auto auto minmax(0, 1fr);
+        gap: 8px;
+      }
+
+      .sr-toolbar {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .sr-year-select,
+      .sr-month,
+      .sr-week-btn,
+      .sr-week-label {
+        border: 1px solid #c8d0db;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
+        color: #334155;
+        border-radius: 999px;
+        font-size: 11px;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        height: 30px;
+        padding: 0 12px;
+      }
+
+      .sr-year-select {
+        font-size: 22px;
+        letter-spacing: 0;
+        text-transform: none;
+        min-width: 72px;
+      }
+
+      .sr-months {
+        display: inline-flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .sr-month {
+        min-width: 38px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+
+      .sr-month.is-current {
+        border-color: #6b82a5;
+        font-weight: 700;
+        color: #1f2f45;
+      }
+
+      .sr-week-nav {
+        margin-left: auto;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .sr-week-btn {
+        width: 28px;
+        padding: 0;
+        cursor: pointer;
+        font-size: 16px;
+        line-height: 1;
+      }
+
+      .sr-week-label {
+        text-transform: none;
+        letter-spacing: 0;
+        font-size: 13px;
+        min-width: 92px;
+      }
+
+      .sr-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        min-width: 0;
+      }
+
+      .sr-search {
+        height: 32px;
+        min-width: clamp(160px, 20vw, 250px);
+        border: 1px solid #c8d0db;
+        border-radius: 8px;
+        background: #ffffff;
+        color: #334155;
+        padding: 0 10px;
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      .sr-search::placeholder {
+        color: #7a8ba1;
+      }
+
+      .sr-create-btn {
+        border: 1px solid #c8d0db;
+        border-radius: 999px;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
+        color: #1f2937;
+        height: 32px;
+        padding: 0 16px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+
+      .sr-chips {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        min-width: 0;
+      }
+
+      .sr-chip {
+        border: 0;
+        border-radius: 999px;
+        color: #fff;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 6px 12px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        background: var(--chip-color, #64748b);
+      }
+
+      .sr-chip.is-active {
+        box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.25);
+      }
+
+      .sr-chip-bubble {
+        width: 18px;
+        height: 18px;
+        border-radius: 999px;
+        background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), transparent 45%),
+          rgba(255, 255, 255, 0.3);
+        box-shadow: inset 0 2px 6px rgba(255, 255, 255, 0.35), inset 0 -4px 8px rgba(0, 0, 0, 0.18);
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .sr-chip-bubble::after {
+        content: "✓";
+        color: #ffffff;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 1;
+        opacity: 0;
+        transform: scale(0.65);
+        transition:
+          opacity 140ms ease,
+          transform 140ms ease;
+      }
+
+      .sr-chip.is-active .sr-chip-bubble::after {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .sr-calendar {
+        min-height: 0;
+        background: var(--panel);
+        border: 1px solid #d3d9e2;
+        border-radius: 14px;
+        padding: 8px;
+        display: grid;
+        grid-template-columns: var(--hour-col) minmax(0, 1fr);
+        gap: 6px;
+      }
+
+      .sr-times {
+        position: relative;
+      }
+
+      .sr-times-header {
+        height: 48px;
+      }
+
+      .sr-times-body {
+        position: relative;
+        height: calc(100% - 48px);
+      }
+
+      .sr-time-label {
+        position: absolute;
+        right: 0;
+        transform: translateY(-6px);
+        font-size: 10px;
+        color: #8fa0b6;
+      }
+
+      .sr-days {
+        min-width: 0;
+        min-height: 0;
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 6px;
+      }
+
+      .sr-day {
+        min-width: 0;
+        border: 1px solid #d6dce5;
+        border-radius: 10px;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .sr-day-header {
+        height: 48px;
+        padding: 6px 7px 4px;
+        border-bottom: 1px solid #d6dce5;
+        background: #f8fafc;
+        display: grid;
+        align-content: center;
+        gap: 2px;
+      }
+
+      .sr-day-name {
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      .sr-day-date {
+        font-size: 11px;
+        font-weight: 600;
+        color: #63748a;
+        line-height: 1;
+      }
+
+      .sr-day-body {
+        position: relative;
+        min-height: 0;
+        flex: 1 1 auto;
+        background-image: repeating-linear-gradient(to bottom, #e9edf3 0, #e9edf3 1px, transparent 1px, transparent 48px);
+      }
+
+      .sr-closed {
+        position: absolute;
+        left: 0;
+        right: 0;
+        background: repeating-linear-gradient(
+          45deg,
+          rgba(148, 163, 184, 0.15) 0,
+          rgba(148, 163, 184, 0.15) 6px,
+          rgba(226, 232, 240, 0.35) 6px,
+          rgba(226, 232, 240, 0.35) 12px
+        );
+        pointer-events: none;
+      }
+
+      .sr-shift {
+        position: absolute;
+        top: 0;
+        left: calc(var(--left, 0%) + 4px);
+        width: calc(var(--width, 100%) - 8px);
+        height: 40px;
+        border-radius: 8px;
+        border: 1px solid var(--shift-color, #64748b);
+        border-left: 4px solid var(--shift-color, #64748b);
+        background: var(--shift-bg, rgba(100, 116, 139, 0.2));
+        color: #0f172a;
+        font-size: 11px;
+        padding: 5px 6px;
+        overflow: hidden;
+        opacity: 0.42;
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      .sr-shift-name {
+        display: block;
+        font-weight: 700;
+        line-height: 1.1;
+      }
+
+      .sr-shift-time {
+        display: block;
+        margin-top: 2px;
+        font-size: 10px;
+        color: #2f3e53;
+        line-height: 1.2;
+      }
+
+      .sr-reservation {
+        position: absolute;
+        top: 0;
+        left: calc(var(--left, 0%) + 8px);
+        width: calc(var(--width, 100%) - 16px);
+        height: 40px;
+        border-radius: 8px;
+        border: 1px solid var(--res-color, #64748b);
+        border-left: 4px solid var(--res-color, #64748b);
+        background: var(--res-bg, rgba(100, 116, 139, 0.22));
+        color: var(--res-color, #0f172a);
+        font-size: 11px;
+        padding: 5px 6px;
+        overflow: hidden;
+        z-index: 3;
+        cursor: grab;
+        user-select: none;
+        transition:
+          box-shadow 180ms ease,
+          transform 180ms ease,
+          height 180ms ease,
+          background-color 180ms ease,
+          color 180ms ease,
+          border-color 180ms ease;
+      }
+
+      .sr-reservation.is-dragging {
+        opacity: 0.86;
+        cursor: grabbing;
+      }
+
+      .sr-reservation.is-expanded {
+        z-index: 8;
+        background: var(--res-color, #64748b);
+        border-color: rgba(255, 255, 255, 0.92);
+        border-left-color: rgba(255, 255, 255, 1);
+        color: #ffffff;
+        box-shadow: 0 14px 28px rgba(15, 23, 42, 0.24);
+        transform: translateY(-1px);
+      }
+
+      .sr-res-time,
+      .sr-res-client,
+      .sr-res-service {
+        display: block;
+        line-height: 1.15;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .sr-res-time {
+        font-weight: 700;
+      }
+
+      .sr-res-client {
+        margin-top: 2px;
+        font-weight: 700;
+      }
+
+      .sr-res-service {
+        margin-top: 2px;
+        font-size: 10px;
+        opacity: 0.85;
+      }
+
+      .sr-reservation.is-expanded .sr-res-time,
+      .sr-reservation.is-expanded .sr-res-client,
+      .sr-reservation.is-expanded .sr-res-service {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+        color: #ffffff;
+      }
+
+      .sr-reservation.is-expanded .sr-res-time {
+        font-size: 12px;
+      }
+
+      .sr-reservation.is-expanded .sr-res-client {
+        font-size: 12px;
+      }
+
+      .sr-reservation.is-expanded .sr-res-service {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.92);
+        opacity: 1;
+      }
+
+      .sr-create-modal {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+      }
+
+      .sr-create-modal[hidden] {
+        display: none;
+      }
+
+      .sr-create-modal-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.4);
+      }
+
+      .sr-create-modal-card {
+        position: relative;
+        z-index: 2;
+        width: min(94vw, 360px);
+        max-height: min(92vh, 700px);
+        overflow: auto;
+        background: #ffffff;
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 20px 40px rgba(15, 23, 42, 0.2);
+        padding: 20px 22px;
+      }
+
+      .sr-create-modal-card h3 {
+        margin: 0 0 12px;
+        color: #0f172a;
+        font-size: 20px;
+      }
+
+      .sr-create-form {
+        margin: 0;
+      }
+
+      .sr-create-field {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        margin-bottom: 10px;
+      }
+
+      .sr-create-field-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+        gap: 10px;
+      }
+
+      .sr-create-field label {
+        color: #0f172a;
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      .sr-create-field input,
+      .sr-create-field select,
+      .sr-create-field textarea {
+        padding: 6px 8px;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+        background: #ffffff;
+        color: #0f172a;
+        font-size: 12px;
+        font-family: inherit;
+      }
+
+      .sr-create-field textarea {
+        resize: none;
+      }
+
+      .sr-create-field input:disabled,
+      .sr-create-field select:disabled,
+      .sr-create-field textarea:disabled {
+        opacity: 1;
+        cursor: default;
+        color: #0f172a;
+        background: #ffffff;
+        -webkit-text-fill-color: #0f172a;
+      }
+
+      .sr-create-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+        margin-top: 16px;
+      }
+
+      .sr-create-action-btn {
+        border-radius: 6px;
+        border: 1px solid #cbd5e1;
+        background: #f8fafc;
+        color: #0f172a;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 1;
+        padding: 9px 12px;
+      }
+
+      .sr-create-action-btn-primary {
+        border-color: #2271b1;
+        background: #2271b1;
+        color: #ffffff;
+      }
+
+      .sr-create-action-btn-primary:disabled {
+        opacity: 1;
+        cursor: default;
+      }
+
+      @media (max-width: 1100px) {
+        .sr-app {
+          padding: 7px;
+          gap: 6px;
+        }
+
+        .sr-toolbar,
+        .sr-actions {
+          gap: 6px;
+        }
+
+        .sr-month,
+        .sr-week-btn,
+        .sr-week-label,
+        .sr-year-select,
+        .sr-search,
+        .sr-create-btn {
+          height: 27px;
+        }
+
+        .sr-month {
+          min-width: 34px;
+          padding: 0 9px;
+          font-size: 10px;
+        }
+
+        .sr-day-name {
+          font-size: 12px;
+        }
+
+        .sr-day-date {
+          font-size: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sr-app" id="srApp">
+      <div class="sr-toolbar">
+        <select class="sr-year-select" id="srYearSelect" aria-label="Year"></select>
+        <div class="sr-months" id="srMonths"></div>
+        <div class="sr-week-nav">
+          <button class="sr-week-btn" id="srWeekPrev" type="button" aria-label="Previous week">&lsaquo;</button>
+          <button class="sr-week-label" id="srWeekLabel" type="button"></button>
+          <button class="sr-week-btn" id="srWeekNext" type="button" aria-label="Next week">&rsaquo;</button>
+        </div>
+      </div>
+
+      <div class="sr-actions">
+        <input class="sr-search" id="srSearch" type="search" autocomplete="off" />
+        <button class="sr-create-btn" id="srCreateReservation" type="button"></button>
+        <div class="sr-chips" id="srChips"></div>
+      </div>
+
+      <div class="sr-calendar" id="srCalendar">
+        <div class="sr-times">
+          <div class="sr-times-header"></div>
+          <div class="sr-times-body" id="srTimesBody"></div>
+        </div>
+        <div class="sr-days" id="srDays"></div>
+      </div>
+    </div>
+
+    <div class="sr-create-modal" id="srCreateModal" hidden>
+      <div class="sr-create-modal-overlay" id="srCreateModalOverlay"></div>
+      <div class="sr-create-modal-card" role="dialog" aria-modal="true" aria-labelledby="srCreateTitle">
+        <h3 id="srCreateTitle"></h3>
+        <form class="sr-create-form" id="srCreateForm" autocomplete="off" novalidate>
+          <div class="sr-create-field">
+            <label for="srCreateEmployee" id="srCreateEmployeeLabel"></label>
+            <select id="srCreateEmployee" disabled></select>
+          </div>
+          <div class="sr-create-field">
+            <label for="srCreateService" id="srCreateServiceLabel"></label>
+            <select id="srCreateService" disabled></select>
+          </div>
+          <div class="sr-create-field-row">
+            <div class="sr-create-field">
+              <label for="srCreateDate" id="srCreateDateLabel"></label>
+              <input id="srCreateDate" type="date" disabled />
+            </div>
+            <div class="sr-create-field">
+              <label for="srCreateStart" id="srCreateStartLabel"></label>
+              <input id="srCreateStart" type="time" disabled />
+            </div>
+            <div class="sr-create-field">
+              <label for="srCreateEnd" id="srCreateEndLabel"></label>
+              <input id="srCreateEnd" type="time" disabled />
+            </div>
+          </div>
+          <div class="sr-create-field">
+            <label for="srCreateClient" id="srCreateClientLabel"></label>
+            <input id="srCreateClient" type="text" disabled />
+          </div>
+          <div class="sr-create-field-row">
+            <div class="sr-create-field">
+              <label for="srCreateEmail" id="srCreateEmailLabel"></label>
+              <input id="srCreateEmail" type="email" disabled />
+            </div>
+            <div class="sr-create-field">
+              <label for="srCreatePhone" id="srCreatePhoneLabel"></label>
+              <input id="srCreatePhone" type="text" disabled />
+            </div>
+          </div>
+          <div class="sr-create-field">
+            <label for="srCreateNotes" id="srCreateNotesLabel"></label>
+            <textarea id="srCreateNotes" rows="2" disabled></textarea>
+          </div>
+          <div class="sr-create-field">
+            <label for="srCreateStatus" id="srCreateStatusLabel"></label>
+            <select id="srCreateStatus" disabled>
+              <option value="pending"></option>
+              <option value="approved"></option>
+              <option value="cancelled"></option>
+            </select>
+          </div>
+          <div class="sr-create-actions">
+            <button class="sr-create-action-btn" id="srCreateCancelBtn" type="button"></button>
+            <button class="sr-create-action-btn sr-create-action-btn-primary" id="srCreateSaveBtn" type="button" disabled></button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      (() => {
+        const START_HOUR = 8;
+        const END_HOUR = 20;
+        const SNAP_MINUTES = 30;
+        const MIN_RES_MINUTES = 30;
+        const DEFAULT_RES_MINUTES = 120;
+
+        const LOCALES = {
+          hr: {
+            week: "Tjedan",
+            prevWeekLabel: "Prethodni tjedan",
+            nextWeekLabel: "Sljedeci tjedan",
+            searchPlaceholder: "Pretrazi klijenta",
+            newReservation: "Nova rezervacija",
+            createModal: {
+              title: "Nova rezervacija",
+              employee: "Zaposlenik",
+              service: "Vrsta usluge",
+              date: "Datum",
+              start: "Pocetak",
+              end: "Kraj",
+              client: "Klijent",
+              email: "Email",
+              phone: "Telefon",
+              notes: "Napomena",
+              status: "Status",
+              cancel: "Odustani",
+              save: "Spremi",
+              statusPending: "Na cekanju",
+              statusApproved: "Potvrdjeno",
+              statusCancelled: "Otkazano",
+              sampleClient: "Klara Horvat",
+              sampleEmail: "klara.horvat@example.com",
+              samplePhone: "+385 91 234 5678",
+              sampleNotes: "Demo prikaz izrade rezervacije (staticki prikaz).",
+            },
+            services: ["Sisanje", "Bojanje kose", "Njega lica", "Manikura"],
+            months: ["SIJ", "VELJ", "OŽU", "TRA", "SVI", "LIP", "SRP", "KOL", "RUJ", "LI", "STU", "PRO"],
+            days: ["PON", "UTO", "SRI", "CET", "PET", "SUB", "NED"],
+            employees: ["Mia", "Luka", "Marta", "Dino"],
+            clientFirst: [
+              "Klara",
+              "Petra",
+              "Ivana",
+              "Nika",
+              "Iva",
+              "Lea",
+              "Ema",
+              "Lana",
+              "Mila",
+              "Tina",
+              "Marta",
+              "Paula",
+              "Nora",
+              "Lora",
+              "Vita",
+              "Lucija",
+              "Teodora",
+              "Anja",
+              "Dora",
+              "Karla",
+              "Luka",
+              "Ivan",
+              "Marko",
+              "Filip",
+              "Matej",
+              "Dino",
+              "Noa",
+              "Karlo",
+              "Borna",
+              "Nikola",
+              "Tin",
+              "Vito",
+              "Roko",
+              "Josip",
+              "Lovro",
+              "Maks",
+              "Patrik",
+              "David",
+              "Andrej",
+              "Bruno",
+            ],
+            clientLast: ["Kovacic", "Horvat", "Babic", "Novak", "Peric", "Matic", "Zoric", "Kralj", "Juric", "Bosnjak"],
+          },
+          en: {
+            week: "Week",
+            prevWeekLabel: "Previous week",
+            nextWeekLabel: "Next week",
+            searchPlaceholder: "Search client",
+            newReservation: "New reservation",
+            createModal: {
+              title: "New reservation",
+              employee: "Employee",
+              service: "Service type",
+              date: "Date",
+              start: "Start",
+              end: "End",
+              client: "Client",
+              email: "Email",
+              phone: "Phone",
+              notes: "Notes",
+              status: "Status",
+              cancel: "Cancel",
+              save: "Save",
+              statusPending: "Pending",
+              statusApproved: "Approved",
+              statusCancelled: "Cancelled",
+              sampleClient: "Sophia Miller",
+              sampleEmail: "sophia.miller@example.com",
+              samplePhone: "+44 7700 900123",
+              sampleNotes: "Demo reservation creation popup (static preview).",
+            },
+            services: ["Haircut", "Hair coloring", "Facial", "Manicure"],
+            months: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"],
+            days: ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"],
+            employees: ["Emma", "Liam", "Olivia", "Noah"],
+            clientFirst: [
+              "Sophia",
+              "Mia",
+              "Charlotte",
+              "Amelia",
+              "Ella",
+              "Ava",
+              "Grace",
+              "Isla",
+              "Chloe",
+              "Nora",
+              "Emily",
+              "Lily",
+              "Lucy",
+              "Hannah",
+              "Harper",
+              "Leah",
+              "Noah",
+              "Liam",
+              "Oliver",
+              "James",
+              "Lucas",
+              "Henry",
+              "Ethan",
+              "Mason",
+              "Logan",
+              "Leo",
+              "Owen",
+              "Jack",
+              "Ryan",
+              "Wyatt",
+              "Caleb",
+              "Aaron",
+              "Dylan",
+              "Samuel",
+              "Nathan",
+              "Connor",
+              "Adam",
+              "Evan",
+              "Isaac",
+              "Miles",
+            ],
+            clientLast: ["Miller", "Smith", "Taylor", "Walker", "Johnson", "Brown", "Clark", "Wilson", "Harris", "Bennett"],
+          },
+          de: {
+            week: "Woche",
+            prevWeekLabel: "Vorherige Woche",
+            nextWeekLabel: "Naechste Woche",
+            searchPlaceholder: "Kunde suchen",
+            newReservation: "Neue Reservierung",
+            createModal: {
+              title: "Neue Reservierung",
+              employee: "Mitarbeiter",
+              service: "Serviceart",
+              date: "Datum",
+              start: "Beginn",
+              end: "Ende",
+              client: "Kunde",
+              email: "E-Mail",
+              phone: "Telefon",
+              notes: "Notiz",
+              status: "Status",
+              cancel: "Abbrechen",
+              save: "Speichern",
+              statusPending: "Ausstehend",
+              statusApproved: "Bestaetigt",
+              statusCancelled: "Storniert",
+              sampleClient: "Anna Mueller",
+              sampleEmail: "anna.mueller@example.com",
+              samplePhone: "+49 151 2345678",
+              sampleNotes: "Demoansicht fuer neue Reservierung (statisch).",
+            },
+            services: ["Haarschnitt", "Faerben", "Gesichtspflege", "Manikuere"],
+            months: ["JAN", "FEB", "MAR", "APR", "MAI", "JUN", "JUL", "AUG", "SEP", "OKT", "NOV", "DEZ"],
+            days: ["MO", "DI", "MI", "DO", "FR", "SA", "SO"],
+            employees: ["Hanna", "Lukas", "Mila", "Jonas"],
+            clientFirst: [
+              "Anna",
+              "Mia",
+              "Lea",
+              "Emma",
+              "Lina",
+              "Sofia",
+              "Lena",
+              "Nora",
+              "Clara",
+              "Mara",
+              "Paula",
+              "Jana",
+              "Hanna",
+              "Nele",
+              "Tabea",
+              "Maja",
+              "Lukas",
+              "Jonas",
+              "Finn",
+              "Leon",
+              "Paul",
+              "Noah",
+              "Elias",
+              "Ben",
+              "Emil",
+              "Felix",
+              "Oskar",
+              "Julian",
+              "Max",
+              "Tim",
+              "Milan",
+              "Nico",
+              "Moritz",
+              "David",
+              "Anton",
+              "Johann",
+              "Simon",
+              "Robin",
+              "Kevin",
+              "Matteo",
+            ],
+            clientLast: ["Mueller", "Schmidt", "Weber", "Wagner", "Keller", "Fischer", "Wolf", "Becker", "Hoffmann", "Krause"],
+          },
+        };
+
+        const EMPLOYEE_STYLES = {
+          1: { color: "#ff1313", bg: "rgba(255, 19, 19, 0.22)" },
+          2: { color: "#1f49ff", bg: "rgba(31, 73, 255, 0.22)" },
+          3: { color: "#48a630", bg: "rgba(72, 166, 48, 0.22)" },
+          4: { color: "#e2a22a", bg: "rgba(226, 162, 42, 0.24)" },
+        };
+
+        // Must stay synced with side 1 (reservation-schedule-demo.html)
+        const SHIFT_TEMPLATE = [
+          [0, 1, 8 * 60, 16 * 60],
+          [0, 2, 10 * 60, 18 * 60],
+          [0, 3, 12 * 60 + 30, 20 * 60],
+          [1, 3, 8 * 60, 16 * 60],
+          [1, 4, 10 * 60, 18 * 60],
+          [1, 2, 12 * 60 + 30, 20 * 60],
+          [2, 2, 8 * 60, 16 * 60],
+          [2, 3, 8 * 60, 16 * 60],
+          [2, 1, 12 * 60, 20 * 60],
+          [2, 4, 12 * 60, 20 * 60],
+          [3, 2, 8 * 60, 16 * 60],
+          [3, 1, 9 * 60, 17 * 60],
+          [3, 4, 11 * 60, 19 * 60],
+          [3, 3, 13 * 60, 20 * 60],
+          [4, 2, 8 * 60, 16 * 60],
+          [4, 3, 8 * 60, 13 * 60],
+          [4, 4, 16 * 60, 20 * 60],
+          [4, 1, 13 * 60, 20 * 60],
+          [5, 3, 8 * 60, 13 * 60],
+          [5, 2, 8 * 60, 13 * 60],
+        ];
+
+        const yearSelect = document.getElementById("srYearSelect");
+        const monthsWrap = document.getElementById("srMonths");
+        const weekLabel = document.getElementById("srWeekLabel");
+        const weekPrev = document.getElementById("srWeekPrev");
+        const weekNext = document.getElementById("srWeekNext");
+        const searchInput = document.getElementById("srSearch");
+        const createReservationBtn = document.getElementById("srCreateReservation");
+        const chipsWrap = document.getElementById("srChips");
+        const timesBody = document.getElementById("srTimesBody");
+        const daysWrap = document.getElementById("srDays");
+        const createModal = document.getElementById("srCreateModal");
+        const createModalOverlay = document.getElementById("srCreateModalOverlay");
+        const createModalForm = document.getElementById("srCreateForm");
+        const createModalTitle = document.getElementById("srCreateTitle");
+        const createEmployeeLabel = document.getElementById("srCreateEmployeeLabel");
+        const createServiceLabel = document.getElementById("srCreateServiceLabel");
+        const createDateLabel = document.getElementById("srCreateDateLabel");
+        const createStartLabel = document.getElementById("srCreateStartLabel");
+        const createEndLabel = document.getElementById("srCreateEndLabel");
+        const createClientLabel = document.getElementById("srCreateClientLabel");
+        const createEmailLabel = document.getElementById("srCreateEmailLabel");
+        const createPhoneLabel = document.getElementById("srCreatePhoneLabel");
+        const createNotesLabel = document.getElementById("srCreateNotesLabel");
+        const createStatusLabel = document.getElementById("srCreateStatusLabel");
+        const createEmployeeSelect = document.getElementById("srCreateEmployee");
+        const createServiceSelect = document.getElementById("srCreateService");
+        const createDateInput = document.getElementById("srCreateDate");
+        const createStartInput = document.getElementById("srCreateStart");
+        const createEndInput = document.getElementById("srCreateEnd");
+        const createClientInput = document.getElementById("srCreateClient");
+        const createEmailInput = document.getElementById("srCreateEmail");
+        const createPhoneInput = document.getElementById("srCreatePhone");
+        const createNotesInput = document.getElementById("srCreateNotes");
+        const createStatusSelect = document.getElementById("srCreateStatus");
+        const createCancelBtn = document.getElementById("srCreateCancelBtn");
+        const createSaveBtn = document.getElementById("srCreateSaveBtn");
+
+        const params = new URLSearchParams(window.location.search);
+        let currentLang = LOCALES[params.get("lang")] ? params.get("lang") : "hr";
+        let currentWeekStart = new Date(2026, 2, 23);
+        let selectedYear = currentWeekStart.getFullYear();
+        let activeEmployeeId = 1;
+        let visibleEmployeeId = 1;
+        let nextShiftId = 1;
+        let nextReservationId = 1;
+        const CLIENT_FIRST_POOL_SIZE = Math.min(
+          LOCALES.hr.clientFirst.length,
+          LOCALES.en.clientFirst.length,
+          LOCALES.de.clientFirst.length
+        );
+        let nextClientFirstSlot = 0;
+        let reservationSearch = "";
+
+        const shifts = [];
+        const reservations = [];
+
+        seedShifts();
+        seedReservations();
+
+        function locale() {
+          return LOCALES[currentLang] || LOCALES.hr;
+        }
+
+        function employeeName(employeeId) {
+          const idx = Math.max(0, Math.min((employeeId || 1) - 1, locale().employees.length - 1));
+          return locale().employees[idx];
+        }
+
+        function clientName(reservation) {
+          const l = locale();
+          const first = l.clientFirst[reservation.clientFirstIdx % l.clientFirst.length] || l.clientFirst[0];
+          const last = l.clientLast[reservation.clientLastIdx % l.clientLast.length] || l.clientLast[0];
+          return `${first} ${last}`;
+        }
+
+        function serviceName(reservation) {
+          const list = locale().services;
+          return list[reservation.serviceIdx % list.length] || list[0];
+        }
+
+        function seedShifts() {
+          SHIFT_TEMPLATE.forEach(([day, employeeId, start, end]) => {
+            shifts.push({
+              id: nextShiftId++,
+              day,
+              employeeId,
+              start,
+              end,
+            });
+          });
+        }
+
+        function seededRandom(seed) {
+          const x = Math.sin(seed) * 10000;
+          return x - Math.floor(x);
+        }
+
+        function seededPick(seed, values) {
+          if (!values.length) {
+            return null;
+          }
+          const index = Math.floor(seededRandom(seed) * values.length);
+          return values[Math.max(0, Math.min(index, values.length - 1))];
+        }
+
+        function allocateClientFirstIdx() {
+          const idx = nextClientFirstSlot % CLIENT_FIRST_POOL_SIZE;
+          nextClientFirstSlot += 1;
+          return idx;
+        }
+
+        function seedReservations() {
+          const minDuration = 120;
+          const minGap = 60;
+          const durationOptions = [120, 150, 180];
+          const gapOptions = [60, 75, 90];
+
+          shifts.forEach((shift, shiftIndex) => {
+            const shiftDuration = shift.end - shift.start;
+            const maxPerShift = Math.max(1, Math.floor((shiftDuration + minGap) / (minDuration + minGap)));
+            const targetPerShift = Math.min(3, maxPerShift);
+            const initialOffsetOptions = [0, 15, 30].filter(
+              (offset) => offset <= Math.max(0, shiftDuration - targetPerShift * minDuration - (targetPerShift - 1) * minGap)
+            );
+            const initialOffset = seededPick(shift.id * 17 + 3, initialOffsetOptions) || 0;
+            let cursor = shift.start + initialOffset;
+
+            for (let slotIndex = 0; slotIndex < targetPerShift; slotIndex++) {
+              const remainingSlots = targetPerShift - slotIndex - 1;
+              const minFutureMinutes = remainingSlots * minDuration + remainingSlots * minGap;
+              const maxDuration = shift.end - cursor - minFutureMinutes;
+
+              const validDurations = durationOptions.filter((duration) => duration >= minDuration && duration <= maxDuration);
+              const duration = seededPick(shift.id * 97 + slotIndex * 13 + 1, validDurations) || minDuration;
+
+              const start = cursor;
+              const end = Math.min(shift.end, start + duration);
+
+              const identitySeed = Math.floor(seededRandom(shift.id * 67 + slotIndex * 5 + 11) * 1000);
+              reservations.push({
+                id: nextReservationId++,
+                shiftId: shift.id,
+                day: shift.day,
+                employeeId: shift.employeeId,
+                start,
+                end,
+                clientFirstIdx: allocateClientFirstIdx(),
+                clientLastIdx: identitySeed + shiftIndex + slotIndex,
+                serviceIdx: shiftIndex + slotIndex * 2,
+              });
+
+              if (remainingSlots <= 0) {
+                break;
+              }
+
+              const minFutureAfterGap = remainingSlots * minDuration + (remainingSlots - 1) * minGap;
+              const maxGap = Math.max(0, shift.end - end - minFutureAfterGap);
+              const validGaps = gapOptions.filter((gap) => gap >= minGap && gap <= maxGap);
+              const gap = seededPick(shift.id * 101 + slotIndex * 19 + 7, validGaps) || minGap;
+              cursor = end + gap;
+            }
+          });
+        }
+
+        function formatDateLabel(date) {
+          const dd = String(date.getDate()).padStart(2, "0");
+          const mm = String(date.getMonth() + 1).padStart(2, "0");
+          const yyyy = String(date.getFullYear());
+          return `${dd}.${mm}.${yyyy}.`;
+        }
+
+        function formatTime(minutes) {
+          const h = String(Math.floor(minutes / 60)).padStart(2, "0");
+          const m = String(minutes % 60).padStart(2, "0");
+          return `${h}:${m}`;
+        }
+
+        function weekStartForDate(date) {
+          const d = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+          const day = d.getDay();
+          const diff = (day + 6) % 7;
+          d.setDate(d.getDate() - diff);
+          return d;
+        }
+
+        function firstMondayOfMonth(year, monthIndex) {
+          return weekStartForDate(new Date(year, monthIndex, 1));
+        }
+
+        function isoWeekNumber(date) {
+          const tmp = new Date(date);
+          tmp.setHours(0, 0, 0, 0);
+          tmp.setDate(tmp.getDate() + 3 - ((tmp.getDay() + 6) % 7));
+          const week1 = new Date(tmp.getFullYear(), 0, 4);
+          return 1 + Math.round(((tmp - week1) / 86400000 - 3 + ((week1.getDay() + 6) % 7)) / 7);
+        }
+
+        function roundToStep(minutes, step) {
+          return Math.round(minutes / step) * step;
+        }
+
+        function clamp(value, min, max) {
+          return Math.min(Math.max(value, min), max);
+        }
+
+        function getOpenWindow(dayIndex) {
+          if (dayIndex === 6) {
+            return null;
+          }
+
+          if (dayIndex === 5) {
+            return { start: 8 * 60, end: 13 * 60 };
+          }
+
+          return { start: START_HOUR * 60, end: END_HOUR * 60 };
+        }
+
+        function dayDate(dayIndex) {
+          const d = new Date(currentWeekStart);
+          d.setDate(currentWeekStart.getDate() + dayIndex);
+          return d;
+        }
+
+        function buildYearOptions() {
+          const center = selectedYear;
+          const years = [center - 2, center - 1, center, center + 1, center + 2];
+          yearSelect.innerHTML = "";
+          years.forEach((year) => {
+            const option = document.createElement("option");
+            option.value = String(year);
+            option.textContent = String(year);
+            if (year === selectedYear) {
+              option.selected = true;
+            }
+            yearSelect.appendChild(option);
+          });
+        }
+
+        function renderToolbar() {
+          const l = locale();
+          selectedYear = currentWeekStart.getFullYear();
+          document.documentElement.lang = currentLang;
+
+          buildYearOptions();
+
+          weekPrev.setAttribute("aria-label", l.prevWeekLabel);
+          weekNext.setAttribute("aria-label", l.nextWeekLabel);
+          weekLabel.textContent = `${l.week} ${isoWeekNumber(currentWeekStart)}`;
+
+          searchInput.placeholder = l.searchPlaceholder;
+          searchInput.setAttribute("aria-label", l.searchPlaceholder);
+
+          createReservationBtn.textContent = l.newReservation;
+          createReservationBtn.setAttribute("aria-label", l.newReservation);
+
+          monthsWrap.innerHTML = "";
+          for (let month = 0; month < 12; month++) {
+            const button = document.createElement("button");
+            button.type = "button";
+            button.className = "sr-month";
+            button.textContent = l.months[month];
+            if (month === currentWeekStart.getMonth()) {
+              button.classList.add("is-current");
+            }
+            button.addEventListener("click", () => {
+              currentWeekStart = firstMondayOfMonth(selectedYear, month);
+              renderAll();
+            });
+            monthsWrap.appendChild(button);
+          }
+
+          renderCreateModalStaticContent();
+        }
+
+        function formatDateInput(date) {
+          const year = String(date.getFullYear());
+          const month = String(date.getMonth() + 1).padStart(2, "0");
+          const day = String(date.getDate()).padStart(2, "0");
+          return `${year}-${month}-${day}`;
+        }
+
+        function resolveCreateModalShift() {
+          const prioritized = shifts
+            .filter((shift) => shift.employeeId === activeEmployeeId)
+            .sort((a, b) => a.day - b.day || a.start - b.start);
+          if (prioritized.length) {
+            return prioritized[0];
+          }
+          return shifts[0] || null;
+        }
+
+        function renderCreateModalStaticContent() {
+          if (!createModal) {
+            return;
+          }
+
+          const l = locale();
+          const modal = l.createModal;
+          const fallbackShift = resolveCreateModalShift();
+
+          createModalTitle.textContent = modal.title;
+          createEmployeeLabel.textContent = modal.employee;
+          createServiceLabel.textContent = modal.service;
+          createDateLabel.textContent = modal.date;
+          createStartLabel.textContent = modal.start;
+          createEndLabel.textContent = modal.end;
+          createClientLabel.textContent = modal.client;
+          createEmailLabel.textContent = modal.email;
+          createPhoneLabel.textContent = modal.phone;
+          createNotesLabel.textContent = modal.notes;
+          createStatusLabel.textContent = modal.status;
+          createCancelBtn.textContent = modal.cancel;
+          createSaveBtn.textContent = modal.save;
+
+          createStatusSelect.innerHTML = "";
+          [
+            { value: "pending", label: modal.statusPending },
+            { value: "approved", label: modal.statusApproved },
+            { value: "cancelled", label: modal.statusCancelled },
+          ].forEach((status) => {
+            const option = document.createElement("option");
+            option.value = status.value;
+            option.textContent = status.label;
+            if (status.value === "pending") {
+              option.selected = true;
+            }
+            createStatusSelect.appendChild(option);
+          });
+
+          createEmployeeSelect.innerHTML = "";
+          l.employees.forEach((name, index) => {
+            const option = document.createElement("option");
+            option.value = String(index + 1);
+            option.textContent = name;
+            if (index + 1 === activeEmployeeId) {
+              option.selected = true;
+            }
+            createEmployeeSelect.appendChild(option);
+          });
+
+          createServiceSelect.innerHTML = "";
+          l.services.forEach((service, index) => {
+            const option = document.createElement("option");
+            option.value = String(index + 1);
+            option.textContent = service;
+            if (index === 0) {
+              option.selected = true;
+            }
+            createServiceSelect.appendChild(option);
+          });
+
+          if (fallbackShift) {
+            const date = new Date(currentWeekStart);
+            date.setDate(currentWeekStart.getDate() + fallbackShift.day);
+            createDateInput.value = formatDateInput(date);
+            createStartInput.value = formatTime(fallbackShift.start);
+            createEndInput.value = formatTime(Math.min(fallbackShift.end, fallbackShift.start + DEFAULT_RES_MINUTES));
+          } else {
+            const date = new Date(currentWeekStart);
+            createDateInput.value = formatDateInput(date);
+            createStartInput.value = "10:00";
+            createEndInput.value = "12:00";
+          }
+
+          createClientInput.value = modal.sampleClient;
+          createEmailInput.value = modal.sampleEmail;
+          createPhoneInput.value = modal.samplePhone;
+          createNotesInput.value = modal.sampleNotes;
+        }
+
+        function openCreateModal() {
+          if (!createModal) {
+            return;
+          }
+          renderCreateModalStaticContent();
+          createModal.hidden = false;
+        }
+
+        function closeCreateModal() {
+          if (!createModal) {
+            return;
+          }
+          createModal.hidden = true;
+        }
+
+        function renderChips() {
+          chipsWrap.innerHTML = "";
+
+          [1, 2, 3, 4].forEach((employeeId) => {
+            const chip = document.createElement("button");
+            chip.type = "button";
+            chip.className = "sr-chip";
+            if (employeeId === activeEmployeeId) {
+              chip.classList.add("is-active");
+            }
+
+            chip.dataset.employeeId = String(employeeId);
+            chip.style.setProperty("--chip-color", EMPLOYEE_STYLES[employeeId].color);
+            chip.innerHTML = `<span>${employeeName(employeeId)}</span><span class="sr-chip-bubble" aria-hidden="true"></span>`;
+
+            chip.addEventListener("click", () => {
+              activeEmployeeId = employeeId;
+              visibleEmployeeId = employeeId;
+              renderChips();
+              renderDays();
+            });
+
+            chipsWrap.appendChild(chip);
+          });
+        }
+
+        function renderTimes() {
+          timesBody.innerHTML = "";
+          const totalMinutes = (END_HOUR - START_HOUR) * 60;
+          for (let hour = START_HOUR; hour <= END_HOUR; hour++) {
+            const label = document.createElement("div");
+            label.className = "sr-time-label";
+            label.textContent = String(hour).padStart(2, "0");
+            const offset = (hour - START_HOUR) * 60;
+            label.style.top = `${(offset / totalMinutes) * 100}%`;
+            timesBody.appendChild(label);
+          }
+        }
+
+        function shiftsByDay(dayIndex) {
+          return shifts.filter((shift) => shift.day === dayIndex).sort((a, b) => a.start - b.start);
+        }
+
+        function reservationsByDay(dayIndex) {
+          return reservations.filter((reservation) => reservation.day === dayIndex).sort((a, b) => a.start - b.start);
+        }
+
+        function layoutColumns(dayShifts) {
+          const events = dayShifts.map((shift) => ({ shift, start: shift.start, end: shift.end, col: 0 }));
+          events.sort((a, b) => a.start - b.start);
+
+          const groups = [];
+          let current = [];
+          let currentEnd = -1;
+
+          events.forEach((event) => {
+            if (!current.length || event.start < currentEnd) {
+              current.push(event);
+              currentEnd = Math.max(currentEnd, event.end);
+            } else {
+              groups.push(current);
+              current = [event];
+              currentEnd = event.end;
+            }
+          });
+
+          if (current.length) {
+            groups.push(current);
+          }
+
+          const byId = new Map();
+          groups.forEach((group) => {
+            const colEnds = [];
+            group.forEach((event) => {
+              let col = colEnds.findIndex((end) => end <= event.start);
+              if (col === -1) {
+                col = colEnds.length;
+                colEnds.push(event.end);
+              } else {
+                colEnds[col] = event.end;
+              }
+              event.col = col;
+            });
+
+            const colCount = Math.max(1, colEnds.length);
+            group.forEach((event) => {
+              byId.set(event.shift.id, { col: event.col, colCount });
+            });
+          });
+
+          return byId;
+        }
+
+        function shiftById(shiftId) {
+          return shifts.find((item) => item.id === shiftId);
+        }
+
+        function reservationById(reservationId) {
+          return reservations.find((item) => item.id === reservationId);
+        }
+
+        function dayBodyByIndex(dayIndex) {
+          return daysWrap.querySelector(`.sr-day-body[data-day-index="${dayIndex}"]`);
+        }
+
+        function findDayBodyFromPoint(clientX, clientY) {
+          const target = document.elementFromPoint(clientX, clientY);
+          return target ? target.closest(".sr-day-body") : null;
+        }
+
+        function fullClientNameForSearch(reservation) {
+          return clientName(reservation).toLowerCase();
+        }
+
+        function hasReservationOverlap(dayIndex, employeeId, start, end, excludeReservationId = 0) {
+          return reservations.some((reservation) => {
+            if (reservation.id === excludeReservationId) {
+              return false;
+            }
+
+            if (reservation.day !== dayIndex || reservation.employeeId !== employeeId) {
+              return false;
+            }
+
+            return start < reservation.end && end > reservation.start;
+          });
+        }
+
+        function findFirstOpenSlotInShift(shift, duration, excludeReservationId = 0) {
+          for (let start = shift.start; start <= shift.end - duration; start += SNAP_MINUTES) {
+            const end = start + duration;
+            if (!hasReservationOverlap(shift.day, shift.employeeId, start, end, excludeReservationId)) {
+              return { shift, start, end };
+            }
+          }
+          return null;
+        }
+
+        function resolveReservationPlacement(dayIdx, desiredStart, duration, clientX, excludeReservationId = 0, preferredEmployeeId = 0) {
+          const dayShifts = shiftsByDay(dayIdx);
+          if (!dayShifts.length) {
+            return null;
+          }
+
+          const dayBody = dayBodyByIndex(dayIdx);
+          if (!dayBody) {
+            return null;
+          }
+
+          const columnMap = layoutColumns(dayShifts);
+          const rect = dayBody.getBoundingClientRect();
+          const xRatio = rect.width > 0 ? clamp((clientX - rect.left) / rect.width, 0, 1) : 0.5;
+          const xPct = xRatio * 100;
+
+          let best = null;
+          dayShifts.forEach((shift) => {
+            const maxStart = shift.end - duration;
+            if (maxStart < shift.start) {
+              return;
+            }
+
+            const start = clamp(desiredStart, shift.start, maxStart);
+            const end = start + duration;
+
+            if (hasReservationOverlap(dayIdx, shift.employeeId, start, end, excludeReservationId)) {
+              return;
+            }
+
+            const meta = columnMap.get(shift.id) || { col: 0, colCount: 1 };
+            const colWidth = 100 / meta.colCount;
+            const colCenter = meta.col * colWidth + colWidth / 2;
+
+            const timeDelta = Math.abs(start - desiredStart);
+            const xDelta = Math.abs(colCenter - xPct) * 3;
+            const employeePenalty = preferredEmployeeId && shift.employeeId !== preferredEmployeeId ? 60 : 0;
+            const score = timeDelta + xDelta + employeePenalty;
+
+            if (!best || score < best.score) {
+              best = { score, shift, start, end };
+            }
+          });
+
+          return best;
+        }
+
+        function getPointerMinutes(dayBody, clientY) {
+          const rect = dayBody.getBoundingClientRect();
+          const relativeY = clamp(clientY - rect.top, 0, rect.height);
+          const totalMinutes = (END_HOUR - START_HOUR) * 60;
+          const minutes = START_HOUR * 60 + (relativeY / rect.height) * totalMinutes;
+          return roundToStep(minutes, SNAP_MINUTES);
+        }
+
+        function buildShiftElement(shift, columnMeta) {
+          const block = document.createElement("div");
+          block.className = "sr-shift";
+          block.dataset.shiftId = String(shift.id);
+          block.dataset.day = String(shift.day);
+
+          const totalMinutes = (END_HOUR - START_HOUR) * 60;
+          const top = ((shift.start - START_HOUR * 60) / totalMinutes) * 100;
+          const height = ((shift.end - shift.start) / totalMinutes) * 100;
+
+          const width = 100 / columnMeta.colCount;
+          const left = columnMeta.col * width;
+
+          block.style.top = `${top}%`;
+          block.style.height = `${height}%`;
+          block.style.setProperty("--left", `${left}%`);
+          block.style.setProperty("--width", `${width}%`);
+          block.style.setProperty("--shift-color", EMPLOYEE_STYLES[shift.employeeId].color);
+          block.style.setProperty("--shift-bg", EMPLOYEE_STYLES[shift.employeeId].bg);
+          return block;
+        }
+
+        function expandReservationBlock(block) {
+          if (block.classList.contains("is-expanded")) {
+            return;
+          }
+
+          const currentHeightPx = block.getBoundingClientRect().height;
+          block.dataset.baseHeightPx = String(currentHeightPx);
+          block.classList.add("is-expanded");
+          block.style.height = "auto";
+          const expandedHeight = Math.max(currentHeightPx, block.scrollHeight + 10);
+          block.style.height = `${expandedHeight}px`;
+        }
+
+        function collapseReservationBlock(block) {
+          if (!block.classList.contains("is-expanded")) {
+            return;
+          }
+
+          block.classList.remove("is-expanded");
+          if (block.dataset.heightPct) {
+            block.style.height = `${block.dataset.heightPct}%`;
+          }
+        }
+
+        function buildReservationElement(reservation, shift, columnMeta) {
+          const block = document.createElement("div");
+          block.className = "sr-reservation";
+          block.dataset.reservationId = String(reservation.id);
+          block.dataset.shiftId = String(reservation.shiftId);
+          block.dataset.day = String(reservation.day);
+
+          const totalMinutes = (END_HOUR - START_HOUR) * 60;
+          const top = ((reservation.start - START_HOUR * 60) / totalMinutes) * 100;
+          const height = ((reservation.end - reservation.start) / totalMinutes) * 100;
+
+          const width = 100 / columnMeta.colCount;
+          const left = columnMeta.col * width;
+
+          block.style.top = `${top}%`;
+          block.style.height = `${height}%`;
+          block.dataset.heightPct = String(height);
+          block.style.setProperty("--left", `${left}%`);
+          block.style.setProperty("--width", `${width}%`);
+          block.style.setProperty("--res-color", EMPLOYEE_STYLES[shift.employeeId].color);
+          block.style.setProperty("--res-bg", EMPLOYEE_STYLES[shift.employeeId].bg);
+
+          const time = document.createElement("span");
+          time.className = "sr-res-time";
+          time.textContent = `${formatTime(reservation.start)} - ${formatTime(reservation.end)}`;
+
+          const client = document.createElement("span");
+          client.className = "sr-res-client";
+          client.textContent = clientName(reservation);
+
+          const service = document.createElement("span");
+          service.className = "sr-res-service";
+          service.textContent = serviceName(reservation);
+
+          block.append(time, client, service);
+          bindReservationInteractions(block);
+          return block;
+        }
+
+        function bindReservationInteractions(block) {
+          if (block.dataset.bound === "1") {
+            return;
+          }
+
+          block.dataset.bound = "1";
+          block.addEventListener("mouseenter", () => expandReservationBlock(block));
+          block.addEventListener("mouseleave", () => collapseReservationBlock(block));
+
+          block.addEventListener("mousedown", (event) => {
+            event.preventDefault();
+            collapseReservationBlock(block);
+
+            const reservationId = Number(block.dataset.reservationId);
+            const reservation = reservationById(reservationId);
+            if (!reservation) {
+              return;
+            }
+
+            const duration = Math.max(MIN_RES_MINUTES, reservation.end - reservation.start);
+            const rect = block.getBoundingClientRect();
+            const pointerOffset = event.clientY - rect.top;
+            block.classList.add("is-dragging");
+
+            const onMove = (moveEvent) => {
+              const targetBody = findDayBodyFromPoint(moveEvent.clientX, moveEvent.clientY) || dayBodyByIndex(reservation.day);
+              if (!targetBody) {
+                return;
+              }
+
+              const dayIdx = Number(targetBody.dataset.dayIndex);
+              const rectDay = targetBody.getBoundingClientRect();
+              const y = moveEvent.clientY - rectDay.top - pointerOffset;
+              const totalMinutes = (END_HOUR - START_HOUR) * 60;
+              const minutes = START_HOUR * 60 + (clamp(y, 0, rectDay.height) / rectDay.height) * totalMinutes;
+              const desiredStart = roundToStep(minutes, SNAP_MINUTES);
+
+              const placement = resolveReservationPlacement(
+                dayIdx,
+                desiredStart,
+                duration,
+                moveEvent.clientX,
+                reservation.id,
+                reservation.employeeId
+              );
+
+              if (!placement) {
+                return;
+              }
+
+              reservation.day = dayIdx;
+              reservation.shiftId = placement.shift.id;
+              reservation.employeeId = placement.shift.employeeId;
+              reservation.start = placement.start;
+              reservation.end = placement.end;
+              renderDays();
+            };
+
+            const onUp = () => {
+              document.removeEventListener("mousemove", onMove);
+              document.removeEventListener("mouseup", onUp);
+              block.classList.remove("is-dragging");
+            };
+
+            document.addEventListener("mousemove", onMove);
+            document.addEventListener("mouseup", onUp);
+          });
+        }
+
+        function createReservation(preferredEmployeeId, preferredDay = 0, preferredMinute = null, viaClientX = null) {
+          const l = locale();
+          const duration = DEFAULT_RES_MINUTES;
+
+          let placement = null;
+
+          if (Number.isFinite(preferredMinute) && Number.isFinite(viaClientX)) {
+            placement = resolveReservationPlacement(
+              preferredDay,
+              roundToStep(preferredMinute, SNAP_MINUTES),
+              duration,
+              viaClientX,
+              0,
+              preferredEmployeeId
+            );
+          }
+
+          if (!placement) {
+            for (let dayIdx = 0; dayIdx < 6; dayIdx++) {
+              const dayShifts = shiftsByDay(dayIdx).filter((shift) => !preferredEmployeeId || shift.employeeId === preferredEmployeeId);
+              for (const shift of dayShifts) {
+                placement = findFirstOpenSlotInShift(shift, duration, 0);
+                if (placement) {
+                  break;
+                }
+              }
+              if (placement) {
+                break;
+              }
+            }
+          }
+
+          if (!placement) {
+            for (let dayIdx = 0; dayIdx < 6; dayIdx++) {
+              const dayShifts = shiftsByDay(dayIdx);
+              for (const shift of dayShifts) {
+                placement = findFirstOpenSlotInShift(shift, duration, 0);
+                if (placement) {
+                  break;
+                }
+              }
+              if (placement) {
+                break;
+              }
+            }
+          }
+
+          if (!placement) {
+            return;
+          }
+
+          reservations.push({
+            id: nextReservationId++,
+            shiftId: placement.shift.id,
+            day: placement.shift.day,
+            employeeId: placement.shift.employeeId,
+            start: placement.start,
+            end: placement.end,
+            clientFirstIdx: allocateClientFirstIdx(),
+            clientLastIdx: reservations.length + 2,
+            serviceIdx: reservations.length % l.services.length,
+          });
+
+          renderDays();
+        }
+
+        function bindDayInteractions(dayBody) {
+          if (dayBody.dataset.bound === "1") {
+            return;
+          }
+
+          dayBody.dataset.bound = "1";
+
+          dayBody.addEventListener("dblclick", (event) => {
+            const dayIdx = Number(dayBody.dataset.dayIndex);
+            const pointerStart = getPointerMinutes(dayBody, event.clientY);
+            createReservation(activeEmployeeId, dayIdx, pointerStart, event.clientX);
+          });
+        }
+
+        function renderDays() {
+          const l = locale();
+          daysWrap.innerHTML = "";
+
+          for (let dayIndex = 0; dayIndex < 6; dayIndex++) {
+            const openWindow = getOpenWindow(dayIndex);
+            const dayShifts = shiftsByDay(dayIndex).filter((shift) => !visibleEmployeeId || shift.employeeId === visibleEmployeeId);
+            const dayReservations = reservationsByDay(dayIndex).filter(
+              (reservation) => !visibleEmployeeId || reservation.employeeId === visibleEmployeeId
+            );
+            const columnMap = layoutColumns(dayShifts);
+            const date = dayDate(dayIndex);
+
+            const day = document.createElement("div");
+            day.className = "sr-day";
+
+            const header = document.createElement("div");
+            header.className = "sr-day-header";
+
+            const dayName = document.createElement("span");
+            dayName.className = "sr-day-name";
+            dayName.textContent = l.days[dayIndex];
+
+            const dateLabel = document.createElement("span");
+            dateLabel.className = "sr-day-date";
+            dateLabel.textContent = formatDateLabel(date);
+
+            header.append(dayName, dateLabel);
+
+            const body = document.createElement("div");
+            body.className = "sr-day-body";
+            body.dataset.dayIndex = String(dayIndex);
+            bindDayInteractions(body);
+
+            const totalMinutes = (END_HOUR - START_HOUR) * 60;
+
+            if (!openWindow) {
+              const closed = document.createElement("div");
+              closed.className = "sr-closed";
+              closed.style.top = "0";
+              closed.style.height = "100%";
+              body.appendChild(closed);
+            } else {
+              if (openWindow.start > START_HOUR * 60) {
+                const topClosed = document.createElement("div");
+                topClosed.className = "sr-closed";
+                topClosed.style.top = "0";
+                topClosed.style.height = `${((openWindow.start - START_HOUR * 60) / totalMinutes) * 100}%`;
+                body.appendChild(topClosed);
+              }
+              if (openWindow.end < END_HOUR * 60) {
+                const bottomClosed = document.createElement("div");
+                bottomClosed.className = "sr-closed";
+                bottomClosed.style.top = `${((openWindow.end - START_HOUR * 60) / totalMinutes) * 100}%`;
+                bottomClosed.style.height = `${((END_HOUR * 60 - openWindow.end) / totalMinutes) * 100}%`;
+                body.appendChild(bottomClosed);
+              }
+            }
+
+            dayShifts.forEach((shift) => {
+              const meta = columnMap.get(shift.id) || { col: 0, colCount: 1 };
+              body.appendChild(buildShiftElement(shift, meta));
+            });
+
+            dayReservations.forEach((reservation) => {
+              const shift = shiftById(reservation.shiftId);
+              if (!shift) {
+                return;
+              }
+
+              if (reservationSearch && !fullClientNameForSearch(reservation).includes(reservationSearch)) {
+                return;
+              }
+
+              const meta = columnMap.get(shift.id) || { col: 0, colCount: 1 };
+              body.appendChild(buildReservationElement(reservation, shift, meta));
+            });
+
+            day.append(header, body);
+            daysWrap.appendChild(day);
+          }
+        }
+
+        function renderAll() {
+          renderToolbar();
+          renderChips();
+          renderTimes();
+          renderDays();
+        }
+
+        function setLanguage(nextLang) {
+          if (!LOCALES[nextLang]) {
+            return;
+          }
+
+          currentLang = nextLang;
+          renderAll();
+        }
+
+        function handleParentMessage(event) {
+          const data = event && event.data ? event.data : null;
+          if (!data || data.type !== "etherr-reservation-lang") {
+            return;
+          }
+          setLanguage(data.lang);
+        }
+
+        weekPrev.addEventListener("click", () => {
+          currentWeekStart = new Date(currentWeekStart.getFullYear(), currentWeekStart.getMonth(), currentWeekStart.getDate() - 7);
+          renderAll();
+        });
+
+        weekNext.addEventListener("click", () => {
+          currentWeekStart = new Date(currentWeekStart.getFullYear(), currentWeekStart.getMonth(), currentWeekStart.getDate() + 7);
+          renderAll();
+        });
+
+        weekLabel.addEventListener("click", () => {
+          currentWeekStart = weekStartForDate(new Date());
+          renderAll();
+        });
+
+        yearSelect.addEventListener("change", () => {
+          const value = Number(yearSelect.value);
+          if (!Number.isFinite(value)) {
+            return;
+          }
+          selectedYear = value;
+          currentWeekStart = firstMondayOfMonth(selectedYear, currentWeekStart.getMonth());
+          renderAll();
+        });
+
+        searchInput.addEventListener("input", () => {
+          reservationSearch = searchInput.value.trim().toLowerCase();
+          renderDays();
+        });
+
+        createReservationBtn.addEventListener("click", () => {
+          openCreateModal();
+        });
+
+        if (createModalOverlay) {
+          createModalOverlay.addEventListener("click", closeCreateModal);
+        }
+
+        if (createCancelBtn) {
+          createCancelBtn.addEventListener("click", closeCreateModal);
+        }
+
+        if (createModalForm) {
+          createModalForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+          });
+        }
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && createModal && !createModal.hidden) {
+            closeCreateModal();
+          }
+        });
+
+        window.addEventListener("message", handleParentMessage);
+        renderAll();
+      })();
+    </script>
+  </body>
+</html>

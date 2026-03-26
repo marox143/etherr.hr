@@ -42,6 +42,7 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
+  padding-top: 100px;
   font-family: "Manrope", "Segoe UI", sans-serif;
   color: var(--text);
   background: linear-gradient(180deg, #fbfefe 0%, var(--bg) 55%, #f9fcfc 100%);
@@ -75,14 +76,26 @@ p {
 }
 
 .container {
-  width: var(--max-width);
+  width: min(1140px, 92vw);
   margin-inline: auto;
+}
+
+.site-header .header-inner {
+  width: min(1140px, 92vw);
+}
+
+.page-main-projects .page-shell > .container.page-shell-inner {
+  width: min(1140px, 92vw);
 }
 
 .section {
   padding: clamp(4.5rem, 8vw, 7.5rem) 0;
   position: relative;
   z-index: 1;
+}
+
+.section[id] {
+  scroll-margin-top: 114px;
 }
 
 .section-tag {
@@ -142,7 +155,9 @@ p {
 }
 
 .site-header {
-  position: sticky;
+  position: fixed;
+  left: 0;
+  right: 0;
   top: 0;
   z-index: var(--site-header-z);
   overflow: hidden;
@@ -163,7 +178,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 78px;
+  min-height: 100px;
 }
 
 .header-center-logo {
@@ -201,18 +216,22 @@ p {
   position: relative;
   z-index: 2;
   width: 100%;
+  flex: 1 1 auto;
+  min-width: 0;
   min-height: inherit;
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: stretch;
   padding-left: 0;
-  padding-right: clamp(72px, 8vw, 124px);
+  padding-right: 0;
 }
 
 .site-nav {
   display: inline-flex;
   align-items: center;
   gap: 1.05rem;
+  justify-self: start;
 }
 
 .site-nav a {
@@ -250,14 +269,47 @@ p {
     inset 0 1px 0 rgba(255, 255, 255, 0.72);
 }
 
+.site-nav a[aria-current="page"] {
+  border-color: rgba(25, 183, 177, 0.42);
+  background: rgba(232, 255, 253, 0.68);
+  box-shadow:
+    0 12px 22px rgba(8, 34, 40, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.76);
+  color: #0d3136;
+}
+
+.site-nav a[aria-current="page"]:hover,
+.site-nav a[aria-current="page"]:focus-visible {
+  border-color: rgba(25, 183, 177, 0.52);
+  background: rgba(232, 255, 253, 0.78);
+}
+
+.site-nav .nav-home-link {
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  min-height: 52px;
+  padding: 0;
+  border-radius: 999px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+}
+
+.nav-home-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+  background: url("assets/images/home.svg") center / contain no-repeat;
+}
+
 .lang-switch {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  position: static;
+  transform: none;
   display: inline-flex;
   align-items: center;
   gap: 0.26rem;
+  justify-self: end;
 }
 
 .lang-btn {
@@ -756,8 +808,220 @@ p {
   max-width: 60ch;
 }
 
+.about-extended-grid {
+  margin-top: clamp(1.4rem, 3vw, 2.2rem);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.95rem, 2vw, 1.35rem);
+}
+
+.about-info-panel {
+  position: relative;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  padding: clamp(1.2rem, 2.2vw, 1.7rem);
+  overflow: hidden;
+}
+
+.about-info-panel::after {
+  content: "";
+  position: absolute;
+  right: -22px;
+  top: -24px;
+  width: 130px;
+  height: 130px;
+  border: 4px solid rgba(47, 153, 153, 0.26);
+  border-radius: 26px;
+  pointer-events: none;
+  transform: rotate(15deg);
+}
+
+.about-info-panel-tech {
+  color: #edf9f9;
+  border-color: rgba(47, 153, 153, 0.3);
+  background: linear-gradient(145deg, #0f2a2c 0%, #15393d 100%);
+  box-shadow: 0 20px 40px rgba(9, 38, 40, 0.16);
+}
+
+.about-info-panel-tech::after {
+  border-color: rgba(47, 153, 153, 0.34);
+}
+
+.about-info-panel-delivery {
+  color: var(--text);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(241, 247, 247, 0.95));
+  box-shadow: 0 18px 36px rgba(8, 35, 38, 0.08);
+}
+
+.about-panel-tag {
+  margin: 0 0 0.65rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-deep);
+}
+
+.about-info-panel-tech .about-panel-tag {
+  color: #2f9999;
+}
+
+.about-info-panel h3 {
+  margin: 0;
+  font-size: clamp(1.16rem, 2.1vw, 1.5rem);
+  line-height: 1.2;
+  color: #123033;
+}
+
+.about-info-panel-tech h3 {
+  color: #2f9999;
+}
+
+.about-panel-lead {
+  margin: 0.7rem 0 0;
+  font-size: 0.96rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.about-info-panel-tech .about-panel-lead {
+  color: rgba(236, 248, 248, 0.9);
+}
+
+.about-bullet-list {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.about-bullet-list li {
+  position: relative;
+  padding-left: 1.1rem;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+.about-bullet-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 999px;
+  background: #2f9999;
+  transform: translateY(-50%);
+}
+
+.about-info-panel-tech .about-bullet-list li {
+  color: rgba(236, 248, 248, 0.94);
+}
+
+.about-info-panel-tech .about-bullet-list li::before {
+  background: rgba(47, 153, 153, 0.96);
+}
+
+.about-stack-label {
+  margin: 1.05rem 0 0.56rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #2f9999;
+}
+
+.about-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.46rem;
+}
+
+.about-tech-stack span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: #ecf8f8;
+  border: 1px solid rgba(47, 153, 153, 0.45);
+  background: rgba(20, 58, 60, 0.65);
+}
+
+.about-icon-grid {
+  margin-top: clamp(0.95rem, 2.4vw, 1.75rem);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.9rem, 1.8vw, 1.2rem);
+}
+
+.about-icon-card {
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(7, 47, 50, 0.14);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(241, 247, 247, 0.95));
+  box-shadow: 0 14px 28px rgba(8, 33, 36, 0.08);
+  padding: 1rem 1rem 1.1rem;
+}
+
+.about-icon-mark {
+  width: 2.45rem;
+  height: 2.45rem;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(47, 153, 153, 0.35);
+  background: rgba(47, 153, 153, 0.12);
+  color: #136b6a;
+}
+
+.about-icon-mark svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.about-icon-card h3 {
+  margin: 0.66rem 0 0;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: #123033;
+}
+
+.about-icon-card p {
+  margin: 0.45rem 0 0;
+  color: var(--muted);
+  line-height: 1.65;
+  font-size: 0.93rem;
+}
+
 .services {
   padding-top: clamp(4rem, 7vw, 6.5rem);
+}
+
+body[data-page="home"] .hero {
+  padding-bottom: clamp(2.1rem, 4.2vw, 3.2rem);
+}
+
+body[data-page="home"] .services {
+  padding-top: clamp(2rem, 4vw, 3rem);
+  padding-bottom: clamp(2.25rem, 4vw, 3.75rem);
+}
+
+body[data-page="home"] .contact {
+  padding-top: clamp(2rem, 4vw, 3.4rem);
+}
+
+body[data-page="about"] .about.section {
+  padding-top: clamp(2.25rem, 4vw, 3.75rem);
+  padding-bottom: clamp(2.25rem, 4vw, 3.75rem);
 }
 
 .service-categories {
@@ -907,7 +1171,7 @@ p {
 }
 
 .service-row.is-open .service-spotlight::after {
-  opacity: 0.45;
+  opacity: 0.2;
 }
 
 .service-spotlight-content {
@@ -1043,6 +1307,27 @@ p {
   min-height: auto;
 }
 
+.projects-intro-section {
+  padding-top: clamp(0.95rem, 1.9vw, 1.45rem);
+  padding-bottom: clamp(1.15rem, 2.5vw, 2rem);
+}
+
+.projects-intro {
+  width: min(100%, 70rem);
+}
+
+.projects-intro-title {
+  font-size: clamp(2.45rem, 4.8vw, 4.25rem);
+  line-height: 0.97;
+  max-width: 24ch;
+  text-wrap: balance;
+}
+
+.projects-intro-subtitle {
+  max-width: 72ch;
+  margin-top: 1.2rem;
+}
+
 .project-showcase {
   padding-top: clamp(2.35rem, 4.5vw, 3.4rem);
   padding-bottom: clamp(2.6rem, 4.8vw, 3.75rem);
@@ -1060,7 +1345,7 @@ p {
 }
 
 .project-showcase-layout {
-  width: min(100%, 71rem);
+  width: 100%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: minmax(260px, 0.9fr) minmax(320px, 1.45fr);
@@ -1074,17 +1359,32 @@ p {
 }
 
 .project-showcase-layout-reversed {
-  width: min(100%, 71rem);
+  width: 100%;
   grid-template-columns: minmax(260px, 0.9fr) minmax(320px, 1.45fr);
   gap: clamp(2rem, 5vw, 5rem);
+}
+
+.project-showcase-banner {
+  width: 100%;
+  margin: 0 auto;
+  padding-right: 0;
 }
 
 .project-summary {
   --project-summary-front-accent: #2f9999;
   --project-summary-front-body: #ffffff;
+  --project-summary-front-surface: linear-gradient(180deg, #0f2a2c 0%, #15363a 100%);
+  --project-summary-front-ink: #ecf8f8;
+  --project-summary-front-link-bg: rgba(255, 255, 255, 0.04);
+  --project-summary-front-link-color: #ecf8f8;
+  --project-summary-front-link-hover-bg: rgba(255, 255, 255, 0.08);
   --project-summary-back-bg: #2f9999;
   --project-summary-back-accent: #123033;
-  --project-summary-back-body: #000000;
+  --project-summary-back-body: #ecf8f8;
+  --project-summary-back-ink: #123033;
+  --project-summary-back-link-bg: rgba(255, 255, 255, 0.04);
+  --project-summary-back-link-color: #ecf8f8;
+  --project-summary-back-link-hover-bg: rgba(255, 255, 255, 0.08);
   position: relative;
   justify-self: center;
   width: min(100%, 34rem);
@@ -1133,6 +1433,23 @@ p {
   pointer-events: none;
 }
 
+@keyframes action-rail-breathe {
+  0%,
+  100% {
+    opacity: 0.72;
+    background-color: var(--rail-color-start, currentColor);
+    box-shadow: 0 0 0 rgba(47, 153, 153, 0);
+  }
+
+  50% {
+    opacity: 1;
+    background-color: var(--rail-color-end, var(--rail-color-start, #2f9999));
+    box-shadow:
+      0 0 14px color-mix(in srgb, var(--rail-glow, #2f9999) 62%, transparent),
+      0 0 26px color-mix(in srgb, var(--rail-glow, #2f9999) 34%, transparent);
+  }
+}
+
 .project-summary-face::after {
   width: 150px;
   height: 150px;
@@ -1145,8 +1462,8 @@ p {
 
 .project-summary-face-front {
   border: 1px solid color-mix(in srgb, var(--project-summary-front-accent) 30%, transparent);
-  background: linear-gradient(180deg, #0f2a2c 0%, #15363a 100%);
-  color: #ecf8f8;
+  background: var(--project-summary-front-surface);
+  color: var(--project-summary-front-ink);
 }
 
 .project-summary-face-front::after {
@@ -1155,12 +1472,15 @@ p {
 
 .project-summary-face-front::before {
   background: var(--project-summary-front-accent);
+  --rail-glow: var(--project-summary-front-accent);
+  --rail-color-start: color-mix(in srgb, var(--project-summary-front-accent) 72%, #ffffff);
+  --rail-color-end: var(--project-summary-front-accent);
 }
 
 .project-summary-face-back {
   border: 1px solid color-mix(in srgb, var(--project-summary-back-accent) 26%, transparent);
   background: var(--project-summary-back-bg);
-  color: var(--project-summary-back-accent);
+  color: var(--project-summary-back-ink);
   transform: rotateY(180deg);
 }
 
@@ -1168,6 +1488,9 @@ p {
   left: 10px;
   right: auto;
   background: var(--project-summary-back-accent);
+  --rail-glow: var(--project-summary-back-accent);
+  --rail-color-start: color-mix(in srgb, var(--project-summary-back-accent) 72%, #ffffff);
+  --rail-color-end: var(--project-summary-back-accent);
 }
 
 .project-summary-face-back::after {
@@ -1273,8 +1596,8 @@ p {
   border-radius: 999px;
   padding: 0.65rem 1rem;
   border: 1px solid color-mix(in srgb, var(--project-summary-front-accent) 26%, transparent);
-  background: rgba(255, 255, 255, 0.04);
-  color: #ecf8f8;
+  background: var(--project-summary-front-link-bg);
+  color: var(--project-summary-front-link-color);
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -1285,8 +1608,12 @@ p {
 .project-summary-face-back .project-summary-link {
   flex-direction: row-reverse;
   border-color: color-mix(in srgb, var(--project-summary-back-accent) 26%, transparent);
-  background: color-mix(in srgb, var(--project-summary-back-accent) 8%, transparent);
-  color: var(--project-summary-back-accent);
+  background: var(--project-summary-back-link-bg);
+  color: var(--project-summary-back-link-color);
+}
+
+.project-summary:not(.project-summary-wide) .project-summary-face-back .project-summary-link {
+  border-color: color-mix(in srgb, #ecf8f8 42%, transparent);
 }
 
 .project-summary-face-back .project-summary-link::after {
@@ -1303,13 +1630,18 @@ p {
 .project-summary-link:focus-visible {
   transform: translateY(-2px);
   border-color: color-mix(in srgb, var(--project-summary-front-accent) 44%, transparent);
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--project-summary-front-link-hover-bg);
 }
 
 .project-summary-face-back .project-summary-link:hover,
 .project-summary-face-back .project-summary-link:focus-visible {
   border-color: color-mix(in srgb, var(--project-summary-back-accent) 40%, transparent);
-  background: color-mix(in srgb, var(--project-summary-back-accent) 14%, transparent);
+  background: var(--project-summary-back-link-hover-bg);
+}
+
+.project-summary:not(.project-summary-wide) .project-summary-face-back .project-summary-link:hover,
+.project-summary:not(.project-summary-wide) .project-summary-face-back .project-summary-link:focus-visible {
+  border-color: color-mix(in srgb, #ecf8f8 62%, transparent);
 }
 
 .project-summary-flip-trigger {
@@ -1335,6 +1667,14 @@ p {
   display: none;
 }
 
+.project-summary:not(.is-flipped) .project-summary-face-front::before {
+  animation: action-rail-breathe 2.25s ease-in-out infinite;
+}
+
+.project-summary.is-flipped .project-summary-face-back::before {
+  animation: action-rail-breathe 2.25s ease-in-out infinite;
+}
+
 .project-showcase-layout-reversed .project-summary {
   justify-self: center;
   width: clamp(31.5rem, 37vw, 34.5rem);
@@ -1343,12 +1683,616 @@ p {
   z-index: 1;
 }
 
+.project-summary.project-summary-keef,
+.project-summary.project-summary-juvy {
+  width: clamp(37rem, calc(41vw + 1rem), 41rem);
+  max-width: 100%;
+}
+
 .project-summary-kota .project-summary-face-front::after {
   right: -60px;
 }
 
 .project-summary-kota .project-summary-face-back::after {
   left: -60px;
+}
+
+.project-reservation-row {
+  --reservation-panel-collapsed: 35px;
+  --reservation-swap-ease: cubic-bezier(0.22, 0.58, 0.16, 1);
+  --reservation-swap-duration: 0.96s;
+  --reservation-content-in-duration: 0.56s;
+  --reservation-content-out-duration: 0.42s;
+  --reservation-content-delay: 0.3s;
+  --reservation-panel-shell-padding: 1.8rem;
+  display: flex;
+  align-items: stretch;
+  gap: 1rem;
+}
+
+.project-summary.project-summary-reservation-main {
+  --project-summary-front-accent: #2f9999;
+  --project-summary-front-body: #ffffff;
+  --project-summary-front-surface: linear-gradient(180deg, #0f2a2c 0%, #15363a 100%);
+  --project-summary-front-ink: #ecf8f8;
+  --project-summary-front-link-bg: rgba(255, 255, 255, 0.04);
+  --project-summary-front-link-color: #ecf8f8;
+  --project-summary-front-link-hover-bg: rgba(255, 255, 255, 0.08);
+  --project-summary-back-bg: #2f9999;
+  --project-summary-back-accent: #123033;
+  --project-summary-back-body: #000000;
+  --project-summary-back-ink: #123033;
+  --project-summary-back-link-bg: color-mix(in srgb, var(--project-summary-back-accent) 8%, transparent);
+  --project-summary-back-link-color: var(--project-summary-back-accent);
+  --project-summary-back-link-hover-bg: color-mix(in srgb, var(--project-summary-back-accent) 14%, transparent);
+  flex: 1 1 calc(100% - var(--reservation-panel-collapsed) - 1rem);
+  min-width: 0;
+  height: 100%;
+  width: calc(100% - var(--reservation-panel-collapsed) - 1rem);
+  max-width: none;
+  justify-self: auto;
+  border-radius: 22px;
+  overflow: hidden;
+  z-index: 1;
+  will-change: flex-basis, width;
+  transition:
+    flex-basis var(--reservation-swap-duration) var(--reservation-swap-ease),
+    width var(--reservation-swap-duration) var(--reservation-swap-ease);
+}
+
+.project-summary.project-summary-reservation-main .project-summary-card,
+.project-summary.project-summary-reservation-main .project-summary-face,
+.project-reservation-main-trigger {
+  border-radius: inherit;
+}
+
+.project-reservation-row.is-open .project-summary-reservation-main {
+  flex: 0 0 var(--reservation-panel-collapsed);
+  width: var(--reservation-panel-collapsed);
+  min-width: var(--reservation-panel-collapsed);
+  max-width: var(--reservation-panel-collapsed);
+}
+
+.project-summary-reservation-main .project-summary-face::before {
+  content: none;
+}
+
+.project-summary.project-summary-reservation-main::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 84px;
+  border-radius: 999px;
+  transform: translate(-50%, -50%);
+  background: var(--project-summary-front-accent);
+  opacity: 0;
+  z-index: 4;
+  pointer-events: none;
+  transition: opacity 0.32s ease;
+  --rail-color-start: color-mix(in srgb, var(--project-summary-front-accent) 72%, #ffffff);
+  --rail-color-end: var(--project-summary-front-accent);
+}
+
+.project-reservation-row.is-open .project-summary.project-summary-reservation-main::before {
+  opacity: 1;
+  --rail-glow: var(--project-summary-front-accent);
+  animation: action-rail-breathe 2.1s ease-in-out infinite;
+}
+
+.project-reservation-row:not(.is-open) .project-summary.project-summary-reservation-main::before {
+  animation: none;
+}
+
+.project-reservation-row.is-open .project-summary-reservation-main .project-summary-face::after {
+  opacity: 0;
+}
+
+.project-summary-reservation-main .project-summary-content {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+  transition:
+    opacity var(--reservation-content-in-duration) ease var(--reservation-content-delay),
+    transform var(--reservation-content-in-duration) ease var(--reservation-content-delay);
+}
+
+.project-reservation-row.is-open .project-summary-reservation-main .project-summary-content {
+  opacity: 0;
+  transform: translateX(-28px);
+  pointer-events: none;
+  transition:
+    opacity var(--reservation-content-out-duration) ease,
+    transform var(--reservation-content-out-duration) ease;
+}
+
+.project-summary-reservation-main .project-summary-copy h1,
+.project-summary-reservation-main .project-summary-copy h2,
+.project-summary-reservation-main .project-summary-copy h3 {
+  max-width: 11ch;
+}
+
+.project-summary-reservation-main .project-summary-copy p {
+  max-width: 40ch;
+}
+
+.project-summary-glyph {
+  position: absolute;
+  z-index: 0;
+  display: block;
+  pointer-events: none;
+  width: clamp(180px, 17vw, 250px);
+  height: clamp(180px, 17vw, 250px);
+  right: clamp(5.5rem, 9.4vw, 8.4rem);
+  top: 52%;
+  opacity: 0.45;
+  background: var(--project-summary-front-accent);
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  -webkit-mask-mode: alpha;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  mask-mode: alpha;
+  transform: translateY(-50%) rotate(14deg);
+  transform-origin: center;
+  transition: opacity 0.34s ease;
+}
+
+.project-summary-glyph-calendar {
+  -webkit-mask-image: url("assets/images/calendar.svg");
+  mask-image: url("assets/images/calendar.svg");
+}
+
+.project-summary-glyph-dashboard {
+  -webkit-mask-image: url("assets/images/dashboard.svg");
+  mask-image: url("assets/images/dashboard.svg");
+  top: 53%;
+  transform: translateY(-50%) rotate(-10deg);
+}
+
+.project-reservation-row.is-open .project-summary-reservation-main .project-summary-glyph {
+  opacity: 0;
+}
+
+.project-reservation-panel {
+  position: relative;
+  flex: 0 0 var(--reservation-panel-collapsed);
+  width: var(--reservation-panel-collapsed);
+  min-width: var(--reservation-panel-collapsed);
+  max-width: var(--reservation-panel-collapsed);
+  flex-shrink: 0;
+  border-radius: 22px;
+  border: 1px solid rgba(7, 47, 50, 0.14);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 18px 34px rgba(8, 32, 35, 0.14);
+  overflow: hidden;
+  z-index: 2;
+  perspective: 1600px;
+  will-change: flex-basis, width;
+  transition:
+    flex-basis var(--reservation-swap-duration) var(--reservation-swap-ease),
+    width var(--reservation-swap-duration) var(--reservation-swap-ease),
+    border-color 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.project-reservation-row.is-open .project-reservation-panel,
+.project-reservation-panel.is-open {
+  flex: 1 1 calc(100% - var(--reservation-panel-collapsed) - 1rem);
+  width: calc(100% - var(--reservation-panel-collapsed) - 1rem);
+  max-width: none;
+  border-color: transparent;
+  background: transparent;
+  box-shadow: none;
+}
+
+.project-reservation-panel::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 84px;
+  border-radius: 999px;
+  transform: translate(-50%, -50%);
+  background: #c9d1d1;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity calc(var(--reservation-swap-duration) * 0.42) ease;
+  --rail-glow: #136b6a;
+  --rail-color-start: #c9d1d1;
+  --rail-color-end: #136b6a;
+}
+
+.project-reservation-row.is-open .project-reservation-panel::before,
+.project-reservation-panel.is-open::before {
+  opacity: 0;
+}
+
+.project-reservation-row:not(.is-open) .project-reservation-panel::before {
+  --rail-glow: #136b6a;
+  animation: action-rail-breathe 2.1s ease-in-out infinite;
+}
+
+.project-reservation-panel-card {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+  will-change: opacity;
+}
+
+.project-reservation-panel-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: stretch;
+  border-radius: inherit;
+  border: 1px solid rgba(7, 47, 50, 0.14);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 24px 42px rgba(8, 32, 35, 0.16);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: flat;
+  transform-origin: center center;
+  will-change: transform, opacity;
+  transition:
+    transform calc(var(--reservation-swap-duration) * 0.92) var(--reservation-swap-ease),
+    opacity calc(var(--reservation-swap-duration) * 0.56) ease;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.project-reservation-panel-face::after {
+  content: "";
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  right: -34px;
+  bottom: -34px;
+  border-radius: 24px;
+  border: 5px solid #123033;
+  transform: rotate(16deg);
+  opacity: 0.22;
+  z-index: 0;
+  pointer-events: none;
+  transition: opacity calc(var(--reservation-swap-duration) * 0.42) ease;
+}
+
+.project-reservation-panel-face-back::after {
+  top: -34px;
+  bottom: auto;
+}
+
+.project-reservation-row:not(.is-open) .project-reservation-panel-face::after,
+.project-reservation-panel:not(.is-open) .project-reservation-panel-face::after {
+  opacity: 0;
+}
+
+.project-reservation-panel-face-front {
+  z-index: 2;
+  opacity: 1;
+  transform: rotateX(0deg);
+}
+
+.project-reservation-panel-face-back {
+  z-index: 1;
+  opacity: 0;
+  transform: rotateX(-90deg);
+  pointer-events: none;
+}
+
+.project-reservation-panel.is-flipped .project-reservation-panel-face-front {
+  opacity: 0;
+  transform: rotateX(90deg);
+  pointer-events: none;
+}
+
+.project-reservation-panel.is-flipped .project-reservation-panel-face-back {
+  z-index: 2;
+  opacity: 1;
+  transform: rotateX(0deg);
+  pointer-events: auto;
+}
+
+.project-reservation-panel-content {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: stretch;
+  position: relative;
+  padding: var(--reservation-panel-shell-padding);
+  opacity: 0;
+  transform: translateX(18px);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  z-index: 1;
+  pointer-events: none;
+  transition:
+    opacity var(--reservation-content-out-duration) ease,
+    transform var(--reservation-content-out-duration) ease;
+}
+
+.project-reservation-panel.is-open .project-reservation-panel-content {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+  transition:
+    opacity var(--reservation-content-in-duration) ease var(--reservation-content-delay),
+    transform var(--reservation-content-in-duration) ease var(--reservation-content-delay);
+}
+
+.project-reservation-panel-frame {
+  width: 100%;
+  flex: 1 1 auto;
+  height: 100%;
+  min-height: 0;
+  border-radius: 18px;
+  border: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(239, 248, 248, 0.96));
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 0.85rem;
+  padding: clamp(1.4rem, 3vw, 2rem);
+  text-align: center;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.project-reservation-panel-frame strong {
+  color: #123033;
+  font-size: 0.96rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-reservation-panel-frame span {
+  max-width: 24ch;
+  color: rgba(17, 46, 48, 0.78);
+  font-size: 0.98rem;
+  line-height: 1.68;
+}
+
+.project-reservation-panel-frame-live {
+  display: block;
+  padding: 0;
+  overflow: hidden;
+}
+
+.project-reservation-live-embed {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: inherit;
+  background: #eef3f5;
+}
+
+.project-reservation-panel-flip-trigger {
+  position: absolute;
+  left: 50%;
+  width: 72px;
+  height: 22px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  z-index: 5;
+  padding: 0;
+  transform: translateX(-50%);
+  opacity: 0;
+  pointer-events: none;
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: opacity calc(var(--reservation-swap-duration) * 0.28) ease;
+}
+
+.project-reservation-panel-flip-trigger-bottom {
+  bottom: calc((var(--reservation-panel-shell-padding) - 22px) / 2);
+}
+
+.project-reservation-panel-flip-trigger-top {
+  top: calc((var(--reservation-panel-shell-padding) - 22px) / 2);
+}
+
+.project-reservation-panel-flip-rail {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 52px;
+  height: 5px;
+  border-radius: 999px;
+  transform: translate(-50%, -50%);
+  background: #c9d1d1;
+  --rail-glow: #136b6a;
+  --rail-color-start: #c9d1d1;
+  --rail-color-end: #136b6a;
+}
+
+.project-reservation-panel.is-open:not(.is-flipped) .project-reservation-panel-flip-trigger-bottom {
+  opacity: 1;
+  pointer-events: auto;
+  transition-delay: 0s;
+}
+
+.project-reservation-panel.is-open:not(.is-flipped) .project-reservation-panel-flip-trigger-bottom .project-reservation-panel-flip-rail {
+  --rail-glow: #136b6a;
+  animation: action-rail-breathe 2.1s ease-in-out infinite;
+}
+
+.project-reservation-panel.is-open:not(.is-flipped) .project-reservation-panel-flip-trigger-top {
+  opacity: 0;
+  pointer-events: none;
+  transition-delay: 0s;
+}
+
+.project-reservation-panel.is-open.is-flipped .project-reservation-panel-flip-trigger-top {
+  opacity: 1;
+  pointer-events: auto;
+  transition-delay: 0s;
+}
+
+.project-reservation-panel.is-open.is-flipped .project-reservation-panel-flip-trigger-top .project-reservation-panel-flip-rail {
+  --rail-glow: #136b6a;
+  animation: action-rail-breathe 2.1s ease-in-out infinite;
+}
+
+.project-reservation-panel.is-open.is-flipped .project-reservation-panel-flip-trigger-bottom {
+  opacity: 0;
+  pointer-events: none;
+  transition-delay: 0s;
+}
+
+.project-reservation-panel-trigger {
+  position: absolute;
+  inset: 0;
+  display: block;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  z-index: 3;
+  padding: 0;
+}
+
+.project-reservation-main-trigger {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  z-index: 5;
+  padding: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.project-reservation-row.is-open .project-reservation-main-trigger {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.project-reservation-panel-rail {
+  display: none;
+}
+
+.project-reservation-row.is-open .project-reservation-panel::before,
+.project-reservation-row.is-open .project-reservation-panel-trigger .project-reservation-panel-rail {
+  opacity: 0;
+}
+
+.project-reservation-row.is-open .project-reservation-panel-content {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.project-reservation-row.is-open .project-reservation-panel-trigger {
+  inset: 10px 0 10px auto;
+  width: 32px;
+}
+
+.project-summary-wide {
+  --project-summary-front-accent: #123033;
+  --project-summary-front-body: #112e30;
+  --project-summary-front-surface: linear-gradient(180deg, #24b6b0 0%, #2f9999 100%);
+  --project-summary-front-ink: #123033;
+  --project-summary-front-link-bg: color-mix(in srgb, #123033 9%, transparent);
+  --project-summary-front-link-color: #123033;
+  --project-summary-front-link-hover-bg: color-mix(in srgb, #123033 15%, transparent);
+  --project-summary-back-bg: linear-gradient(180deg, #0f2a2c 0%, #15363a 100%);
+  --project-summary-back-accent: #2f9999;
+  --project-summary-back-body: #ffffff;
+  --project-summary-back-ink: #ecf8f8;
+  --project-summary-back-link-bg: rgba(255, 255, 255, 0.04);
+  --project-summary-back-link-color: #ecf8f8;
+  --project-summary-back-link-hover-bg: rgba(255, 255, 255, 0.08);
+  width: 100%;
+  max-width: none;
+  justify-self: stretch;
+}
+
+.project-summary-wide .project-summary-copy-wide {
+  display: grid;
+  grid-template-columns: minmax(0, 0.84fr) minmax(280px, 0.96fr);
+  gap: clamp(1.6rem, 4vw, 2.5rem);
+  align-items: stretch;
+  max-width: none;
+}
+
+.project-summary-wide .project-summary-text {
+  min-width: 0;
+}
+
+.project-summary-wide .project-summary-copy h1,
+.project-summary-wide .project-summary-copy h2,
+.project-summary-wide .project-summary-copy h3 {
+  max-width: 10ch;
+}
+
+.project-summary-wide .project-summary-copy p {
+  max-width: 34ch;
+}
+
+.project-summary-stage-placeholder {
+  min-height: 100%;
+  border-radius: 18px;
+  border: 1px dashed color-mix(in srgb, var(--project-summary-front-accent) 42%, transparent);
+  background: color-mix(in srgb, var(--project-summary-front-accent) 8%, transparent);
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 0.85rem;
+  padding: clamp(1.4rem, 3vw, 2rem);
+  text-align: center;
+}
+
+.project-summary-stage-placeholder strong {
+  color: var(--project-summary-front-accent);
+  font-size: 0.96rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-summary-stage-placeholder span {
+  max-width: 24ch;
+  color: var(--project-summary-front-body);
+  font-size: 0.98rem;
+  line-height: 1.68;
+}
+
+.project-summary-face-back .project-summary-copy-wide {
+  grid-template-columns: minmax(280px, 0.96fr) minmax(0, 0.84fr);
+}
+
+.project-summary-face-back .project-summary-copy-wide .project-summary-stage-placeholder {
+  order: 1;
+  border-color: color-mix(in srgb, var(--project-summary-back-accent) 42%, transparent);
+  background: color-mix(in srgb, var(--project-summary-back-accent) 9%, transparent);
+}
+
+.project-summary-face-back .project-summary-copy-wide .project-summary-text {
+  order: 2;
+}
+
+.project-summary-face-back .project-summary-stage-placeholder strong {
+  color: var(--project-summary-back-accent);
+}
+
+.project-summary-face-back .project-summary-stage-placeholder span {
+  color: var(--project-summary-back-body);
 }
 
 .project-laptop-stage {
@@ -1834,7 +2778,7 @@ p {
 }
 
 .project-phone-live {
-  --project-screen-overscan-right: 12px;
+  --project-screen-overscan-right: 7px;
 }
 
 .project-phone-iframe {
@@ -1918,12 +2862,6 @@ p {
   user-select: none;
 }
 
-body[data-page="projects"] .header-center-logo {
-  opacity: 0.9;
-  transform: translate(-50%, -50%) scale(1);
-  pointer-events: auto;
-}
-
 .reveal {
   opacity: 0;
   transform: translateY(22px);
@@ -1936,9 +2874,14 @@ body[data-page="projects"] .header-center-logo {
 }
 
 @media (max-width: 980px) {
+  body {
+    padding-top: 100px;
+  }
+
   .header-inner {
     justify-content: flex-end;
-    min-height: 74px;
+    min-height: 100px;
+    width: min(1140px, 92vw);
   }
 
   .menu-toggle {
@@ -1983,6 +2926,15 @@ body[data-page="projects"] .header-center-logo {
   .site-nav a {
     width: 100%;
     justify-content: flex-start;
+  }
+
+  .site-nav a.nav-home-link {
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+    min-height: 52px;
+    justify-content: center;
+    padding: 0;
   }
 
   .lang-switch {
@@ -2046,6 +2998,14 @@ body[data-page="projects"] .header-center-logo {
     grid-template-columns: 1fr;
   }
 
+  .about-extended-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-icon-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .service-row {
     display: grid;
     gap: 0.9rem;
@@ -2085,6 +3045,24 @@ body[data-page="projects"] .header-center-logo {
     padding-bottom: clamp(2.35rem, 4.2vw, 3.2rem);
   }
 
+  .projects-intro-section {
+    padding-top: clamp(2rem, 4vw, 3rem);
+    padding-bottom: clamp(1rem, 2.3vw, 1.7rem);
+  }
+
+  .projects-intro {
+    width: min(100%, 62rem);
+  }
+
+  .projects-intro-title {
+    font-size: clamp(2.2rem, 5.6vw, 3.5rem);
+    max-width: 22ch;
+  }
+
+  .projects-intro-subtitle {
+    max-width: 68ch;
+  }
+
   .project-device-stage {
     min-height: auto;
   }
@@ -2095,7 +3073,7 @@ body[data-page="projects"] .header-center-logo {
   }
 
   .project-showcase-layout-reversed {
-    width: min(100%, 71rem);
+    width: 100%;
     grid-template-columns: minmax(220px, 0.92fr) minmax(280px, 1.25fr);
     gap: clamp(1.8rem, 4vw, 3rem);
   }
@@ -2109,6 +3087,70 @@ body[data-page="projects"] .header-center-logo {
 
   .project-summary {
     width: min(100%, 28rem);
+  }
+
+  .project-summary.project-summary-keef,
+  .project-summary.project-summary-juvy {
+    width: min(100%, 30rem);
+  }
+
+  .project-showcase-banner {
+    width: 100%;
+    padding-right: 0;
+  }
+
+  .project-reservation-row {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .project-summary-reservation-main {
+    height: auto;
+    width: 100%;
+  }
+
+  .project-reservation-panel,
+  .project-reservation-panel.is-open {
+    width: 100%;
+    min-width: 0;
+    flex-basis: auto;
+    border-color: rgba(7, 47, 50, 0.14);
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 24px 42px rgba(8, 32, 35, 0.12);
+  }
+
+  .project-reservation-panel::after,
+  .project-reservation-panel.is-open::after {
+    opacity: 0.18;
+  }
+
+  .project-reservation-panel-content,
+  .project-reservation-panel.is-open .project-reservation-panel-content {
+    min-width: 0;
+    min-height: 12rem;
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+
+  .project-reservation-panel-trigger {
+    display: none;
+  }
+
+  .project-summary-reservation-main .project-summary-content,
+  .project-reservation-row.is-open .project-summary-reservation-main .project-summary-content {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+
+  .project-summary-wide .project-summary-copy-wide {
+    grid-template-columns: minmax(0, 0.92fr) minmax(240px, 0.88fr);
+    gap: 1.5rem;
+  }
+
+  .project-summary-wide .project-summary-copy p {
+    max-width: 30ch;
   }
 
   .project-phone {
@@ -2177,6 +3219,21 @@ body[data-page="projects"] .header-center-logo {
     padding-bottom: 2.5rem;
   }
 
+  .projects-intro-section {
+    padding-top: 1.6rem;
+    padding-bottom: 1.1rem;
+  }
+
+  .projects-intro-title {
+    font-size: clamp(2.05rem, 10vw, 3.1rem);
+    max-width: 20ch;
+  }
+
+  .projects-intro-subtitle {
+    max-width: 60ch;
+    margin-top: 1rem;
+  }
+
   .project-device-stage {
     min-height: auto;
   }
@@ -2191,8 +3248,43 @@ body[data-page="projects"] .header-center-logo {
     grid-template-columns: 1fr;
   }
 
+  .project-showcase-banner {
+    width: 100%;
+    padding-right: 0;
+  }
+
+  .project-reservation-panel-content,
+  .project-reservation-panel.is-open .project-reservation-panel-content {
+    min-height: 11rem;
+    padding: 1.4rem;
+  }
+
   .project-summary {
     width: min(100%, 32rem);
+  }
+
+  .project-summary.project-summary-keef,
+  .project-summary.project-summary-juvy {
+    width: min(100%, 32rem);
+  }
+
+  .project-summary-wide {
+    width: min(100%, 32rem);
+  }
+
+  .project-summary-wide .project-summary-copy-wide,
+  .project-summary-face-back .project-summary-copy-wide {
+    grid-template-columns: 1fr;
+  }
+
+  .project-summary-wide .project-summary-copy-wide .project-summary-stage-placeholder,
+  .project-summary-face-back .project-summary-copy-wide .project-summary-stage-placeholder,
+  .project-summary-face-back .project-summary-copy-wide .project-summary-text {
+    order: initial;
+  }
+
+  .project-summary-stage-placeholder {
+    min-height: 11rem;
   }
 
   .project-showcase-layout-reversed .project-summary {
@@ -2210,6 +3302,10 @@ body[data-page="projects"] .header-center-logo {
   .project-summary-copy p,
   .project-summary-tag {
     max-width: none;
+  }
+
+  .about-icon-grid {
+    grid-template-columns: 1fr;
   }
 
   .project-phone {
