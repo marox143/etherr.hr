@@ -62,13 +62,162 @@
 
       <section class="contact section" id="contact">
         <div class="container">
-          <div class="contact-card reveal">
-            <p class="section-tag" data-i18n="contact.tag"></p>
-            <h2 data-i18n="contact.title"></h2>
-            <p class="section-note" data-i18n="contact.text"></p>
-            <div class="contact-links">
-              <a class="contact-link" href="tel:+385916309013">+385 91 6309 013</a>
-              <a class="contact-link" href="mailto:info@etherr.hr">info@etherr.hr</a>
+          <div class="contact-card contact-intake-card reveal">
+            <div class="contact-intake-layout">
+              <div class="contact-intake-aside">
+                <p class="section-tag" data-i18n="contact.tag"></p>
+                <h2 data-i18n="contact.title"></h2>
+                <p class="section-note" data-i18n="contact.text"></p>
+                <ul class="contact-intake-highlights">
+                  <li data-i18n="contact.intake.point1"></li>
+                  <li data-i18n="contact.intake.point2"></li>
+                  <li data-i18n="contact.intake.point3"></li>
+                </ul>
+                <div class="contact-links">
+                  <a class="contact-link" href="tel:+385916309013">+385 91 6309 013</a>
+                  <a class="contact-link" href="mailto:info@etherr.hr">info@etherr.hr</a>
+                </div>
+              </div>
+
+              <form class="contact-intake-form" id="contactIntakeForm" novalidate>
+                <div class="contact-intake-progress">
+                  <div class="contact-intake-progress-track" aria-hidden="true">
+                    <span data-contact-progress-fill></span>
+                  </div>
+                  <p class="contact-intake-progress-text" data-contact-progress-text></p>
+                </div>
+
+                <section class="contact-intake-step is-active" data-contact-step="0">
+                  <h3 data-i18n="contact.intake.step1Title"></h3>
+                  <p data-i18n="contact.intake.step1Text"></p>
+                  <div class="contact-service-grid" data-contact-service-options></div>
+                </section>
+
+                <section class="contact-intake-step" data-contact-step="1" hidden>
+                  <h3 data-i18n="contact.intake.step2Title"></h3>
+                  <p data-i18n="contact.intake.step2Text"></p>
+                  <div class="contact-choice-group">
+                    <p class="contact-choice-label" data-i18n="contact.intake.projectTypeLabel"></p>
+                    <div class="contact-choice-grid">
+                      <label class="contact-choice-option">
+                        <input type="radio" name="projectType" value="new" data-contact-choice />
+                        <span data-i18n="contact.intake.projectType.new"></span>
+                      </label>
+                      <label class="contact-choice-option">
+                        <input type="radio" name="projectType" value="upgrade" data-contact-choice />
+                        <span data-i18n="contact.intake.projectType.upgrade"></span>
+                      </label>
+                      <label class="contact-choice-option">
+                        <input type="radio" name="projectType" value="automation" data-contact-choice />
+                        <span data-i18n="contact.intake.projectType.automation"></span>
+                      </label>
+                      <label class="contact-choice-option">
+                        <input type="radio" name="projectType" value="notSure" data-contact-choice />
+                        <span data-i18n="contact.intake.projectType.notSure"></span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="contact-choice-group">
+                    <p class="contact-choice-label" data-i18n="contact.intake.timelineLabel"></p>
+                    <div class="contact-choice-grid contact-choice-grid-compact">
+                      <label class="contact-choice-option">
+                        <input type="radio" name="timeline" value="asap" data-contact-choice />
+                        <span data-i18n="contact.intake.timeline.asap"></span>
+                      </label>
+                      <label class="contact-choice-option">
+                        <input type="radio" name="timeline" value="month" data-contact-choice />
+                        <span data-i18n="contact.intake.timeline.month"></span>
+                      </label>
+                      <label class="contact-choice-option">
+                        <input type="radio" name="timeline" value="quarter" data-contact-choice />
+                        <span data-i18n="contact.intake.timeline.quarter"></span>
+                      </label>
+                      <label class="contact-choice-option">
+                        <input type="radio" name="timeline" value="planning" data-contact-choice />
+                        <span data-i18n="contact.intake.timeline.planning"></span>
+                      </label>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="contact-intake-step" data-contact-step="2" hidden>
+                  <h3 data-i18n="contact.intake.step3Title"></h3>
+                  <p data-i18n="contact.intake.step3Text"></p>
+                  <div class="contact-field-grid">
+                    <label class="contact-field">
+                      <span data-i18n="contact.intake.fields.company"></span>
+                      <input type="text" data-contact-field="company" autocomplete="organization" required />
+                    </label>
+                    <label class="contact-field">
+                      <span data-i18n="contact.intake.fields.website"></span>
+                      <input type="url" data-contact-field="website" autocomplete="url" />
+                    </label>
+                    <label class="contact-field">
+                      <span data-i18n="contact.intake.fields.name"></span>
+                      <input type="text" data-contact-field="contactName" autocomplete="name" required />
+                    </label>
+                    <label class="contact-field">
+                      <span data-i18n="contact.intake.fields.email"></span>
+                      <input type="email" data-contact-field="email" autocomplete="email" required />
+                    </label>
+                    <label class="contact-field">
+                      <span data-i18n="contact.intake.fields.phone"></span>
+                      <input type="tel" data-contact-field="phone" autocomplete="tel" />
+                    </label>
+                    <label class="contact-field">
+                      <span data-i18n="contact.intake.fields.contactMethod"></span>
+                      <select data-contact-field="preferredContact">
+                        <option value="email" data-i18n="contact.intake.contactMethod.email"></option>
+                        <option value="phone" data-i18n="contact.intake.contactMethod.phone"></option>
+                        <option value="video" data-i18n="contact.intake.contactMethod.video"></option>
+                      </select>
+                    </label>
+                  </div>
+                </section>
+
+                <section class="contact-intake-step" data-contact-step="3" hidden>
+                  <h3 data-i18n="contact.intake.step4Title"></h3>
+                  <p data-i18n="contact.intake.step4Text"></p>
+                  <label class="contact-field contact-field-textarea">
+                    <span data-i18n="contact.intake.fields.details"></span>
+                    <textarea rows="5" data-contact-field="details" required></textarea>
+                  </label>
+                  <div class="contact-turnstile-wrap" data-contact-turnstile-wrap hidden>
+                    <p class="contact-choice-label" data-i18n="contact.intake.fields.securityCheck"></p>
+                    <div class="contact-turnstile" data-contact-turnstile></div>
+                  </div>
+                  <label class="contact-consent">
+                    <input type="checkbox" data-contact-field="consent" />
+                    <span data-i18n="contact.intake.consent"></span>
+                  </label>
+                  <input type="hidden" data-contact-field="turnstileToken" />
+                  <input
+                    class="contact-honeypot"
+                    type="text"
+                    data-contact-field="botField"
+                    name="company_website"
+                    tabindex="-1"
+                    autocomplete="off"
+                    aria-hidden="true"
+                  />
+                </section>
+
+                <section class="contact-intake-step" data-contact-step="4" hidden>
+                  <h3 data-i18n="contact.intake.step5Title"></h3>
+                  <p data-i18n="contact.intake.step5Text"></p>
+                  <div class="contact-intake-summary" data-contact-summary></div>
+                </section>
+
+                <div class="contact-intake-actions">
+                  <button class="contact-intake-btn contact-intake-btn-ghost" type="button" data-contact-back></button>
+                  <button class="contact-intake-btn contact-intake-btn-primary" type="button" data-contact-next></button>
+                  <button class="contact-intake-btn contact-intake-btn-primary" type="submit" data-contact-submit hidden></button>
+                </div>
+
+                <p class="contact-intake-status" data-contact-status aria-live="polite"></p>
+                <a class="contact-intake-fallback" data-contact-fallback href="#" hidden></a>
+              </form>
             </div>
           </div>
         </div>
@@ -86,6 +235,14 @@
       </div>
     </footer>
 
+    <script>
+      window.ETHERR_CONTACT_CONFIG = {
+        // Set this only in production when Turnstile is configured.
+        turnstileSiteKey: "",
+        requireTurnstile: false,
+      };
+    </script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
     <script src="shared-header.js"></script>
     <script src="script.js"></script>
   </body>

@@ -233,6 +233,87 @@ const translations = {
       tag: "Kontakt",
       title: "Spremni za sljedeći korak.",
       text: "Pošaljite upit ili nas nazovite. Odgovaramo brzo i konkretno.",
+      intake: {
+        point1: "Vodi vas kroz kratki upitnik umjesto klasične kontakt forme.",
+        point2: "Automatski priprema strukturirani sažetak vaših potreba.",
+        point3: "Spremno za backend slanje i email obradu.",
+        progress: "Korak {current} od {total}",
+        step1Title: "Koje usluge vas trenutno najviše zanimaju?",
+        step1Text: "Odaberite jednu ili više stavki. Tako ćemo odmah znati koji tim uključiti.",
+        step2Title: "Kako izgleda vaš projektni kontekst?",
+        step2Text: "Označite vrstu projekta i okvirni vremenski plan.",
+        step3Title: "Tko je kontakt osoba i tvrtka?",
+        step3Text: "Dodajte osnovne podatke kako bismo vam mogli brzo odgovoriti.",
+        step4Title: "Dodajte slobodan opis projekta.",
+        step4Text: "Napišite cilj, problem koji rješavate i što očekujete kao rezultat.",
+        step5Title: "Pregled prije slanja.",
+        step5Text: "Provjerite sažetak i pošaljite upit.",
+        projectTypeLabel: "Vrsta projekta",
+        projectType: {
+          new: "Novi sustav / nova platforma",
+          upgrade: "Nadogradnja postojećeg rješenja",
+          automation: "Integracije i automatizacija",
+          notSure: "Nismo sigurni još",
+        },
+        timelineLabel: "Vremenski okvir",
+        timeline: {
+          asap: "Što prije",
+          month: "Unutar 1 mjeseca",
+          quarter: "Unutar kvartala",
+          planning: "Planiranje za kasnije",
+        },
+        fields: {
+          company: "Tvrtka",
+          website: "Web stranica (opcionalno)",
+          name: "Ime i prezime",
+          email: "Email",
+          phone: "Telefon (opcionalno)",
+          contactMethod: "Preferirani kontakt",
+          securityCheck: "Sigurnosna provjera",
+          details: "Opis projekta",
+        },
+        contactMethod: {
+          email: "E-mail",
+          phone: "Poziv",
+          video: "Video poziv",
+        },
+        consent: "Potvrđujem da Etherr može koristiti ove podatke za odgovor na moj upit.",
+        summary: {
+          services: "Odabrane usluge",
+          projectType: "Vrsta projekta",
+          timeline: "Vremenski okvir",
+          company: "Tvrtka",
+          website: "Web stranica",
+          contact: "Kontakt osoba",
+          email: "Email",
+          phone: "Telefon",
+          contactMethod: "Preferirani kontakt",
+          details: "Opis projekta",
+          empty: "Nije uneseno",
+        },
+        actions: {
+          back: "Natrag",
+          next: "Dalje",
+          review: "Pregled",
+          submit: "Pošalji upit",
+          sending: "Slanje...",
+          startOver: "Novi upit",
+        },
+        status: {
+          required: "Molimo popunite tražena polja prije nastavka.",
+          services: "Odaberite barem jednu uslugu.",
+          scope: "Odaberite vrstu projekta i vremenski okvir.",
+          team: "Unesite tvrtku, ime i ispravan email.",
+          details: "Dodajte opis projekta i potvrdite privolu.",
+          captcha: "Molimo dovršite sigurnosnu provjeru.",
+          rateLimit: "Previše pokušaja u kratkom vremenu. Pričekajte i pokušajte ponovno.",
+          sending: "Šaljemo upit...",
+          success: "Upit je uspješno poslan. Hvala, javit ćemo se uskoro.",
+          queued: "Upit je zaprimljen, ali slanje emaila nije potvrđeno. Možete ga poslati i ručno.",
+          error: "Automatsko slanje nije uspjelo. Možete poslati sažetak direktno na email.",
+          fallback: "Pošalji putem email klijenta",
+        },
+      },
     },
     footer: {
       copy: "© {year} Etherr",
@@ -472,6 +553,87 @@ const translations = {
       tag: "Contact",
       title: "Ready for the next technical step.",
       text: "Send us a project brief or call directly. You will get a clear response quickly.",
+      intake: {
+        point1: "A guided intake instead of a generic contact form.",
+        point2: "Builds a structured summary of what you actually need.",
+        point3: "Prepared for backend processing and email delivery.",
+        progress: "Step {current} of {total}",
+        step1Title: "Which services are most relevant for you right now?",
+        step1Text: "Select one or more options so we can route your request to the right team immediately.",
+        step2Title: "What is your current project context?",
+        step2Text: "Choose the project type and an approximate timeline.",
+        step3Title: "Who is the company and primary contact?",
+        step3Text: "Add basic details so we can respond quickly and clearly.",
+        step4Title: "Add your free-form project note.",
+        step4Text: "Describe your goal, current bottleneck and expected outcome.",
+        step5Title: "Review before sending.",
+        step5Text: "Check your summary and submit the brief.",
+        projectTypeLabel: "Project type",
+        projectType: {
+          new: "New system / new platform",
+          upgrade: "Upgrade an existing solution",
+          automation: "Integrations and automation",
+          notSure: "Not sure yet",
+        },
+        timelineLabel: "Timeline",
+        timeline: {
+          asap: "As soon as possible",
+          month: "Within 1 month",
+          quarter: "Within this quarter",
+          planning: "Planning for later",
+        },
+        fields: {
+          company: "Company",
+          website: "Website (optional)",
+          name: "Full name",
+          email: "Email",
+          phone: "Phone (optional)",
+          contactMethod: "Preferred contact method",
+          securityCheck: "Security check",
+          details: "Project details",
+        },
+        contactMethod: {
+          email: "E-mail",
+          phone: "Phone call",
+          video: "Video call",
+        },
+        consent: "I agree that Etherr may use this information to reply to my inquiry.",
+        summary: {
+          services: "Selected services",
+          projectType: "Project type",
+          timeline: "Timeline",
+          company: "Company",
+          website: "Website",
+          contact: "Contact person",
+          email: "Email",
+          phone: "Phone",
+          contactMethod: "Preferred contact",
+          details: "Project details",
+          empty: "Not provided",
+        },
+        actions: {
+          back: "Back",
+          next: "Next",
+          review: "Review",
+          submit: "Send inquiry",
+          sending: "Sending...",
+          startOver: "New inquiry",
+        },
+        status: {
+          required: "Please fill in the required fields before continuing.",
+          services: "Select at least one service.",
+          scope: "Select project type and timeline.",
+          team: "Enter company, contact name and a valid email.",
+          details: "Add project details and confirm consent.",
+          captcha: "Please complete the security check.",
+          rateLimit: "Too many attempts in a short time. Please wait and try again.",
+          sending: "Sending your inquiry...",
+          success: "Inquiry sent successfully. Thank you, we will reply shortly.",
+          queued: "Inquiry received, but email delivery is not confirmed. You can send it manually as well.",
+          error: "Automatic sending failed. You can send the summary directly by email.",
+          fallback: "Send via email client",
+        },
+      },
     },
     footer: {
       copy: "© {year} Etherr",
@@ -711,6 +873,87 @@ const translations = {
       tag: "Kontakt",
       title: "Bereit für den nächsten technischen Schritt.",
       text: "Senden Sie uns Ihr Anliegen oder rufen Sie direkt an. Sie erhalten schnell eine klare Rückmeldung.",
+      intake: {
+        point1: "Geführtes Projekt-Briefing statt klassischem Kontaktformular.",
+        point2: "Erstellt automatisch eine strukturierte Anfragezusammenfassung.",
+        point3: "Vorbereitet für Backend-Verarbeitung und Mailversand.",
+        progress: "Schritt {current} von {total}",
+        step1Title: "Welche Leistungen sind für Sie aktuell am wichtigsten?",
+        step1Text: "Wählen Sie eine oder mehrere Optionen, damit wir direkt das richtige Team einbinden.",
+        step2Title: "Wie ist Ihr Projekt aktuell einzuordnen?",
+        step2Text: "Wählen Sie Projekttyp und groben Zeitrahmen.",
+        step3Title: "Wer ist Unternehmen und Ansprechperson?",
+        step3Text: "Mit diesen Basisdaten können wir schnell und präzise antworten.",
+        step4Title: "Freitext zur Projektidee.",
+        step4Text: "Beschreiben Sie Ziel, aktuelles Problem und gewünschtes Ergebnis.",
+        step5Title: "Vorschau vor dem Senden.",
+        step5Text: "Prüfen Sie die Zusammenfassung und senden Sie Ihre Anfrage.",
+        projectTypeLabel: "Projekttyp",
+        projectType: {
+          new: "Neues System / neue Plattform",
+          upgrade: "Bestehende Lösung erweitern",
+          automation: "Integrationen und Automatisierung",
+          notSure: "Noch offen",
+        },
+        timelineLabel: "Zeitrahmen",
+        timeline: {
+          asap: "So schnell wie möglich",
+          month: "Innerhalb 1 Monat",
+          quarter: "Innerhalb des Quartals",
+          planning: "Spätere Planung",
+        },
+        fields: {
+          company: "Unternehmen",
+          website: "Website (optional)",
+          name: "Name",
+          email: "E-Mail",
+          phone: "Telefon (optional)",
+          contactMethod: "Bevorzugter Kontaktweg",
+          securityCheck: "Sicherheitsprüfung",
+          details: "Projektbeschreibung",
+        },
+        contactMethod: {
+          email: "E-Mail",
+          phone: "Telefonat",
+          video: "Videocall",
+        },
+        consent: "Ich bestätige, dass Etherr diese Daten zur Beantwortung meiner Anfrage verwenden darf.",
+        summary: {
+          services: "Gewählte Leistungen",
+          projectType: "Projekttyp",
+          timeline: "Zeitrahmen",
+          company: "Unternehmen",
+          website: "Website",
+          contact: "Ansprechperson",
+          email: "E-Mail",
+          phone: "Telefon",
+          contactMethod: "Bevorzugter Kontakt",
+          details: "Projektbeschreibung",
+          empty: "Nicht angegeben",
+        },
+        actions: {
+          back: "Zurück",
+          next: "Weiter",
+          review: "Prüfen",
+          submit: "Anfrage senden",
+          sending: "Wird gesendet...",
+          startOver: "Neue Anfrage",
+        },
+        status: {
+          required: "Bitte füllen Sie die Pflichtfelder aus, bevor Sie fortfahren.",
+          services: "Bitte wählen Sie mindestens eine Leistung.",
+          scope: "Bitte wählen Sie Projekttyp und Zeitrahmen.",
+          team: "Bitte Unternehmen, Name und eine gültige E-Mail angeben.",
+          details: "Bitte Projektdetails ergänzen und Zustimmung bestätigen.",
+          captcha: "Bitte schließen Sie die Sicherheitsprüfung ab.",
+          rateLimit: "Zu viele Versuche in kurzer Zeit. Bitte warten Sie und versuchen Sie es erneut.",
+          sending: "Anfrage wird gesendet...",
+          success: "Anfrage erfolgreich gesendet. Vielen Dank, wir melden uns zeitnah.",
+          queued: "Anfrage empfangen, aber E-Mail-Zustellung nicht bestätigt. Sie können sie auch manuell senden.",
+          error: "Automatisches Senden fehlgeschlagen. Sie können die Zusammenfassung direkt per E-Mail senden.",
+          fallback: "Per E-Mail senden",
+        },
+      },
     },
     footer: {
       copy: "© {year} Etherr",
@@ -737,6 +980,7 @@ function cacheDom() {
     heroLogoImg: document.querySelector(".hero-logo-mark img"),
     heroClouds: document.querySelectorAll(".hero-cloud"),
     serviceCategories: document.getElementById("serviceCategories"),
+    contactIntakeForm: document.getElementById("contactIntakeForm"),
     projectPhoneScreens: document.querySelectorAll(".project-phone-screen"),
     projectLaptopScreens: document.querySelectorAll(".project-laptop-screen"),
     projectLaptopEmbedScreens: document.querySelectorAll(".project-laptop-screen-embed"),
@@ -752,10 +996,22 @@ cacheDom();
 let currentLang = "hr";
 let serviceRows = [];
 const LANGUAGE_STORAGE_KEY = "etherr-language";
+const CONTACT_INTAKE_ENDPOINT = "api/contact-intake.php";
+const CONTACT_INTAKE_CONFIG = Object.assign(
+  {
+    turnstileSiteKey: "",
+    requireTurnstile: false,
+  },
+  window.ETHERR_CONTACT_CONFIG || {}
+);
+const CONTACT_TURNSTILE_SITE_KEY = String(CONTACT_INTAKE_CONFIG.turnstileSiteKey || "").trim();
+const CONTACT_TURNSTILE_REQUIRED = Boolean(CONTACT_INTAKE_CONFIG.requireTurnstile);
 const APP_ORIGIN = window.location.origin;
 let eventsInitialized = false;
 let isNavigating = false;
 const kotaSlideshowIntervals = [];
+let contactIntakeState = null;
+let contactIntakeTurnstileWidgetId = null;
 const prefersReducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 const networkState = {
   ctx: null,
@@ -1259,6 +1515,740 @@ function renderServices(langKey) {
   });
 
   observeReveals(dom.serviceCategories);
+}
+
+function createDefaultContactIntakeState() {
+  return {
+    step: 0,
+    selectedServices: new Set(),
+    projectType: "",
+    timeline: "",
+    company: "",
+    website: "",
+    contactName: "",
+    email: "",
+    phone: "",
+    preferredContact: "email",
+    details: "",
+    consent: false,
+    turnstileToken: "",
+    botField: "",
+    submitting: false,
+    status: {
+      key: "",
+      type: "",
+      fallbackHref: "",
+    },
+  };
+}
+
+function ensureContactIntakeState() {
+  if (!contactIntakeState) {
+    contactIntakeState = createDefaultContactIntakeState();
+  }
+
+  return contactIntakeState;
+}
+
+function getContactIntakeDom() {
+  const form =
+    dom.contactIntakeForm instanceof HTMLFormElement
+      ? dom.contactIntakeForm
+      : document.getElementById("contactIntakeForm");
+  if (!(form instanceof HTMLFormElement)) {
+    return null;
+  }
+
+  return {
+    form,
+    steps: Array.from(form.querySelectorAll("[data-contact-step]")),
+    serviceOptionsHost: form.querySelector("[data-contact-service-options]"),
+    progressFill: form.querySelector("[data-contact-progress-fill]"),
+    progressText: form.querySelector("[data-contact-progress-text]"),
+    summaryHost: form.querySelector("[data-contact-summary]"),
+    turnstileWrap: form.querySelector("[data-contact-turnstile-wrap]"),
+    turnstileHost: form.querySelector("[data-contact-turnstile]"),
+    backButton: form.querySelector("[data-contact-back]"),
+    nextButton: form.querySelector("[data-contact-next]"),
+    submitButton: form.querySelector("[data-contact-submit]"),
+    status: form.querySelector("[data-contact-status]"),
+    fallback: form.querySelector("[data-contact-fallback]"),
+  };
+}
+
+function getContactIntakeServiceOptions(langKey) {
+  const locale = translations[langKey];
+  const categories = locale?.services?.categories || [];
+  const options = [];
+
+  categories.forEach((category, categoryIndex) => {
+    if (!category || !Array.isArray(category.items)) {
+      return;
+    }
+
+    category.items.forEach((service, serviceIndex) => {
+      options.push({
+        id: `${categoryIndex}:${serviceIndex}`,
+        category: category.name || "",
+        title: service?.title || "",
+      });
+    });
+  });
+
+  return options;
+}
+
+function getContactIntakeOptionMap(langKey) {
+  return new Map(getContactIntakeServiceOptions(langKey).map((option) => [option.id, option]));
+}
+
+function formatTokenString(template, values) {
+  let output = String(template || "");
+  Object.entries(values).forEach(([key, value]) => {
+    output = output.replace(new RegExp(`\\{${key}\\}`, "g"), String(value));
+  });
+  return output;
+}
+
+function updateContactChoiceSelectionVisuals(form) {
+  const choiceOptions = form.querySelectorAll(".contact-choice-option");
+  choiceOptions.forEach((option) => {
+    if (!(option instanceof HTMLElement)) {
+      return;
+    }
+
+    const input = option.querySelector("input");
+    option.classList.toggle("is-selected", input instanceof HTMLInputElement && input.checked);
+  });
+
+  const serviceOptions = form.querySelectorAll(".contact-service-option");
+  serviceOptions.forEach((option) => {
+    if (!(option instanceof HTMLElement)) {
+      return;
+    }
+
+    const input = option.querySelector("input");
+    option.classList.toggle("is-selected", input instanceof HTMLInputElement && input.checked);
+  });
+}
+
+function isContactTurnstileEnabled() {
+  return CONTACT_TURNSTILE_SITE_KEY.length > 0;
+}
+
+function isContactTurnstileRequired() {
+  return isContactTurnstileEnabled() && CONTACT_TURNSTILE_REQUIRED;
+}
+
+function ensureContactTurnstile(intakeDom, langKey) {
+  const state = ensureContactIntakeState();
+  if (!(intakeDom.turnstileWrap instanceof HTMLElement) || !(intakeDom.turnstileHost instanceof HTMLElement)) {
+    state.turnstileToken = "";
+    return;
+  }
+
+  if (!isContactTurnstileEnabled()) {
+    intakeDom.turnstileWrap.hidden = true;
+    state.turnstileToken = "";
+    return;
+  }
+
+  intakeDom.turnstileWrap.hidden = false;
+  if (!window.turnstile || typeof window.turnstile.render !== "function") {
+    return;
+  }
+
+  if (contactIntakeTurnstileWidgetId !== null) {
+    return;
+  }
+
+  intakeDom.turnstileHost.innerHTML = "";
+  contactIntakeTurnstileWidgetId = window.turnstile.render(intakeDom.turnstileHost, {
+    sitekey: CONTACT_TURNSTILE_SITE_KEY,
+    theme: "light",
+    language: langKey,
+    callback: (token) => {
+      const liveState = ensureContactIntakeState();
+      liveState.turnstileToken = String(token || "");
+    },
+    "expired-callback": () => {
+      const liveState = ensureContactIntakeState();
+      liveState.turnstileToken = "";
+    },
+    "error-callback": () => {
+      const liveState = ensureContactIntakeState();
+      liveState.turnstileToken = "";
+    },
+  });
+}
+
+function resetContactTurnstileToken() {
+  const state = ensureContactIntakeState();
+  state.turnstileToken = "";
+  if (contactIntakeTurnstileWidgetId !== null && window.turnstile && typeof window.turnstile.reset === "function") {
+    try {
+      window.turnstile.reset(contactIntakeTurnstileWidgetId);
+    } catch (_error) {
+      // keep silent in UI
+    }
+  }
+}
+
+function setContactIntakeStatus(intakeDom, locale, statusKey = "", type = "", fallbackHref = "") {
+  const state = ensureContactIntakeState();
+  state.status = {
+    key: statusKey,
+    type,
+    fallbackHref,
+  };
+
+  if (!(intakeDom.status instanceof HTMLElement)) {
+    return;
+  }
+
+  const statusText = statusKey ? locale.contact.intake.status?.[statusKey] || "" : "";
+  intakeDom.status.textContent = statusText;
+  intakeDom.status.classList.remove("is-error", "is-success", "is-warning");
+  if (type === "error") {
+    intakeDom.status.classList.add("is-error");
+  }
+  if (type === "success") {
+    intakeDom.status.classList.add("is-success");
+  }
+  if (type === "warning") {
+    intakeDom.status.classList.add("is-warning");
+  }
+
+  if (intakeDom.fallback instanceof HTMLAnchorElement) {
+    if (fallbackHref) {
+      intakeDom.fallback.hidden = false;
+      intakeDom.fallback.href = fallbackHref;
+      intakeDom.fallback.textContent = locale.contact.intake.status?.fallback || "";
+    } else {
+      intakeDom.fallback.hidden = true;
+      intakeDom.fallback.removeAttribute("href");
+      intakeDom.fallback.textContent = "";
+    }
+  }
+}
+
+function renderContactIntakeServiceOptions(intakeDom, langKey) {
+  if (!(intakeDom.serviceOptionsHost instanceof HTMLElement)) {
+    return;
+  }
+
+  const state = ensureContactIntakeState();
+  const options = getContactIntakeServiceOptions(langKey);
+  intakeDom.serviceOptionsHost.innerHTML = "";
+
+  options.forEach((option) => {
+    const label = document.createElement("label");
+    label.className = "contact-service-option";
+
+    const input = document.createElement("input");
+    input.type = "checkbox";
+    input.value = option.id;
+    input.dataset.contactServiceOption = option.id;
+    input.checked = state.selectedServices.has(option.id);
+
+    const content = document.createElement("span");
+    content.className = "contact-service-option-content";
+
+    const title = document.createElement("strong");
+    title.className = "contact-service-option-title";
+    title.textContent = option.title;
+
+    const category = document.createElement("span");
+    category.className = "contact-service-option-category";
+    category.textContent = option.category;
+
+    content.append(title, category);
+    label.append(input, content);
+    intakeDom.serviceOptionsHost.append(label);
+  });
+
+  updateContactChoiceSelectionVisuals(intakeDom.form);
+}
+
+function renderContactIntakeSummary(intakeDom, langKey) {
+  if (!(intakeDom.summaryHost instanceof HTMLElement)) {
+    return;
+  }
+
+  const state = ensureContactIntakeState();
+  const locale = translations[langKey];
+  const intakeCopy = locale.contact.intake;
+  const summaryCopy = intakeCopy.summary || {};
+  const optionMap = getContactIntakeOptionMap(langKey);
+
+  const selectedServices = Array.from(state.selectedServices)
+    .map((id) => optionMap.get(id))
+    .filter(Boolean)
+    .map((option) => `${option.title} (${option.category})`);
+
+  const projectTypeLabel = intakeCopy.projectType?.[state.projectType] || summaryCopy.empty || "";
+  const timelineLabel = intakeCopy.timeline?.[state.timeline] || summaryCopy.empty || "";
+  const contactMethodLabel =
+    intakeCopy.contactMethod?.[state.preferredContact] || summaryCopy.empty || "";
+
+  const rows = [
+    [summaryCopy.services, selectedServices.length ? selectedServices.join(", ") : summaryCopy.empty],
+    [summaryCopy.projectType, projectTypeLabel || summaryCopy.empty],
+    [summaryCopy.timeline, timelineLabel || summaryCopy.empty],
+    [summaryCopy.company, state.company.trim() || summaryCopy.empty],
+    [summaryCopy.website, state.website.trim() || summaryCopy.empty],
+    [summaryCopy.contact, state.contactName.trim() || summaryCopy.empty],
+    [summaryCopy.email, state.email.trim() || summaryCopy.empty],
+    [summaryCopy.phone, state.phone.trim() || summaryCopy.empty],
+    [summaryCopy.contactMethod, contactMethodLabel || summaryCopy.empty],
+    [summaryCopy.details, state.details.trim() || summaryCopy.empty],
+  ];
+
+  intakeDom.summaryHost.innerHTML = "";
+  rows.forEach(([label, value]) => {
+    const row = document.createElement("div");
+    row.className = "contact-intake-summary-row";
+
+    const labelNode = document.createElement("strong");
+    labelNode.textContent = String(label || "");
+
+    const valueNode = document.createElement("span");
+    valueNode.textContent = String(value || "");
+
+    row.append(labelNode, valueNode);
+    intakeDom.summaryHost.append(row);
+  });
+}
+
+function validateEmail(value) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value || "").trim());
+}
+
+function validateContactIntakeStep(stepIndex, langKey, { setStatus = true } = {}) {
+  const state = ensureContactIntakeState();
+  const locale = translations[langKey];
+  const intakeDom = getContactIntakeDom();
+  const setError = (key) => {
+    if (setStatus && intakeDom) {
+      setContactIntakeStatus(intakeDom, locale, key, "error");
+    }
+  };
+
+  if (stepIndex === 0) {
+    if (state.selectedServices.size < 1) {
+      setError("services");
+      return false;
+    }
+    return true;
+  }
+
+  if (stepIndex === 1) {
+    if (!state.projectType || !state.timeline) {
+      setError("scope");
+      return false;
+    }
+    return true;
+  }
+
+  if (stepIndex === 2) {
+    if (!state.company.trim() || !state.contactName.trim() || !validateEmail(state.email)) {
+      setError("team");
+      return false;
+    }
+    return true;
+  }
+
+  if (stepIndex === 3) {
+    if (state.details.trim().length < 12 || !state.consent) {
+      setError("details");
+      return false;
+    }
+    if (isContactTurnstileRequired() && !state.turnstileToken.trim()) {
+      setError("captcha");
+      return false;
+    }
+    return true;
+  }
+
+  return true;
+}
+
+function getFirstInvalidContactIntakeStep(langKey) {
+  for (let stepIndex = 0; stepIndex <= 3; stepIndex += 1) {
+    if (!validateContactIntakeStep(stepIndex, langKey, { setStatus: false })) {
+      return stepIndex;
+    }
+  }
+  return -1;
+}
+
+function buildContactIntakePayload(langKey) {
+  const state = ensureContactIntakeState();
+  const locale = translations[langKey];
+  const intakeCopy = locale.contact.intake;
+  const optionMap = getContactIntakeOptionMap(langKey);
+  const selectedServices = Array.from(state.selectedServices)
+    .map((id) => optionMap.get(id))
+    .filter(Boolean)
+    .map((option) => ({
+      id: option.id,
+      title: option.title,
+      category: option.category,
+    }));
+
+  return {
+    version: "1.0",
+    submittedAt: new Date().toISOString(),
+    locale: langKey,
+    source: {
+      page: currentPage,
+      url: window.location.href,
+      referrer: document.referrer || "",
+      userAgent: window.navigator.userAgent || "",
+    },
+    project: {
+      services: selectedServices,
+      projectType: {
+        value: state.projectType,
+        label: intakeCopy.projectType?.[state.projectType] || "",
+      },
+      timeline: {
+        value: state.timeline,
+        label: intakeCopy.timeline?.[state.timeline] || "",
+      },
+      details: state.details.trim(),
+    },
+    contact: {
+      company: state.company.trim(),
+      website: state.website.trim(),
+      name: state.contactName.trim(),
+      email: state.email.trim(),
+      phone: state.phone.trim(),
+      preferredContact: {
+        value: state.preferredContact,
+        label: intakeCopy.contactMethod?.[state.preferredContact] || "",
+      },
+    },
+    consent: state.consent,
+    turnstileToken: state.turnstileToken.trim(),
+    honeypot: state.botField.trim(),
+  };
+}
+
+function buildContactIntakeMailto(payload, locale) {
+  const summary = locale.contact.intake.summary;
+  const lines = [
+    `${summary.services}: ${payload.project.services.map((entry) => `${entry.title} (${entry.category})`).join(", ")}`,
+    `${summary.projectType}: ${payload.project.projectType.label}`,
+    `${summary.timeline}: ${payload.project.timeline.label}`,
+    `${summary.company}: ${payload.contact.company}`,
+    `${summary.website}: ${payload.contact.website || summary.empty}`,
+    `${summary.contact}: ${payload.contact.name}`,
+    `${summary.email}: ${payload.contact.email}`,
+    `${summary.phone}: ${payload.contact.phone || summary.empty}`,
+    `${summary.contactMethod}: ${payload.contact.preferredContact.label}`,
+    "",
+    `${summary.details}:`,
+    payload.project.details,
+  ];
+  const subject = `[Etherr] ${payload.contact.company || payload.contact.name || "Project intake"}`;
+  const body = lines.join("\n");
+  return `mailto:info@etherr.hr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
+async function submitContactIntake(langKey) {
+  const intakeDom = getContactIntakeDom();
+  if (!intakeDom) {
+    return;
+  }
+
+  const state = ensureContactIntakeState();
+  const locale = translations[langKey];
+
+  if (state.submitting) {
+    return;
+  }
+
+  const invalidStep = getFirstInvalidContactIntakeStep(langKey);
+  if (invalidStep !== -1) {
+    state.step = invalidStep;
+    renderContactIntake(langKey);
+    validateContactIntakeStep(invalidStep, langKey, { setStatus: true });
+    return;
+  }
+
+  const payload = buildContactIntakePayload(langKey);
+
+  if (payload.honeypot) {
+    contactIntakeState = createDefaultContactIntakeState();
+    resetContactTurnstileToken();
+    renderContactIntake(langKey);
+    setContactIntakeStatus(intakeDom, locale, "success", "success");
+    return;
+  }
+
+  state.submitting = true;
+  renderContactIntake(langKey);
+  setContactIntakeStatus(intakeDom, locale, "sending", "info");
+
+  try {
+    const response = await window.fetch(CONTACT_INTAKE_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    let result = null;
+    try {
+      result = await response.json();
+    } catch (_error) {
+      result = null;
+    }
+
+    if (!response.ok || (result && result.ok === false)) {
+      const error = new Error(result?.error || `Request failed with ${response.status}`);
+      error.apiCode = result?.errorCode || "";
+      throw error;
+    }
+
+    if (result?.status === "queued") {
+      const fallbackHref = buildContactIntakeMailto(payload, locale);
+      contactIntakeState = createDefaultContactIntakeState();
+      resetContactTurnstileToken();
+      renderContactIntake(langKey);
+      setContactIntakeStatus(intakeDom, locale, "queued", "warning", fallbackHref);
+      return;
+    }
+
+    contactIntakeState = createDefaultContactIntakeState();
+    resetContactTurnstileToken();
+    renderContactIntake(langKey);
+    setContactIntakeStatus(intakeDom, locale, "success", "success");
+  } catch (error) {
+    const fallbackHref = buildContactIntakeMailto(payload, locale);
+    if (error?.apiCode === "RATE_LIMITED") {
+      setContactIntakeStatus(intakeDom, locale, "rateLimit", "error");
+    } else if (error?.apiCode === "TURNSTILE_REQUIRED" || error?.apiCode === "TURNSTILE_FAILED") {
+      setContactIntakeStatus(intakeDom, locale, "captcha", "error");
+    } else {
+      setContactIntakeStatus(intakeDom, locale, "error", "error", fallbackHref);
+    }
+  } finally {
+    if (contactIntakeState) {
+      contactIntakeState.submitting = false;
+      renderContactIntake(langKey);
+    }
+  }
+}
+
+function renderContactIntake(langKey) {
+  const intakeDom = getContactIntakeDom();
+  if (!intakeDom) {
+    return;
+  }
+
+  const state = ensureContactIntakeState();
+  const locale = translations[langKey];
+  const intakeCopy = locale.contact.intake;
+  const totalSteps = intakeDom.steps.length;
+  const boundedStep = clamp(state.step, 0, totalSteps - 1);
+  state.step = boundedStep;
+
+  ensureContactTurnstile(intakeDom, langKey);
+  renderContactIntakeServiceOptions(intakeDom, langKey);
+
+  intakeDom.steps.forEach((stepNode, index) => {
+    if (!(stepNode instanceof HTMLElement)) {
+      return;
+    }
+
+    const isActive = index === boundedStep;
+    stepNode.classList.toggle("is-active", isActive);
+    stepNode.hidden = !isActive;
+  });
+
+  if (intakeDom.progressFill instanceof HTMLElement) {
+    const progress = ((boundedStep + 1) / totalSteps) * 100;
+    intakeDom.progressFill.style.width = `${progress.toFixed(2)}%`;
+  }
+
+  if (intakeDom.progressText instanceof HTMLElement) {
+    intakeDom.progressText.textContent = formatTokenString(intakeCopy.progress, {
+      current: boundedStep + 1,
+      total: totalSteps,
+    });
+  }
+
+  const fieldNodes = intakeDom.form.querySelectorAll("[data-contact-field]");
+  fieldNodes.forEach((fieldNode) => {
+    if (!(fieldNode instanceof HTMLInputElement || fieldNode instanceof HTMLTextAreaElement || fieldNode instanceof HTMLSelectElement)) {
+      return;
+    }
+
+    const fieldName = fieldNode.dataset.contactField;
+    if (!fieldName || !(fieldName in state)) {
+      return;
+    }
+
+    if (fieldNode instanceof HTMLInputElement && fieldNode.type === "checkbox") {
+      fieldNode.checked = Boolean(state[fieldName]);
+      return;
+    }
+
+    fieldNode.value = String(state[fieldName] || "");
+  });
+
+  const projectTypeInput = intakeDom.form.querySelector(`input[name="projectType"][value="${state.projectType}"]`);
+  if (projectTypeInput instanceof HTMLInputElement) {
+    projectTypeInput.checked = true;
+  }
+
+  const timelineInput = intakeDom.form.querySelector(`input[name="timeline"][value="${state.timeline}"]`);
+  if (timelineInput instanceof HTMLInputElement) {
+    timelineInput.checked = true;
+  }
+
+  updateContactChoiceSelectionVisuals(intakeDom.form);
+  renderContactIntakeSummary(intakeDom, langKey);
+
+  if (intakeDom.backButton instanceof HTMLButtonElement) {
+    intakeDom.backButton.textContent = intakeCopy.actions.back;
+    intakeDom.backButton.hidden = boundedStep === 0 || state.submitting;
+    intakeDom.backButton.disabled = state.submitting;
+  }
+
+  if (intakeDom.nextButton instanceof HTMLButtonElement) {
+    const isReviewStep = boundedStep === totalSteps - 2;
+    intakeDom.nextButton.textContent = isReviewStep ? intakeCopy.actions.review : intakeCopy.actions.next;
+    intakeDom.nextButton.hidden = boundedStep >= totalSteps - 1 || state.submitting;
+    intakeDom.nextButton.disabled = state.submitting;
+  }
+
+  if (intakeDom.submitButton instanceof HTMLButtonElement) {
+    intakeDom.submitButton.textContent = state.submitting ? intakeCopy.actions.sending : intakeCopy.actions.submit;
+    intakeDom.submitButton.hidden = boundedStep !== totalSteps - 1;
+    intakeDom.submitButton.disabled = state.submitting;
+  }
+
+  if (state.status?.key) {
+    setContactIntakeStatus(
+      intakeDom,
+      locale,
+      state.status.key,
+      state.status.type,
+      state.status.fallbackHref
+    );
+  } else {
+    setContactIntakeStatus(intakeDom, locale, "", "", "");
+  }
+}
+
+function initContactIntake() {
+  const intakeDom = getContactIntakeDom();
+  if (!intakeDom) {
+    return;
+  }
+
+  ensureContactIntakeState();
+
+  if (intakeDom.form.dataset.bound !== "true") {
+    intakeDom.form.dataset.bound = "true";
+
+    intakeDom.form.addEventListener("change", (event) => {
+      const target = event.target;
+      if (!(target instanceof HTMLInputElement || target instanceof HTMLSelectElement)) {
+        return;
+      }
+
+      const state = ensureContactIntakeState();
+
+      if (target.matches("[data-contact-service-option]")) {
+        const serviceId = target.dataset.contactServiceOption;
+        if (!serviceId) {
+          return;
+        }
+
+        if (target.checked) {
+          state.selectedServices.add(serviceId);
+        } else {
+          state.selectedServices.delete(serviceId);
+        }
+      } else if (target.matches('input[name="projectType"]')) {
+        state.projectType = target.value || "";
+      } else if (target.matches('input[name="timeline"]')) {
+        state.timeline = target.value || "";
+      } else if (target.matches("[data-contact-field]")) {
+        const fieldName = target.dataset.contactField;
+        if (!fieldName || !(fieldName in state)) {
+          return;
+        }
+        if (target.type === "checkbox") {
+          state[fieldName] = target.checked;
+        } else {
+          state[fieldName] = target.value;
+        }
+      }
+
+      state.status = { key: "", type: "", fallbackHref: "" };
+      renderContactIntake(currentLang);
+    });
+
+    intakeDom.form.addEventListener("input", (event) => {
+      const target = event.target;
+      if (!(target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement || target instanceof HTMLSelectElement)) {
+        return;
+      }
+
+      if (!target.matches("[data-contact-field]")) {
+        return;
+      }
+
+      const fieldName = target.dataset.contactField;
+      const state = ensureContactIntakeState();
+      if (!fieldName || !(fieldName in state)) {
+        return;
+      }
+
+      if (target instanceof HTMLInputElement && target.type === "checkbox") {
+        state[fieldName] = target.checked;
+      } else {
+        state[fieldName] = target.value;
+      }
+    });
+
+    if (intakeDom.backButton instanceof HTMLButtonElement) {
+      intakeDom.backButton.addEventListener("click", () => {
+        const state = ensureContactIntakeState();
+        state.step = Math.max(0, state.step - 1);
+        state.status = { key: "", type: "", fallbackHref: "" };
+        renderContactIntake(currentLang);
+      });
+    }
+
+    if (intakeDom.nextButton instanceof HTMLButtonElement) {
+      intakeDom.nextButton.addEventListener("click", () => {
+        const state = ensureContactIntakeState();
+        if (!validateContactIntakeStep(state.step, currentLang, { setStatus: true })) {
+          renderContactIntake(currentLang);
+          return;
+        }
+
+        state.step = Math.min(intakeDom.steps.length - 1, state.step + 1);
+        state.status = { key: "", type: "", fallbackHref: "" };
+        renderContactIntake(currentLang);
+      });
+    }
+
+    intakeDom.form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      submitContactIntake(currentLang);
+    });
+  }
+
+  renderContactIntake(currentLang);
 }
 
 function randomBetween(min, max) {
@@ -2317,6 +3307,7 @@ function setLanguage(langKey) {
   }
   applyStaticText(currentLang);
   renderServices(currentLang);
+  renderContactIntake(currentLang);
   updateLanguageButtons();
   syncReservationScheduleFrames();
   closeMenu();
@@ -2435,6 +3426,7 @@ function initPageContent() {
   serviceRows = [];
   observeReveals();
   initHeroClouds();
+  initContactIntake();
   initProjectPhoneScreens();
   initProjectLaptopScreens();
   initProjectLaptopEmbedScreens();
@@ -2444,6 +3436,7 @@ function initPageContent() {
   initProjectKotaSlideshows();
   applyStaticText(currentLang);
   renderServices(currentLang);
+  renderContactIntake(currentLang);
   updateLanguageButtons();
   syncReservationScheduleFrames();
   syncProjectCardLayout();

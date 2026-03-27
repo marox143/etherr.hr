@@ -1,1 +1,8 @@
 .DS_Store
+.localhost3000.log
+.localhost3000.pid
+.env
+/vendor/
+/var/contact-intake-log.ndjson
+/var/contact-rate-limit.json
+INFO.png
