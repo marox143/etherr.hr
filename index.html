@@ -192,13 +192,15 @@
                     <span data-i18n="contact.intake.consent"></span>
                   </label>
                   <input type="hidden" data-contact-field="turnstileToken" />
+                  <input type="hidden" id="form_time" name="form_time" data-contact-field="formTimeMs" value="0" />
                   <input
                     class="contact-honeypot"
                     type="text"
                     data-contact-field="botField"
-                    name="company_website"
+                    name="company"
                     tabindex="-1"
                     autocomplete="off"
+                    style="position:absolute; left:-9999px; opacity:0; height:0; width:0;"
                     aria-hidden="true"
                   />
                 </section>

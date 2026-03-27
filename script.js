@@ -1520,6 +1520,8 @@ function renderServices(langKey) {
 function createDefaultContactIntakeState() {
   return {
     step: 0,
+    formStartedAt: Date.now(),
+    formTimeMs: 0,
     selectedServices: new Set(),
     projectType: "",
     timeline: "",
@@ -1540,6 +1542,13 @@ function createDefaultContactIntakeState() {
       fallbackHref: "",
     },
   };
+}
+
+function updateContactIntakeElapsedTime() {
+  const state = ensureContactIntakeState();
+  const elapsed = Date.now() - Number(state.formStartedAt || Date.now());
+  state.formTimeMs = Math.max(0, Math.round(elapsed));
+  return state.formTimeMs;
 }
 
 function ensureContactIntakeState() {
@@ -1932,6 +1941,7 @@ function buildContactIntakePayload(langKey) {
     consent: state.consent,
     turnstileToken: state.turnstileToken.trim(),
     honeypot: state.botField.trim(),
+    form_time: Math.max(0, Math.round(Number(state.formTimeMs || 0))),
   };
 }
 
@@ -1977,6 +1987,7 @@ async function submitContactIntake(langKey) {
     return;
   }
 
+  updateContactIntakeElapsedTime();
   const payload = buildContactIntakePayload(langKey);
 
   if (payload.honeypot) {
@@ -3357,15 +3368,38 @@ function getAutoDetectedLanguage() {
 }
 
 function normalizePathname(pathname) {
-  const value = String(pathname || "/");
-  if (value === "/") {
-    return "/index.html";
+  const value = String(pathname || "/").trim() || "/";
+  if (value === "/index.html") {
+    return "/";
   }
-  return value.endsWith("/") ? `${value}index.html` : value;
+  if (value.endsWith("/index.html")) {
+    return value.slice(0, -"index.html".length);
+  }
+  return value;
+}
+
+function normalizePathnameForCompare(pathname) {
+  const normalized = normalizePathname(pathname);
+  if (normalized !== "/" && normalized.endsWith("/")) {
+    return normalized.slice(0, -1);
+  }
+  return normalized;
 }
 
 function isSameDocumentHashNavigation(url) {
-  return normalizePathname(url.pathname) === normalizePathname(window.location.pathname) && Boolean(url.hash);
+  return normalizePathnameForCompare(url.pathname) === normalizePathnameForCompare(window.location.pathname) && Boolean(url.hash);
+}
+
+function enforceCanonicalHomePath() {
+  const pathname = String(window.location.pathname || "/");
+  const canonicalPath = normalizePathname(pathname);
+  if (canonicalPath === pathname) {
+    return;
+  }
+
+  const search = String(window.location.search || "");
+  const hash = String(window.location.hash || "");
+  window.history.replaceState({}, "", `${canonicalPath}${search}${hash}`);
 }
 
 function isInternalNavigationLink(link) {
@@ -3453,8 +3487,10 @@ async function navigateTo(urlLike, { replace = false, smoothScroll = false } = {
   const targetUrl = new URL(urlLike, window.location.href);
   const targetPath = normalizePathname(targetUrl.pathname);
   const currentPath = normalizePathname(window.location.pathname);
+  const comparableTargetPath = normalizePathnameForCompare(targetPath);
+  const comparableCurrentPath = normalizePathnameForCompare(currentPath);
 
-  if (targetPath === currentPath) {
+  if (comparableTargetPath === comparableCurrentPath) {
     const nextHref = `${targetPath}${targetUrl.hash}`;
     if (replace) {
       window.history.replaceState({}, "", nextHref);
@@ -3653,6 +3689,7 @@ function initEvents() {
 }
 
 function init() {
+  enforceCanonicalHomePath();
   initPageContent();
   startNetworkLayer();
   setLanguage(getStoredLanguage() || getAutoDetectedLanguage());

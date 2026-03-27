@@ -426,8 +426,41 @@ if (!is_array($data)) {
     ]);
 }
 
+try {
+    $requestId = bin2hex(random_bytes(8));
+} catch (\Throwable $e) {
+    $requestId = 'req-' . str_replace('.', '', (string)microtime(true));
+}
+
+$storeSubmissions = envBool($env, 'STORE_SUBMISSIONS', true);
+$logFile = rtrim($storageDir, '/') . '/contact-intake-log.ndjson';
+$logRejectedAttempt = static function (string $reason, array $payload) use ($storeSubmissions, $logFile, $clientIp, $requestId): void {
+    if (!$storeSubmissions) {
+        return;
+    }
+
+    appendLog($logFile, [
+        'requestId' => $requestId,
+        'storedAt' => gmdate('c'),
+        'clientIpHash' => hash('sha256', $clientIp),
+        'mailSent' => false,
+        'mailTransport' => 'none',
+        'mailError' => '',
+        'rejected' => true,
+        'rejectReason' => $reason,
+        'payload' => $payload,
+    ]);
+};
+
 $honeypot = trim((string)($data['honeypot'] ?? ''));
 if ($honeypot !== '') {
+    $logRejectedAttempt('honeypot_filled', $data);
+    respond(200, ['ok' => true, 'status' => 'ignored']);
+}
+
+$formTimeMs = (int)($data['form_time'] ?? ($data['formTime'] ?? 0));
+if ($formTimeMs < 3000) {
+    $logRejectedAttempt('too_fast', $data);
     respond(200, ['ok' => true, 'status' => 'ignored']);
 }
 
@@ -516,11 +549,6 @@ $source = is_array($data['source'] ?? null) ? $data['source'] : [];
 $sourceUrl = trim((string)($source['url'] ?? ''));
 $sourcePage = trim((string)($source['page'] ?? ''));
 $sourceReferrer = trim((string)($source['referrer'] ?? ''));
-try {
-    $requestId = bin2hex(random_bytes(8));
-} catch (\Throwable $e) {
-    $requestId = 'req-' . str_replace('.', '', (string)microtime(true));
-}
 
 $messageLines = [
     'Etherr contact intake',
@@ -560,9 +588,7 @@ $mailResult = sendMessage(
     $name
 );
 
-$storeSubmissions = envBool($env, 'STORE_SUBMISSIONS', true);
 if ($storeSubmissions) {
-    $logFile = rtrim($storageDir, '/') . '/contact-intake-log.ndjson';
     appendLog($logFile, [
         'requestId' => $requestId,
         'storedAt' => gmdate('c'),

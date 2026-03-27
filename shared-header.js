@@ -21,18 +21,18 @@
         }
       : page === "projects"
         ? {
-            home: "index.html",
+            home: "/",
             about: "about.html",
-            services: "index.html#services",
+            services: "/#services",
             projects: "projekti.html",
-            contact: "index.html#contact",
+            contact: "/#contact",
           }
         : {
-            home: "index.html",
+            home: "/",
             about: "about.html",
-            services: "index.html#services",
+            services: "/#services",
             projects: "projekti.html",
-            contact: "index.html#contact",
+            contact: "/#contact",
           };
 
   mount.innerHTML = `
