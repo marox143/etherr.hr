@@ -6,6 +6,29 @@ API_URL="${1:-http://localhost:3000/api/contact-intake.php}"
 TMP_RESPONSE="$(mktemp)"
 trap 'rm -f "$TMP_RESPONSE"' EXIT
 
+echo "==> Smoke testing contact intake endpoint"
+echo "Endpoint: $API_URL"
+
+# Verify file structure
+echo " - Verifying file structure..."
+if [[ ! -f "$ROOT_DIR/public_html/api/contact-intake.php" ]]; then
+  echo "ERROR: API endpoint not found at public_html/api/contact-intake.php"
+  exit 1
+fi
+
+if [[ ! -f "$ROOT_DIR/.env.example" ]]; then
+  echo "ERROR: .env.example not found in project root"
+  exit 1
+fi
+
+if [[ ! -d "$ROOT_DIR/vendor" ]] && [[ ! -f "$ROOT_DIR/composer.json" ]]; then
+  echo "WARNING: vendor/ directory not found. Run 'composer install' if needed."
+fi
+
+if [[ ! -d "$ROOT_DIR/var" ]]; then
+  echo "WARNING: var/ directory not found. It will be created automatically on first API call."
+fi
+
 read -r -d '' PAYLOAD <<'JSON' || true
 {
   "version": "1.0",
@@ -39,8 +62,7 @@ read -r -d '' PAYLOAD <<'JSON' || true
 }
 JSON
 
-echo "==> Smoke testing contact intake endpoint"
-echo "Endpoint: $API_URL"
+echo " - Sending test request..."
 
 HTTP_CODE="$(
   curl -sS -o "$TMP_RESPONSE" -w "%{http_code}" \

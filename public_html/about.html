@@ -3,6 +3,30 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      (function () {
+        var supported = { hr: true, en: true, de: true };
+        var lang = "";
+        try {
+          lang = window.localStorage.getItem("etherr-language") || "";
+        } catch (_error) {}
+        if (!supported[lang]) {
+          var cookies = String(document.cookie || "").split(";");
+          for (var i = 0; i < cookies.length; i += 1) {
+            var parts = cookies[i].split("=");
+            if (String(parts[0] || "").trim() !== "etherr-language") {
+              continue;
+            }
+            lang = decodeURIComponent(parts.slice(1).join("=").trim());
+            break;
+          }
+        }
+        if (supported[lang]) {
+          window.ETHERR_BOOT_LANG = lang;
+          document.documentElement.lang = lang;
+        }
+      })();
+    </script>
     <title>Etherr | O nama</title>
     <meta name="description" content="" />
     <link rel="icon" href="assets/images/logo.png" type="image/png" />
@@ -126,10 +150,11 @@
     <footer class="site-footer">
       <div class="container footer-inner">
         <div class="footer-signature">
-          <a class="footer-brand" href="#top" aria-label="Etherr">
-            <img src="assets/images/logo.png" alt="Etherr logo" width="28" height="28" />
-          </a>
-          <p data-footer-copy></p>
+          <p class="footer-copyline">
+            <span data-footer-copy></span>
+            <span class="footer-divider" aria-hidden="true">·</span>
+            <a class="footer-inline-link" href="/privacy.html" data-i18n="footer.privacyLink"></a>
+          </p>
         </div>
       </div>
     </footer>

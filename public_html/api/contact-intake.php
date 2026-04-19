@@ -273,7 +273,7 @@ function sendMessage(array $env, string $subject, string $body, string $replyEma
         ];
     }
 
-    $autoload = dirname(__DIR__) . '/vendor/autoload.php';
+    $autoload = dirname(__DIR__, 2) . '/vendor/autoload.php';
     if (!is_file($autoload)) {
         return ['sent' => false, 'transport' => 'smtp', 'error' => 'Composer autoload not found'];
     }
@@ -351,7 +351,7 @@ function appendLog(string $logFile, array $entry): void
     @file_put_contents($logFile, $encoded . PHP_EOL, FILE_APPEND | LOCK_EX);
 }
 
-$rootDir = dirname(__DIR__);
+$rootDir = dirname(__DIR__, 2);
 $env = loadEnvFile($rootDir . '/.env');
 $timezone = envValue($env, 'APP_TIMEZONE', 'UTC');
 if ($timezone !== '') {

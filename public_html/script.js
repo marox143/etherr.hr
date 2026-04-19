@@ -12,6 +12,12 @@ const translations = {
           description: "Saznajte kako Etherr pristupa razvoju digitalnih sustava, automatizacije i dugoročno održive arhitekture.",
         },
       },
+      privacy: {
+        meta: {
+          title: "Etherr | Pravila privatnosti",
+          description: "Informacije o obradi osobnih podataka i pravilima privatnosti za Etherr kontakt formu.",
+        },
+      },
       projects: {
         meta: {
           title: "Etherr | Projekti",
@@ -278,6 +284,7 @@ const translations = {
           video: "Video poziv",
         },
         consent: "Potvrđujem da Etherr može koristiti ove podatke za odgovor na moj upit.",
+        privacyLead: "Pogledajte",
         summary: {
           services: "Odabrane usluge",
           projectType: "Vrsta projekta",
@@ -316,7 +323,35 @@ const translations = {
       },
     },
     footer: {
-      copy: "© {year} Etherr",
+      copy: "{year} © Etherr",
+      privacyLink: "Pravila privatnosti",
+    },
+    privacy: {
+      eyebrow: "GDPR i obrada podataka",
+      title: "Pravila privatnosti",
+      controllerTitle: "1. Voditelj obrade",
+      controllerBody: "Etherr, obrt za digitalne usluge\nVlasnik: Dejan Marojevic\nEmail: info@etherr.hr\nOIB: 33717316389",
+      purposeTitle: "2. Svrha obrade",
+      purposeBody: "Vaši osobni podaci obrađuju se isključivo radi odgovora na vaš upit poslan putem kontakt forme.",
+      legalBasisTitle: "3. Pravna osnova",
+      legalBasisBody:
+        "Obrada se temelji na članku 6. stavku 1. točki (b) GDPR-a, odnosno na obradi potrebnoj za poduzimanje radnji na zahtjev ispitanika prije sklapanja ugovora.",
+      dataCollectedTitle: "4. Koje podatke prikupljamo",
+      dataCollectedItem1: "Ime i prezime (opcionalno)",
+      dataCollectedItem2: "Email adresa (obavezno)",
+      dataCollectedItem3: "Sadržaj poruke",
+      dataCollectedItem4: "Odabire vezane uz projekt dostavljene kroz upitnik (usluge, vrsta projekta, vremenski okvir i slično)",
+      retentionTitle: "5. Rok pohrane",
+      retentionBody:
+        "Podaci se čuvaju samo onoliko dugo koliko je potrebno za obradu vašeg upita te se brišu najkasnije nakon 12 mjeseci, osim ako se nastavi daljnja komunikacija ili uspostavi poslovni odnos.",
+      recipientsTitle: "6. Primatelji podataka",
+      recipientsItem1: "Hosting provider: SETCOR d.o.o.",
+      recipientsItem2: "Email provider: Microsoft",
+      rightsTitle: "7. Prava korisnika",
+      rightsBody:
+        "Imate pravo zatražiti pristup, ispravak ili brisanje svojih osobnih podataka, kao i ograničenje obrade. Također imate pravo podnijeti pritužbu Agenciji za zaštitu osobnih podataka (AZOP).",
+      contactTitle: "8. Kontakt",
+      contactBody: "info@etherr.hr",
     },
   },
   en: {
@@ -330,6 +365,12 @@ const translations = {
         meta: {
           title: "Etherr | About",
           description: "Learn how Etherr approaches digital systems, automation and long-term maintainable delivery.",
+        },
+      },
+      privacy: {
+        meta: {
+          title: "Etherr | Privacy Policy",
+          description: "Information about personal data processing and privacy rules for the Etherr contact form.",
         },
       },
       projects: {
@@ -598,6 +639,7 @@ const translations = {
           video: "Video call",
         },
         consent: "I agree that Etherr may use this information to reply to my inquiry.",
+        privacyLead: "See",
         summary: {
           services: "Selected services",
           projectType: "Project type",
@@ -636,7 +678,36 @@ const translations = {
       },
     },
     footer: {
-      copy: "© {year} Etherr",
+      copy: "{year} © Etherr",
+      privacyLink: "Privacy Policy",
+    },
+    privacy: {
+      eyebrow: "GDPR and data processing",
+      title: "Privacy Policy",
+      controllerTitle: "1. Controller",
+      controllerBody: "Etherr, obrt za digitalne usluge\nOwner: Dejan Marojevic\nEmail: info@etherr.hr\nVAT ID: 33717316389",
+      purposeTitle: "2. Purpose of Processing",
+      purposeBody: "Your personal data is processed solely for the purpose of responding to your inquiry submitted via the contact form.",
+      legalBasisTitle: "3. Legal Basis",
+      legalBasisBody:
+        "Processing is based on Article 6(1)(b) GDPR, meaning processing necessary for taking steps prior to entering into a contract.",
+      dataCollectedTitle: "4. Data Collected",
+      dataCollectedItem1: "Name (optional)",
+      dataCollectedItem2: "Email address (required)",
+      dataCollectedItem3: "Message content",
+      dataCollectedItem4:
+        "Project-related selections provided through the questionnaire, including services, project type and timeline",
+      retentionTitle: "5. Data Retention",
+      retentionBody:
+        "Your data is retained only as long as necessary to process your inquiry and will be deleted after a maximum of 12 months, unless further communication or a business relationship is established.",
+      recipientsTitle: "6. Recipients",
+      recipientsItem1: "Hosting provider: SETCOR d.o.o.",
+      recipientsItem2: "Email provider: Microsoft",
+      rightsTitle: "7. User Rights",
+      rightsBody:
+        "You have the right to request access, rectification or deletion of your personal data, as well as restriction of processing. You also have the right to lodge a complaint with the Croatian Personal Data Protection Agency (AZOP).",
+      contactTitle: "8. Contact",
+      contactBody: "info@etherr.hr",
     },
   },
   de: {
@@ -650,6 +721,12 @@ const translations = {
         meta: {
           title: "Etherr | Über uns",
           description: "Erfahren Sie, wie Etherr digitale Systeme, Automatisierung und langfristig wartbare technische Umsetzung angeht.",
+        },
+      },
+      privacy: {
+        meta: {
+          title: "Etherr | Datenschutzerklärung",
+          description: "Informationen zur Verarbeitung personenbezogener Daten und zu den Datenschutzregeln für das Etherr-Kontaktformular.",
         },
       },
       projects: {
@@ -918,6 +995,7 @@ const translations = {
           video: "Videocall",
         },
         consent: "Ich bestätige, dass Etherr diese Daten zur Beantwortung meiner Anfrage verwenden darf.",
+        privacyLead: "Siehe",
         summary: {
           services: "Gewählte Leistungen",
           projectType: "Projekttyp",
@@ -956,7 +1034,37 @@ const translations = {
       },
     },
     footer: {
-      copy: "© {year} Etherr",
+      copy: "{year} © Etherr",
+      privacyLink: "Datenschutzerklärung",
+    },
+    privacy: {
+      eyebrow: "DSGVO und Datenverarbeitung",
+      title: "Datenschutzerklärung",
+      controllerTitle: "1. Verantwortlicher",
+      controllerBody: "Etherr, obrt za digitalne usluge\nInhaber: Dejan Marojevic\nE-Mail: info@etherr.hr\nUSt-ID: 33717316389",
+      purposeTitle: "2. Zweck der Verarbeitung",
+      purposeBody:
+        "Ihre personenbezogenen Daten werden ausschließlich zum Zweck der Beantwortung Ihrer über das Kontaktformular übermittelten Anfrage verarbeitet.",
+      legalBasisTitle: "3. Rechtsgrundlage",
+      legalBasisBody:
+        "Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, also zur Durchführung vorvertraglicher Maßnahmen auf Anfrage der betroffenen Person.",
+      dataCollectedTitle: "4. Erhobene Daten",
+      dataCollectedItem1: "Name (optional)",
+      dataCollectedItem2: "E-Mail-Adresse (erforderlich)",
+      dataCollectedItem3: "Inhalt der Nachricht",
+      dataCollectedItem4:
+        "Projektbezogene Angaben aus dem Fragebogen, einschließlich Leistungen, Projekttyp, Zeitrahmen und ähnlicher Angaben",
+      retentionTitle: "5. Speicherdauer",
+      retentionBody:
+        "Ihre Daten werden nur so lange gespeichert, wie es für die Bearbeitung Ihrer Anfrage erforderlich ist, und spätestens nach 12 Monaten gelöscht, sofern keine weitere Kommunikation oder Geschäftsbeziehung entsteht.",
+      recipientsTitle: "6. Empfänger",
+      recipientsItem1: "Hosting provider: SETCOR d.o.o.",
+      recipientsItem2: "Email provider: Microsoft",
+      rightsTitle: "7. Rechte der betroffenen Person",
+      rightsBody:
+        "Sie haben das Recht auf Auskunft, Berichtigung oder Löschung Ihrer personenbezogenen Daten sowie auf Einschränkung der Verarbeitung. Außerdem haben Sie das Recht, eine Beschwerde bei der kroatischen Datenschutzbehörde (AZOP) einzureichen.",
+      contactTitle: "8. Kontakt",
+      contactBody: "info@etherr.hr",
     },
   },
 };
@@ -996,6 +1104,7 @@ cacheDom();
 let currentLang = "hr";
 let serviceRows = [];
 const LANGUAGE_STORAGE_KEY = "etherr-language";
+const LANGUAGE_COOKIE_NAME = "etherr-language";
 const CONTACT_INTAKE_ENDPOINT = "api/contact-intake.php";
 const CONTACT_INTAKE_CONFIG = Object.assign(
   {
@@ -1035,7 +1144,7 @@ const networkState = {
 let networkFrame = null;
 const NETWORK_NODE_BASE_COUNT = 252;
 const NETWORK_MAX_LINKS = 6;
-const NETWORK_SQUARE_COUNT = 6;
+const NETWORK_SQUARE_COUNT = 12;
 const NETWORK_NODE_DENSITY_MULTIPLIER = 1.1;
 const NETWORK_SCROLL_BOOST_MULTIPLIER = 4;
 const NETWORK_CURSOR_REPEL_RADIUS = 168;
@@ -2270,18 +2379,296 @@ function clamp(value, min, max) {
   return Math.min(max, Math.max(min, value));
 }
 
+function pickRandomItem(items) {
+  if (!Array.isArray(items) || !items.length) {
+    return "";
+  }
+
+  return items[Math.floor(Math.random() * items.length)] || "";
+}
+
+function shuffleArray(items) {
+  const copy = Array.isArray(items) ? items.slice() : [];
+
+  for (let index = copy.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(Math.random() * (index + 1));
+    const current = copy[index];
+    copy[index] = copy[swapIndex];
+    copy[swapIndex] = current;
+  }
+
+  return copy;
+}
+
+function buildSquareNodeSizeBuckets(squareNodeCount) {
+  const sizes = [];
+  const largestCount = Math.min(2, squareNodeCount);
+  const largeCount = Math.min(4, Math.max(0, squareNodeCount - sizes.length - largestCount));
+
+  for (let index = 0; index < largestCount; index += 1) {
+    sizes.push(randomBetween(18, 22));
+  }
+
+  for (let index = 0; index < largeCount; index += 1) {
+    sizes.push(randomBetween(14.5, 18));
+  }
+
+  const mediumCount = Math.min(3, Math.max(0, squareNodeCount - sizes.length));
+  for (let index = 0; index < mediumCount; index += 1) {
+    sizes.push(randomBetween(11, 14.5));
+  }
+
+  while (sizes.length < squareNodeCount) {
+    sizes.push(randomBetween(8, 11));
+  }
+
+  return shuffleArray(sizes);
+}
+
+let heroCloudFrame = null;
+const heroCloudMotionState = {
+  items: [],
+  lastFrameMs: 0,
+};
+
+function smoothstep(edgeStart, edgeEnd, value) {
+  if (edgeStart === edgeEnd) {
+    return value < edgeEnd ? 0 : 1;
+  }
+
+  const t = clamp((value - edgeStart) / (edgeEnd - edgeStart), 0, 1);
+  return t * t * (3 - 2 * t);
+}
+
+function sampleHeroCloudSpeedProfile(isPrimaryLayer) {
+  return pickRandomItem(
+    isPrimaryLayer
+      ? [
+          { speedMin: 0.68, speedMax: 0.92, holdMin: 9000, holdMax: 15000 },
+          { speedMin: 0.94, speedMax: 1.22, holdMin: 7000, holdMax: 12000 },
+          { speedMin: 1.24, speedMax: 1.54, holdMin: 6000, holdMax: 9000 },
+          { speedMin: 0.56, speedMax: 0.76, holdMin: 11000, holdMax: 18000 },
+        ]
+      : [
+          { speedMin: 0.54, speedMax: 0.76, holdMin: 10000, holdMax: 16000 },
+          { speedMin: 0.76, speedMax: 1.02, holdMin: 8000, holdMax: 13000 },
+          { speedMin: 1.04, speedMax: 1.28, holdMin: 6500, holdMax: 9500 },
+          { speedMin: 0.46, speedMax: 0.66, holdMin: 12000, holdMax: 18000 },
+        ]
+  );
+}
+
+function assignHeroCloudTargets(item, timestampMs) {
+  const speedProfile = sampleHeroCloudSpeedProfile(item.isPrimaryLayer);
+  const fullyOpaquePass = Math.random() < (item.isPrimaryLayer ? 0.18 : 0.08);
+
+  item.targetSpeed = randomBetween(speedProfile.speedMin, speedProfile.speedMax);
+  item.nextVariationAt = timestampMs + randomBetween(speedProfile.holdMin, speedProfile.holdMax);
+  item.targetPeakOpacity = fullyOpaquePass
+    ? 1
+    : item.isPrimaryLayer
+      ? randomBetween(0.44, 0.82)
+      : randomBetween(0.24, 0.56);
+  item.targetLayerBOpacity = fullyOpaquePass
+    ? item.isPrimaryLayer
+      ? 1
+      : 0.86
+    : item.isPrimaryLayer
+      ? randomBetween(0.66, 0.9)
+      : randomBetween(0.34, 0.64);
+  item.targetLayerCOpacity = item.isPrimaryLayer
+    ? fullyOpaquePass
+      ? 0.94
+      : randomBetween(0.42, 0.76)
+    : item.targetLayerCOpacity;
+  item.targetFloatY = item.isPrimaryLayer
+    ? randomBetween(-10, 8)
+    : randomBetween(-6, 12);
+  item.floatAmplitude = item.isPrimaryLayer
+    ? randomBetween(3.2, 6.8)
+    : randomBetween(4.8, 8.2);
+  item.breatheIntensity = item.isPrimaryLayer
+    ? randomBetween(0.016, 0.038)
+    : randomBetween(0.02, 0.044);
+  item.breatheSpeed = item.isPrimaryLayer
+    ? randomBetween(0.16, 0.28)
+    : randomBetween(0.12, 0.22);
+}
+
+function resetHeroCloudState(item, timestampMs, initial = false) {
+  item.startX = item.isPrimaryLayer ? randomBetween(-48, -40) : randomBetween(-60, -52);
+  item.resetX = item.isPrimaryLayer ? 28 : 24;
+  item.fadeInStartX = item.startX + (item.isPrimaryLayer ? 10 : 12);
+  item.fadeInEndX = item.startX + (item.isPrimaryLayer ? 30 : 34);
+  item.fadeOutStartX = item.resetX - (item.isPrimaryLayer ? 11 : 9);
+  item.fadeOutEndX = item.resetX + 2;
+  item.baseY = item.isPrimaryLayer ? randomBetween(-6, 3) : randomBetween(-2, 6);
+  item.targetFloatY = item.baseY;
+  item.floatY = item.baseY;
+  item.phase = randomBetween(0, Math.PI * 2);
+  item.phaseOffset = randomBetween(0, Math.PI * 2);
+  item.x = initial
+    ? randomBetween(item.fadeInStartX + 3, item.resetX - (item.isPrimaryLayer ? 10 : 8))
+    : item.startX;
+  assignHeroCloudTargets(item, timestampMs);
+  item.speed = item.targetSpeed * randomBetween(0.92, 1.04);
+  item.currentPeakOpacity = item.targetPeakOpacity;
+  item.currentLayerBOpacity = item.targetLayerBOpacity;
+  item.currentLayerCOpacity = item.targetLayerCOpacity || 0;
+  item.currentOpacity = initial ? 0 : 0;
+}
+
+function getHeroCloudVisibleOpacity(item) {
+  const fadeIn = smoothstep(item.fadeInStartX, item.fadeInEndX, item.x);
+  const fadeOut = 1 - smoothstep(item.fadeOutStartX, item.fadeOutEndX, item.x);
+  return clamp(fadeIn * fadeOut, 0, 1) * item.currentPeakOpacity;
+}
+
+function renderHeroCloudState(item) {
+  const bob = Math.sin(item.phase) * item.floatAmplitude;
+  const stretch = Math.sin(item.phase * 0.78 + item.phaseOffset) * item.breatheIntensity;
+  const scaleX = item.baseScaleX + stretch;
+  const scaleY = item.baseScaleY - stretch * 0.52;
+  const travelY = item.floatY + bob;
+
+  item.element.style.opacity = item.currentOpacity.toFixed(3);
+  item.element.style.transform = `translate3d(${item.x.toFixed(3)}%, calc(var(--hero-cloud-render-shift-y) + ${travelY.toFixed(2)}px), 0) scale(${scaleX.toFixed(4)}, ${scaleY.toFixed(4)}) rotate(var(--hero-cloud-rotation))`;
+  item.element.style.setProperty(
+    "--hero-cloud-primary-layer-b-current-opacity",
+    item.currentLayerBOpacity.toFixed(3)
+  );
+  item.element.style.setProperty(
+    "--hero-cloud-primary-layer-c-current-opacity",
+    item.currentLayerCOpacity.toFixed(3)
+  );
+  item.element.style.setProperty(
+    "--hero-cloud-secondary-layer-b-current-opacity",
+    item.currentLayerBOpacity.toFixed(3)
+  );
+}
+
+function stopHeroCloudMotion() {
+  if (heroCloudFrame !== null) {
+    window.cancelAnimationFrame(heroCloudFrame);
+    heroCloudFrame = null;
+  }
+
+  heroCloudMotionState.items = [];
+  heroCloudMotionState.lastFrameMs = 0;
+}
+
+function stepHeroCloudMotion(timestampMs) {
+  if (!heroCloudMotionState.items.length) {
+    heroCloudFrame = null;
+    heroCloudMotionState.lastFrameMs = 0;
+    return;
+  }
+
+  const previousFrameMs = heroCloudMotionState.lastFrameMs || timestampMs;
+  const deltaSeconds = clamp((timestampMs - previousFrameMs) / 1000, 0, 0.05);
+  heroCloudMotionState.lastFrameMs = timestampMs;
+
+  heroCloudMotionState.items.forEach((item) => {
+    if (timestampMs >= item.nextVariationAt) {
+      assignHeroCloudTargets(item, timestampMs);
+    }
+
+    item.speed += (item.targetSpeed - item.speed) * Math.min(1, deltaSeconds * 0.3);
+    item.floatY += (item.targetFloatY - item.floatY) * Math.min(1, deltaSeconds * 0.22);
+    item.currentPeakOpacity +=
+      (item.targetPeakOpacity - item.currentPeakOpacity) * Math.min(1, deltaSeconds * 0.2);
+    item.currentLayerBOpacity +=
+      (item.targetLayerBOpacity - item.currentLayerBOpacity) * Math.min(1, deltaSeconds * 0.22);
+    item.currentLayerCOpacity +=
+      ((item.targetLayerCOpacity || 0) - item.currentLayerCOpacity) *
+      Math.min(1, deltaSeconds * 0.22);
+    item.phase += deltaSeconds * item.breatheSpeed;
+    item.x += item.speed * deltaSeconds;
+
+    if (item.x >= item.resetX + 2) {
+      resetHeroCloudState(item, timestampMs, false);
+    }
+
+    const targetOpacity = getHeroCloudVisibleOpacity(item);
+    item.currentOpacity += (targetOpacity - item.currentOpacity) * Math.min(1, deltaSeconds * 0.45);
+    renderHeroCloudState(item);
+  });
+
+  heroCloudFrame = window.requestAnimationFrame(stepHeroCloudMotion);
+}
+
 function initHeroClouds() {
+  stopHeroCloudMotion();
+
   if (!dom.heroClouds.length) {
     return;
   }
 
-  dom.heroClouds.forEach((cloud, index) => {
-    const duration = index === 0 ? randomBetween(34, 46) : randomBetween(42, 58);
-    const delay = -randomBetween(0, duration);
+  if (prefersReducedMotionQuery.matches) {
+    dom.heroClouds.forEach((cloud, index) => {
+      const isPrimaryLayer = index === 0;
+      const scaleX = isPrimaryLayer ? 1 : 0.98;
+      const scaleY = isPrimaryLayer ? 1 : 0.96;
 
-    cloud.style.setProperty("--hero-cloud-random-duration", `${duration.toFixed(2)}s`);
-    cloud.style.setProperty("--hero-cloud-random-delay", `${delay.toFixed(2)}s`);
+      cloud.style.opacity = isPrimaryLayer ? "0.32" : "0.24";
+      cloud.style.transform = `translate3d(0%, calc(var(--hero-cloud-render-shift-y) + 0px), 0) scale(${scaleX}, ${scaleY}) rotate(var(--hero-cloud-rotation))`;
+      cloud.style.setProperty(
+        "--hero-cloud-primary-layer-b-current-opacity",
+        isPrimaryLayer ? "0.78" : "0.5"
+      );
+      cloud.style.setProperty(
+        "--hero-cloud-primary-layer-c-current-opacity",
+        isPrimaryLayer ? "0.58" : "0"
+      );
+      cloud.style.setProperty(
+        "--hero-cloud-secondary-layer-b-current-opacity",
+        isPrimaryLayer ? "0.78" : "0.46"
+      );
+    });
+    return;
+  }
+
+  heroCloudMotionState.items = Array.from(dom.heroClouds).map((cloud, index) => {
+    const item = {
+      element: cloud,
+      isPrimaryLayer: index === 0,
+      baseScaleX: index === 0 ? 1 : 0.98,
+      baseScaleY: index === 0 ? 1 : 0.96,
+      startX: 0,
+      resetX: 0,
+      fadeInStartX: 0,
+      fadeInEndX: 0,
+      fadeOutStartX: 0,
+      fadeOutEndX: 0,
+      x: 0,
+      speed: 0,
+      targetSpeed: 0,
+      nextVariationAt: 0,
+      currentOpacity: 0,
+      currentPeakOpacity: 0,
+      targetPeakOpacity: 0,
+      currentLayerBOpacity: index === 0 ? 0.82 : 0.5,
+      targetLayerBOpacity: index === 0 ? 0.82 : 0.5,
+      currentLayerCOpacity: index === 0 ? 0.64 : 0,
+      targetLayerCOpacity: index === 0 ? 0.64 : 0,
+      baseY: 0,
+      floatY: 0,
+      targetFloatY: 0,
+      floatAmplitude: 0,
+      breatheIntensity: 0,
+      breatheSpeed: 0,
+      phase: 0,
+      phaseOffset: 0,
+    };
+
+    resetHeroCloudState(item, performance.now(), true);
+    item.currentOpacity = getHeroCloudVisibleOpacity(item);
+    renderHeroCloudState(item);
+    return item;
   });
+
+  heroCloudMotionState.lastFrameMs = 0;
+  heroCloudFrame = window.requestAnimationFrame(stepHeroCloudMotion);
 }
 
 function getProjectPhoneViewportWidth(screen) {
@@ -2862,10 +3249,11 @@ function buildNetworkNodes() {
   );
   const squareNodeCount = clamp(
     Math.round(NETWORK_SQUARE_COUNT * areaFactor * NETWORK_NODE_DENSITY_MULTIPLIER),
-    3,
+    10,
     NETWORK_SQUARE_COUNT
   );
-  const leftSquareCount = Math.max(1, squareNodeCount - 2);
+  const leftSquareCount = clamp(Math.round(squareNodeCount * 0.62), 4, squareNodeCount - 3);
+  const squareNodeSizes = buildSquareNodeSizeBuckets(squareNodeCount);
   const nodes = [];
 
   for (let i = 0; i < nodeCount; i += 1) {
@@ -2927,7 +3315,7 @@ function buildNetworkNodes() {
     const inCoreLeft = i < leftSquareCount;
     const u = inCoreLeft ? randomBetween(0.08, 0.52) : randomBetween(0.58, 0.94);
     const v = inCoreLeft ? randomBetween(0.16, 0.84) : randomBetween(0.2, 0.76);
-    const size = randomBetween(11, 22);
+    const size = squareNodeSizes[i] || randomBetween(8, 18);
 
     nodes.push({
       u,
@@ -3311,11 +3699,7 @@ function setLanguage(langKey) {
   }
 
   currentLang = langKey;
-  try {
-    window.localStorage.setItem(LANGUAGE_STORAGE_KEY, currentLang);
-  } catch (_error) {
-    // Ignore storage access issues and continue with the in-memory language.
-  }
+  persistLanguagePreference(currentLang);
   applyStaticText(currentLang);
   renderServices(currentLang);
   renderContactIntake(currentLang);
@@ -3325,7 +3709,45 @@ function setLanguage(langKey) {
   window.requestAnimationFrame(syncProjectCardLayout);
 }
 
+function persistLanguagePreference(langKey) {
+  try {
+    window.localStorage.setItem(LANGUAGE_STORAGE_KEY, langKey);
+  } catch (_error) {
+    // Ignore storage access issues and continue with the cookie fallback.
+  }
+
+  try {
+    const secureFlag = window.location.protocol === "https:" ? "; Secure" : "";
+    document.cookie = `${LANGUAGE_COOKIE_NAME}=${encodeURIComponent(langKey)}; Max-Age=31536000; Path=/; SameSite=Lax${secureFlag}`;
+  } catch (_error) {
+    // Ignore cookie write issues and continue with the in-memory language.
+  }
+}
+
+function getCookieValue(cookieName) {
+  const cookies = String(document.cookie || "").split(";");
+  for (const entry of cookies) {
+    const [rawKey, ...rest] = entry.split("=");
+    if (String(rawKey || "").trim() !== cookieName) {
+      continue;
+    }
+
+    return decodeURIComponent(rest.join("=").trim());
+  }
+
+  return "";
+}
+
 function getStoredLanguage() {
+  try {
+    const cookieValue = getCookieValue(LANGUAGE_COOKIE_NAME);
+    if (translations[cookieValue]) {
+      return cookieValue;
+    }
+  } catch (_error) {
+    // Ignore cookie parsing issues and continue with localStorage.
+  }
+
   try {
     const stored = window.localStorage.getItem(LANGUAGE_STORAGE_KEY);
     return translations[stored] ? stored : null;
@@ -3690,9 +4112,15 @@ function initEvents() {
 
 function init() {
   enforceCanonicalHomePath();
+  const bootLanguage =
+    translations[window.ETHERR_BOOT_LANG] ? window.ETHERR_BOOT_LANG : null;
+  const storedLanguage = getStoredLanguage();
+  currentLang = bootLanguage || storedLanguage || getAutoDetectedLanguage();
+  if (!storedLanguage) {
+    persistLanguagePreference(currentLang);
+  }
   initPageContent();
   startNetworkLayer();
-  setLanguage(getStoredLanguage() || getAutoDetectedLanguage());
   initEvents();
 }
 

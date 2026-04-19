@@ -23,6 +23,10 @@
   --hero-cloud-width: 112vw; /* cloud layer width */
   --hero-cloud-height: clamp(250px, 34vw, 420px); /* cloud layer height */
   --hero-cloud-opacity: 0.42; /* cloud opacity */
+  --hero-cloud-primary-layer-b-opacity: 0.82; /* second primary cloud transparency spread */
+  --hero-cloud-primary-layer-c-opacity: 0.64; /* third primary cloud transparency spread */
+  --hero-cloud-secondary-layer-a-opacity: 0.74; /* first secondary cloud transparency spread */
+  --hero-cloud-secondary-layer-b-opacity: 0.5; /* second secondary cloud set 50% more transparent */
   --hero-cloud-duration: 34s; /* cloud animation duration */
   --hero-cloud-breathing-intensity: 0.055; /* breathing stretch intensity */
   --hero-cloud-rotation: 180deg; /* rotate cloud assets so their flat edge sits against the header */
@@ -168,7 +172,7 @@ p {
 }
 
 .site-header.is-scrolled {
-  background: rgba(250, 253, 253, 0.72);
+  background: rgba(250, 253, 253, 0.54);
   box-shadow: 0 8px 16px rgba(8, 34, 40, 0.05);
 }
 
@@ -481,9 +485,18 @@ p {
   /* PNG transparency handles most of the edge work; the overlay gradients soften the sides/bottom. */
 }
 
+.hero-cloud::before,
+.hero-cloud::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
 .hero-cloud-primary {
-  --hero-cloud-peak-opacity: var(--hero-cloud-opacity);
-  --hero-cloud-start-x: -18%;
+  --hero-cloud-peak-opacity: var(--hero-cloud-random-peak-opacity, var(--hero-cloud-opacity));
+  --hero-cloud-start-x: -28%;
   --hero-cloud-mid-x: 0%;
   --hero-cloud-end-x: 18%;
   --hero-cloud-start-y: 1px;
@@ -491,53 +504,62 @@ p {
   --hero-cloud-end-y: 5px;
   --hero-cloud-base-scale-x: 1;
   --hero-cloud-base-scale-y: 1;
-  background-image:
-    url("assets/clouds/cloud1.png"),
-    url("assets/clouds/cloud3.png"),
-    url("assets/clouds/cloud4.png");
-  background-position:
-    -24% 0%,
-    28% -34%,
-    100% -6%;
-  background-size:
-    68% auto,
-    96% auto,
-    68% auto;
+  background-image: url("assets/clouds/cloud1.png");
+  background-position: -24% 0%;
+  background-size: 68% auto;
   /* Fade the first/last 10% of each rendered cloud image so hard edges do not show over the logo. */
-  -webkit-mask-image:
-    linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%),
-    linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%),
-    linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
-  mask-image:
-    linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%),
-    linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%),
-    linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
-  -webkit-mask-position:
-    -24% 0%,
-    28% -34%,
-    100% -6%;
-  mask-position:
-    -24% 0%,
-    28% -34%,
-    100% -6%;
-  -webkit-mask-size:
-    68% auto,
-    96% auto,
-    68% auto;
-  mask-size:
-    68% auto,
-    96% auto,
-    68% auto;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+  -webkit-mask-position: -24% 0%;
+  mask-position: -24% 0%;
+  -webkit-mask-size: 68% auto;
+  mask-size: 68% auto;
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
-  animation: hero-cloud-drift-one-way var(--hero-cloud-random-duration, var(--hero-cloud-duration))
-    linear infinite;
-  animation-delay: var(--hero-cloud-random-delay, 0s);
+}
+
+.hero-cloud-primary::before {
+  background-image: url("assets/clouds/cloud3.png");
+  background-position: 28% -34%;
+  background-size: 96% auto;
+  opacity: var(
+    --hero-cloud-primary-layer-b-current-opacity,
+    var(--hero-cloud-primary-layer-b-opacity)
+  );
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+  -webkit-mask-position: 28% -34%;
+  mask-position: 28% -34%;
+  -webkit-mask-size: 96% auto;
+  mask-size: 96% auto;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+.hero-cloud-primary::after {
+  background-image: url("assets/clouds/cloud4.png");
+  background-position: 100% -6%;
+  background-size: 68% auto;
+  opacity: var(
+    --hero-cloud-primary-layer-c-current-opacity,
+    var(--hero-cloud-primary-layer-c-opacity)
+  );
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+  -webkit-mask-position: 100% -6%;
+  mask-position: 100% -6%;
+  -webkit-mask-size: 68% auto;
+  mask-size: 68% auto;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
 }
 
 .hero-cloud-secondary {
-  --hero-cloud-peak-opacity: calc(var(--hero-cloud-opacity) * 0.7);
-  --hero-cloud-start-x: -26%;
+  --hero-cloud-peak-opacity: var(
+    --hero-cloud-random-peak-opacity,
+    calc(var(--hero-cloud-opacity) * 0.7 * var(--hero-cloud-secondary-layer-a-opacity))
+  );
+  --hero-cloud-start-x: -36%;
   --hero-cloud-mid-x: -8%;
   --hero-cloud-end-x: 12%;
   --hero-cloud-start-y: 10px;
@@ -546,39 +568,36 @@ p {
   --hero-cloud-base-scale-x: 0.98;
   --hero-cloud-base-scale-y: 0.96;
   inset: 0 -12% -8% -4%;
-  background-image:
-    url("assets/clouds/cloud2.png"),
-    url("assets/clouds/cloud5.png");
-  background-position:
-    -10% -2%,
-    62% -8%;
-  background-size:
-    68% auto,
-    84% auto;
-  -webkit-mask-image:
-    linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%),
-    linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
-  mask-image:
-    linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%),
-    linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
-  -webkit-mask-position:
-    -10% -2%,
-    62% -8%;
-  mask-position:
-    -10% -2%,
-    62% -8%;
-  -webkit-mask-size:
-    68% auto,
-    84% auto;
-  mask-size:
-    68% auto,
-    84% auto;
+  background-image: url("assets/clouds/cloud2.png");
+  background-position: -10% -2%;
+  background-size: 68% auto;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+  -webkit-mask-position: -10% -2%;
+  mask-position: -10% -2%;
+  -webkit-mask-size: 68% auto;
+  mask-size: 68% auto;
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   filter: blur(9px);
-  animation: hero-cloud-drift-one-way var(--hero-cloud-random-duration, calc(var(--hero-cloud-duration) * 1.22))
-    linear infinite;
-  animation-delay: var(--hero-cloud-random-delay, -8s);
+}
+
+.hero-cloud-secondary::before {
+  background-image: url("assets/clouds/cloud5.png");
+  background-position: 62% -8%;
+  background-size: 84% auto;
+  opacity: var(
+    --hero-cloud-secondary-layer-b-current-opacity,
+    var(--hero-cloud-secondary-layer-b-opacity)
+  );
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+  -webkit-mask-position: 62% -8%;
+  mask-position: 62% -8%;
+  -webkit-mask-size: 84% auto;
+  mask-size: 84% auto;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
 }
 .hero-grid {
   position: relative;
@@ -726,6 +745,7 @@ p {
 @keyframes hero-cloud-drift-one-way {
   0% {
     opacity: 0;
+    animation-timing-function: var(--hero-cloud-ease-enter, cubic-bezier(0.28, 0.78, 0.26, 1));
     transform: translate3d(
         var(--hero-cloud-start-x),
         calc(var(--hero-cloud-start-y) + var(--hero-cloud-render-shift-y)),
@@ -735,16 +755,35 @@ p {
       rotate(var(--hero-cloud-rotation));
   }
 
-  12% {
-    opacity: calc(var(--hero-cloud-peak-opacity) * 0.18);
+  8% {
+    opacity: 0;
+    transform: translate3d(
+        calc(var(--hero-cloud-start-x) + 1.5%),
+        calc(calc(var(--hero-cloud-start-y) * 0.94) + var(--hero-cloud-render-shift-y)),
+        0
+      )
+      scale(
+        calc(var(--hero-cloud-base-scale-x) + var(--hero-cloud-breathing-intensity) * 0.08),
+        calc(var(--hero-cloud-base-scale-y) - var(--hero-cloud-breathing-intensity) * 0.04)
+      )
+      rotate(var(--hero-cloud-rotation));
   }
 
-  26% {
-    opacity: var(--hero-cloud-peak-opacity);
+  16% {
+    opacity: calc(var(--hero-cloud-peak-opacity) * 0.08);
+  }
+
+  24% {
+    opacity: calc(var(--hero-cloud-peak-opacity) * 0.34);
+  }
+
+  34% {
+    opacity: calc(var(--hero-cloud-peak-opacity) * 0.74);
   }
 
   42% {
     opacity: var(--hero-cloud-peak-opacity);
+    animation-timing-function: var(--hero-cloud-ease-mid, cubic-bezier(0.34, 0.06, 0.18, 1));
     transform: translate3d(
         var(--hero-cloud-mid-x),
         calc(var(--hero-cloud-mid-y) + var(--hero-cloud-render-shift-y)),
@@ -759,6 +798,7 @@ p {
 
   74% {
     opacity: var(--hero-cloud-peak-opacity);
+    animation-timing-function: var(--hero-cloud-ease-exit, cubic-bezier(0.26, 0.72, 0.4, 1));
     transform: translate3d(
         calc(var(--hero-cloud-mid-x) + 7%),
         calc(calc(var(--hero-cloud-mid-y) * -0.35) + var(--hero-cloud-render-shift-y)),
@@ -1539,6 +1579,22 @@ body[data-page="about"] .about.section {
   accent-color: var(--accent-deep);
 }
 
+.contact-consent-copy {
+  display: inline;
+}
+
+.contact-inline-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.contact-inline-link:hover,
+.contact-inline-link:focus-visible {
+  color: var(--accent-deep);
+  text-decoration: underline;
+}
+
 .contact-honeypot {
   position: absolute;
   left: -9999px;
@@ -1713,6 +1769,30 @@ body[data-page="about"] .about.section {
   font-size: 0.86rem;
 }
 
+.footer-copyline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.48rem;
+}
+
+.footer-divider {
+  color: #4d6068;
+}
+
+.footer-inline-link {
+  color: #4d6068;
+  font-size: 0.86rem;
+  text-decoration: none;
+}
+
+.footer-inline-link:hover,
+.footer-inline-link:focus-visible {
+  color: var(--accent-deep);
+  text-decoration: underline;
+}
+
 .page-shell {
   min-height: auto;
 }
@@ -1735,6 +1815,53 @@ body[data-page="about"] .about.section {
   line-height: 0.97;
   max-width: 24ch;
   text-wrap: balance;
+}
+
+.privacy-policy {
+  padding-top: 0;
+}
+
+.privacy-policy-content {
+  width: min(100%, 68rem);
+  display: grid;
+  gap: 2rem;
+}
+
+.privacy-policy-block {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.privacy-policy-block h2 {
+  font-size: clamp(1.18rem, 2vw, 1.45rem);
+  line-height: 1.1;
+}
+
+.privacy-policy-block p,
+.privacy-policy-block li {
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.privacy-policy-block p {
+  white-space: pre-line;
+}
+
+.privacy-policy-block ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.privacy-contact-link {
+  color: var(--accent-deep);
+  text-decoration: none;
+}
+
+.privacy-contact-link:hover,
+.privacy-contact-link:focus-visible {
+  text-decoration: underline;
 }
 
 .projects-intro-subtitle {

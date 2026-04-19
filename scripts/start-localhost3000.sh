@@ -46,11 +46,11 @@ SERVER_KIND=""
 if [[ "$HAS_PHP" -eq 1 ]]; then
   SERVER_KIND="PHP"
   # Start both stacks so localhost works regardless of IPv4/IPv6 resolver preference.
-  start_detached php -S "127.0.0.1:${PORT}" -t "$ROOT_DIR"
-  start_detached php -S "[::1]:${PORT}" -t "$ROOT_DIR"
+  start_detached php -S "127.0.0.1:${PORT}" -t "$ROOT_DIR/public_html"
+  start_detached php -S "[::1]:${PORT}" -t "$ROOT_DIR/public_html"
 else
   SERVER_KIND="Python"
-  start_detached python3 -m http.server "${PORT}" --bind localhost
+  start_detached python3 -m http.server "${PORT}" --bind localhost --directory "$ROOT_DIR/public_html"
 fi
 
 printf '%s\n' "${STARTED_PIDS[@]}" >"$PID_FILE"
@@ -65,6 +65,7 @@ done
 
 if [[ "$RUNNING_COUNT" -gt 0 ]]; then
   echo "Etherr ${SERVER_KIND} server started at http://localhost:${PORT}"
+  echo "Serving from: public_html/"
   if [[ "$SERVER_KIND" == "PHP" ]]; then
     echo "Bindings: 127.0.0.1:${PORT} and [::1]:${PORT}"
   else

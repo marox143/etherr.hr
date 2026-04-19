@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/sipandst/public_html/
-    - /usr/bin/rsync -av --delete --exclude=".git" --exclude=".cpanel.yml" ./ $DEPLOYPATH
+    - /usr/bin/rsync -av --delete --exclude=".git" ./public_html/ $DEPLOYPATH

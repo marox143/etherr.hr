@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="hr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      (function () {
+        var supported = { hr: true, en: true, de: true };
+        var lang = "";
+        try {
+          lang = window.localStorage.getItem("etherr-language") || "";
+        } catch (_error) {}
+        if (!supported[lang]) {
+          var cookies = String(document.cookie || "").split(";");
+          for (var i = 0; i < cookies.length; i += 1) {
+            var parts = cookies[i].split("=");
+            if (String(parts[0] || "").trim() !== "etherr-language") {
+              continue;
+            }
+            lang = decodeURIComponent(parts.slice(1).join("=").trim());
+            break;
+          }
+        }
+        if (supported[lang]) {
+          window.ETHERR_BOOT_LANG = lang;
+          document.documentElement.lang = lang;
+        }
+      })();
+    </script>
+    <title>Etherr | Pravila privatnosti</title>
+    <meta name="description" content="" />
+    <link rel="icon" href="assets/images/logo.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/images/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="privacy">
+    <div class="floating-grid" id="floatingGrid" aria-hidden="true">
+      <canvas class="network-canvas" id="networkCanvas" aria-hidden="true"></canvas>
+    </div>
+
+    <header class="site-header" id="top" data-shared-header></header>
+
+    <main>
+      <section class="page-shell section projects-intro-section">
+        <div class="container page-shell-inner">
+          <div class="projects-intro reveal">
+            <p class="eyebrow" data-i18n="privacy.eyebrow"></p>
+            <h1 class="projects-intro-title" data-i18n="privacy.title"></h1>
+          </div>
+        </div>
+      </section>
+
+      <section class="privacy-policy section">
+        <div class="container">
+          <article class="privacy-policy-content reveal">
+            <section class="privacy-policy-block">
+              <h2 data-i18n="privacy.controllerTitle"></h2>
+              <p data-i18n="privacy.controllerBody"></p>
+            </section>
+
+            <section class="privacy-policy-block">
+              <h2 data-i18n="privacy.purposeTitle"></h2>
+              <p data-i18n="privacy.purposeBody"></p>
+            </section>
+
+            <section class="privacy-policy-block">
+              <h2 data-i18n="privacy.legalBasisTitle"></h2>
+              <p data-i18n="privacy.legalBasisBody"></p>
+            </section>
+
+            <section class="privacy-policy-block">
+              <h2 data-i18n="privacy.dataCollectedTitle"></h2>
+              <ul>
+                <li data-i18n="privacy.dataCollectedItem1"></li>
+                <li data-i18n="privacy.dataCollectedItem2"></li>
+                <li data-i18n="privacy.dataCollectedItem3"></li>
+                <li data-i18n="privacy.dataCollectedItem4"></li>
+              </ul>
+            </section>
+
+            <section class="privacy-policy-block">
+              <h2 data-i18n="privacy.retentionTitle"></h2>
+              <p data-i18n="privacy.retentionBody"></p>
+            </section>
+
+            <section class="privacy-policy-block">
+              <h2 data-i18n="privacy.recipientsTitle"></h2>
+              <ul>
+                <li data-i18n="privacy.recipientsItem1"></li>
+                <li data-i18n="privacy.recipientsItem2"></li>
+              </ul>
+            </section>
+
+            <section class="privacy-policy-block">
+              <h2 data-i18n="privacy.rightsTitle"></h2>
+              <p data-i18n="privacy.rightsBody"></p>
+            </section>
+
+            <section class="privacy-policy-block">
+              <h2 data-i18n="privacy.contactTitle"></h2>
+              <p>
+                <a class="privacy-contact-link" href="mailto:info@etherr.hr" data-i18n="privacy.contactBody"></a>
+              </p>
+            </section>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-signature">
+          <p class="footer-copyline">
+            <span data-footer-copy></span>
+            <span class="footer-divider" aria-hidden="true">·</span>
+            <a class="footer-inline-link" href="/privacy.html" data-i18n="footer.privacyLink"></a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="shared-header.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -3,6 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function () {
+        var supported = { hr: true, en: true, de: true };
+        var params = new URLSearchParams(window.location.search);
+        var lang = params.get("lang") || "";
+        if (!supported[lang]) {
+          try {
+            lang = window.localStorage.getItem("etherr-language") || "";
+          } catch (_error) {}
+        }
+        if (!supported[lang]) {
+          var cookies = String(document.cookie || "").split(";");
+          for (var i = 0; i < cookies.length; i += 1) {
+            var parts = cookies[i].split("=");
+            if (String(parts[0] || "").trim() !== "etherr-language") {
+              continue;
+            }
+            lang = decodeURIComponent(parts.slice(1).join("=").trim());
+            break;
+          }
+        }
+        if (supported[lang]) {
+          window.ETHERR_BOOT_LANG = lang;
+          document.documentElement.lang = lang;
+        }
+      })();
+    </script>
     <title>Reservation Schedule Demo</title>
     <style>
       :root {
@@ -438,7 +465,8 @@
         const daysWrap = document.getElementById("srDays");
 
         const params = new URLSearchParams(window.location.search);
-        let currentLang = LOCALES[params.get("lang")] ? params.get("lang") : "hr";
+        let currentLang =
+          LOCALES[window.ETHERR_BOOT_LANG] ? window.ETHERR_BOOT_LANG : LOCALES[params.get("lang")] ? params.get("lang") : "hr";
         let currentWeekStart = new Date(2026, 2, 23);
         let selectedYear = currentWeekStart.getFullYear();
         let activeEmployeeId = 1;
