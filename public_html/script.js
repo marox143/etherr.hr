@@ -8,8 +8,9 @@ const translations = {
     pages: {
       about: {
         meta: {
-          title: "Etherr | O nama",
-          description: "Saznajte kako Etherr pristupa razvoju digitalnih sustava, automatizacije i dugoročno održive arhitekture.",
+          title: "O nama | Etherr – web, automatizacija i AI",
+          description:
+            "Etherr povezuje web, marketing, automatizaciju i AI u digitalne sustave koji imaju smisla i podržavaju rast poslovanja.",
         },
       },
       privacy: {
@@ -144,107 +145,136 @@ const translations = {
       contact: "Kontakt",
     },
     hero: {
-      eyebrow: "Digitalni studio za cloud i automatizaciju",
-      title: "Gradimo pouzdane digitalne sustave za stvarno poslovanje.",
+      eyebrow: "Sva rješenja na jednom mjestu",
+      title: "Gradimo i\npovezujemo\nsve dijelove vašeg\ndigitalnog sustava.",
       subtitle:
-        "Etherr projektira i razvija web rješenja, automatizacije i AI integracije s fokusom na performanse, sigurnost i mjerljive rezultate.",
+        "U Etherru razvijamo web stranice, webshopove i aplikacije - povezujemo ih s marketinškim i AI alatima, te gradimo automatizirane sustave koji zahtijevaju vaš minimalan angažman. Od internih procesa do rješenja prema korisnicima, cilj je da sve radi kao jedna cjelina. Tu smo da povežemo sve točkice i pretvorimo vaše ideje u stvarnost.",
       primaryCta: "Kontaktirajte nas",
       secondaryCta: "Pogledajte usluge",
     },
     about: {
-      tag: "Tko smo",
-      title: "Inženjerski pristup bez suvišne kompleksnosti.",
-      p1: "Radimo s tvrtkama koje trebaju stabilan digitalni temelj: od prilagođenih web aplikacija do povezivanja alata i podataka.",
-      p2: "Svaki projekt vodimo jasno i transparentno. Definiramo arhitekturu, implementaciju i operativni model koji tim može dugoročno održavati.",
-      p3: "Etherr spaja razvoj, automatizaciju i podatke u jedno operativno rješenje koje timovi stvarno koriste svaki dan.",
-      techTag: "Tehnološki fokus",
-      techTitle: "Tehnologije na kojima gradimo.",
-      techLead: "Radimo s modernim web i cloud stackom koji je provjeren u produkciji i prilagođen realnim poslovnim tokovima.",
-      techBullet1: "Frontend: React, Next.js, TypeScript i modularni UI sustavi.",
-      techBullet2: "Backend: Node.js, PHP i Python servisi s jasnim API slojem.",
-      techBullet3: "Podaci: PostgreSQL/MySQL modeli, ETL tokovi i pregledni dashboardi.",
-      techBullet4: "Cloud i DevOps: Docker, CI/CD, automatizirane isporuke i monitoring.",
-      stackLabel: "Primjeri stacka",
-      stack1: "React / Next.js",
-      stack2: "Node.js / PHP",
-      stack3: "Python",
-      stack4: "PostgreSQL",
-      stack5: "Docker / CI-CD",
-      stack6: "AI / LLM integracije",
-      deliveryTag: "Operativna isporuka",
-      deliveryTitle: "Kako vodimo projekte.",
-      deliveryLead: "Kratki bulletini koje slijedimo da bi isporuka bila stabilna, predvidiva i mjerljiva.",
-      deliveryBullet1: "Jasni sprint ciljevi, prioriteti i transparentan status rada.",
-      deliveryBullet2: "Dokumentirana arhitektura prilagođena dugoročnom održavanju.",
-      deliveryBullet3: "Integracije s postojećim alatima bez prekida poslovnih procesa.",
-      deliveryBullet4: "Mjerenje rezultata kroz performanse, stabilnost i stvarni ROI.",
-      icon1Title: "Web platforme",
-      icon1Text: "Razvijamo brze i skalabilne aplikacije za prodaju, operacije i interne procese.",
-      icon2Title: "Automatizacija",
-      icon2Text: "Povezujemo alate i uklanjamo ručni rad tamo gdje usporava tim.",
-      icon3Title: "Podaci i AI",
-      icon3Text: "Od dashboarda do AI asistenta, podatke pretvaramo u konkretne odluke.",
+      hero: {
+        tag: "O NAMA",
+        title: "Etherr — web, automatizacija i AI, složeni kako treba.",
+        p1: "Etherr je obrt za digitalne usluge koji spaja web, marketing, automatizaciju i AI u sustave koji stvarno imaju smisla. Ne gledamo sve kao odvojene usluge, nego kao dijelove jedne cjeline koja treba dobro raditi zajedno.",
+        p2: "Radimo s poduzetnicima i tvrtkama kojima treba više od “još jedne stranice” — treba im postav koji je jasan, održiv i spreman za daljnji rast.",
+      },
+      identity: {
+        tag: "TKO SMO",
+        title: "Digitalna rješenja koja su povezana, jasna i korisna.",
+        text: "Spajamo web stranice, webshopove, WordPress rješenja, marketing, automatizaciju i AI u sustav koji nije nepotrebno kompliciran. Cilj nije dodati što više alata, nego složiti ono što stvarno pomaže poslovanju.",
+        bullet1: "Web, sadržaj i marketing trebaju raditi zajedno",
+        bullet2: "Automatizacija treba štedjeti vrijeme, ne stvarati kaos",
+        bullet3: "AI ima smisla kad rješava konkretan problem",
+        bullet4: "Sve postavljamo tako da se može dalje nadograđivati",
+        pill1: "Web stranice i webshopovi",
+        pill2: "WordPress i prilagođena rješenja",
+        pill3: "Digitalni marketing",
+        pill4: "Automatizacija procesa",
+        pill5: "AI i pametne integracije",
+        pill6: "Održavanje i daljnji razvoj",
+      },
+      stats: {
+        card1: {
+          title: "Web / Marketing / AI",
+          text: "Povezano od početka, ne naknadno.",
+        },
+        card2: {
+          title: "Jedan sustav / Ne odvojeni dijelovi",
+          text: "Sve treba raditi zajedno, a ne paralelno.",
+        },
+        card3: {
+          title: "Direktno / Bez kompliciranja",
+          text: "Jasni koraci, realna rješenja i normalna komunikacija.",
+        },
+      },
+      process: {
+        tag: "KAKO RADIMO",
+        title: "Jednostavno, jasno i bez nepotrebnih koraka.",
+        subtitle:
+          "Svaki projekt može biti drugačiji, ali pristup nam je uvijek isti: prvo shvatiti što stvarno treba riješiti, pa tek onda slagati rješenje.",
+        card1: {
+          title: "Upoznamo što treba",
+          text: "Prvo hvatamo širu sliku — što već postoji, što ne radi i što zapravo treba postići.",
+        },
+        card2: {
+          title: "Složimo pravi pristup",
+          text: "Ne guramo unaprijed zadano rješenje, nego predlažemo ono što ima smisla za konkretan projekt.",
+        },
+        card3: {
+          title: "Gradimo i povezujemo",
+          text: "Radimo web, sadržaj, funkcionalnosti i povezivanja tako da sve radi kao jedna cjelina.",
+        },
+        card4: {
+          title: "Testiramo i dorađujemo",
+          text: "Provjeravamo detalje, čistimo višak i popravljamo ono što treba prije puštanja dalje.",
+        },
+        card5: {
+          title: "Održavamo i razvijamo dalje",
+          text: "Po potrebi ostajemo uključeni kroz podršku, izmjene, nadogradnje i nove ideje.",
+        },
+      },
+      approach: {
+        tag: "NAŠ PRISTUP",
+        title: "Ne radimo više stvari. Radimo ih povezano.",
+        text: "Puno projekata zapne jer su web, oglasi, sadržaj, podaci i alati složeni svaki za sebe. Mi to pokušavamo izbjeći od početka.",
+        bullet1: "Krećemo od stvarnog problema, ne od buzzworda",
+        bullet2: "Ne kompliciramo bez razloga",
+        bullet3: "Predlažemo ono što je realno održavati",
+        bullet4: "Gradimo sustav koji se može širiti s vremenom",
+      },
+      projectsView: {
+        tag: "KAKO GLEDAMO NA PROJEKTE",
+        title: "Dobar digitalni sustav nije skup odvojenih dijelova.",
+        text: "Najviše smisla ima kad su web, sadržaj, marketing i alati povezani tako da se međusobno podržavaju. Zato projekte ne gledamo usko, nego kao cjelinu koja treba biti jasna, korisna i spremna za dalje.",
+        link: "Pogledajte usluge",
+      },
+      values: {
+        tag: "ZAŠTO TAKO RADIMO",
+        title: "Bitno nam je da stvari rade i nakon launch-a.",
+        card1: {
+          title: "Jasna komunikacija",
+          text: "Bez “black box” procesa i bez nepotrebnog kompliciranja.",
+        },
+        card2: {
+          title: "Rješenja s razlogom",
+          text: "Ne ubacujemo alate i funkcije samo zato što zvuče dobro.",
+        },
+        card3: {
+          title: "Dugoročno održivo",
+          text: "Sve treba imati smisla i za danas i za kasnije.",
+        },
+        card4: {
+          title: "Fokus na rezultat",
+          text: "Na kraju je bitno pomaže li to stvarno poslovanju.",
+        },
+      },
+      cta: {
+        title: "Imate ideju, problem ili projekt?",
+        text: "Pošaljite nam kratko o čemu se radi, a mi ćemo javiti kako to ima smisla složiti.",
+        primary: "Kontaktirajte nas →",
+        secondary: "Pogledajte usluge",
+      },
     },
     services: {
-      tag: "Što radimo",
-      title: "Usluge organizirane prema sustavu, ne prema trendu.",
-      intro: "Kombiniramo razvoj, automatizaciju i analitiku u jedinstvenu tehničku cjelinu.",
-      spotlightLabel: "Trenutni fokus",
-      categories: [
-        {
-          name: "Digital",
-          description: "Temeljne platforme i prilagođene aplikacije.",
-          items: [
-            {
-              title: "Web razvoj",
-              desc: "Razvoj brzih i sigurnih web aplikacija prilagođenih vašim procesima.",
-            },
-            {
-              title: "Digitalna rješenja",
-              desc: "Projektiranje i implementacija digitalnih alata za interni i klijentski rad.",
-            },
-          ],
-        },
-        {
-          name: "Automatizacija i AI",
-          description: "Manje ručnog rada, više kontroliranih tokova.",
-          items: [
-            {
-              title: "Automatizacija procesa",
-              desc: "Automatizacija ponavljajućih zadataka i optimizacija operativnih koraka.",
-            },
-            {
-              title: "Integracija AI i LLM modela",
-              desc: "Ugradnja AI funkcionalnosti u postojeće sustave i poslovne tokove.",
-            },
-          ],
-        },
-        {
-          name: "Podaci i savjetovanje",
-          description: "Pouzdani podaci za brže odluke.",
-          items: [
-            {
-              title: "Podaci i izvještavanje",
-              desc: "Uspostava modela podataka i preglednih izvještaja za praćenje ključnih metrika.",
-            },
-            {
-              title: "IT savjetovanje",
-              desc: "Tehničko savjetovanje za arhitekturu, migracije i razvojne standarde.",
-            },
-          ],
-        },
-      ],
+      tag: "Što radimo?",
+      title: "Obično krene s jednom stvari.",
+      intro:
+        "Jedno rješenje riješi konkretan problem, ali brzo pokaže što još može raditi bolje — i tu onda kreće ostatak.",
+      includesLabel: "Uključuje",
+      flipBackLabel: "Vrati karticu usluge",
     },
     contact: {
       tag: "Kontakt",
-      title: "Spremni za sljedeći korak.",
-      text: "Pošaljite upit ili nas nazovite. Odgovaramo brzo i konkretno.",
+      title: "Spremni za sljedeći korak?",
+      text: "Kroz ovaj kratki upitnik prikupljamo ključne informacije kako bismo vam odmah mogli dati jasan i konkretan odgovor. Na kraju ukratko opišite što vam treba — a mi ćemo se pobrinuti za sve ostalo:",
       intake: {
-        point1: "Vodi vas kroz kratki upitnik umjesto klasične kontakt forme.",
-        point2: "Automatski priprema strukturirani sažetak vaših potreba.",
-        point3: "Spremno za backend slanje i email obradu.",
+        point1: "Brz i jednostavan proces",
+        point2: "Jasno definirani zahtjevi od samog početka",
+        point3: "Priprema prijedloga i procjene bez gubljenja vremena",
+        closing: "Javljamo se u najkraćem roku s konkretnim sljedećim koracima. Možete nam se javiti i na mail info@etherr.hr",
         progress: "Korak {current} od {total}",
-        step1Title: "Koje usluge vas trenutno najviše zanimaju?",
+        step1Title: "Koje usluge vas trenutno zanimaju?",
         step1Text: "Odaberite jednu ili više stavki. Tako ćemo odmah znati koji tim uključiti.",
         step2Title: "Kako izgleda vaš projektni kontekst?",
         step2Text: "Označite vrstu projekta i okvirni vremenski plan.",
@@ -363,8 +393,9 @@ const translations = {
     pages: {
       about: {
         meta: {
-          title: "Etherr | About",
-          description: "Learn how Etherr approaches digital systems, automation and long-term maintainable delivery.",
+          title: "About | Etherr – web, automation and AI",
+          description:
+            "Etherr combines web, marketing, automation and AI into digital systems that make sense and support business growth.",
         },
       },
       privacy: {
@@ -499,105 +530,134 @@ const translations = {
       contact: "Contact",
     },
     hero: {
-      eyebrow: "Digital studio for cloud and automation",
-      title: "We build dependable digital systems for real operations.",
+      eyebrow: "All solutions in one place",
+      title: "We build and connect all parts of your digital setup.",
       subtitle:
-        "Etherr designs and delivers web solutions, automation flows and AI integrations with a strict focus on performance, security and measurable outcomes.",
+        "At Etherr, we create websites, webshops and applications — connect them with marketing and AI tools, and build automated systems that require minimal involvement from your side. From internal processes to customer-facing solutions, the goal is for everything to work as one system. We connect all the dots and turn your ideas into reality.",
       primaryCta: "Contact us",
       secondaryCta: "View services",
     },
     about: {
-      tag: "About us",
-      title: "Engineering-first delivery without unnecessary complexity.",
-      p1: "We work with companies that need a stable digital foundation, from custom web applications to connected tools and data flows.",
-      p2: "Every project is run with clear structure and direct communication. We define architecture, implementation and an operating model your team can maintain long-term.",
-      p3: "Etherr combines development, automation and data into one operational setup teams can use confidently every day.",
-      techTag: "Technology focus",
-      techTitle: "Technologies we actively deliver with.",
-      techLead: "We build on a modern web and cloud stack proven in production and aligned with real operational needs.",
-      techBullet1: "Frontend: React, Next.js, TypeScript and modular UI systems.",
-      techBullet2: "Backend: Node.js, PHP and Python services with a clear API layer.",
-      techBullet3: "Data: PostgreSQL/MySQL models, ETL flows and decision-ready dashboards.",
-      techBullet4: "Cloud & DevOps: Docker, CI/CD pipelines, automated delivery and monitoring.",
-      stackLabel: "Typical stack",
-      stack1: "React / Next.js",
-      stack2: "Node.js / PHP",
-      stack3: "Python",
-      stack4: "PostgreSQL",
-      stack5: "Docker / CI-CD",
-      stack6: "AI / LLM integrations",
-      deliveryTag: "Delivery model",
-      deliveryTitle: "How we run projects.",
-      deliveryLead: "Short operational bulletins we follow to keep delivery reliable, predictable and measurable.",
-      deliveryBullet1: "Clear sprint goals, priorities and transparent status visibility.",
-      deliveryBullet2: "Documented architecture designed for long-term maintainability.",
-      deliveryBullet3: "Integrations with existing tools without operational disruptions.",
-      deliveryBullet4: "Outcome tracking through performance, stability and real ROI.",
-      icon1Title: "Web platforms",
-      icon1Text: "We build fast, scalable applications for sales, operations and internal workflows.",
-      icon2Title: "Automation",
-      icon2Text: "We connect tools and remove repetitive manual steps that slow teams down.",
-      icon3Title: "Data & AI",
-      icon3Text: "From dashboards to AI copilots, we turn data into practical decisions.",
+      hero: {
+        tag: "ABOUT",
+        title: "Etherr — web, automation and AI, put together the way they should be.",
+        p1: "Etherr is a digital services studio that brings web, marketing, automation and AI together into systems that actually make sense. We don’t treat them as separate services, but as parts of one setup that should work well together.",
+        p2: "We work with founders and companies who need more than just another website — they need a setup that is clear, maintainable and ready to grow.",
+      },
+      identity: {
+        tag: "WHO WE ARE",
+        title: "Digital solutions that are connected, clear and useful.",
+        text: "We combine websites, webshops, WordPress solutions, marketing, automation and AI into a system that isn’t unnecessarily complicated. The goal isn’t to add as many tools as possible, but to put together what genuinely helps the business.",
+        bullet1: "Web, content and marketing should work together",
+        bullet2: "Automation should save time, not create chaos",
+        bullet3: "AI only makes sense when it solves a real problem",
+        bullet4: "Everything is set up so it can keep evolving",
+        pill1: "Websites and webshops",
+        pill2: "WordPress and custom solutions",
+        pill3: "Digital marketing",
+        pill4: "Process automation",
+        pill5: "AI and smart integrations",
+        pill6: "Maintenance and ongoing development",
+      },
+      stats: {
+        card1: {
+          title: "Web / Marketing / AI",
+          text: "Connected from the start, not patched together later.",
+        },
+        card2: {
+          title: "One system / Not disconnected parts",
+          text: "Everything should support each other, not run separately.",
+        },
+        card3: {
+          title: "Direct / No unnecessary complexity",
+          text: "Clear steps, sensible solutions and normal communication.",
+        },
+      },
+      process: {
+        tag: "HOW WE WORK",
+        title: "Simple, clear and without unnecessary steps.",
+        subtitle:
+          "Every project is different, but our approach stays the same: first understand what actually needs solving, then build the right solution around it.",
+        card1: {
+          title: "We understand what’s needed",
+          text: "We start with the wider picture — what already exists, what is not working and what the project really needs to achieve.",
+        },
+        card2: {
+          title: "We shape the right approach",
+          text: "We do not push a pre-set solution. We suggest what genuinely makes sense for the project in front of us.",
+        },
+        card3: {
+          title: "We build and connect",
+          text: "We work on the website, content, functionality and integrations so everything runs as one whole.",
+        },
+        card4: {
+          title: "We test and refine",
+          text: "We check the details, remove the excess and fix what needs polishing before anything goes further.",
+        },
+        card5: {
+          title: "We support and develop further",
+          text: "When needed, we stay involved through support, changes, upgrades and new ideas.",
+        },
+      },
+      approach: {
+        tag: "OUR APPROACH",
+        title: "We don’t do more things. We make them work together.",
+        text: "A lot of projects get stuck because the website, ads, content, data and tools are all set up separately. We try to avoid that from the start.",
+        bullet1: "We start from the real problem, not the buzzword",
+        bullet2: "We do not complicate things without a reason",
+        bullet3: "We suggest what is realistic to maintain",
+        bullet4: "We build systems that can grow over time",
+      },
+      projectsView: {
+        tag: "HOW WE SEE PROJECTS",
+        title: "A good digital setup is not a pile of disconnected parts.",
+        text: "It works best when your website, content, marketing and tools support each other. That’s why we don’t look at projects in isolation, but as one system that should be clear, useful and ready to grow.",
+        link: "View services",
+      },
+      values: {
+        tag: "WHY WE WORK THIS WAY",
+        title: "It matters to us that things still work after launch.",
+        card1: {
+          title: "Clear communication",
+          text: "No black-box process and no unnecessary complications.",
+        },
+        card2: {
+          title: "Solutions with a reason",
+          text: "We do not add tools or features just because they sound impressive.",
+        },
+        card3: {
+          title: "Built to last",
+          text: "Everything should make sense both now and later on.",
+        },
+        card4: {
+          title: "Focus on outcome",
+          text: "In the end, what matters is whether it genuinely helps the business.",
+        },
+      },
+      cta: {
+        title: "Have an idea, a problem or a project?",
+        text: "Send us a short outline and we’ll tell you what makes sense and how we’d approach it.",
+        primary: "Contact us →",
+        secondary: "View services",
+      },
     },
     services: {
-      tag: "What we do",
-      title: "Services grouped by system logic, not by trends.",
-      intro: "We combine software delivery, automation and analytics into one technical workflow.",
-      spotlightLabel: "Current focus",
-      categories: [
-        {
-          name: "Digital",
-          description: "Core platforms and custom applications.",
-          items: [
-            {
-              title: "Web Development",
-              desc: "Building fast and secure web applications aligned with your business processes.",
-            },
-            {
-              title: "Digital Solutions",
-              desc: "Design and implementation of digital tools for internal teams and client-facing operations.",
-            },
-          ],
-        },
-        {
-          name: "Automation & AI",
-          description: "Less manual work, more controlled workflows.",
-          items: [
-            {
-              title: "Automation & Process Optimization",
-              desc: "Automating repetitive tasks and removing friction from operational workflows.",
-            },
-            {
-              title: "AI & LLM Integration",
-              desc: "Embedding AI capabilities into existing systems and day-to-day business workflows.",
-            },
-          ],
-        },
-        {
-          name: "Data & Consulting",
-          description: "Reliable data for faster decisions.",
-          items: [
-            {
-              title: "Data & Reporting",
-              desc: "Defining data models and reporting layers to monitor critical metrics clearly.",
-            },
-            {
-              title: "IT Consulting",
-              desc: "Technical guidance for architecture, migrations and practical development standards.",
-            },
-          ],
-        },
-      ],
+      tag: "What we do?",
+      title: "It usually starts with one thing.",
+      intro:
+        "One fix solves the immediate issue, but quickly shows what else could work better — and that’s where the rest begins.",
+      includesLabel: "Includes",
+      flipBackLabel: "Flip service card back",
     },
     contact: {
       tag: "Contact",
-      title: "Ready for the next technical step.",
-      text: "Send us a project brief or call directly. You will get a clear response quickly.",
+      title: "Ready for the next step?",
+      text: "Through this short form, we collect the key information needed to provide you with a clear and relevant response right away. At the end, briefly describe what you need — and we'll take care of everything else:",
       intake: {
-        point1: "A guided intake instead of a generic contact form.",
-        point2: "Builds a structured summary of what you actually need.",
-        point3: "Prepared for backend processing and email delivery.",
+        point1: "Fast and straightforward process",
+        point2: "Clearly defined requirements from the start",
+        point3: "Proposal and cost estimate without unnecessary delays",
+        closing: "We'll get back to you shortly with clear next steps. You can also reach us at info@etherr.hr",
         progress: "Step {current} of {total}",
         step1Title: "Which services are most relevant for you right now?",
         step1Text: "Select one or more options so we can route your request to the right team immediately.",
@@ -719,8 +779,9 @@ const translations = {
     pages: {
       about: {
         meta: {
-          title: "Etherr | Über uns",
-          description: "Erfahren Sie, wie Etherr digitale Systeme, Automatisierung und langfristig wartbare technische Umsetzung angeht.",
+          title: "Über uns | Etherr – Web, Automatisierung und KI",
+          description:
+            "Etherr verbindet Web, Marketing, Automatisierung und KI zu digitalen Systemen, die sinnvoll aufgebaut sind und Wachstum unterstützen.",
         },
       },
       privacy: {
@@ -855,105 +916,134 @@ const translations = {
       contact: "Kontakt",
     },
     hero: {
-      eyebrow: "Digitales Studio für Cloud und Automatisierung",
-      title: "Wir bauen verlässliche digitale Systeme für den realen Betrieb.",
+      eyebrow: "Alle Lösungen an einem Ort",
+      title: "Wir entwickeln\nund verbinden\nIhr gesamtes\ndigitales Setup.",
       subtitle:
-        "Etherr konzipiert und entwickelt Weblösungen, Automatisierungsprozesse und AI-Integrationen mit Fokus auf Performance, Sicherheit und messbare Ergebnisse.",
+        "Bei Etherr entwickeln wir Websites, Webshops und Anwendungen, integrieren sie mit Marketing- und KI-Tools und schaffen automatisierte Systeme, die mit minimalem Aufwand laufen. Von internen Prozessen bis zu kundenorientierten Lösungen ist unser Ziel, dass alles nahtlos ineinandergreift und als ein System funktioniert. Wir verbinden alle Punkte und machen Ihre Ideen real.",
       primaryCta: "Kontakt aufnehmen",
       secondaryCta: "Leistungen ansehen",
     },
     about: {
-      tag: "Über Etherr",
-      title: "Engineering-orientierte Umsetzung ohne unnötige Komplexität.",
-      p1: "Wir arbeiten mit Unternehmen, die ein stabiles digitales Fundament benötigen: von individuellen Webanwendungen bis zur Verbindung von Tools und Daten.",
-      p2: "Jedes Projekt wird strukturiert und transparent geführt. Wir definieren Architektur, Umsetzung und ein Betriebsmodell, das Ihr Team langfristig tragen kann.",
-      p3: "Etherr verbindet Entwicklung, Automatisierung und Daten in ein operatives Setup, das Teams im Alltag sicher nutzen können.",
-      techTag: "Technologischer Fokus",
-      techTitle: "Technologien, mit denen wir liefern.",
-      techLead: "Wir arbeiten mit einem modernen Web- und Cloud-Stack, der in der Praxis erprobt ist und zu realen Abläufen passt.",
-      techBullet1: "Frontend: React, Next.js, TypeScript und modulare UI-Systeme.",
-      techBullet2: "Backend: Node.js-, PHP- und Python-Services mit klarer API-Schicht.",
-      techBullet3: "Daten: PostgreSQL/MySQL-Modelle, ETL-Flows und aussagekräftige Dashboards.",
-      techBullet4: "Cloud & DevOps: Docker, CI/CD, automatisierte Deployments und Monitoring.",
-      stackLabel: "Typischer Stack",
-      stack1: "React / Next.js",
-      stack2: "Node.js / PHP",
-      stack3: "Python",
-      stack4: "PostgreSQL",
-      stack5: "Docker / CI-CD",
-      stack6: "AI / LLM-Integration",
-      deliveryTag: "Liefermodell",
-      deliveryTitle: "So steuern wir Projekte.",
-      deliveryLead: "Kurze operative Bulletins, damit Umsetzung verlässlich, planbar und messbar bleibt.",
-      deliveryBullet1: "Klare Sprint-Ziele, Prioritäten und transparenter Status.",
-      deliveryBullet2: "Dokumentierte Architektur für langfristige Wartbarkeit.",
-      deliveryBullet3: "Integration in bestehende Tools ohne Unterbrechung der Abläufe.",
-      deliveryBullet4: "Erfolgsmessung über Performance, Stabilität und realen ROI.",
-      icon1Title: "Web-Plattformen",
-      icon1Text: "Wir entwickeln schnelle, skalierbare Anwendungen für Vertrieb, Betrieb und interne Prozesse.",
-      icon2Title: "Automatisierung",
-      icon2Text: "Wir verbinden Tools und entfernen repetitive manuelle Schritte, die Teams ausbremsen.",
-      icon3Title: "Daten & AI",
-      icon3Text: "Von Dashboards bis AI-Copilot: Wir machen Daten zu umsetzbaren Entscheidungen.",
+      hero: {
+        tag: "ÜBER UNS",
+        title: "Etherr — Web, Automatisierung und KI, so aufgebaut, wie es sein sollte.",
+        p1: "Etherr ist ein digitales Studio, das Web, Marketing, Automatisierung und KI in Systeme verbindet, die wirklich Sinn ergeben. Wir sehen das nicht als einzelne Leistungen, sondern als Teile eines Setups, das sauber zusammenspielen soll.",
+        p2: "Wir arbeiten mit Selbstständigen und Unternehmen, die mehr brauchen als nur noch eine Website — sie brauchen ein klares, wartbares Setup, das für den nächsten Schritt bereit ist.",
+      },
+      identity: {
+        tag: "WER WIR SIND",
+        title: "Digitale Lösungen, die verbunden, klar und nützlich sind.",
+        text: "Wir verbinden Websites, Webshops, WordPress-Lösungen, Marketing, Automatisierung und KI zu einem System, das nicht unnötig kompliziert ist. Ziel ist nicht, möglichst viele Tools einzubauen, sondern das zusammenzustellen, was dem Business wirklich hilft.",
+        bullet1: "Web, Inhalte und Marketing sollen zusammenspielen",
+        bullet2: "Automatisierung soll Zeit sparen, nicht Chaos schaffen",
+        bullet3: "KI macht Sinn, wenn sie ein konkretes Problem löst",
+        bullet4: "Alles wird so aufgebaut, dass es weiter wachsen kann",
+        pill1: "Websites und Webshops",
+        pill2: "WordPress und individuelle Lösungen",
+        pill3: "Digitales Marketing",
+        pill4: "Prozessautomatisierung",
+        pill5: "KI und smarte Integrationen",
+        pill6: "Wartung und Weiterentwicklung",
+      },
+      stats: {
+        card1: {
+          title: "Web / Marketing / KI",
+          text: "Von Anfang an verbunden statt später zusammengeflickt.",
+        },
+        card2: {
+          title: "Ein System / Keine losen Einzelteile",
+          text: "Alles soll sich gegenseitig unterstützen, nicht getrennt laufen.",
+        },
+        card3: {
+          title: "Direkt / Ohne unnötige Komplexität",
+          text: "Klare Schritte, sinnvolle Lösungen und normale Kommunikation.",
+        },
+      },
+      process: {
+        tag: "WIE WIR ARBEITEN",
+        title: "Einfach, klar und ohne unnötige Schritte.",
+        subtitle:
+          "Jedes Projekt ist anders, unser Ansatz bleibt gleich: erst verstehen, was wirklich gelöst werden muss, und dann die passende Lösung bauen.",
+        card1: {
+          title: "Wir verstehen, was gebraucht wird",
+          text: "Wir starten mit dem Gesamtbild — was schon da ist, was nicht funktioniert und was das Projekt wirklich erreichen soll.",
+        },
+        card2: {
+          title: "Wir wählen den richtigen Ansatz",
+          text: "Wir drücken kein Standardsystem durch, sondern schlagen vor, was für das konkrete Projekt wirklich Sinn ergibt.",
+        },
+        card3: {
+          title: "Wir bauen und verbinden",
+          text: "Wir entwickeln Website, Inhalte, Funktionen und Anbindungen so, dass alles als ein Ganzes funktioniert.",
+        },
+        card4: {
+          title: "Wir testen und verfeinern",
+          text: "Wir prüfen die Details, nehmen Überflüssiges raus und verbessern alles, was vor dem Go-live noch sauberer werden muss.",
+        },
+        card5: {
+          title: "Wir begleiten und entwickeln weiter",
+          text: "Wenn es sinnvoll ist, bleiben wir über Support, Änderungen, Erweiterungen und neue Ideen weiter an Bord.",
+        },
+      },
+      approach: {
+        tag: "UNSER ANSATZ",
+        title: "Wir machen nicht einfach mehr Dinge. Wir verbinden sie sinnvoll.",
+        text: "Viele Projekte haken, weil Website, Ads, Inhalte, Daten und Tools jeweils für sich aufgebaut sind. Genau das versuchen wir von Anfang an zu vermeiden.",
+        bullet1: "Wir starten beim echten Problem, nicht beim Buzzword",
+        bullet2: "Wir verkomplizieren nichts ohne Grund",
+        bullet3: "Wir empfehlen, was realistisch wartbar ist",
+        bullet4: "Wir bauen Systeme, die mit der Zeit wachsen können",
+      },
+      projectsView: {
+        tag: "WIE WIR PROJEKTE SEHEN",
+        title: "Ein gutes digitales Setup ist kein Haufen einzelner Teile.",
+        text: "Am meisten bringt es, wenn Website, Inhalte, Marketing und Tools sauber zusammenspielen. Deshalb betrachten wir Projekte nicht isoliert, sondern als ein System, das klar, nützlich und bereit für den nächsten Schritt sein sollte.",
+        link: "Leistungen ansehen",
+      },
+      values: {
+        tag: "WARUM WIR SO ARBEITEN",
+        title: "Uns ist wichtig, dass Dinge auch nach dem Launch funktionieren.",
+        card1: {
+          title: "Klare Kommunikation",
+          text: "Keine Black-Box-Prozesse und keine unnötige Komplexität.",
+        },
+        card2: {
+          title: "Lösungen mit Sinn",
+          text: "Wir bauen keine Tools oder Funktionen ein, nur weil sie gut klingen.",
+        },
+        card3: {
+          title: "Langfristig tragfähig",
+          text: "Alles sollte heute Sinn ergeben und morgen noch funktionieren.",
+        },
+        card4: {
+          title: "Fokus auf Wirkung",
+          text: "Am Ende zählt, ob es dem Business wirklich hilft.",
+        },
+      },
+      cta: {
+        title: "Haben Sie eine Idee, ein Problem oder ein Projekt?",
+        text: "Schicken Sie uns kurz, worum es geht, und wir sagen Ihnen, wie man es sinnvoll angehen kann.",
+        primary: "Kontakt aufnehmen →",
+        secondary: "Leistungen ansehen",
+      },
     },
     services: {
-      tag: "Leistungen",
-      title: "Leistungen nach Systemlogik strukturiert, nicht nach Trends.",
-      intro: "Wir verbinden Softwareentwicklung, Automatisierung und Analytik zu einem technischen Gesamtsystem.",
-      spotlightLabel: "Aktueller Fokus",
-      categories: [
-        {
-          name: "Digital",
-          description: "Kernplattformen und individuelle Anwendungen.",
-          items: [
-            {
-              title: "Webentwicklung",
-              desc: "Entwicklung schneller und sicherer Webanwendungen passend zu Ihren Prozessen.",
-            },
-            {
-              title: "Digitale Lösungen",
-              desc: "Konzeption und Implementierung digitaler Werkzeuge für interne und kundennahe Abläufe.",
-            },
-          ],
-        },
-        {
-          name: "Automatisierung & AI",
-          description: "Weniger manuelle Arbeit, mehr kontrollierte Abläufe.",
-          items: [
-            {
-              title: "Automatisierung & Prozessoptimierung",
-              desc: "Automatisierung wiederkehrender Aufgaben und Optimierung operativer Prozessschritte.",
-            },
-            {
-              title: "AI- & LLM-Integration",
-              desc: "Integration von AI-Funktionen in bestehende Systeme und tägliche Arbeitsabläufe.",
-            },
-          ],
-        },
-        {
-          name: "Daten & Beratung",
-          description: "Verlässliche Daten für schnellere Entscheidungen.",
-          items: [
-            {
-              title: "Daten & Reporting",
-              desc: "Aufbau von Datenmodellen und klaren Reports zur Steuerung zentraler Kennzahlen.",
-            },
-            {
-              title: "IT-Beratung",
-              desc: "Technische Beratung zu Architektur, Migrationen und tragfähigen Entwicklungsstandards.",
-            },
-          ],
-        },
-      ],
+      tag: "Was wir tun?",
+      title: "Meist beginnt es mit einer Sache.",
+      intro:
+        "Eine Lösung behebt das akute Problem, zeigt aber schnell, wo das System noch besser funktionieren kann — und genau dort setzt der nächste Schritt an.",
+      includesLabel: "Enthält",
+      flipBackLabel: "Servicekarte zurückdrehen",
     },
     contact: {
       tag: "Kontakt",
-      title: "Bereit für den nächsten technischen Schritt.",
-      text: "Senden Sie uns Ihr Anliegen oder rufen Sie direkt an. Sie erhalten schnell eine klare Rückmeldung.",
+      title: "Bereit für den nächsten Schritt?",
+      text: "Über dieses kurze Formular erfassen wir die wichtigsten Informationen, um Ihnen direkt eine klare und passende Rückmeldung geben zu können. Am Ende beschreiben Sie bitte kurz, was Sie benötigen — und wir kümmern uns um den Rest:",
       intake: {
-        point1: "Geführtes Projekt-Briefing statt klassischem Kontaktformular.",
-        point2: "Erstellt automatisch eine strukturierte Anfragezusammenfassung.",
-        point3: "Vorbereitet für Backend-Verarbeitung und Mailversand.",
+        point1: "Schneller und unkomplizierter Ablauf",
+        point2: "Klar definierte Anforderungen von Anfang an",
+        point3: "Angebot und Kostenschätzung ohne unnötige Verzögerungen",
+        closing: "Wir melden uns zeitnah mit konkreten nächsten Schritten. Sie können uns auch unter info@etherr.hr kontaktieren",
         progress: "Schritt {current} von {total}",
         step1Title: "Welche Leistungen sind für Sie aktuell am wichtigsten?",
         step1Text: "Wählen Sie eine oder mehrere Optionen, damit wir direkt das richtige Team einbinden.",
@@ -1069,6 +1159,479 @@ const translations = {
   },
 };
 
+const SERVICE_CATALOG = [
+  {
+    id: "digital-platforms",
+    title: {
+      hr: "Digitalne platforme",
+      en: "Digital\nPlatforms",
+      de: "Digitale\nPlattformen",
+    },
+    mobileTitle: {
+      hr: ["Digitalne", "platforme"],
+      en: "",
+      de: "",
+    },
+    description: {
+      hr: "Web stranice, sustavi i prilagođene aplikacije.",
+      en: "Websites, systems and web apps.",
+      de: "Websites, Systeme und Web-Apps.",
+    },
+    services: [
+      {
+        id: "web-development",
+        index: "01",
+        title: {
+          hr: "Web razvoj",
+          en: "Web Development",
+          de: "Webentwicklung",
+        },
+        description: {
+          hr: "Prilagođene web stranice, web shopovi i web aplikacije izrađene za performanse, skalabilnost i konverziju.",
+          en: "Custom websites, webshops and web applications built for performance, scalability and conversion.",
+          de: "Individuelle Websites, Webshops und Webanwendungen, entwickelt für Performance, Skalierbarkeit und Conversion.",
+        },
+        includes: {
+          hr: [
+            "Web stranice",
+            "Web shopovi",
+            "Web aplikacije",
+            "CMS implementacija",
+            "Tehničke SEO osnove",
+            "Optimizacija performansi",
+          ],
+          en: [
+            "Websites",
+            "Webshops",
+            "Web applications",
+            "CMS implementation",
+            "Technical SEO foundations",
+            "Performance optimisation",
+          ],
+          de: [
+            "Websites",
+            "Webshops",
+            "Webanwendungen",
+            "CMS-Implementierung",
+            "Technische SEO-Grundlagen",
+            "Performance-Optimierung",
+          ],
+        },
+      },
+      {
+        id: "digital-solutions",
+        index: "02",
+        title: {
+          hr: "Digitalna rješenja",
+          en: "Digital Solutions",
+          de: "Digitale Lösungen",
+        },
+        description: {
+          hr: "Prilagođeni digitalni sustavi usklađeni s poslovnim procesima i operativnim potrebama.",
+          en: "Tailored digital systems aligned with business processes and operational needs.",
+          de: "Maßgeschneiderte digitale Systeme, abgestimmt auf Geschäftsprozesse und operative Anforderungen.",
+        },
+        includes: {
+          hr: [
+            "Korisnički portali",
+            "Interni alati",
+            "API integracije",
+            "Integracije plaćanja",
+            "Pretplatni tokovi",
+            "Hosting i deployment setup",
+          ],
+          en: [
+            "Client portals",
+            "Internal tools",
+            "API integrations",
+            "Payment integrations",
+            "Subscription flows",
+            "Hosting and deployment setup",
+          ],
+          de: [
+            "Kundenportale",
+            "Interne Tools",
+            "API-Integrationen",
+            "Zahlungsintegrationen",
+            "Subscription-Flows",
+            "Hosting- und Deployment-Setup",
+          ],
+        },
+      },
+    ],
+  },
+  {
+    id: "marketing-growth",
+    title: {
+      hr: "Marketing\ni rast",
+      en: "Marketing\n& Growth",
+      de: "Marketing\n& Wachstum",
+    },
+    description: {
+      hr: "Promet, sadržaj i konverzija.",
+      en: "Traffic, content and conversion.",
+      de: "Traffic, Content und Conversion.",
+    },
+    services: [
+      {
+        id: "digital-marketing",
+        index: "01",
+        title: {
+          hr: "Digitalni marketing",
+          en: "Digital Marketing",
+          de: "Digitales Marketing",
+        },
+        description: {
+          hr: "Marketing vođen performansama kroz društvene mreže, tražilice i AI-potpomognute kanale.",
+          en: "Performance-driven marketing across social, search and AI-enhanced channels.",
+          de: "Performance-orientiertes Marketing über Social, Search und AI-gestützte Kanäle.",
+        },
+        includes: {
+          hr: [
+            "Meta oglašavanje",
+            "Facebook kampanje",
+            "Instagram kampanje",
+            "Google Ads",
+            "Strategija kampanja",
+            "Praćenje konverzija",
+          ],
+          en: [
+            "Meta advertising",
+            "Facebook campaigns",
+            "Instagram campaigns",
+            "Google Ads",
+            "Campaign strategy",
+            "Conversion tracking",
+          ],
+          de: [
+            "Meta-Anzeigen",
+            "Facebook-Kampagnen",
+            "Instagram-Kampagnen",
+            "Google Ads",
+            "Kampagnenstrategie",
+            "Conversion-Tracking",
+          ],
+        },
+      },
+      {
+        id: "content-creative",
+        index: "02",
+        title: {
+          hr: "Sadržaj i kreativni materijali",
+          en: "Content & Creative",
+          de: "Content & Creative",
+        },
+        description: {
+          hr: "Vizuali i AI-generirani sadržaj osmišljeni za angažman i dosljednost brenda.",
+          en: "Visual and AI-generated content designed for engagement and brand consistency.",
+          de: "Visuelle und AI-generierte Inhalte für Engagement und konsistente Markenwirkung.",
+        },
+        includes: {
+          hr: [
+            "Grafički dizajn",
+            "Vizuali za oglase",
+            "Kreative za društvene mreže",
+            "AI-generirani sadržaj",
+            "Brand asseti",
+            "Sadržaj za landing stranice",
+          ],
+          en: [
+            "Graphic design",
+            "Ad visuals",
+            "Social media creatives",
+            "AI-generated content",
+            "Brand assets",
+            "Landing page content",
+          ],
+          de: [
+            "Grafikdesign",
+            "Ad-Visuals",
+            "Social-Media-Creatives",
+            "AI-generierte Inhalte",
+            "Brand Assets",
+            "Landingpage-Content",
+          ],
+        },
+      },
+      {
+        id: "seo-ai-optimisation",
+        index: "03",
+        title: {
+          hr: "SEO i AI optimizacija",
+          en: "SEO & AI Optimisation",
+          de: "SEO & AI-Optimierung",
+        },
+        description: {
+          hr: "Optimizacija web stranica za tražilice i AI sustave za otkrivanje sadržaja.",
+          en: "Optimising websites for search engines and AI-driven discovery systems.",
+          de: "Optimierung von Websites für Suchmaschinen und AI-getriebene Discovery-Systeme.",
+        },
+        includes: {
+          hr: [
+            "Tehnički SEO",
+            "Strukturiranje sadržaja",
+            "Semantička poboljšanja stranica",
+            "Priprema za AI/LLM vidljivost",
+            "Poboljšanja metapodataka i indeksacije",
+            "Poboljšanja performansi",
+          ],
+          en: [
+            "Technical SEO",
+            "Content structuring",
+            "Semantic page improvements",
+            "AI/LLM visibility preparation",
+            "Metadata and indexing improvements",
+            "Performance improvements",
+          ],
+          de: [
+            "Technisches SEO",
+            "Content-Strukturierung",
+            "Semantische Seitenverbesserungen",
+            "Vorbereitung auf AI/LLM-Sichtbarkeit",
+            "Verbesserungen bei Metadaten und Indexierung",
+            "Performance-Verbesserungen",
+          ],
+        },
+      },
+    ],
+  },
+  {
+    id: "automation-ai",
+    title: {
+      hr: "Umjetna\nInteligencija",
+      en: "Artificial\nIntelligence",
+      de: "Künstliche\nIntelligenz",
+    },
+    description: {
+      hr: "Manje ručnog rada, pametniji sustavi.",
+      en: "Less manual work, smarter systems.",
+      de: "Weniger manuell, intelligentere Systeme.",
+    },
+    services: [
+      {
+        id: "automation-process-optimisation",
+        index: "01",
+        title: {
+          hr: "Automatizacija",
+          en: "Automation",
+          de: "Automatisierung",
+        },
+        description: {
+          hr: "Smanjenje ručnog rada automatizacijom workflowa i povezivanjem poslovnih sustava.",
+          en: "Reducing manual work by automating workflows and connecting business systems.",
+          de: "Reduktion manueller Arbeit durch automatisierte Workflows und vernetzte Geschäftssysteme.",
+        },
+        includes: {
+          hr: [
+            "Automatizacija workflowa",
+            "CRM integracije",
+            "Routing formi i leadova",
+            "Email automatizacija",
+            "Sustavi obavijesti",
+            "Optimizacija procesa",
+          ],
+          en: [
+            "Workflow automation",
+            "CRM integrations",
+            "Form and lead routing",
+            "Email automation",
+            "Notification systems",
+            "Process optimisation",
+          ],
+          de: [
+            "Workflow-Automatisierung",
+            "CRM-Integrationen",
+            "Formular- und Lead-Routing",
+            "E-Mail-Automatisierung",
+            "Benachrichtigungssysteme",
+            "Prozessoptimierung",
+          ],
+        },
+      },
+      {
+        id: "ai-llm-integration",
+        index: "02",
+        title: {
+          hr: "AI i LLM integracija",
+          en: "AI & LLM Integration",
+          de: "AI- & LLM-Integration",
+        },
+        description: {
+          hr: "Implementacija AI asistenata i LLM rješenja prilagođenih stvarnim poslovnim scenarijima.",
+          en: "Implementation of AI assistants and LLM-based solutions tailored to real business use cases.",
+          de: "Implementierung von AI-Assistenten und LLM-Lösungen für konkrete geschäftliche Anwendungsfälle.",
+        },
+        includes: {
+          hr: [
+            "Chatbotovi za web stranice",
+            "Asistenti za podršku",
+            "Interni AI alati",
+            "Asistenti za baze znanja",
+            "OpenAI / LLM integracije",
+            "Postavljanje prompt workflowa",
+          ],
+          en: [
+            "Website chatbots",
+            "Support assistants",
+            "Internal AI tools",
+            "Knowledge-base assistants",
+            "OpenAI / LLM integrations",
+            "Prompt workflow setup",
+          ],
+          de: [
+            "Website-Chatbots",
+            "Support-Assistenten",
+            "Interne AI-Tools",
+            "Wissensdatenbank-Assistenten",
+            "OpenAI / LLM-Integrationen",
+            "Prompt-Workflow-Setup",
+          ],
+        },
+      },
+    ],
+  },
+  {
+    id: "data-consulting",
+    title: {
+      hr: "Podaci i savjetovanje",
+      en: "Data &\nConsulting",
+      de: "Daten &\nBeratung",
+    },
+    mobileTitle: {
+      hr: ["Podaci i", "savjetovanje"],
+      en: "",
+      de: "",
+    },
+    description: {
+      hr: "Uvidi i tehnički smjer.",
+      en: "Insights and technical direction.",
+      de: "Einblicke und technische Richtung.",
+    },
+    services: [
+      {
+        id: "data-reporting",
+        index: "01",
+        title: {
+          hr: "Podaci i izvještavanje",
+          en: "Data & Reporting",
+          de: "Daten & Reporting",
+        },
+        description: {
+          hr: "Strukturirani sustavi praćenja i izvještavanja koji podržavaju brže i kvalitetnije odluke.",
+          en: "Structured tracking and reporting systems that support faster and better decisions.",
+          de: "Strukturierte Tracking- und Reporting-Systeme für schnellere und bessere Entscheidungen.",
+        },
+        includes: {
+          hr: [
+            "Postavljanje analitike",
+            "Izrada dashboarda",
+            "KPI izvještavanje",
+            "Automatizacija izvještavanja",
+            "Konsolidacija podataka",
+            "Praćenje performansi",
+          ],
+          en: [
+            "Analytics setup",
+            "Dashboard creation",
+            "KPI reporting",
+            "Reporting automation",
+            "Data consolidation",
+            "Performance monitoring",
+          ],
+          de: [
+            "Analytics-Setup",
+            "Dashboard-Erstellung",
+            "KPI-Reporting",
+            "Reporting-Automatisierung",
+            "Datenkonsolidierung",
+            "Performance-Monitoring",
+          ],
+        },
+      },
+      {
+        id: "it-consulting",
+        index: "02",
+        title: {
+          hr: "IT savjetovanje",
+          en: "IT Consulting",
+          de: "IT-Beratung",
+        },
+        description: {
+          hr: "Tehničko savjetovanje usmjereno na skalabilnu arhitekturu, digitalnu strategiju i planiranje implementacije.",
+          en: "Technical consulting focused on scalable architecture, digital strategy and implementation planning.",
+          de: "Technische Beratung mit Fokus auf skalierbare Architektur, digitale Strategie und Implementierungsplanung.",
+        },
+        includes: {
+          hr: [
+            "Odabir tehnologije",
+            "Smjernice za arhitekturu rješenja",
+            "Procjena troškova i alata",
+            "Podrška digitalnoj strategiji",
+            "Planiranje projekta",
+            "Smjernice za implementaciju",
+          ],
+          en: [
+            "Technology selection",
+            "Solution architecture guidance",
+            "Cost and tool evaluation",
+            "Digital strategy support",
+            "Project planning",
+            "Implementation guidance",
+          ],
+          de: [
+            "Technologieauswahl",
+            "Lösungsarchitektur-Beratung",
+            "Kosten- und Tool-Evaluierung",
+            "Unterstützung der Digitalstrategie",
+            "Projektplanung",
+            "Implementierungsberatung",
+          ],
+        },
+      },
+    ],
+  },
+];
+const SERVICE_GROUP_ORDER = ["digital-platforms", "automation-ai", "data-consulting", "marketing-growth"];
+
+function getLocalizedServiceValue(value, langKey) {
+  if (!value || typeof value !== "object") {
+    return value;
+  }
+
+  const localizedValue = value[langKey] ?? value.en ?? Object.values(value)[0];
+  return Array.isArray(localizedValue) ? localizedValue.slice() : localizedValue || "";
+}
+
+function getServiceCategories(langKey) {
+  const resolvedLang = Object.prototype.hasOwnProperty.call(translations, langKey) ? langKey : "en";
+
+  return SERVICE_CATALOG.map((group) => {
+    const localizedGroupName = getLocalizedServiceValue(group.title, resolvedLang);
+
+    return {
+      id: group.id,
+      name: localizedGroupName,
+      mobileTitleLines: getLocalizedServiceValue(group.mobileTitle, resolvedLang),
+      description: getLocalizedServiceValue(group.description, resolvedLang),
+      items: group.services.map((service, serviceIndex) => ({
+        id: service.id,
+        index: service.index || String(serviceIndex + 1).padStart(2, "0"),
+        title: getLocalizedServiceValue(service.title, resolvedLang),
+        desc: getLocalizedServiceValue(service.description, resolvedLang),
+        includes: getLocalizedServiceValue(service.includes, resolvedLang),
+        groupId: group.id,
+        groupName: localizedGroupName,
+      })),
+    };
+  }).sort((left, right) => {
+    const leftOrder = SERVICE_GROUP_ORDER.indexOf(left.id);
+    const rightOrder = SERVICE_GROUP_ORDER.indexOf(right.id);
+    const safeLeftOrder = leftOrder === -1 ? Number.MAX_SAFE_INTEGER : leftOrder;
+    const safeRightOrder = rightOrder === -1 ? Number.MAX_SAFE_INTEGER : rightOrder;
+    return safeLeftOrder - safeRightOrder;
+  });
+}
+
 let currentPage = document.body.dataset.page || "home";
 let dom = {};
 
@@ -1084,6 +1647,8 @@ function cacheDom() {
     metaDescription: document.querySelector('meta[name="description"]'),
     footerCopy: document.querySelector("[data-footer-copy]"),
     networkCanvas: document.getElementById("networkCanvas"),
+    heroSection: document.querySelector(".hero"),
+    heroCloudLayer: document.querySelector(".hero-cloud-layer"),
     heroLogoMark: document.querySelector(".hero-logo-mark"),
     heroLogoImg: document.querySelector(".hero-logo-mark img"),
     heroClouds: document.querySelectorAll(".hero-cloud"),
@@ -1102,7 +1667,11 @@ function cacheDom() {
 cacheDom();
 
 let currentLang = "hr";
-let serviceRows = [];
+let servicePanels = [];
+let servicePanelLayoutFrame = 0;
+let servicePanelHoverPreviewBlocked = true;
+let servicePanelRenderVersion = 0;
+const serviceCardStateMap = new WeakMap();
 const LANGUAGE_STORAGE_KEY = "etherr-language";
 const LANGUAGE_COOKIE_NAME = "etherr-language";
 const CONTACT_INTAKE_ENDPOINT = "api/contact-intake.php";
@@ -1153,6 +1722,7 @@ let isHeaderLogoDocked = false;
 let logoMorphAnimation = null;
 let logoMorphClone = null;
 let logoMorphCleanupTimer = null;
+let contactStatusPopup = null;
 
 const revealObserver =
   "IntersectionObserver" in window
@@ -1436,6 +2006,10 @@ function applyStaticText(langKey) {
   document.documentElement.lang = langKey;
   document.title = pageMeta.title;
 
+  if (contactStatusPopup?.close instanceof HTMLButtonElement) {
+    contactStatusPopup.close.setAttribute("aria-label", getContactPopupCloseLabel());
+  }
+
   if (dom.metaDescription) {
     dom.metaDescription.setAttribute("content", pageMeta.description);
   }
@@ -1443,7 +2017,27 @@ function applyStaticText(langKey) {
   document.querySelectorAll("[data-i18n]").forEach((node) => {
     const text = getByPath(locale, node.dataset.i18n);
     if (typeof text === "string") {
-      node.textContent = text;
+      // Special handling for contact closing text with email link
+      if (node.dataset.i18n === "contact.intake.closing") {
+        const emailRegex = /(info@etherr\.hr)/g;
+        const parts = text.split(emailRegex);
+        node.innerHTML = "";
+        parts.forEach((part) => {
+          if (part === "info@etherr.hr") {
+            const link = document.createElement("a");
+            link.href = "mailto:info@etherr.hr";
+            link.textContent = part;
+            link.style.color = "#28a1a1";
+            link.style.textDecoration = "none";
+            link.style.fontWeight = "600";
+            node.appendChild(link);
+          } else {
+            node.appendChild(document.createTextNode(part));
+          }
+        });
+      } else {
+        node.textContent = text;
+      }
     }
   });
 
@@ -1457,156 +2051,687 @@ function updateLanguageButtons() {
   });
 }
 
-function syncRowCards(rowState) {
-  const isOpen = rowState.row.classList.contains("is-open");
-  rowState.cards.forEach((card, index) => {
-    card.classList.toggle("active", isOpen && rowState.activeIndex === index);
+function getServicePanelPartnerIndex(panelIndex, panelCount) {
+  if (panelIndex < 0 || panelIndex >= panelCount) {
+    return -1;
+  }
+
+  if (panelIndex % 2 === 0) {
+    return panelIndex + 1 < panelCount ? panelIndex + 1 : -1;
+  }
+
+  return panelIndex - 1;
+}
+
+function isMobileServiceLayout() {
+  return window.matchMedia("(max-width: 760px)").matches;
+}
+
+function syncServicePanelButtons(panelState) {
+  panelState.buttons.forEach((button, index) => {
+    const isActive = panelState.activeIndex === index;
+    button.classList.toggle("active", isActive);
+    button.setAttribute("aria-pressed", isActive ? "true" : "false");
   });
 }
 
-function updateRowSpotlight(rowState, serviceIndex) {
-  const boundedIndex = Math.max(0, Math.min(serviceIndex, rowState.items.length - 1));
-  const active = rowState.items[boundedIndex];
+function syncServicePanelFlipState(panelState) {
+  const isFlipped = panelState.panel.classList.contains("is-flipped");
+  panelState.frontFace.setAttribute("aria-hidden", isFlipped ? "true" : "false");
+  panelState.backFace.setAttribute("aria-hidden", isFlipped ? "false" : "true");
+}
 
-  rowState.activeIndex = boundedIndex;
-  rowState.spotlightTitle.textContent = active.title;
-  rowState.spotlightText.textContent = active.desc;
-  rowState.spotlightCategory.textContent = rowState.categoryName;
-  rowState.spotlightIndex.textContent = `${String(boundedIndex + 1).padStart(2, "0")} / ${String(
-    rowState.items.length
+function setServicePanelFlipped(panelState, nextFlipped) {
+  if (isMobileServiceLayout()) {
+    panelState.panel.classList.remove("is-flipped");
+    syncServicePanelFlipState(panelState);
+    return;
+  }
+
+  if (!panelState.hasDetail && nextFlipped) {
+    return;
+  }
+
+  panelState.panel.classList.toggle("is-flipped", nextFlipped);
+  syncServicePanelFlipState(panelState);
+}
+
+function getDisplayedServiceIndex(panelState) {
+  return panelState.previewIndex >= 0 ? panelState.previewIndex : panelState.activeIndex;
+}
+
+function isLiveServicePanelState(panelState) {
+  return Boolean(
+    panelState &&
+      panelState.renderVersion === servicePanelRenderVersion &&
+      panelState.panel instanceof HTMLElement &&
+      panelState.panel.isConnected
+  );
+}
+
+function measureServicePanelHeight(panelState) {
+  if (isMobileServiceLayout()) {
+    return Math.ceil(panelState.frontContent.scrollHeight + 2);
+  }
+
+  const previousPanelHeight = panelState.panel.style.height;
+  const previousFrontMinHeight = panelState.frontContent.style.minHeight;
+  const previousBackMinHeight = panelState.backContent.style.minHeight;
+  panelState.panel.style.height = "";
+  panelState.frontContent.style.minHeight = "0";
+  panelState.backContent.style.minHeight = "0";
+
+  const backContentHeight = panelState.hasDetail ? panelState.backContent.scrollHeight : 0;
+  const measuredHeight = Math.max(panelState.frontContent.scrollHeight, backContentHeight);
+
+  panelState.panel.style.height = previousPanelHeight;
+  panelState.frontContent.style.minHeight = previousFrontMinHeight;
+  panelState.backContent.style.minHeight = previousBackMinHeight;
+  return Math.ceil(measuredHeight + 2);
+}
+
+function syncServicePanelHeadHeights() {
+  if (!servicePanels.length) {
+    return;
+  }
+
+  servicePanels.forEach((panelState) => {
+    panelState.head.style.minHeight = "";
+  });
+
+  if (isMobileServiceLayout()) {
+    return;
+  }
+
+  // Use requestAnimationFrame to ensure layout is complete before measuring
+  requestAnimationFrame(() => {
+    const sharedHeadHeight = Math.max(...servicePanels.map((panelState) => panelState.head.scrollHeight));
+    servicePanels.forEach((panelState) => {
+      panelState.head.style.minHeight = `${sharedHeadHeight}px`;
+    });
+  });
+}
+
+function syncServiceListHeights() {
+  if (!servicePanels.length) {
+    return;
+  }
+
+  servicePanels.forEach((panelState) => {
+    panelState.list.style.height = "";
+    panelState.list.style.minHeight = "";
+    panelState.list.style.paddingBottom = "";
+    panelState.list.style.gap = "";
+    panelState.list.style.rowGap = "";
+    panelState.list.style.gridTemplateRows = "";
+    panelState.buttons.forEach((button) => {
+      button.style.height = "";
+      button.style.minHeight = "";
+    });
+  });
+
+  if (isMobileServiceLayout()) {
+    return;
+  }
+
+  // Use requestAnimationFrame to ensure layout is complete before measuring
+  requestAnimationFrame(() => {
+    const referencePanels = servicePanels.filter((panelState) => panelState.category.items.length === 2);
+    if (!referencePanels.length) {
+      return;
+    }
+
+    const referenceHeight = Math.max(...referencePanels.map((panelState) => panelState.list.scrollHeight));
+    const bottomClearance = Math.max(
+      ...referencePanels.map((panelState) => {
+        const firstButton = panelState.buttons.find((button) => button instanceof HTMLElement);
+        if (!(firstButton instanceof HTMLElement)) {
+          return 0;
+        }
+
+        const buttonStyles = window.getComputedStyle(firstButton);
+        const horizontalInset = Number.parseFloat(buttonStyles.paddingLeft) || 0;
+        return Math.ceil(horizontalInset);
+      })
+    );
+
+    const referenceListHeight = `${referenceHeight}px`;
+    const sharedListHeight = `${referenceHeight + bottomClearance}px`;
+
+    servicePanels.forEach((panelState) => {
+      if (panelState.category.id === "marketing-growth") {
+        const partnerIndex = getServicePanelPartnerIndex(panelState.panelIndex, servicePanels.length);
+        const partnerState =
+          partnerIndex >= 0 && partnerIndex < servicePanels.length ? servicePanels[partnerIndex] : null;
+        const referenceState =
+          partnerState && partnerState.category.items.length === 2 ? partnerState : referencePanels[0];
+        const referenceButtons = referenceState.buttons.filter((button) => button instanceof HTMLElement);
+
+        if (referenceButtons.length < 2 || panelState.buttons.length !== 3) {
+          panelState.list.style.minHeight = sharedListHeight;
+          return;
+        }
+
+        const firstReferenceButton = referenceButtons[0];
+        const lastReferenceButton = referenceButtons[referenceButtons.length - 1];
+        const referenceSpan =
+          lastReferenceButton.offsetTop +
+          lastReferenceButton.offsetHeight -
+          firstReferenceButton.offsetTop;
+        const referenceGap = Math.max(
+          0,
+          referenceButtons[1].offsetTop -
+            firstReferenceButton.offsetTop -
+            firstReferenceButton.offsetHeight
+        );
+        const targetButtonHeight = Math.max(
+          0,
+          Math.floor(
+            (referenceSpan - referenceGap * Math.max(panelState.buttons.length - 1, 0)) /
+              panelState.buttons.length
+          )
+        );
+
+        panelState.list.style.height = `${referenceSpan}px`;
+        panelState.list.style.minHeight = `${referenceSpan}px`;
+        panelState.list.style.paddingBottom = "0";
+        panelState.list.style.gap = `${referenceGap}px`;
+        panelState.list.style.rowGap = `${referenceGap}px`;
+        panelState.list.style.gridTemplateRows = `repeat(${panelState.buttons.length}, ${targetButtonHeight}px)`;
+        panelState.buttons.forEach((button) => {
+          button.style.height = `${targetButtonHeight}px`;
+          button.style.minHeight = `${targetButtonHeight}px`;
+        });
+        return;
+      }
+
+      // Use minHeight instead of height to allow content to expand if needed
+      panelState.list.style.minHeight = sharedListHeight;
+    });
+  });
+}
+
+function syncServicePanelHeights() {
+  if (!servicePanels.length) {
+    return;
+  }
+
+  syncServicePanelHeadHeights();
+  syncServiceListHeights();
+
+  const isSingleColumn = isMobileServiceLayout();
+
+  // Clear existing heights first
+  servicePanels.forEach((panelState) => {
+    panelState.panel.style.height = "";
+    panelState.panel.style.minHeight = "";
+  });
+
+  if (isSingleColumn) {
+    servicePanels.forEach((panelState) => {
+      setServicePanelFlipped(panelState, false);
+      if (panelState.activeIndex >= 0) {
+        setMobileServicePanelDetail(panelState, panelState.activeIndex);
+      } else {
+        clearMobileServicePanelDetail(panelState);
+      }
+    });
+    return;
+  }
+
+  // Use requestAnimationFrame to ensure layout is complete before measuring
+  requestAnimationFrame(() => {
+    const sharedHeight = Math.max(...servicePanels.map((panelState) => measureServicePanelHeight(panelState)));
+    servicePanels.forEach((panelState) => {
+      panelState.panel.style.minHeight = `${sharedHeight}px`;
+    });
+  });
+}
+
+function scheduleServicePanelLayoutSync() {
+  if (servicePanelLayoutFrame) {
+    window.cancelAnimationFrame(servicePanelLayoutFrame);
+  }
+
+  servicePanelLayoutFrame = window.requestAnimationFrame(() => {
+    servicePanelLayoutFrame = 0;
+    syncServicePanelHeights();
+  });
+}
+
+function blockServiceHoverPreview() {
+  servicePanelHoverPreviewBlocked = true;
+}
+
+function releaseServiceHoverPreview(eventTarget = null) {
+  if (isMobileServiceLayout()) {
+    return;
+  }
+
+  const wasBlocked = servicePanelHoverPreviewBlocked;
+  servicePanelHoverPreviewBlocked = false;
+
+  if (!wasBlocked || !(eventTarget instanceof Element)) {
+    return;
+  }
+
+  const hoveredCard = eventTarget.closest(".service-card");
+  const hoveredCardMeta = hoveredCard instanceof HTMLElement ? serviceCardStateMap.get(hoveredCard) : null;
+  if (!hoveredCardMeta) {
+    return;
+  }
+
+  previewServiceFromPanel(hoveredCardMeta.panelState, hoveredCardMeta.serviceIndex);
+}
+
+function populateServiceDetailNodes(target, sourceState, serviceIndex) {
+  const boundedIndex = Math.max(0, Math.min(serviceIndex, sourceState.category.items.length - 1));
+  const service = sourceState.category.items[boundedIndex];
+  const includeItems = Array.isArray(service?.includes)
+    ? service.includes.map((item) => String(item || "").trim()).filter(Boolean)
+    : [];
+
+  target.tag.textContent = sourceState.category.name;
+  target.title.textContent = service.title;
+  target.text.textContent = service.desc;
+  target.index.textContent = `${service.index || String(boundedIndex + 1).padStart(2, "0")} / ${String(
+    sourceState.category.items.length
   ).padStart(2, "0")}`;
+  target.includes.replaceChildren(
+    ...includeItems.map((item) => {
+      const itemElement = document.createElement("li");
+      itemElement.textContent = item;
+      return itemElement;
+    })
+  );
+  target.includes.hidden = includeItems.length === 0;
+  return service;
 }
 
-function openRow(rowState, serviceIndex) {
-  updateRowSpotlight(rowState, serviceIndex);
-  rowState.row.classList.add("is-open");
-  syncRowCards(rowState);
-}
-
-function closeRow(rowState) {
-  rowState.row.classList.remove("is-open");
-  syncRowCards(rowState);
-}
-
-function closeAllRows(exceptRowState = null) {
-  serviceRows.forEach((rowState) => {
-    if (rowState !== exceptRowState) {
-      closeRow(rowState);
+function clearMobileServicePanelDetail(panelState) {
+  panelState.mobileDetail.classList.add("is-instant-hidden");
+  panelState.panel.classList.remove("has-mobile-detail");
+  panelState.mobileDetail.style.top = "";
+  panelState.mobileDetail.style.left = "";
+  panelState.mobileDetail.style.width = "";
+  panelState.mobileTag.textContent = "";
+  panelState.mobileTitle.textContent = "";
+  panelState.mobileText.textContent = "";
+  panelState.mobileIndex.textContent = "";
+  panelState.mobileIncludes.replaceChildren();
+  panelState.mobileIncludes.hidden = true;
+  panelState.mobileDetail.setAttribute("aria-hidden", "true");
+  window.requestAnimationFrame(() => {
+    if (panelState.mobileDetail.isConnected) {
+      panelState.mobileDetail.classList.remove("is-instant-hidden");
     }
   });
 }
 
-function createServiceCard(rowState, service, serviceIndex) {
+function setMobileServicePanelDetail(panelState, serviceIndex) {
+  if (serviceIndex < 0) {
+    clearMobileServicePanelDetail(panelState);
+    return;
+  }
+
+  const sourceButton = panelState.buttons[serviceIndex];
+  if (sourceButton instanceof HTMLElement && panelState.panel instanceof HTMLElement) {
+    panelState.mobileDetail.classList.remove("is-instant-hidden");
+    const panelRect = panelState.panel.getBoundingClientRect();
+    const buttonRect = sourceButton.getBoundingClientRect();
+    const detailTop = buttonRect.bottom - panelRect.top + 10;
+    const detailLeft = buttonRect.left - panelRect.left;
+    const detailWidth = buttonRect.width;
+    panelState.mobileDetail.style.top = `${detailTop}px`;
+    panelState.mobileDetail.style.left = `${detailLeft}px`;
+    panelState.mobileDetail.style.width = `${detailWidth}px`;
+  }
+
+  populateServiceDetailNodes(
+    {
+      tag: panelState.mobileTag,
+      title: panelState.mobileTitle,
+      text: panelState.mobileText,
+      includes: panelState.mobileIncludes,
+      index: panelState.mobileIndex,
+    },
+    panelState,
+    serviceIndex
+  );
+  panelState.panel.classList.add("has-mobile-detail");
+  panelState.mobileDetail.setAttribute("aria-hidden", "false");
+}
+
+function populateServicePanelDetail(targetState, sourceState, serviceIndex) {
+  targetState.hasDetail = true;
+  targetState.detailSourceId = sourceState.category.id;
+  targetState.detailServiceId = sourceState.category.items[Math.max(0, Math.min(serviceIndex, sourceState.category.items.length - 1))].id;
+  populateServiceDetailNodes(
+    {
+      tag: targetState.backTag,
+      title: targetState.backTitle,
+      text: targetState.backText,
+      includes: targetState.backIncludes,
+      index: targetState.backIndex,
+    },
+    sourceState,
+    serviceIndex
+  );
+}
+
+function collapseOtherMobileServicePanels(activePanelState) {
+  servicePanels.forEach((panelState) => {
+    if (panelState === activePanelState) {
+      return;
+    }
+
+    panelState.activeIndex = -1;
+    panelState.previewIndex = -1;
+    syncServicePanelButtons(panelState);
+    clearMobileServicePanelDetail(panelState);
+  });
+}
+
+function updatePartnerPanelFromSource(panelState, { syncLayout = false } = {}) {
+  if (isMobileServiceLayout()) {
+    return;
+  }
+
+  if (!isLiveServicePanelState(panelState)) {
+    return;
+  }
+
+  const partnerIndex = getServicePanelPartnerIndex(panelState.panelIndex, servicePanels.length);
+  if (partnerIndex === -1) {
+    return;
+  }
+
+  const partnerState = servicePanels[partnerIndex];
+  if (!isLiveServicePanelState(partnerState)) {
+    return;
+  }
+
+  const displayedIndex = getDisplayedServiceIndex(panelState);
+  if (displayedIndex < 0) {
+    if (partnerState.detailSourceId === panelState.category.id) {
+      partnerState.hasDetail = false;
+      partnerState.detailSourceId = "";
+      partnerState.detailServiceId = "";
+      partnerState.backTag.textContent = "";
+      partnerState.backTitle.textContent = "";
+      partnerState.backText.textContent = "";
+      partnerState.backIndex.textContent = "";
+      partnerState.backIncludes.replaceChildren();
+      partnerState.backIncludes.hidden = true;
+      setServicePanelFlipped(partnerState, false);
+    }
+    if (syncLayout) {
+      syncServicePanelHeights();
+    }
+    return;
+  }
+
+  populateServicePanelDetail(partnerState, panelState, displayedIndex);
+  setServicePanelFlipped(partnerState, true);
+  if (syncLayout) {
+    syncServicePanelHeights();
+  }
+}
+
+function previewServiceFromPanel(panelState, serviceIndex) {
+  if (isMobileServiceLayout()) {
+    return;
+  }
+
+  if (!isLiveServicePanelState(panelState)) {
+    return;
+  }
+
+  const boundedIndex = Math.max(0, Math.min(serviceIndex, panelState.category.items.length - 1));
+  panelState.previewIndex = boundedIndex;
+  updatePartnerPanelFromSource(panelState);
+}
+
+function clearServicePreview(panelState) {
+  if (isMobileServiceLayout()) {
+    return;
+  }
+
+  if (!isLiveServicePanelState(panelState)) {
+    return;
+  }
+
+  panelState.previewIndex = -1;
+  updatePartnerPanelFromSource(panelState);
+}
+
+function activateServiceFromPanel(panelState, serviceIndex) {
+  if (!isLiveServicePanelState(panelState)) {
+    return;
+  }
+
+  const boundedIndex = Math.max(0, Math.min(serviceIndex, panelState.category.items.length - 1));
+  const isTogglingOff = panelState.activeIndex === boundedIndex;
+
+  if (isMobileServiceLayout()) {
+    if (!isTogglingOff) {
+      collapseOtherMobileServicePanels(panelState);
+    }
+
+    panelState.activeIndex = isTogglingOff ? -1 : boundedIndex;
+    panelState.previewIndex = -1;
+    syncServicePanelButtons(panelState);
+    setMobileServicePanelDetail(panelState, panelState.activeIndex);
+    return;
+  }
+
+  panelState.activeIndex = isTogglingOff ? -1 : boundedIndex;
+  if (isTogglingOff) {
+    panelState.previewIndex = -1;
+  }
+
+  syncServicePanelButtons(panelState);
+  updatePartnerPanelFromSource(panelState, { syncLayout: true });
+}
+
+function createServiceCard(panelState, service, serviceIndex) {
   const card = document.createElement("button");
   card.type = "button";
   card.className = "service-card";
   card.dataset.serviceIndex = String(serviceIndex);
+  card.setAttribute("aria-label", service.desc ? `${service.title}. ${service.desc}` : service.title);
+  card.setAttribute("aria-pressed", "false");
 
   const index = document.createElement("span");
   index.className = "service-card-index";
-  index.textContent = String(serviceIndex + 1).padStart(2, "0");
+  index.textContent = service.index || String(serviceIndex + 1).padStart(2, "0");
 
   const title = document.createElement("h3");
   title.textContent = service.title;
 
-  const desc = document.createElement("p");
-  desc.textContent = service.desc;
-
-  card.append(index, title, desc);
-
-  const activateCard = () => {
-    closeAllRows(rowState);
-    openRow(rowState, serviceIndex);
-  };
-
-  card.addEventListener("mouseenter", activateCard);
-  card.addEventListener("focus", activateCard);
-  card.addEventListener("click", activateCard);
+  card.append(index, title);
+  serviceCardStateMap.set(card, { panelState, serviceIndex });
+  card.addEventListener("mouseenter", () => {
+    if (servicePanelHoverPreviewBlocked) {
+      return;
+    }
+    previewServiceFromPanel(panelState, serviceIndex);
+  });
+  card.addEventListener("mouseleave", () => {
+    clearServicePreview(panelState);
+  });
+  card.addEventListener("focus", () => {
+    if (servicePanelHoverPreviewBlocked) {
+      return;
+    }
+    previewServiceFromPanel(panelState, serviceIndex);
+  });
+  card.addEventListener("blur", () => {
+    clearServicePreview(panelState);
+  });
+  card.addEventListener("click", () => {
+    activateServiceFromPanel(panelState, serviceIndex);
+  });
 
   return card;
 }
 
-function createServiceRow(locale, category, categoryIndex) {
-  const row = document.createElement("article");
-  row.className = "service-row reveal";
-  row.style.transitionDelay = `${120 * categoryIndex}ms`;
+function setServicePanelTitle(titleElement, category) {
+  const mobileTitleLines = Array.isArray(category.mobileTitleLines)
+    ? category.mobileTitleLines.map((line) => String(line || "").trim()).filter(Boolean)
+    : [];
 
-  const group = document.createElement("div");
-  group.className = "service-group";
+  titleElement.textContent = "";
+  titleElement.classList.toggle("service-panel-title-mobile-stack", mobileTitleLines.length > 1);
+
+  if (mobileTitleLines.length > 1) {
+    mobileTitleLines.forEach((line, index) => {
+      const lineElement = document.createElement("span");
+      lineElement.className = "service-panel-title-line";
+      lineElement.textContent = index < mobileTitleLines.length - 1 ? `${line} ` : line;
+      titleElement.append(lineElement);
+    });
+    return;
+  }
+
+  titleElement.textContent = category.name;
+}
+
+function createServicePanel(locale, category, categoryIndex) {
+  const panel = document.createElement("article");
+  panel.className = "service-panel reveal";
+  panel.style.transitionDelay = `${110 * categoryIndex}ms`;
+  panel.dataset.categoryId = category.id;
+  panel.dataset.serviceCount = String(category.items.length);
+
+  const cardShell = document.createElement("div");
+  cardShell.className = "service-panel-card";
+
+  const frontFace = document.createElement("div");
+  frontFace.className = "service-panel-face service-panel-face-front";
+
+  const backFace = document.createElement("div");
+  backFace.className = "service-panel-face service-panel-face-back";
+  backFace.setAttribute("aria-hidden", "true");
+
+  const frontContent = document.createElement("div");
+  frontContent.className = "service-panel-content service-panel-content-front";
+
+  const backContent = document.createElement("div");
+  backContent.className = "service-panel-content service-panel-content-back";
 
   const head = document.createElement("div");
-  head.className = "service-group-head";
+  head.className = "service-panel-head";
 
   const title = document.createElement("h3");
-  title.className = "service-group-title";
-  title.textContent = category.name;
+  title.className = "service-panel-title";
+  setServicePanelTitle(title, category);
 
   const description = document.createElement("p");
-  description.className = "service-group-desc";
+  description.className = "service-panel-desc";
   description.textContent = category.description;
 
   const list = document.createElement("div");
   list.className = "service-list";
 
-  const spotlight = document.createElement("aside");
-  spotlight.className = "service-spotlight";
-  spotlight.setAttribute("aria-live", "polite");
+  const backTag = document.createElement("p");
+  backTag.className = "service-panel-tag";
 
-  const spotlightContent = document.createElement("div");
-  spotlightContent.className = "service-spotlight-content";
+  const backCopy = document.createElement("div");
+  backCopy.className = "service-panel-copy";
 
-  const spotlightTitle = document.createElement("h3");
-  const spotlightText = document.createElement("p");
+  const backTitle = document.createElement("h3");
+  const backText = document.createElement("p");
+  const backIncludes = document.createElement("ul");
+  backIncludes.className = "service-panel-detail-list";
+  backIncludes.hidden = true;
 
-  const spotlightMeta = document.createElement("div");
-  spotlightMeta.className = "spotlight-meta";
+  const backMeta = document.createElement("div");
+  backMeta.className = "service-panel-meta";
 
-  const spotlightCategory = document.createElement("span");
-  const spotlightIndex = document.createElement("span");
+  const backIndex = document.createElement("span");
 
-  const rowState = {
-    row,
-    categoryName: category.name,
-    items: category.items,
-    activeIndex: 0,
-    cards: [],
-    spotlightTitle,
-    spotlightText,
-    spotlightCategory,
-    spotlightIndex,
+  const mobileDetail = document.createElement("div");
+  mobileDetail.className = "service-panel-mobile-detail";
+  mobileDetail.setAttribute("aria-hidden", "true");
+
+  const mobileDetailInner = document.createElement("div");
+  mobileDetailInner.className = "service-panel-mobile-detail-inner";
+
+  const mobileTag = document.createElement("p");
+  mobileTag.className = "service-panel-tag";
+
+  const mobileCopy = document.createElement("div");
+  mobileCopy.className = "service-panel-copy";
+
+  const mobileTitle = document.createElement("h3");
+  const mobileText = document.createElement("p");
+  const mobileIncludes = document.createElement("ul");
+  mobileIncludes.className = "service-panel-detail-list";
+  mobileIncludes.hidden = true;
+
+  const mobileMeta = document.createElement("div");
+  mobileMeta.className = "service-panel-meta";
+
+  const mobileIndex = document.createElement("span");
+
+  const panelState = {
+    panel,
+    panelIndex: categoryIndex,
+    renderVersion: servicePanelRenderVersion,
+    category,
+    activeIndex: -1,
+    previewIndex: -1,
+    buttons: [],
+    head,
+    list,
+    frontContent,
+    backContent,
+    frontFace,
+    backFace,
+    backTag,
+    backTitle,
+    backText,
+    backIncludes,
+    backIndex,
+    mobileDetail,
+    mobileTag,
+    mobileTitle,
+    mobileText,
+    mobileIncludes,
+    mobileIndex,
+    hasDetail: false,
+    detailSourceId: "",
+    detailServiceId: "",
   };
 
   category.items.forEach((service, serviceIndex) => {
-    const card = createServiceCard(rowState, service, serviceIndex);
-    rowState.cards.push(card);
+    const card = createServiceCard(panelState, service, serviceIndex);
+    panelState.buttons.push(card);
     list.append(card);
   });
 
-  updateRowSpotlight(rowState, 0);
-  syncRowCards(rowState);
-
-  row.addEventListener("mouseleave", () => {
-    closeRow(rowState);
-  });
-
-  row.addEventListener("focusout", () => {
-    window.requestAnimationFrame(() => {
-      if (!row.contains(document.activeElement)) {
-        closeRow(rowState);
-      }
-    });
-  });
-
   head.append(title, description);
-  group.append(head, list);
+  mobileCopy.append(mobileTitle, mobileText);
+  mobileMeta.append(mobileIndex);
+  mobileDetailInner.append(mobileTag, mobileCopy, mobileIncludes, mobileMeta);
+  mobileDetail.append(mobileDetailInner);
 
-  spotlightMeta.append(spotlightCategory, spotlightIndex);
-  spotlightContent.append(spotlightTitle, spotlightText, spotlightMeta);
-  spotlight.append(spotlightContent);
+  frontContent.append(head, list);
+  frontFace.append(frontContent);
 
-  row.append(group, spotlight);
-  serviceRows.push(rowState);
-  return row;
+  backCopy.append(backTitle, backText);
+  backMeta.append(backIndex);
+  backContent.append(backTag, backCopy, backIncludes, backMeta);
+  backFace.append(backContent);
+
+  cardShell.append(frontFace, backFace);
+  panel.append(cardShell, mobileDetail);
+
+  syncServicePanelButtons(panelState);
+  syncServicePanelFlipState(panelState);
+  servicePanels.push(panelState);
+  return panel;
 }
 
 function renderServices(langKey) {
@@ -1614,15 +2739,30 @@ function renderServices(langKey) {
     return;
   }
 
-  const locale = translations[langKey];
-  const categories = locale.services.categories;
+  servicePanelRenderVersion += 1;
+  blockServiceHoverPreview();
+
+  if (servicePanelLayoutFrame) {
+    window.cancelAnimationFrame(servicePanelLayoutFrame);
+    servicePanelLayoutFrame = 0;
+  }
+
+  const locale = translations[langKey] || translations.en;
+  const categories = getServiceCategories(langKey);
   dom.serviceCategories.innerHTML = "";
-  serviceRows = [];
+  servicePanels = [];
 
   categories.forEach((category, categoryIndex) => {
-    dom.serviceCategories.append(createServiceRow(locale, category, categoryIndex));
+    dom.serviceCategories.append(createServicePanel(locale, category, categoryIndex));
   });
 
+  // Delay height sync to ensure DOM is fully rendered with new content
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      syncServicePanelHeights();
+      scheduleServicePanelLayoutSync();
+    });
+  });
   observeReveals(dom.serviceCategories);
 }
 
@@ -1686,6 +2826,12 @@ function getContactIntakeDom() {
     summaryHost: form.querySelector("[data-contact-summary]"),
     turnstileWrap: form.querySelector("[data-contact-turnstile-wrap]"),
     turnstileHost: form.querySelector("[data-contact-turnstile]"),
+    preferredContactInput: form.querySelector('input[data-contact-field="preferredContact"]'),
+    preferredContactSelect: form.querySelector("[data-contact-select]"),
+    preferredContactTrigger: form.querySelector("[data-contact-select-trigger]"),
+    preferredContactLabel: form.querySelector("[data-contact-select-label]"),
+    preferredContactMenu: form.querySelector("[data-contact-select-menu]"),
+    preferredContactOptions: Array.from(form.querySelectorAll("[data-contact-select-option]")),
     backButton: form.querySelector("[data-contact-back]"),
     nextButton: form.querySelector("[data-contact-next]"),
     submitButton: form.querySelector("[data-contact-submit]"),
@@ -1695,25 +2841,109 @@ function getContactIntakeDom() {
 }
 
 function getContactIntakeServiceOptions(langKey) {
-  const locale = translations[langKey];
-  const categories = locale?.services?.categories || [];
+  const categories = getServiceCategories(langKey);
   const options = [];
 
-  categories.forEach((category, categoryIndex) => {
+  categories.forEach((category) => {
     if (!category || !Array.isArray(category.items)) {
       return;
     }
 
-    category.items.forEach((service, serviceIndex) => {
+    category.items.forEach((service) => {
       options.push({
-        id: `${categoryIndex}:${serviceIndex}`,
+        id: service.id,
         category: category.name || "",
-        title: service?.title || "",
+        title: service.title || "",
       });
     });
   });
 
   return options;
+}
+
+function closePreferredContactMenu(intakeDom = getContactIntakeDom()) {
+  if (!intakeDom?.preferredContactSelect || !intakeDom.preferredContactMenu || !intakeDom.preferredContactTrigger) {
+    return;
+  }
+
+  intakeDom.preferredContactSelect.classList.remove("is-open");
+  intakeDom.preferredContactMenu.hidden = true;
+  intakeDom.preferredContactTrigger.setAttribute("aria-expanded", "false");
+}
+
+function focusPreferredContactOption(intakeDom, value, fallbackIndex = 0) {
+  if (!intakeDom?.preferredContactOptions?.length) {
+    return;
+  }
+
+  const options = intakeDom.preferredContactOptions.filter((option) => option instanceof HTMLButtonElement);
+  if (!options.length) {
+    return;
+  }
+
+  const preferredIndex = options.findIndex((option) => option.dataset.contactSelectOption === value);
+  const clampedFallbackIndex = clamp(fallbackIndex, 0, options.length - 1);
+  const targetIndex = preferredIndex >= 0 ? preferredIndex : clampedFallbackIndex;
+  options[targetIndex]?.focus();
+}
+
+function openPreferredContactMenu(intakeDom = getContactIntakeDom(), { focusSelected = false, fallbackIndex = 0 } = {}) {
+  if (!intakeDom?.preferredContactSelect || !intakeDom.preferredContactMenu || !intakeDom.preferredContactTrigger) {
+    return;
+  }
+
+  intakeDom.preferredContactSelect.classList.add("is-open");
+  intakeDom.preferredContactMenu.hidden = false;
+  intakeDom.preferredContactTrigger.setAttribute("aria-expanded", "true");
+
+  if (focusSelected) {
+    const state = ensureContactIntakeState();
+    focusPreferredContactOption(intakeDom, state.preferredContact, fallbackIndex);
+  }
+}
+
+function togglePreferredContactMenu(intakeDom = getContactIntakeDom()) {
+  if (!intakeDom?.preferredContactSelect) {
+    return;
+  }
+
+  if (intakeDom.preferredContactSelect.classList.contains("is-open")) {
+    closePreferredContactMenu(intakeDom);
+    return;
+  }
+
+  openPreferredContactMenu(intakeDom);
+}
+
+function renderPreferredContactSelect(intakeDom, langKey) {
+  if (!intakeDom?.preferredContactSelect) {
+    return;
+  }
+
+  const state = ensureContactIntakeState();
+  const optionsCopy = translations[langKey]?.contact?.intake?.contactMethod || {};
+  const selectedValue = state.preferredContact || "email";
+
+  if (intakeDom.preferredContactInput instanceof HTMLInputElement) {
+    intakeDom.preferredContactInput.value = selectedValue;
+  }
+
+  if (intakeDom.preferredContactLabel instanceof HTMLElement) {
+    intakeDom.preferredContactLabel.textContent = optionsCopy[selectedValue] || "";
+  }
+
+  intakeDom.preferredContactOptions.forEach((option) => {
+    if (!(option instanceof HTMLButtonElement)) {
+      return;
+    }
+
+    const optionValue = option.dataset.contactSelectOption || "";
+    const isSelected = optionValue === selectedValue;
+    option.textContent = optionsCopy[optionValue] || "";
+    option.classList.toggle("is-selected", isSelected);
+    option.setAttribute("aria-selected", String(isSelected));
+    option.tabIndex = isSelected ? 0 : -1;
+  });
 }
 
 function getContactIntakeOptionMap(langKey) {
@@ -1812,6 +3042,115 @@ function resetContactTurnstileToken() {
   }
 }
 
+function getContactPopupCloseLabel() {
+  if (currentLang === "hr") {
+    return "Zatvori obavijest";
+  }
+
+  if (currentLang === "de") {
+    return "Hinweis schließen";
+  }
+
+  return "Close notification";
+}
+
+function ensureContactStatusPopup() {
+  if (contactStatusPopup?.root instanceof HTMLElement && contactStatusPopup.root.isConnected) {
+    return contactStatusPopup;
+  }
+
+  const root = document.createElement("div");
+  root.className = "contact-status-popup";
+  root.hidden = true;
+  root.setAttribute("aria-hidden", "true");
+
+  const inner = document.createElement("div");
+  inner.className = "contact-status-popup-inner";
+  inner.setAttribute("role", "status");
+  inner.setAttribute("aria-live", "polite");
+  inner.setAttribute("aria-atomic", "true");
+
+  const copy = document.createElement("div");
+  copy.className = "contact-status-popup-copy";
+
+  const message = document.createElement("p");
+  message.className = "contact-status-popup-message";
+
+  const link = document.createElement("a");
+  link.className = "contact-status-popup-link";
+  link.hidden = true;
+
+  const close = document.createElement("button");
+  close.type = "button";
+  close.className = "contact-status-popup-close";
+  close.dataset.contactPopupClose = "true";
+  close.setAttribute("aria-label", getContactPopupCloseLabel());
+  close.textContent = "×";
+
+  copy.append(message, link);
+  inner.append(copy, close);
+  root.append(inner);
+  document.body.append(root);
+
+  contactStatusPopup = { root, inner, message, link, close };
+  return contactStatusPopup;
+}
+
+function hideContactStatusPopup() {
+  const popup = ensureContactStatusPopup();
+  popup.root.hidden = true;
+  popup.root.setAttribute("aria-hidden", "true");
+  popup.root.classList.remove("is-visible", "is-error", "is-success", "is-warning", "is-info");
+  popup.message.textContent = "";
+  popup.link.hidden = true;
+  popup.link.removeAttribute("href");
+  popup.link.textContent = "";
+  popup.close.setAttribute("aria-label", getContactPopupCloseLabel());
+}
+
+function showContactStatusPopup(message, type = "", fallbackText = "", fallbackHref = "") {
+  const popup = ensureContactStatusPopup();
+  const normalizedMessage = String(message || "").trim();
+
+  if (!normalizedMessage) {
+    hideContactStatusPopup();
+    return;
+  }
+
+  popup.message.textContent = normalizedMessage;
+  popup.root.hidden = false;
+  popup.root.setAttribute("aria-hidden", "false");
+  popup.root.classList.remove("is-error", "is-success", "is-warning", "is-info");
+  popup.root.classList.add("is-visible");
+  popup.close.setAttribute("aria-label", getContactPopupCloseLabel());
+
+  if (type === "error") {
+    popup.root.classList.add("is-error");
+  } else if (type === "success") {
+    popup.root.classList.add("is-success");
+  } else if (type === "warning") {
+    popup.root.classList.add("is-warning");
+  } else {
+    popup.root.classList.add("is-info");
+  }
+
+  if (fallbackHref && fallbackText) {
+    popup.link.hidden = false;
+    popup.link.href = fallbackHref;
+    popup.link.textContent = fallbackText;
+  } else {
+    popup.link.hidden = true;
+    popup.link.removeAttribute("href");
+    popup.link.textContent = "";
+  }
+}
+
+function dismissContactStatusPopup() {
+  const state = ensureContactIntakeState();
+  state.status = { key: "", type: "", fallbackHref: "" };
+  hideContactStatusPopup();
+}
+
 function setContactIntakeStatus(intakeDom, locale, statusKey = "", type = "", fallbackHref = "") {
   const state = ensureContactIntakeState();
   state.status = {
@@ -1826,6 +3165,7 @@ function setContactIntakeStatus(intakeDom, locale, statusKey = "", type = "", fa
 
   const statusText = statusKey ? locale.contact.intake.status?.[statusKey] || "" : "";
   intakeDom.status.textContent = statusText;
+  intakeDom.status.hidden = true;
   intakeDom.status.classList.remove("is-error", "is-success", "is-warning");
   if (type === "error") {
     intakeDom.status.classList.add("is-error");
@@ -1839,7 +3179,7 @@ function setContactIntakeStatus(intakeDom, locale, statusKey = "", type = "", fa
 
   if (intakeDom.fallback instanceof HTMLAnchorElement) {
     if (fallbackHref) {
-      intakeDom.fallback.hidden = false;
+      intakeDom.fallback.hidden = true;
       intakeDom.fallback.href = fallbackHref;
       intakeDom.fallback.textContent = locale.contact.intake.status?.fallback || "";
     } else {
@@ -1848,6 +3188,13 @@ function setContactIntakeStatus(intakeDom, locale, statusKey = "", type = "", fa
       intakeDom.fallback.textContent = "";
     }
   }
+
+  showContactStatusPopup(
+    statusText,
+    type,
+    fallbackHref ? locale.contact.intake.status?.fallback || "" : "",
+    fallbackHref
+  );
 }
 
 function renderContactIntakeServiceOptions(intakeDom, langKey) {
@@ -1876,11 +3223,7 @@ function renderContactIntakeServiceOptions(intakeDom, langKey) {
     title.className = "contact-service-option-title";
     title.textContent = option.title;
 
-    const category = document.createElement("span");
-    category.className = "contact-service-option-category";
-    category.textContent = option.category;
-
-    content.append(title, category);
+    content.append(title);
     label.append(input, content);
     intakeDom.serviceOptionsHost.append(label);
   });
@@ -2221,6 +3564,11 @@ function renderContactIntake(langKey) {
     fieldNode.value = String(state[fieldName] || "");
   });
 
+  renderPreferredContactSelect(intakeDom, langKey);
+  if (boundedStep !== 2 || state.submitting) {
+    closePreferredContactMenu(intakeDom);
+  }
+
   const projectTypeInput = intakeDom.form.querySelector(`input[name="projectType"][value="${state.projectType}"]`);
   if (projectTypeInput instanceof HTMLInputElement) {
     projectTypeInput.checked = true;
@@ -2339,6 +3687,103 @@ function initContactIntake() {
       }
     });
 
+    intakeDom.form.addEventListener("click", (event) => {
+      const target = event.target;
+      const element = target instanceof Element ? target : null;
+      const option = element?.closest("[data-contact-select-option]");
+      const trigger = element?.closest("[data-contact-select-trigger]");
+      const state = ensureContactIntakeState();
+
+      if (option instanceof HTMLButtonElement) {
+        const nextValue = option.dataset.contactSelectOption || "";
+        if (!nextValue) {
+          return;
+        }
+
+        state.preferredContact = nextValue;
+        state.status = { key: "", type: "", fallbackHref: "" };
+        closePreferredContactMenu(intakeDom);
+        renderContactIntake(currentLang);
+        return;
+      }
+
+      if (trigger instanceof HTMLButtonElement) {
+        event.preventDefault();
+        togglePreferredContactMenu(intakeDom);
+      }
+    });
+
+    intakeDom.form.addEventListener("keydown", (event) => {
+      const target = event.target;
+      const element = target instanceof Element ? target : null;
+      const trigger = element?.closest("[data-contact-select-trigger]");
+      const option = element?.closest("[data-contact-select-option]");
+
+      if (event.key === "Escape" && intakeDom.preferredContactSelect?.classList.contains("is-open")) {
+        event.preventDefault();
+        closePreferredContactMenu(intakeDom);
+        intakeDom.preferredContactTrigger?.focus();
+        return;
+      }
+
+      if (trigger instanceof HTMLButtonElement) {
+        if (event.key === "ArrowDown") {
+          event.preventDefault();
+          openPreferredContactMenu(intakeDom, { focusSelected: true, fallbackIndex: 0 });
+        } else if (event.key === "ArrowUp") {
+          event.preventDefault();
+          openPreferredContactMenu(intakeDom, {
+            focusSelected: true,
+            fallbackIndex: Math.max(0, intakeDom.preferredContactOptions.length - 1),
+          });
+        }
+        return;
+      }
+
+      if (!(option instanceof HTMLButtonElement)) {
+        return;
+      }
+
+      const options = intakeDom.preferredContactOptions.filter(
+        (node) => node instanceof HTMLButtonElement
+      );
+      const optionIndex = options.indexOf(option);
+      if (optionIndex < 0) {
+        return;
+      }
+
+      if (event.key === "ArrowDown") {
+        event.preventDefault();
+        options[(optionIndex + 1) % options.length]?.focus();
+      } else if (event.key === "ArrowUp") {
+        event.preventDefault();
+        options[(optionIndex - 1 + options.length) % options.length]?.focus();
+      } else if (event.key === "Home") {
+        event.preventDefault();
+        options[0]?.focus();
+      } else if (event.key === "End") {
+        event.preventDefault();
+        options[options.length - 1]?.focus();
+      }
+    });
+
+    intakeDom.form.addEventListener("focusout", (event) => {
+      const target = event.target;
+      const element = target instanceof Element ? target : null;
+      const selectRoot = element?.closest("[data-contact-select]");
+
+      if (!(selectRoot instanceof HTMLElement)) {
+        return;
+      }
+
+      window.requestAnimationFrame(() => {
+        const activeElement = document.activeElement;
+        if (!(activeElement instanceof Element) || !selectRoot.contains(activeElement)) {
+          closePreferredContactMenu(intakeDom);
+        }
+      });
+    });
+
     if (intakeDom.backButton instanceof HTMLButtonElement) {
       intakeDom.backButton.addEventListener("click", () => {
         const state = ensureContactIntakeState();
@@ -2431,120 +3876,286 @@ const heroCloudMotionState = {
   lastFrameMs: 0,
 };
 
-function smoothstep(edgeStart, edgeEnd, value) {
-  if (edgeStart === edgeEnd) {
-    return value < edgeEnd ? 0 : 1;
+const HERO_CLOUD_ASSETS = [
+  {
+    id: "cloud1",
+    src: "assets/clouds/cloud1.png",
+    widthRange: {
+      desktop: [1.18, 1.36],
+      compact: [1.26, 1.48],
+      narrow: [1.34, 1.62],
+    },
+    topRange: {
+      desktop: [0, 0.04],
+      compact: [0, 0.06],
+      narrow: [0, 0.08],
+    },
+    speedRatioRange: {
+      desktop: [0.018, 0.03],
+      compact: [0.014, 0.024],
+      narrow: [0.011, 0.02],
+    },
+    opacityRange: [0.18, 0.34],
+    dimOpacityRange: [0.05, 0.14],
+    blurRange: [0.25, 0.75],
+    zIndex: 2,
+  },
+  {
+    id: "cloud2",
+    src: "assets/clouds/cloud2.png",
+    widthRange: {
+      desktop: [1.12, 1.28],
+      compact: [1.2, 1.4],
+      narrow: [1.28, 1.52],
+    },
+    topRange: {
+      desktop: [0.1, 0.18],
+      compact: [0.08, 0.18],
+      narrow: [0.06, 0.18],
+    },
+    speedRatioRange: {
+      desktop: [0.012, 0.022],
+      compact: [0.01, 0.019],
+      narrow: [0.008, 0.016],
+    },
+    opacityRange: [0.1, 0.22],
+    dimOpacityRange: [0.04, 0.1],
+    blurRange: [7.2, 10.4],
+    zIndex: 0,
+  },
+  {
+    id: "cloud3",
+    src: "assets/clouds/cloud3.png",
+    widthRange: {
+      desktop: [1.16, 1.32],
+      compact: [1.24, 1.44],
+      narrow: [1.3, 1.56],
+    },
+    topRange: {
+      desktop: [0, 0.06],
+      compact: [0, 0.08],
+      narrow: [0, 0.1],
+    },
+    speedRatioRange: {
+      desktop: [0.02, 0.034],
+      compact: [0.016, 0.028],
+      narrow: [0.012, 0.022],
+    },
+    opacityRange: [0.2, 0.4],
+    dimOpacityRange: [0.06, 0.16],
+    blurRange: [0.35, 0.95],
+    zIndex: 3,
+  },
+  {
+    id: "cloud4",
+    src: "assets/clouds/cloud4.png",
+    widthRange: {
+      desktop: [1.14, 1.28],
+      compact: [1.22, 1.4],
+      narrow: [1.28, 1.5],
+    },
+    topRange: {
+      desktop: [0.03, 0.1],
+      compact: [0.02, 0.1],
+      narrow: [0.02, 0.12],
+    },
+    speedRatioRange: {
+      desktop: [0.016, 0.028],
+      compact: [0.013, 0.022],
+      narrow: [0.01, 0.018],
+    },
+    opacityRange: [0.14, 0.28],
+    dimOpacityRange: [0.05, 0.12],
+    blurRange: [0.2, 0.8],
+    zIndex: 1,
+  },
+  {
+    id: "cloud5",
+    src: "assets/clouds/cloud5.png",
+    widthRange: {
+      desktop: [1.1, 1.24],
+      compact: [1.18, 1.34],
+      narrow: [1.24, 1.46],
+    },
+    topRange: {
+      desktop: [0.08, 0.16],
+      compact: [0.06, 0.16],
+      narrow: [0.05, 0.18],
+    },
+    speedRatioRange: {
+      desktop: [0.011, 0.02],
+      compact: [0.009, 0.017],
+      narrow: [0.007, 0.014],
+    },
+    opacityRange: [0.09, 0.2],
+    dimOpacityRange: [0.03, 0.08],
+    blurRange: [6.8, 9.8],
+    zIndex: 0,
+  },
+];
+
+function getHeroCloudLayoutMode() {
+  if (window.matchMedia("(max-width: 760px)").matches) {
+    return "narrow";
   }
 
-  const t = clamp((value - edgeStart) / (edgeEnd - edgeStart), 0, 1);
-  return t * t * (3 - 2 * t);
+  if (window.matchMedia("(max-width: 980px)").matches) {
+    return "compact";
+  }
+
+  return "desktop";
 }
 
-function sampleHeroCloudSpeedProfile(isPrimaryLayer) {
-  return pickRandomItem(
-    isPrimaryLayer
-      ? [
-          { speedMin: 0.68, speedMax: 0.92, holdMin: 9000, holdMax: 15000 },
-          { speedMin: 0.94, speedMax: 1.22, holdMin: 7000, holdMax: 12000 },
-          { speedMin: 1.24, speedMax: 1.54, holdMin: 6000, holdMax: 9000 },
-          { speedMin: 0.56, speedMax: 0.76, holdMin: 11000, holdMax: 18000 },
-        ]
-      : [
-          { speedMin: 0.54, speedMax: 0.76, holdMin: 10000, holdMax: 16000 },
-          { speedMin: 0.76, speedMax: 1.02, holdMin: 8000, holdMax: 13000 },
-          { speedMin: 1.04, speedMax: 1.28, holdMin: 6500, holdMax: 9500 },
-          { speedMin: 0.46, speedMax: 0.66, holdMin: 12000, holdMax: 18000 },
-        ]
+function resolveHeroCloudResponsiveRange(ranges, layoutMode) {
+  return ranges[layoutMode] || ranges.desktop;
+}
+
+function ensureHeroCloudNodes() {
+  if (!(dom.heroCloudLayer instanceof HTMLElement)) {
+    dom.heroClouds = [];
+    return [];
+  }
+
+  const existingClouds = Array.from(dom.heroCloudLayer.querySelectorAll(".hero-cloud"));
+  const shouldRebuild =
+    existingClouds.length !== HERO_CLOUD_ASSETS.length ||
+    existingClouds.some(
+      (cloud, index) => cloud.tagName !== "IMG" || cloud.dataset.cloudAsset !== HERO_CLOUD_ASSETS[index].id
+    );
+
+  if (shouldRebuild) {
+    const nextCloudNodes = HERO_CLOUD_ASSETS.map((config) => {
+      const cloud = document.createElement("img");
+      cloud.className = "hero-cloud";
+      cloud.dataset.cloudAsset = config.id;
+      cloud.src = config.src;
+      cloud.alt = "";
+      cloud.decoding = "async";
+      cloud.loading = "eager";
+      cloud.draggable = false;
+      cloud.setAttribute("aria-hidden", "true");
+      return cloud;
+    });
+
+    dom.heroCloudLayer.replaceChildren(...nextCloudNodes);
+  }
+
+  dom.heroClouds = dom.heroCloudLayer.querySelectorAll(".hero-cloud");
+  return Array.from(dom.heroClouds);
+}
+
+function syncHeroCloudLayerGeometry() {
+  if (
+    !(dom.heroSection instanceof HTMLElement) ||
+    !(dom.heroCloudLayer instanceof HTMLElement) ||
+    !(dom.heroLogoMark instanceof HTMLElement)
+  ) {
+    return null;
+  }
+
+  const heroRect = dom.heroSection.getBoundingClientRect();
+  const logoRect = dom.heroLogoMark.getBoundingClientRect();
+
+  dom.heroCloudLayer.style.top = `${Math.max(0, logoRect.top - heroRect.top).toFixed(2)}px`;
+
+  const layerRect = dom.heroCloudLayer.getBoundingClientRect();
+  const layerWidth = layerRect.width || dom.heroCloudLayer.clientWidth || 0;
+  const layerHeight = layerRect.height || dom.heroCloudLayer.clientHeight || 0;
+
+  if (layerWidth <= 0 || layerHeight <= 0) {
+    return null;
+  }
+
+  return {
+    layerWidth,
+    layerHeight,
+    logoWidth: logoRect.width || 0,
+  };
+}
+
+function sampleHeroCloudSpeed(item) {
+  return item.layerWidth * randomBetween(item.speedRatioRange[0], item.speedRatioRange[1]);
+}
+
+function assignHeroCloudTargets(item, timestampMs, nearEdge = false) {
+  const shouldDim = Math.random() < 0.2;
+  item.targetSpeed = sampleHeroCloudSpeed(item);
+  item.targetOpacity = shouldDim
+    ? randomBetween(item.dimOpacityRange[0], item.dimOpacityRange[1])
+    : randomBetween(item.opacityRange[0], item.opacityRange[1]);
+  item.nextVariationAt = timestampMs + randomBetween(4000, 9000);
+}
+
+function configureHeroCloudItem(item, geometry, timestampMs, initial = false) {
+  const layoutMode = getHeroCloudLayoutMode();
+  const widthRange = resolveHeroCloudResponsiveRange(item.config.widthRange, layoutMode);
+  const topRange = resolveHeroCloudResponsiveRange(item.config.topRange, layoutMode);
+
+  item.speedRatioRange = resolveHeroCloudResponsiveRange(item.config.speedRatioRange, layoutMode);
+  item.opacityRange = item.config.opacityRange;
+  item.dimOpacityRange = item.config.dimOpacityRange;
+  item.layerWidth = geometry.layerWidth;
+  item.layerHeight = geometry.layerHeight;
+
+  const edgeBuffer = Math.max(
+    18,
+    Math.min(96, Math.max(geometry.layerWidth * 0.045, geometry.logoWidth * 0.16))
   );
-}
+  const widthPx = Math.max(
+    geometry.layerWidth * randomBetween(widthRange[0], widthRange[1]),
+    geometry.layerWidth + edgeBuffer * 2.4
+  );
+  
+  // Set up left-to-right movement
+  // minX: starting position (left side, cloud fully off-screen)
+  // maxX: ending position (right side, cloud fully off-screen)
+  item.minX = -widthPx - edgeBuffer;
+  item.maxX = geometry.layerWidth + edgeBuffer;
+  
+  // No turn points needed anymore
+  item.turnMinX = item.minX;
+  item.turnMaxX = item.maxX;
 
-function assignHeroCloudTargets(item, timestampMs) {
-  const speedProfile = sampleHeroCloudSpeedProfile(item.isPrimaryLayer);
-  const fullyOpaquePass = Math.random() < (item.isPrimaryLayer ? 0.18 : 0.08);
+  // Start at random position for initial load, or at left edge for regeneration
+  if (initial) {
+    item.x = randomBetween(item.minX, item.maxX * 0.6);
+  } else {
+    item.x = item.minX;
+  }
+  
+  item.direction = 1; // Always move right
+  item.speed = 0;
+  item.targetSpeed = 0;
+  item.currentOpacity = 0;
+  item.targetOpacity = 0;
 
-  item.targetSpeed = randomBetween(speedProfile.speedMin, speedProfile.speedMax);
-  item.nextVariationAt = timestampMs + randomBetween(speedProfile.holdMin, speedProfile.holdMax);
-  item.targetPeakOpacity = fullyOpaquePass
-    ? 1
-    : item.isPrimaryLayer
-      ? randomBetween(0.44, 0.82)
-      : randomBetween(0.24, 0.56);
-  item.targetLayerBOpacity = fullyOpaquePass
-    ? item.isPrimaryLayer
-      ? 1
-      : 0.86
-    : item.isPrimaryLayer
-      ? randomBetween(0.66, 0.9)
-      : randomBetween(0.34, 0.64);
-  item.targetLayerCOpacity = item.isPrimaryLayer
-    ? fullyOpaquePass
-      ? 0.94
-      : randomBetween(0.42, 0.76)
-    : item.targetLayerCOpacity;
-  item.targetFloatY = item.isPrimaryLayer
-    ? randomBetween(-10, 8)
-    : randomBetween(-6, 12);
-  item.floatAmplitude = item.isPrimaryLayer
-    ? randomBetween(3.2, 6.8)
-    : randomBetween(4.8, 8.2);
-  item.breatheIntensity = item.isPrimaryLayer
-    ? randomBetween(0.016, 0.038)
-    : randomBetween(0.02, 0.044);
-  item.breatheSpeed = item.isPrimaryLayer
-    ? randomBetween(0.16, 0.28)
-    : randomBetween(0.12, 0.22);
-}
+  item.element.style.top = `${(geometry.layerHeight * randomBetween(topRange[0], topRange[1]) - 30).toFixed(2)}px`;
+  item.element.style.width = `${widthPx.toFixed(2)}px`;
+  item.element.style.zIndex = String(item.config.zIndex);
+  item.element.style.filter = `blur(${randomBetween(item.config.blurRange[0], item.config.blurRange[1]).toFixed(2)}px)`;
 
-function resetHeroCloudState(item, timestampMs, initial = false) {
-  item.startX = item.isPrimaryLayer ? randomBetween(-48, -40) : randomBetween(-60, -52);
-  item.resetX = item.isPrimaryLayer ? 28 : 24;
-  item.fadeInStartX = item.startX + (item.isPrimaryLayer ? 10 : 12);
-  item.fadeInEndX = item.startX + (item.isPrimaryLayer ? 30 : 34);
-  item.fadeOutStartX = item.resetX - (item.isPrimaryLayer ? 11 : 9);
-  item.fadeOutEndX = item.resetX + 2;
-  item.baseY = item.isPrimaryLayer ? randomBetween(-6, 3) : randomBetween(-2, 6);
-  item.targetFloatY = item.baseY;
-  item.floatY = item.baseY;
-  item.phase = randomBetween(0, Math.PI * 2);
-  item.phaseOffset = randomBetween(0, Math.PI * 2);
-  item.x = initial
-    ? randomBetween(item.fadeInStartX + 3, item.resetX - (item.isPrimaryLayer ? 10 : 8))
-    : item.startX;
   assignHeroCloudTargets(item, timestampMs);
-  item.speed = item.targetSpeed * randomBetween(0.92, 1.04);
-  item.currentPeakOpacity = item.targetPeakOpacity;
-  item.currentLayerBOpacity = item.targetLayerBOpacity;
-  item.currentLayerCOpacity = item.targetLayerCOpacity || 0;
-  item.currentOpacity = initial ? 0 : 0;
-}
 
-function getHeroCloudVisibleOpacity(item) {
-  const fadeIn = smoothstep(item.fadeInStartX, item.fadeInEndX, item.x);
-  const fadeOut = 1 - smoothstep(item.fadeOutStartX, item.fadeOutEndX, item.x);
-  return clamp(fadeIn * fadeOut, 0, 1) * item.currentPeakOpacity;
+  if (initial) {
+    // For initial load, randomize which clouds are visible
+    if (Math.random() < 0.6) {
+      item.speed = item.targetSpeed * randomBetween(0.9, 1.08);
+      item.currentOpacity = randomBetween(item.opacityRange[0], item.opacityRange[1]);
+    } else {
+      item.speed = item.targetSpeed;
+      item.currentOpacity = 0;
+    }
+  } else {
+    item.speed = item.targetSpeed;
+    item.currentOpacity = item.targetOpacity;
+  }
+
+  renderHeroCloudState(item);
 }
 
 function renderHeroCloudState(item) {
-  const bob = Math.sin(item.phase) * item.floatAmplitude;
-  const stretch = Math.sin(item.phase * 0.78 + item.phaseOffset) * item.breatheIntensity;
-  const scaleX = item.baseScaleX + stretch;
-  const scaleY = item.baseScaleY - stretch * 0.52;
-  const travelY = item.floatY + bob;
-
   item.element.style.opacity = item.currentOpacity.toFixed(3);
-  item.element.style.transform = `translate3d(${item.x.toFixed(3)}%, calc(var(--hero-cloud-render-shift-y) + ${travelY.toFixed(2)}px), 0) scale(${scaleX.toFixed(4)}, ${scaleY.toFixed(4)}) rotate(var(--hero-cloud-rotation))`;
-  item.element.style.setProperty(
-    "--hero-cloud-primary-layer-b-current-opacity",
-    item.currentLayerBOpacity.toFixed(3)
-  );
-  item.element.style.setProperty(
-    "--hero-cloud-primary-layer-c-current-opacity",
-    item.currentLayerCOpacity.toFixed(3)
-  );
-  item.element.style.setProperty(
-    "--hero-cloud-secondary-layer-b-current-opacity",
-    item.currentLayerBOpacity.toFixed(3)
-  );
+  item.element.style.transform = `translate3d(${item.x.toFixed(2)}px, 0, 0)`;
 }
 
 function stopHeroCloudMotion() {
@@ -2569,28 +4180,37 @@ function stepHeroCloudMotion(timestampMs) {
   heroCloudMotionState.lastFrameMs = timestampMs;
 
   heroCloudMotionState.items.forEach((item) => {
-    if (timestampMs >= item.nextVariationAt) {
-      assignHeroCloudTargets(item, timestampMs);
-    }
-
-    item.speed += (item.targetSpeed - item.speed) * Math.min(1, deltaSeconds * 0.3);
-    item.floatY += (item.targetFloatY - item.floatY) * Math.min(1, deltaSeconds * 0.22);
-    item.currentPeakOpacity +=
-      (item.targetPeakOpacity - item.currentPeakOpacity) * Math.min(1, deltaSeconds * 0.2);
-    item.currentLayerBOpacity +=
-      (item.targetLayerBOpacity - item.currentLayerBOpacity) * Math.min(1, deltaSeconds * 0.22);
-    item.currentLayerCOpacity +=
-      ((item.targetLayerCOpacity || 0) - item.currentLayerCOpacity) *
-      Math.min(1, deltaSeconds * 0.22);
-    item.phase += deltaSeconds * item.breatheSpeed;
+    // Update speed and opacity smoothly
+    item.speed += (item.targetSpeed - item.speed) * Math.min(1, deltaSeconds * 1.4);
+    item.currentOpacity +=
+      (item.targetOpacity - item.currentOpacity) * Math.min(1, deltaSeconds * 0.85);
+    
+    // Move cloud from left to right
     item.x += item.speed * deltaSeconds;
 
-    if (item.x >= item.resetX + 2) {
-      resetHeroCloudState(item, timestampMs, false);
+    // Check if cloud has completely left the screen (last pixel is out)
+    if (item.x >= item.maxX) {
+      // Reset cloud to start from left side again
+      item.x = item.minX;
+      // Randomize properties for variety
+      assignHeroCloudTargets(item, timestampMs, false);
+      // Randomly decide if this cloud should appear or wait
+      if (Math.random() < 0.7) {
+        item.currentOpacity = 0;
+        item.targetOpacity = randomBetween(item.opacityRange[0], item.opacityRange[1]);
+      } else {
+        // Sometimes keep it invisible for a while
+        item.currentOpacity = 0;
+        item.targetOpacity = 0;
+        item.nextVariationAt = timestampMs + randomBetween(2000, 5000);
+      }
     }
 
-    const targetOpacity = getHeroCloudVisibleOpacity(item);
-    item.currentOpacity += (targetOpacity - item.currentOpacity) * Math.min(1, deltaSeconds * 0.45);
+    // Check if it's time to change opacity/speed variation
+    if (timestampMs >= item.nextVariationAt) {
+      assignHeroCloudTargets(item, timestampMs, false);
+    }
+
     renderHeroCloudState(item);
   });
 
@@ -2600,72 +4220,44 @@ function stepHeroCloudMotion(timestampMs) {
 function initHeroClouds() {
   stopHeroCloudMotion();
 
-  if (!dom.heroClouds.length) {
+  const clouds = ensureHeroCloudNodes();
+  const geometry = syncHeroCloudLayerGeometry();
+
+  if (!clouds.length || !geometry) {
     return;
   }
 
-  if (prefersReducedMotionQuery.matches) {
-    dom.heroClouds.forEach((cloud, index) => {
-      const isPrimaryLayer = index === 0;
-      const scaleX = isPrimaryLayer ? 1 : 0.98;
-      const scaleY = isPrimaryLayer ? 1 : 0.96;
+  const timestampMs = performance.now();
 
-      cloud.style.opacity = isPrimaryLayer ? "0.32" : "0.24";
-      cloud.style.transform = `translate3d(0%, calc(var(--hero-cloud-render-shift-y) + 0px), 0) scale(${scaleX}, ${scaleY}) rotate(var(--hero-cloud-rotation))`;
-      cloud.style.setProperty(
-        "--hero-cloud-primary-layer-b-current-opacity",
-        isPrimaryLayer ? "0.78" : "0.5"
-      );
-      cloud.style.setProperty(
-        "--hero-cloud-primary-layer-c-current-opacity",
-        isPrimaryLayer ? "0.58" : "0"
-      );
-      cloud.style.setProperty(
-        "--hero-cloud-secondary-layer-b-current-opacity",
-        isPrimaryLayer ? "0.78" : "0.46"
-      );
-    });
-    return;
-  }
-
-  heroCloudMotionState.items = Array.from(dom.heroClouds).map((cloud, index) => {
+  heroCloudMotionState.items = clouds.map((cloud, index) => {
     const item = {
       element: cloud,
-      isPrimaryLayer: index === 0,
-      baseScaleX: index === 0 ? 1 : 0.98,
-      baseScaleY: index === 0 ? 1 : 0.96,
-      startX: 0,
-      resetX: 0,
-      fadeInStartX: 0,
-      fadeInEndX: 0,
-      fadeOutStartX: 0,
-      fadeOutEndX: 0,
+      config: HERO_CLOUD_ASSETS[index],
+      layerWidth: geometry.layerWidth,
+      layerHeight: geometry.layerHeight,
+      minX: 0,
+      maxX: 0,
+      turnMinX: 0,
+      turnMaxX: 0,
       x: 0,
+      direction: 1,
       speed: 0,
       targetSpeed: 0,
-      nextVariationAt: 0,
       currentOpacity: 0,
-      currentPeakOpacity: 0,
-      targetPeakOpacity: 0,
-      currentLayerBOpacity: index === 0 ? 0.82 : 0.5,
-      targetLayerBOpacity: index === 0 ? 0.82 : 0.5,
-      currentLayerCOpacity: index === 0 ? 0.64 : 0,
-      targetLayerCOpacity: index === 0 ? 0.64 : 0,
-      baseY: 0,
-      floatY: 0,
-      targetFloatY: 0,
-      floatAmplitude: 0,
-      breatheIntensity: 0,
-      breatheSpeed: 0,
-      phase: 0,
-      phaseOffset: 0,
+      targetOpacity: 0,
+      nextVariationAt: 0,
+      speedRatioRange: [0, 0],
+      opacityRange: [0, 0],
+      dimOpacityRange: [0, 0],
     };
 
-    resetHeroCloudState(item, performance.now(), true);
-    item.currentOpacity = getHeroCloudVisibleOpacity(item);
-    renderHeroCloudState(item);
+    configureHeroCloudItem(item, geometry, timestampMs, true);
     return item;
   });
+
+  if (prefersReducedMotionQuery.matches) {
+    return;
+  }
 
   heroCloudMotionState.lastFrameMs = 0;
   heroCloudFrame = window.requestAnimationFrame(stepHeroCloudMotion);
@@ -3694,19 +5286,13 @@ function startNetworkLayer() {
 }
 
 function setLanguage(langKey) {
-  if (!translations[langKey]) {
+  if (!translations[langKey] || langKey === currentLang) {
     return;
   }
 
-  currentLang = langKey;
-  persistLanguagePreference(currentLang);
-  applyStaticText(currentLang);
-  renderServices(currentLang);
-  renderContactIntake(currentLang);
-  updateLanguageButtons();
-  syncReservationScheduleFrames();
+  persistLanguagePreference(langKey);
   closeMenu();
-  window.requestAnimationFrame(syncProjectCardLayout);
+  window.location.reload();
 }
 
 function persistLanguagePreference(langKey) {
@@ -3879,7 +5465,11 @@ function refreshSharedShell() {
 
 function initPageContent() {
   cacheDom();
-  serviceRows = [];
+  if (!(dom.contactIntakeForm instanceof HTMLFormElement)) {
+    hideContactStatusPopup();
+  }
+  servicePanels = [];
+  blockServiceHoverPreview();
   observeReveals();
   initHeroClouds();
   initContactIntake();
@@ -3896,11 +5486,14 @@ function initPageContent() {
   updateLanguageButtons();
   syncReservationScheduleFrames();
   syncProjectCardLayout();
+  syncServicePanelHeights();
   updateHeaderState();
   setHeaderLogoDocked(computeShouldDockHeaderLogo(), { animate: false });
   if (document.fonts?.ready) {
     document.fonts.ready.then(() => {
+      initHeroClouds();
       syncProjectCardLayout();
+      syncServicePanelHeights();
     });
   }
 }
@@ -3987,6 +5580,8 @@ function initEvents() {
     const element = target instanceof Element ? target : null;
     const menuToggle = element?.closest(".menu-toggle");
     const langButton = element?.closest(".lang-btn");
+    const popupClose = element?.closest("[data-contact-popup-close]");
+    const contactSelectRoot = element?.closest("[data-contact-select]");
     const navLink = element?.closest("a");
 
     if (menuToggle instanceof HTMLButtonElement) {
@@ -3997,6 +5592,15 @@ function initEvents() {
     if (langButton instanceof HTMLButtonElement && langButton.dataset.lang) {
       setLanguage(langButton.dataset.lang);
       return;
+    }
+
+    if (popupClose instanceof HTMLButtonElement) {
+      dismissContactStatusPopup();
+      return;
+    }
+
+    if (!(contactSelectRoot instanceof HTMLElement)) {
+      closePreferredContactMenu();
     }
 
     if (navLink instanceof HTMLAnchorElement) {
@@ -4030,9 +5634,6 @@ function initEvents() {
       closeMenu();
     }
 
-    if (!(target instanceof Element) || !target.closest(".service-row")) {
-      closeAllRows();
-    }
   });
 
   window.addEventListener(
@@ -4059,6 +5660,7 @@ function initEvents() {
         networkState.pointerInitialized = true;
       }
       networkState.pointerActive = true;
+      releaseServiceHoverPreview(event.target);
     },
     { passive: true }
   );
@@ -4083,7 +5685,9 @@ function initEvents() {
     resizeTimer = window.setTimeout(() => {
       startNetworkLayer();
       updateHeaderLogoDocking();
+      initHeroClouds();
       syncProjectCardLayout();
+      syncServicePanelHeights();
     }, 160);
   });
 

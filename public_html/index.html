@@ -58,15 +58,20 @@
             <p class="eyebrow" data-i18n="hero.eyebrow"></p>
             <h1 data-i18n="hero.title"></h1>
             <p class="hero-subtitle" data-i18n="hero.subtitle"></p>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="#contact" data-i18n="hero.primaryCta"></a>
-              <a class="btn btn-secondary" href="#services" data-i18n="hero.secondaryCta"></a>
-            </div>
           </div>
 
-          <div class="hero-art reveal" aria-hidden="true">
-            <div class="hero-logo-mark">
-              <img src="assets/images/logo.png" alt="" width="220" height="220" />
+          <div class="hero-side reveal">
+            <div class="hero-art" aria-hidden="true">
+              <div class="hero-logo-mark">
+                <img src="assets/images/logo.png" alt="" width="220" height="220" />
+              </div>
+            </div>
+
+            <div class="hero-actions-wrapper">
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="#contact" data-i18n="hero.primaryCta"></a>
+                <a class="btn btn-secondary" href="#services" data-i18n="hero.secondaryCta"></a>
+              </div>
             </div>
           </div>
         </div>
@@ -89,7 +94,6 @@
           <div class="contact-card contact-intake-card reveal">
             <div class="contact-intake-layout">
               <div class="contact-intake-aside">
-                <p class="section-tag" data-i18n="contact.tag"></p>
                 <h2 data-i18n="contact.title"></h2>
                 <p class="section-note" data-i18n="contact.text"></p>
                 <ul class="contact-intake-highlights">
@@ -97,10 +101,7 @@
                   <li data-i18n="contact.intake.point2"></li>
                   <li data-i18n="contact.intake.point3"></li>
                 </ul>
-                <div class="contact-links">
-                  <a class="contact-link" href="tel:+385916309013">+385 91 6309 013</a>
-                  <a class="contact-link" href="mailto:info@etherr.hr">info@etherr.hr</a>
-                </div>
+                <p class="section-note contact-closing-text" data-i18n="contact.intake.closing" style="margin-top: 0.3rem;"></p>
               </div>
 
               <form class="contact-intake-form" id="contactIntakeForm" novalidate>
@@ -189,14 +190,34 @@
                       <span data-i18n="contact.intake.fields.phone"></span>
                       <input type="tel" data-contact-field="phone" autocomplete="tel" />
                     </label>
-                    <label class="contact-field">
+                    <div class="contact-field contact-field-select">
                       <span data-i18n="contact.intake.fields.contactMethod"></span>
-                      <select data-contact-field="preferredContact">
-                        <option value="email" data-i18n="contact.intake.contactMethod.email"></option>
-                        <option value="phone" data-i18n="contact.intake.contactMethod.phone"></option>
-                        <option value="video" data-i18n="contact.intake.contactMethod.video"></option>
-                      </select>
-                    </label>
+                      <div class="contact-select" data-contact-select>
+                        <input type="hidden" data-contact-field="preferredContact" />
+                        <button
+                          class="contact-select-trigger"
+                          type="button"
+                          data-contact-select-trigger
+                          aria-haspopup="listbox"
+                          aria-expanded="false"
+                          aria-controls="contactPreferredContactMenu"
+                        >
+                          <span class="contact-select-trigger-label" data-contact-select-label></span>
+                          <span class="contact-select-trigger-icon" aria-hidden="true"></span>
+                        </button>
+                        <div
+                          class="contact-select-menu"
+                          id="contactPreferredContactMenu"
+                          data-contact-select-menu
+                          role="listbox"
+                          hidden
+                        >
+                          <button type="button" class="contact-select-option" role="option" data-contact-select-option="email"></button>
+                          <button type="button" class="contact-select-option" role="option" data-contact-select-option="phone"></button>
+                          <button type="button" class="contact-select-option" role="option" data-contact-select-option="video"></button>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </section>
 
