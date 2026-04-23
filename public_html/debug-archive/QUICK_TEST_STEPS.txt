@@ -1,0 +1,41 @@
+🔍 QUICK MOBILE DEBUGGING STEPS
+================================
+
+📦 UPLOAD THESE FILES:
+- error-logger.js
+- projekti-safe.html
+- projekti.html (updated)
+
+🧪 TEST ON IPHONE:
+
+Option 1: SAFE MODE (Best for finding exact cause)
+---------------------------------------------------
+1. Open: https://etherr.hr/projekti-safe.html
+2. You'll see red "SAFE MODE" banner
+3. Scroll slowly - does it crash?
+4. Click "Load Keef Demo" - crash?
+5. Click "Load Keep Going Demo" - crash?
+6. Scroll to "Test 2: Reservation Section"
+7. Click "Load Schedule Demo" - crash?
+8. Click "Load Calendar Demo" - crash?
+9. Click "Load BOTH at once" - crash? ← SUSPECTED CAUSE
+10. Click red "Export Error Logs" button
+11. Paste logs and send to me
+
+Option 2: MAIN PAGE (Test with logging)
+----------------------------------------
+1. Open: https://etherr.hr/projekti.html
+2. You'll see red error banner at top (if errors occur)
+3. Red "Export Logs" button in bottom-right
+4. Use page normally until crash
+5. If possible, click "Export Logs" before crash
+6. Send logs to me
+
+📋 WHAT TO SEND ME:
+- Which browser (Safari/Chrome)
+- When it crashed (immediately/after scroll/which section)
+- The exported logs (copy/paste)
+- Did Safe Mode work better?
+- Which button in Safe Mode caused crash?
+
+💡 TIP: Test in Safe Mode first - it will tell us exactly which iframe causes the crash!

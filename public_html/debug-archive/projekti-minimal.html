@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projekti - Minimal Test</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0a1f21;
+      color: white;
+      padding: 20px;
+      margin: 0;
+    }
+    .section {
+      min-height: 100vh;
+      padding: 40px 20px;
+      margin-bottom: 20px;
+      background: rgba(47, 153, 153, 0.1);
+      border-radius: 12px;
+      border-left: 4px solid #2f9999;
+    }
+    h1 { color: #2f9999; font-size: 24px; margin-bottom: 10px; }
+    h2 { color: #2f9999; font-size: 20px; margin-bottom: 10px; }
+    .status {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #ff6b00;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+      z-index: 9999;
+    }
+    .crash-marker {
+      background: #ff0000;
+      color: white;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="status" id="status">Loading...</div>
+
+  <div class="section" id="section1">
+    <h1>Section 1: Intro</h1>
+    <p>Scroll down slowly. Watch the orange banner for section numbers.</p>
+    <p>If it crashes, note which section number you were at.</p>
+  </div>
+
+  <div class="section" id="section2">
+    <h2>Section 2: Keef (NO IFRAME)</h2>
+    <p>This section has NO iframe - just text.</p>
+    <p>If you can read this, Section 2 is safe.</p>
+  </div>
+
+  <div class="section" id="section3">
+    <h2>Section 3: Keep Going (NO IFRAME)</h2>
+    <p>This section has NO iframe - just text.</p>
+    <p>If you can read this, Section 3 is safe.</p>
+  </div>
+
+  <div class="section" id="section4">
+    <h2>Section 4: Before Reservation</h2>
+    <p>Next section is the RESERVATION section with 2 iframes.</p>
+    <div class="crash-marker">
+      ⚠️ CRITICAL: Next section loads 2 iframes<br>
+      If crash happens, it's likely in Section 5
+    </div>
+  </div>
+
+  <div class="section" id="section5">
+    <h2>Section 5: RESERVATION (2 IFRAMES)</h2>
+    <p>⚠️ This section has 2 iframes loading:</p>
+    
+    <div style="background: rgba(255,0,0,0.2); padding: 15px; margin: 10px 0; border-radius: 8px;">
+      <p><strong>Iframe 1: Reservation Schedule</strong></p>
+      <iframe 
+        src="reservation-schedule-demo.html" 
+        style="width: 100%; height: 300px; border: none; border-radius: 8px;"
+        loading="lazy"
+      ></iframe>
+    </div>
+
+    <div style="background: rgba(255,0,0,0.2); padding: 15px; margin: 10px 0; border-radius: 8px;">
+      <p><strong>Iframe 2: Reservation Calendar</strong></p>
+      <iframe 
+        src="reservation-calendar-demo.html" 
+        style="width: 100%; height: 300px; border: none; border-radius: 8px;"
+        loading="lazy"
+      ></iframe>
+    </div>
+
+    <p>If you can read this, both reservation iframes loaded successfully!</p>
+  </div>
+
+  <div class="section" id="section6">
+    <h2>Section 6: After Reservation</h2>
+    <p>✅ You made it past the reservation section!</p>
+    <p>This means the reservation iframes are NOT the problem.</p>
+  </div>
+
+  <div class="section" id="section7">
+    <h2>Section 7: Almagea (NO IFRAME)</h2>
+    <p>This section has NO iframe - just text.</p>
+  </div>
+
+  <div class="section" id="section8">
+    <h2>Section 8: Juvy (1 IFRAME)</h2>
+    <div style="background: rgba(255,255,0,0.2); padding: 15px; margin: 10px 0; border-radius: 8px;">
+      <p><strong>Iframe: Juvy Demo</strong></p>
+      <iframe 
+        src="juvy-demo.html" 
+        style="width: 100%; height: 300px; border: none; border-radius: 8px;"
+        loading="lazy"
+      ></iframe>
+    </div>
+  </div>
+
+  <div class="section" id="section9">
+    <h2>Section 9: Ripple (1 IFRAME)</h2>
+    <div style="background: rgba(255,255,0,0.2); padding: 15px; margin: 10px 0; border-radius: 8px;">
+      <p><strong>Iframe: Ripple Dashboard</strong></p>
+      <iframe 
+        src="assets/ripple/dist/ripple-hosting/wp-partner-overview.html" 
+        style="width: 100%; height: 300px; border: none; border-radius: 8px;"
+        loading="lazy"
+      ></iframe>
+    </div>
+  </div>
+
+  <div class="section" id="section10">
+    <h2>Section 10: END</h2>
+    <p style="font-size: 24px; color: #00ff00;">🎉 SUCCESS!</p>
+    <p>You scrolled through the entire page without crashing!</p>
+    <p><strong>Current section:</strong> <span id="current-section">10</span></p>
+  </div>
+
+  <script>
+    const sections = document.querySelectorAll('.section');
+    const status = document.getElementById('status');
+    const currentSectionSpan = document.getElementById('current-section');
+    
+    let lastSection = 0;
+    
+    function updateStatus() {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const scrollCenter = scrollY + (windowHeight / 2);
+      
+      sections.forEach((section, index) => {
+        const rect = section.getBoundingClientRect();
+        const sectionTop = scrollY + rect.top;
+        const sectionBottom = sectionTop + rect.height;
+        
+        if (scrollCenter >= sectionTop && scrollCenter <= sectionBottom) {
+          const sectionNum = index + 1;
+          if (sectionNum !== lastSection) {
+            lastSection = sectionNum;
+            status.textContent = `Section ${sectionNum} of 10`;
+            currentSectionSpan.textContent = sectionNum;
+            console.log(`Entered Section ${sectionNum}`);
+            
+            // Store in localStorage in case of crash
+            try {
+              localStorage.setItem('last-section', sectionNum);
+            } catch(e) {}
+          }
+        }
+      });
+    }
+    
+    window.addEventListener('scroll', updateStatus, { passive: true });
+    updateStatus();
+    
+    // Check if we crashed before
+    try {
+      const lastSec = localStorage.getItem('last-section');
+      if (lastSec) {
+        console.log(`Last time crashed at or after section: ${lastSec}`);
+      }
+    } catch(e) {}
+    
+    window.addEventListener('load', () => {
+      console.log('Page fully loaded');
+      status.textContent = 'Ready - Scroll slowly';
+    });
+  </script>
+</body>
+</html>

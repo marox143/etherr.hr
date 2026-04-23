@@ -506,6 +506,17 @@
 })();
 
 function initFloatingLogo() {
+    // Disable floating logo animations on mobile — too many simultaneous animations crash iOS
+    if (window.innerWidth <= 768) {
+        var wrappers = document.querySelectorAll('.qr-digital-pricelist-floating-logo');
+        wrappers.forEach(function (wrapper) {
+            if (wrapper && wrapper.parentNode) {
+                wrapper.parentNode.removeChild(wrapper);
+            }
+        });
+        return;
+    }
+
     var wrappers = document.querySelectorAll('.qr-digital-pricelist-floating-logo');
     if (!wrappers.length) {
         return;

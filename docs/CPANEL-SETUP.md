@@ -18,6 +18,8 @@ The project uses a security-enhanced structure:
 
 This structure prevents credentials, logs, and dependencies from being accessed via HTTP.
 
+The current stable site also includes self-hosted project demo assets inside `public_html/assets/` and an optional `public_html/debug-archive/` used only for explicit mobile-debug sessions.
+
 ## Step 1: Upload Project Files
 
 ### 1.1 Connect via FTP/SFTP or File Manager
@@ -34,18 +36,28 @@ Upload all project files to your cPanel account root directory (e.g., `/home/use
 │   ├── projekti.html
 │   ├── about.html
 │   ├── privacy.html
+│   ├── *-demo.html
 │   ├── style.css
 │   ├── script.js
 │   ├── shared-header.js
+│   ├── debug-archive/
 │   ├── api/
 │   │   └── contact-intake.php
 │   ├── assets/
-│   └── demos/
+│   └── ...
 ├── docs/                  # Documentation (optional)
 └── scripts/               # Development scripts (optional)
 ```
 
 **Important**: Upload the entire `public_html/` directory, not just its contents.
+
+If you prefer to assemble a single hosting bundle locally first:
+
+```bash
+bash scripts/build-hosting-package.sh
+```
+
+That script writes a package to `dist/` and includes `public_html/`, `vendor/`, `.env.example`, and Composer manifests.
 
 ### 1.2 Verify Upload
 
@@ -53,6 +65,7 @@ Check that:
 - `public_html/` directory exists in `/home/username/`
 - `public_html/index.html` exists
 - `public_html/api/contact-intake.php` exists
+- `public_html/projekti.html` and the `*-demo.html` files exist
 - `.env.example` exists in `/home/username/`
 
 ## Step 2: Configure cPanel
@@ -518,22 +531,23 @@ For issues not covered here:
     ├── projekti.html              # Projects page
     ├── about.html                 # About page
     ├── privacy.html               # Privacy policy
+    ├── *-demo.html                # Local showcase demos
     ├── style.css                  # Global styles
     ├── script.js                  # Global JavaScript
     ├── shared-header.js           # Shared navigation
+    ├── debug-archive/             # Optional mobile-debug assets
     ├── api/
     │   └── contact-intake.php     # Contact form endpoint
     ├── assets/                    # Media and project assets
     │   ├── images/
     │   ├── almagea/
     │   ├── juvy/
+    │   ├── juvy-site/
+    │   ├── keepgoing-site/
     │   ├── dfa/
     │   ├── kota/
+    │   ├── projects-mobile/
     │   └── qr-digital-pricelist/
-    └── demos/                     # Demo pages for iframes
-        ├── almagea/
-        ├── juvy/
-        └── ...
 ```
 
 **Legend**:

@@ -1,6 +1,6 @@
 # Project Structure
 
-This document describes the cPanel-compatible directory structure of the Etherr website.
+This document describes the cPanel-compatible directory structure of the Etherr website as of the current stable snapshot.
 
 ## Directory Layout
 
@@ -13,20 +13,26 @@ etherr-website/
 │   ├── projekti.html         # Projects page
 │   ├── about.html            # About page
 │   ├── privacy.html          # Privacy policy
-│   ├── *-demo.html           # Demo pages for project showcases
+│   ├── *-demo.html           # Local demo pages used by the projects showcase
 │   ├── style.css             # Global styles
 │   ├── script.js             # Global JavaScript
 │   ├── shared-header.js      # Shared navigation component
+│   ├── debug-archive/        # Optional mobile-debug assets
 │   ├── api/
 │   │   ├── contact-intake.php  # Contact form endpoint
 │   │   └── README.md
 │   └── assets/               # Media and project assets
 │       ├── images/           # Global UI assets
 │       ├── clouds/           # Hero background images
+│       ├── icons/            # Shared action-arrow mask assets
+│       ├── content/          # Source/reference content files
 │       ├── almagea/          # Project-specific assets
-│       ├── juvy/
 │       ├── dfa/
-│       ├── kota/
+│       ├── juvy/             # Local Juvy hero media (mp4 + poster)
+│       ├── juvy-site/        # Bundled Juvy WordPress snapshot
+│       ├── keepgoing-site/   # Bundled Keep Going WordPress snapshot
+│       ├── kota/             # Legacy showcase assets retained in repo
+│       ├── projects-mobile/  # Lightweight preview imagery
 │       ├── qr-digital-pricelist/
 │       └── ripple/
 ├── .env                      # Environment configuration (OUTSIDE web root)
@@ -44,12 +50,17 @@ etherr-website/
 │   ├── SECURITY-CHECKLIST.md
 │   ├── MAINTENANCE.md
 │   ├── CODEBASE-AUDIT.md
-│   └── CPANEL-SETUP.md
+│   ├── CPANEL-SETUP.md
+│   ├── STABLE-SNAPSHOT-2026-04-23.md
+│   ├── 01-services-content-spec.md
+│   ├── 02-implementation-brief.md
+│   └── 03-codex-starter-prompt.md
 └── scripts/                  # Development scripts (OUTSIDE web root)
     ├── start-localhost3000.sh
     ├── stop-localhost3000.sh
     ├── check-site.sh
-    └── smoke-contact-api.sh
+    ├── smoke-contact-api.sh
+    └── build-hosting-package.sh
 ```
 
 ## Public vs. Private File Separation
@@ -61,6 +72,8 @@ All files that need to be accessible via HTTP:
 - CSS and JavaScript files
 - Images and media assets
 - PHP API endpoints
+- Self-hosted project demo snapshots and preview assets
+- Optional debug helpers activated only by explicit query/localStorage flags
 
 ### Private Files (outside `public_html/`)
 
@@ -117,14 +130,26 @@ deployment:
 
 Sensitive files (`.env`, `vendor/`, `var/`) must be configured separately on the server outside the web root.
 
+Project demos are part of the public runtime. In the current stable version that includes:
+
+- top-level `*-demo.html` files
+- local demo dependencies in `public_html/assets/juvy-site/`
+- local demo dependencies in `public_html/assets/keepgoing-site/`
+- QR pricelist assets in `public_html/assets/qr-digital-pricelist/`
+- mobile preview images in `public_html/assets/projects-mobile/`
+
+The optional `public_html/debug-archive/` files are also deployed with the site, but they stay inactive unless the projects page is opened with `?debug-mobile=1` or the matching localStorage flag is set.
+
 ## File Placement Rules
 
 When adding new files:
 
 - **Public files** (HTML, CSS, JS, images, public APIs) → `public_html/`
+- **Self-hosted demo dependencies** (iframe assets, preview images, copied site snapshots) → `public_html/assets/`
 - **Private files** (configs, logs, dependencies, docs) → project root (outside `public_html/`)
 - **Path references** within `public_html/` → use relative paths
 - **PHP paths** to root resources → use `dirname(__DIR__, 2)` from `public_html/api/`
+- **Generated packages / ad-hoc archives** → local output only, keep out of version control unless explicitly required
 
 ## Improvements Implemented
 
@@ -133,7 +158,10 @@ When adding new files:
 3. Updated PHP path resolution for new structure
 4. Updated local development scripts to serve from `public_html/`
 5. Updated deployment configuration to deploy only `public_html/`
-6. Updated all documentation to reflect new structure
+6. Added self-hosted project demo assets for Juvy, Keep Going, and Keef
+7. Added mobile project preview assets and optional debug archive support
+8. Added a packaging script for cPanel-ready hosting bundles
+9. Updated all documentation to reflect the current structure
 
 ## Optional Future Refactors
 

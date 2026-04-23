@@ -13,6 +13,15 @@ A mobile-first digital pricelist/menu plugin for bars, accessible via QR code. M
 - **Gutenberg block** support for modern WordPress
 - **Internationalization ready**
 
+## Current Repository Usage
+
+In this repository the plugin asset bundle is also used to power the self-hosted Keef showcase demo at `public_html/keef-demo.html`.
+
+Current runtime notes:
+
+- `assets/frontend.js` disables the floating-logo animation layer on mobile widths to avoid iOS crashes when the menu is embedded in the Etherr projects page.
+- The Keef demo resolves against local bundled plugin assets instead of loading from the live production domain.
+
 ## Installation
 
 1. Download the plugin ZIP file
@@ -172,7 +181,12 @@ qr-digital-pricelist/
 ├── assets/
 │   ├── admin.js                      # Admin JavaScript
 │   ├── admin.css                     # Admin styles
-│   └── frontend.css                  # Frontend styles
+│   ├── frontend.css                  # Frontend styles
+│   ├── frontend.js                   # Frontend interactions
+│   ├── Float/                        # Floating decorative assets
+│   ├── Fonts/                        # Local font files
+│   ├── Images/                       # Wallpaper/background imagery
+│   └── icons/                        # Category and UI icons
 └── README.md                         # This file
 ```
 
@@ -215,6 +229,7 @@ qr-digital-pricelist/
 - [ ] Category filter works
 - [ ] Show disabled option works
 - [ ] Mobile responsive design
+- [ ] Floating logos are removed on mobile widths without breaking layout
 - [ ] Print styles work
 - [ ] Dark mode support
 

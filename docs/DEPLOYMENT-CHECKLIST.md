@@ -41,6 +41,14 @@ Upload all project files to your cPanel account root directory (e.g., `/home/use
 
 **Security Note**: Sensitive files (`.env`, `vendor/`, `var/`) remain outside `public_html/` and are not web-accessible.
 
+Optional local packaging flow:
+
+```bash
+bash scripts/build-hosting-package.sh
+```
+
+This creates a ready-to-upload zip in `dist/` after dependencies are installed locally.
+
 ### 3.2 Install Dependencies
 
 Connect via SSH and run:
@@ -115,6 +123,7 @@ Runtime files (rate limit, logs) will be created automatically with appropriate 
 - Check `var/contact-intake-log.ndjson` entry (if logging enabled)
 - Confirm message arrival in mailbox + spam folder check
 - Verify all pages load correctly from `public_html/`
+- Verify self-hosted project demos load correctly from local bundled assets
 - Check browser console for any errors
 
 ## File Structure Reference
@@ -134,10 +143,11 @@ Runtime files (rate limit, logs) will be created automatically with appropriate 
     ├── projekti.html
     ├── about.html
     ├── privacy.html
+    ├── *-demo.html
     ├── style.css
     ├── script.js
     ├── api/
     │   └── contact-intake.php
     ├── assets/
-    └── demos/
+    └── debug-archive/
 ```

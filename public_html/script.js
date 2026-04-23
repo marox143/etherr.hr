@@ -25,29 +25,36 @@ const translations = {
           description: "Pregled Etherr projekata, demo rješenja i digitalnih proizvoda.",
         },
         flip: "Okreni karticu projekta",
+        demo: {
+          button: "Vidi demo",
+          close: "Zatvori demo",
+          rotateEyebrow: "Za puni prikaz",
+          rotateText: "Okrenite uređaj u vodoravni položaj kako biste pregledali demo preko cijelog ekrana.",
+          frameTitleSuffix: "demo",
+        },
         intro: {
-          eyebrow: "Pregled projekata i live demonstracija",
-          title: "Projekti koji pokazuju naš digitalni pristup.",
+          eyebrow: "Iz ideje u stvarnost",
+          title: "Kad se sve točkice povežu - dolaze rezultati.",
           subtitle:
-            "Od mobilnih i desktop webshop iskustava do rezervacijskih tokova, ovdje su primjeri stvarnih implementacija i interaktivnih prikaza koje možemo prilagoditi vašem poslovanju.",
+            "Svaki projekt kreće iz ideje ili konkretnog problema. Sve dijelove sustava slažemo tako da rade zajedno - bez nepotrebnih koraka i kompliciranja. Kada je sve povezano kako treba, stvari rade jednostavnije - a klijenti su na kraju zadovoljni.",
         },
         showcase: {
-          tag: "Istaknuti projekt",
-          title: "Keef Bar mobilni QR cjenik.",
-          text: "Interaktivni mobilni prikaz barske ponude s jasnim kategorijama, brzim pregledom artikala i iskustvom optimiziranim za skeniranje QR koda.",
+          tag: "IZRAĐENO PO MJERI",
+          title: "Keef Bar mobilni cjenik.",
+          text: "Custom QR cjenik razvijen kao mobilno optimizirano rješenje, uz WordPress backend za upravljanje proizvodima i zalihama. Sustav uključuje module za rezervacije stolova, narudžbe putem QR koda i dodatne funkcionalnosti koje se mogu prilagoditi različitim poslovanjima.",
           meta: "QR cjenik / mobilni prikaz",
           link: "Posjeti keef.hr",
-          backTag: "Admin i zaliha",
-          backTitle: "Admin panel za cijene i inventar.",
+          backTag: "Admin i upravljanje",
+          backTitle: "Jednostavno upravljanje ponudom u stvarnom vremenu.",
           backText:
-            "Zaposlenici mogu brzo ažurirati cijene, sakriti rasprodane artikle i održavati ponudu točnom bez kompliciranog procesa.",
-          backMeta: "Admin panel / cijene i zaliha",
+            "Admin panel omogućuje brzo ažuriranje cijena, upravljanje zalihama i kontrolu ponude bez kompliciranih procesa. Sučelje je responzivno i prilagođeno zaposlenicima i voditeljima za rad na mobitelima i tabletima.",
+          backMeta: "Admin panel / cijene i zalihe / mobilno sučelje",
         },
         reservation: {
-          tag: "Istaknuti projekt",
-          title: "Rezervacijski sustav za uslužne timove.",
-          text: "Ovdje pripremamo prikaz sustava za rezervacije, termine i operativne potvrde. Kartica ostavlja prostor za budući live iframe i detalje implementacije.",
-          meta: "Rezervacije / pregled sustava",
+          tag: "IZRAĐENO PO MJERI",
+          title: "Rezervacijski sustav za\nuslužne timove.",
+          text: "Prilagođeni sustav za upravljanje smjenama zaposlenika i rezervacijama termina. Rješenje je fleksibilno i može se prilagoditi različitim uslužnim djelatnostima te povezati s web formama za direktno rezerviranje slobodnih termina. Administracijsko sučelje omogućuje voditeljima kontrolu nad rasporedom, dok zaposlenici mogu pratiti smjene i upravljati terminima. U demo prikazu moguće je interaktivno isprobati sustav - s jedne strane kalendar smjena, a s druge kalendar rezervacija.",
+          meta: "Smjene / Rezervacije / Kalendar / Upravljanje / mobilno sučelje",
           link: "Demo uskoro",
           mainToggle: "Prikaži info karticu rezervacijskog sustava",
           panelToggle: "Otvori live prikaz rezervacija",
@@ -65,72 +72,72 @@ const translations = {
           backStageText: "Ista zona koristit će se za dodatni pregled toka i live demonstraciju.",
         },
         ripple: {
-          tag: "Istaknuti projekt",
-          title: "Ripple dashboard za praćenje projekta.",
-          text: "Projektni pregled partnera, radnih paketa i statusa aktivnosti u jednoj kontrolnoj ploči. U live prikazu možete prebaciti na Gantt i pratiti izvedbu kroz mjesece.",
-          meta: "Projektni dashboard / partneri, statusi i Gantt",
+          tag: "IZRAĐENO PO MJERI",
+          title: "Ripple dashboard za praćenje izvedbe projekta.",
+          text: "Interni dashboard za praćenje izvedbe projekta kroz centralizirani pregled radnih paketa, statusa aktivnosti i partnera. Uključuje Gantt prikaz za planiranje i praćenje vremenskog tijeka projekta kroz faze i mjesece.",
+          meta: "Projektni dashboard / Gantt / statusi / partneri",
           mainToggle: "Prikaži info karticu Ripple projekta",
           panelToggle: "Otvori live prikaz Ripple dashboarda",
         },
         kota: {
-          tag: "Istaknuti projekt",
-          title: "Kota Samobor desktop webshop.",
-          text: "Desktop prikaz webshopa s istaknutim hero sliderom, rotirajućim naslovnim vizualima i jasnom strukturom ponude za profesionalnu kozmetiku i frizersku opremu.",
-          meta: "Webshop / desktop prikaz",
+          tag: "WORDPRESS",
+          title: "Kota Samobor webshop.",
+          text: "Webshop za kozmetičke proizvode i opremu za salone. Struktura vodi korisnika kroz kategorije i sadržaj prema brzoj i sigurnoj kupnji.",
+          meta: "WordPress / WooCommerce / Custom dodatci",
           link: "Posjeti kotasamobor.hr",
-          backTag: "Naplate i prodaja",
-          backTitle: "Webshop s integriranim plaćanjima.",
+          backTag: "Marketing i praćenje",
+          backTitle: "Webshop povezan s oglasnim sustavima.",
           backText:
-            "Katalog, košarica i online naplata povezani su u pregledan prodajni tok koji podržava svakodnevne narudžbe i jednostavno upravljanje ponudom.",
-          backMeta: "Webshop / naplata i checkout",
+            "Integracija s Meta Pixelom omogućuje praćenje korisničkog ponašanja i optimizaciju kampanja. Podaci iz webshopa koriste se za preciznije oglašavanje i poboljšanje konverzija kroz cijeli prodajni tok.",
+          backMeta: "Meta Pixel / praćenje / konverzije / oglašavanje",
         },
         juvy: {
-          tag: "Istaknuti projekt",
-          title: "Juvy Skin mobilni skincare webshop.",
-          text: "Mobilni prikaz skincare webshopa s video hero sekcijom, jasnom navigacijom i urednim prijelazom prema shopu, priči brenda i kontaktu.",
-          meta: "Skincare webshop / mobilni prikaz",
+          tag: "WORDPRESS",
+          title: "Juvy Skin webshop.",
+          text: "Skincare webshop s naglaskom na jednostavnost, čisti dizajn i fokus na proizvod. Stranica uklanja sve suvišno i vodi korisnika direktno prema kupnji kroz jasan i elegantan prikaz.",
+          meta: "WordPress / WooCommerce / Custom dodatci",
           link: "Posjeti juvyskin.com",
-          backTag: "Desktop iskustvo",
-          backTitle: "Desktop verzija dostupna je na linku.",
+          backTag: "Jednostavnost i fokus",
+          backTitle: "Manje elemenata, jasniji doživljaj.",
           backText:
-            "Na telefonu je prikazan responzivni mobilni webshop, dok je puna desktop prezentacija s proširenim sadržajem i kompletnim pregledom trgovine dostupna na juvyskin.com.",
-          backMeta: "Desktop webshop / live pregled",
+            "Struktura webshopa svodi sadržaj na ono bitno i omogućuje brzo donošenje odluke. Bez viška koraka i distrakcija, korisničko iskustvo ostaje čisto i usmjereno na proizvod.",
+          backMeta: "UX / jednostavnost / fokus na proizvod",
         },
         keepgoing: {
-          tag: "Istaknuti projekt",
-          title: "Keep Going desktop web stranica.",
-          text: "Desktop prikaz web stranice za terapiju i osobni razvoj s full-width hero sliderom, jasnom navigacijom i sadržajem koji vodi prema upoznavanju, uslugama, blogu i kontaktu.",
-          meta: "Osobni brand / desktop prikaz",
+          tag: "IZRAĐENO PO MJERI",
+          title: "Keep Going web stranica i AI asistent.",
+          text: "Web stranica za osobni razvoj i podršku, s fokusom na jasan sadržaj i osjećaj sigurnosti kroz cijelo korisničko iskustvo. Integrirani AI asistent i test osobnosti pomažu korisnicima da bolje razumiju sebe i pripreme se za prvi razgovor.",
+          meta: "Osobni razvoj / AI podrška / priprema / web",
           link: "Posjeti keepgoing.hr",
-          backTag: "Upiti i sadržaj",
-          backTitle: "Sadržajni funnel s jasnim CTA tokovima.",
+          backTag: "AI i priprema",
+          backTitle: "Strukturirana priprema uz AI i test.",
           backText:
-            "Hero sekcije, stručni sadržaj i kontakt točke rade zajedno kao miran i pregledan tok koji korisnika vodi prema upitu i upoznavanju terapijskog procesa.",
-          backMeta: "Sadržaj / CTA i kontakt",
+            "AI chatbot i test osobnosti zajedno vode korisnika kroz pitanja i pomažu strukturirati misli prije susreta. Na temelju odgovora, korisnik dobiva jasniji uvid, smjernice i konkretne korake za lakši ulazak u razgovor.",
+          backMeta: "AI chatbot / test osobnosti / korisnički uvid",
         },
         almagea: {
-          tag: "Istaknuti projekt",
-          title: "Almagea desktop webshop.",
-          text: "Desktop prikaz webshopa dodataka prehrani s preglednim landing sekcijama, jasnim kategorijama proizvoda i sadržajnom stranicom koja vodi od brenda do kupnje.",
-          meta: "Webshop / desktop prikaz",
+          tag: "WORDPRESS",
+          title: "Almagea webshop.",
+          text: "Desktop i mobilni webshop dodataka prehrani razvijen u WordPressu, uz niz custom funkcija i rješenja. Struktura stranice, kategorije i sadržaj vode korisnika kroz jasan put od brenda do kupnje, bez nepotrebnih koraka.",
+          meta: "WordPress / WooCommerce / Custom dodatci",
           link: "Posjeti almagea.hr",
-          backTag: "Prodaja i naplata",
-          backTitle: "Webshop s promocijama, popustima i checkoutom.",
+          backTag: "Podrška i održavanje",
+          backTitle: "Stabilan sustav uz kontinuiranu podršku.",
           backText:
-            "Prodajni tok povezuje dodatke prehrani, promotivne kampanje, loyalty pogodnosti i online naplatu u iskustvo koje podržava i edukativni sadržaj i direktnu kupnju.",
-          backMeta: "Webshop / promocije i checkout",
+            "Webshop se kontinuirano održava kroz redovne nadogradnje, sigurnosne provjere i backup sustav. Uz tehničku podršku i brzo rješavanje problema, osigurana je stabilnost i pouzdan rad bez prekida.",
+          backMeta: "Održavanje / sigurnost / podrška",
         },
         dfa: {
-          tag: "Istaknuti projekt",
+          tag: "WORDPRESS",
           title: "Designing the Future Academy platforma.",
-          text: "Desktop prikaz edukacijske platforme s full-width hero sliderom, preglednim sekcijama programa i jasnim putanjama prema sadržaju o akademiji, modulima i partnerstvima.",
-          meta: "Edukacijska platforma / desktop prikaz",
+          text: "Edukacijska platforma usmjerena na razvoj digitalnih vještina, STEM područja i pripremu za budućnost. Struktura sadržaja vodi korisnike kroz programe, module i inicijative koje povezuju učenje, praksu i zajednicu.",
+          meta: "Edukacijska platforma / STEM / digitalne vještine",
           link: "Posjeti dfa.fablab.hr",
-          backTag: "Program i zajednica",
-          backTitle: "Nacionalni projekt za digitalne vještine i otpornost.",
+          backTag: "Edukacija i zajednica",
+          backTitle: "Platforma koja povezuje znanje i praksu.",
           backText:
-            "Platforma predstavlja DFA inicijativu, FabAcademy pristup i sadržaje koji povezuju inovacije, praktične module i podršku lokalnim zajednicama.",
-          backMeta: "Edukacija / moduli i partneri",
+            "Projekt promovira STEM edukaciju, digitalne kompetencije i inovacije kroz dostupne programe i sadržaj. Naglasak je na dugoročnom razvoju vještina i jačanju lokalne zajednice kroz konkretne inicijative.",
+          backMeta: "STEM / edukacija / zajednica",
         },
       },
     },
@@ -150,7 +157,7 @@ const translations = {
       subtitle:
         "U Etherru razvijamo web stranice, webshopove i aplikacije - povezujemo ih s marketinškim i AI alatima, te gradimo automatizirane sustave koji zahtijevaju vaš minimalan angažman. Od internih procesa do rješenja prema korisnicima, cilj je da sve radi kao jedna cjelina. Tu smo da povežemo sve točkice i pretvorimo vaše ideje u stvarnost.",
       primaryCta: "Kontaktirajte nas",
-      secondaryCta: "Pogledajte usluge",
+      secondaryCta: "Naši projekti",
     },
     about: {
       hero: {
@@ -410,29 +417,36 @@ const translations = {
           description: "A look at Etherr projects, demo solutions and digital products.",
         },
         flip: "Flip project card",
+        demo: {
+          button: "View demo",
+          close: "Close demo",
+          rotateEyebrow: "For full view",
+          rotateText: "Rotate your device to landscape to view the demo in full screen.",
+          frameTitleSuffix: "demo",
+        },
         intro: {
-          eyebrow: "Project showcase and live demos",
-          title: "Projects that show our digital delivery approach.",
+          eyebrow: "From Idea to Reality",
+          title: "When all the dots connect, results follow.",
           subtitle:
-            "From mobile and desktop webshop experiences to reservation workflows, this page highlights real implementations and interactive previews we can tailor to your operations.",
+            "Every project starts with an idea or a specific problem. We put each part of the system in place so it works together - without unnecessary steps or added complexity. When everything is connected properly, the whole setup runs more smoothly - and clients feel the difference.",
         },
         showcase: {
-          tag: "Featured project",
-          title: "Keef Bar mobile QR menu.",
-          text: "An interactive mobile bar menu with clear categories, fast item browsing and a phone-first experience built for QR code visits.",
+          tag: "CUSTOM-BUILT",
+          title: "Keef Bar mobile menu.",
+          text: "A custom QR menu built as a mobile-first solution, with a WordPress backend for managing products and stock. The system includes modules for table bookings, QR ordering and extra features that can be adapted to different business models.",
           meta: "QR menu / mobile view",
           link: "Visit keef.hr",
-          backTag: "Admin and stock",
-          backTitle: "Admin panel for prices and inventory.",
+          backTag: "Admin and control",
+          backTitle: "Easy offer management in real time.",
           backText:
-            "Staff can quickly update prices, hide sold-out items and keep the live menu accurate without a complicated workflow.",
-          backMeta: "Admin panel / pricing and stock",
+            "The admin panel makes it easy to update prices, manage stock and keep the offer under control without complicated processes. The interface is responsive and practical for staff and managers working on phones and tablets.",
+          backMeta: "Admin panel / pricing and stock / mobile interface",
         },
         reservation: {
-          tag: "Featured project",
+          tag: "CUSTOM-BUILT",
           title: "Reservation system for service teams.",
-          text: "This card is reserved for a booking and scheduling system preview. It already keeps room for a future live iframe and a more detailed implementation breakdown.",
-          meta: "Reservations / system preview",
+          text: "A tailored system for managing staff shifts and appointment bookings. The setup is flexible, can be adapted to different service businesses and can connect with web forms for direct booking of open time slots. The admin interface gives managers full control over schedules, while team members can track shifts and manage appointments. In the demo, you can explore the system interactively - with the shift calendar on one side and the booking calendar on the other.",
+          meta: "Shifts / bookings / calendar / management / mobile interface",
           link: "Demo soon",
           mainToggle: "Show the reservation info card",
           panelToggle: "Open the live reservation preview",
@@ -450,72 +464,72 @@ const translations = {
           backStageText: "The same zone will hold an alternate live view and more of the workflow later on.",
         },
         ripple: {
-          tag: "Featured project",
-          title: "Ripple project tracking dashboard.",
-          text: "A consolidated view of partners, work packages and execution status in one operational dashboard. In the live panel, users can switch to the Gantt view and track progress month by month.",
-          meta: "Project dashboard / partners, status and Gantt",
+          tag: "CUSTOM-BUILT",
+          title: "Ripple dashboard for tracking project delivery.",
+          text: "An internal dashboard for monitoring project delivery through a centralized view of work packages, activity status and partners. It includes a Gantt view for planning and following the project timeline across phases and months.",
+          meta: "Project dashboard / Gantt / status / partners",
           mainToggle: "Show Ripple project info card",
           panelToggle: "Open Ripple live dashboard preview",
         },
         kota: {
-          tag: "Featured project",
-          title: "Kota Samobor desktop webshop.",
-          text: "A desktop storefront preview with the animated hero slider, rotating landing visuals and a clear product structure for professional beauty and salon supplies.",
-          meta: "Webshop / desktop view",
+          tag: "WORDPRESS",
+          title: "Kota Samobor webshop.",
+          text: "A webshop for beauty products and salon equipment. The structure guides users through categories and content toward a fast and secure purchase.",
+          meta: "WordPress / WooCommerce / custom add-ons",
           link: "Visit kotasamobor.hr",
-          backTag: "Payments and sales",
-          backTitle: "Webshop with integrated payments.",
+          backTag: "Marketing and tracking",
+          backTitle: "A webshop connected to ad platforms.",
           backText:
-            "The catalog, cart and online checkout are tied into one streamlined ecommerce flow for daily orders and practical merchandising.",
-          backMeta: "Webshop / payments and checkout",
+            "Meta Pixel integration makes it possible to track user behavior and optimize campaigns. Shop data feeds more precise advertising and stronger conversions throughout the sales flow.",
+          backMeta: "Meta Pixel / tracking / conversions / advertising",
         },
         juvy: {
-          tag: "Featured project",
-          title: "Juvy Skin mobile skincare webshop.",
-          text: "A mobile skincare storefront with a video-led hero, clean navigation and a polished path into the shop, brand story and contact flow.",
-          meta: "Skincare webshop / mobile view",
+          tag: "WORDPRESS",
+          title: "Juvy Skin webshop.",
+          text: "A skincare webshop built around simplicity, clean design and a strong focus on the product. The page strips away distractions and guides users straight to purchase through a clear, elegant experience.",
+          meta: "WordPress / WooCommerce / custom add-ons",
           link: "Visit juvyskin.com",
-          backTag: "Desktop experience",
-          backTitle: "The desktop version is available on the live link.",
+          backTag: "Simplicity and focus",
+          backTitle: "Fewer elements, a clearer experience.",
           backText:
-            "This phone preview shows the responsive mobile storefront, while the full desktop presentation with the broader catalog and brand content is visible on juvyskin.com.",
-          backMeta: "Desktop webshop / live preview",
+            "The webshop structure reduces the content to what matters most and helps users decide faster. With fewer steps and distractions, the experience stays clean and product-focused.",
+          backMeta: "UX / simplicity / product focus",
         },
         keepgoing: {
-          tag: "Featured project",
-          title: "Keep Going desktop website.",
-          text: "A desktop therapy and personal-growth website with a full-width hero slider, clear navigation and a long-form content path into the about page, services, blog and contact.",
-          meta: "Personal brand / desktop view",
+          tag: "CUSTOM-BUILT",
+          title: "Keep Going website and AI assistant.",
+          text: "A website for personal growth and support, designed around clear content and a sense of reassurance throughout the user journey. An integrated AI assistant and personality test help users understand themselves better and prepare for a first conversation.",
+          meta: "Personal growth / AI support / preparation / web",
           link: "Visit keepgoing.hr",
-          backTag: "Leads and content",
-          backTitle: "A content funnel with clear CTA paths.",
+          backTag: "AI and preparation",
+          backTitle: "Structured preparation with AI and the test.",
           backText:
-            "Hero sections, editorial content and contact touchpoints work together in a calm, readable flow that guides visitors toward inquiries and understanding the therapy process.",
-          backMeta: "Content / CTAs and contact",
+            "The AI chatbot and personality test guide users through key questions and help them structure their thoughts before the meeting. Based on their answers, users get clearer insight, practical guidance and concrete next steps for starting the conversation more easily.",
+          backMeta: "AI chatbot / personality test / user insight",
         },
         almagea: {
-          tag: "Featured project",
-          title: "Almagea desktop webshop.",
-          text: "A desktop supplements storefront with well-structured landing sections, clear product categories and a long-form page flow that moves from brand story to purchase.",
-          meta: "Webshop / desktop view",
+          tag: "WORDPRESS",
+          title: "Almagea webshop.",
+          text: "A desktop and mobile supplements webshop built in WordPress with a range of custom features and tailored solutions. The page structure, categories and content guide users from brand story to purchase without unnecessary steps.",
+          meta: "WordPress / WooCommerce / custom add-ons",
           link: "Visit almagea.hr",
-          backTag: "Sales and checkout",
-          backTitle: "Webshop with promotions, discounts and checkout.",
+          backTag: "Support and maintenance",
+          backTitle: "A stable system with ongoing support.",
           backText:
-            "The sales flow ties together supplements, campaign blocks, loyalty perks and online payments in a storefront built for both editorial storytelling and direct conversion.",
-          backMeta: "Webshop / promotions and checkout",
+            "The webshop is maintained continuously through regular updates, security checks and a backup system. With technical support and fast issue resolution, the platform stays stable and reliable without downtime.",
+          backMeta: "Maintenance / security / support",
         },
         dfa: {
-          tag: "Featured project",
+          tag: "WORDPRESS",
           title: "Designing the Future Academy platform.",
-          text: "A desktop preview of an education-focused platform with a full-width hero slider, structured program sections and clear paths to academy, module and partner content.",
-          meta: "Education platform / desktop view",
+          text: "An education platform focused on digital skills, STEM fields and future-ready learning. The content structure guides users through programs, modules and initiatives that connect learning, practice and community.",
+          meta: "Education platform / STEM / digital skills",
           link: "Visit dfa.fablab.hr",
-          backTag: "Program and community",
-          backTitle: "A national initiative for digital skills and resilience.",
+          backTag: "Education and community",
+          backTitle: "A platform that connects knowledge and practice.",
           backText:
-            "The platform presents the DFA initiative, FabAcademy-inspired learning paths and content that connects innovation, practical modules and local community support.",
-          backMeta: "Education / modules and partners",
+            "The project promotes STEM education, digital competencies and innovation through accessible programs and content. The focus is on long-term skill development and strengthening the local community through concrete initiatives.",
+          backMeta: "STEM / education / community",
         },
       },
     },
@@ -535,7 +549,7 @@ const translations = {
       subtitle:
         "At Etherr, we create websites, webshops and applications — connect them with marketing and AI tools, and build automated systems that require minimal involvement from your side. From internal processes to customer-facing solutions, the goal is for everything to work as one system. We connect all the dots and turn your ideas into reality.",
       primaryCta: "Contact us",
-      secondaryCta: "View services",
+      secondaryCta: "Our projects",
     },
     about: {
       hero: {
@@ -796,29 +810,36 @@ const translations = {
           description: "Einblick in Etherr Projekte, Demo-Loesungen und digitale Produkte.",
         },
         flip: "Projektkarte drehen",
+        demo: {
+          button: "Demo ansehen",
+          close: "Demo schließen",
+          rotateEyebrow: "Für die volle Ansicht",
+          rotateText: "Drehen Sie Ihr Gerät ins Querformat, um die Demo im Vollbild zu sehen.",
+          frameTitleSuffix: "Demo",
+        },
         intro: {
-          eyebrow: "Projektübersicht und Live-Demos",
-          title: "Projekte, die unseren digitalen Ansatz zeigen.",
+          eyebrow: "Von der Idee zur Umsetzung",
+          title: "Wenn sich alle Punkte verbinden, entstehen Ergebnisse.",
           subtitle:
-            "Von mobilen und Desktop-Webshop-Erlebnissen bis zu Reservierungsabläufen zeigen wir hier reale Umsetzungen und interaktive Vorschauen, die wir auf Ihren Betrieb anpassen können.",
+            "Jedes Projekt beginnt mit einer Idee oder einem konkreten Problem. Wir bauen alle Teile des Systems so zusammen, dass sie als Ganzes funktionieren - ohne unnötige Schritte oder zusätzliche Komplexität. Wenn alles sauber verbunden ist, läuft vieles einfacher - und am Ende sind die Kundinnen und Kunden zufrieden.",
         },
         showcase: {
-          tag: "Ausgewähltes Projekt",
-          title: "Keef Bar mobiler QR-Getraenkekatalog.",
-          text: "Eine interaktive mobile Barkarte mit klaren Kategorien, schneller Artikelnavigation und einem auf QR-Aufrufe optimierten Smartphone-Erlebnis.",
-          meta: "QR-Menü / mobile Ansicht",
+          tag: "MASSGESCHNEIDERT",
+          title: "Keef Bar mobiler Getränkekatalog.",
+          text: "Ein individueller QR-Katalog als mobil optimierte Lösung mit WordPress-Backend für Produkte und Lagerbestand. Das System umfasst Module für Tischreservierungen, Bestellungen per QR-Code und zusätzliche Funktionen, die sich an verschiedene Geschäftsmodelle anpassen lassen.",
+          meta: "QR-Katalog / mobile Ansicht",
           link: "keef.hr öffnen",
-          backTag: "Admin und Bestand",
-          backTitle: "Adminpanel für Preise und Inventar.",
+          backTag: "Admin und Verwaltung",
+          backTitle: "Angebot in Echtzeit einfach steuern.",
           backText:
-            "Mitarbeitende können Preise schnell anpassen, ausverkaufte Artikel ausblenden und die Karte ohne komplizierten Ablauf aktuell halten.",
-          backMeta: "Adminpanel / Preise und Bestand",
+            "Das Adminpanel ermöglicht schnelle Preisupdates, Lagerverwaltung und die Kontrolle des Angebots ohne komplizierte Prozesse. Die Oberfläche ist responsiv und für Mitarbeitende und Leitung auf Smartphone und Tablet ausgelegt.",
+          backMeta: "Adminpanel / Preise und Bestand / mobile Oberfläche",
         },
         reservation: {
-          tag: "Ausgewähltes Projekt",
+          tag: "MASSGESCHNEIDERT",
           title: "Reservierungssystem für Serviceteams.",
-          text: "Diese Karte bereitet die Vorschau eines Buchungs- und Termin-Systems vor. Sie lässt bereits Platz für ein späteres Live-iframe und eine genauere Darstellung der Umsetzung.",
-          meta: "Reservierungen / Systemvorschau",
+          text: "Ein individuell angepasstes System für die Planung von Mitarbeiterschichten und Terminreservierungen. Die Lösung ist flexibel, lässt sich auf unterschiedliche Dienstleistungsbereiche zuschneiden und mit Webformularen für direkte Terminbuchungen verbinden. Die Administrationsoberfläche gibt der Leitung Kontrolle über den Plan, während Mitarbeitende Schichten verfolgen und Termine verwalten können. In der Demo lässt sich das System interaktiv ausprobieren - auf der einen Seite der Schichtkalender, auf der anderen der Reservierungskalender.",
+          meta: "Schichten / Reservierungen / Kalender / Verwaltung / mobile Oberfläche",
           link: "Demo folgt",
           mainToggle: "Informationskarte des Reservierungssystems anzeigen",
           panelToggle: "Live-Reservierungsvorschau öffnen",
@@ -836,72 +857,72 @@ const translations = {
           backStageText: "Dieselbe Zone wird später eine alternative Live-Ansicht und weitere Workflow-Details aufnehmen.",
         },
         ripple: {
-          tag: "Ausgewähltes Projekt",
-          title: "Ripple Dashboard für Projektsteuerung.",
-          text: "Zentrale Übersicht über Partner, Arbeitspakete und Umsetzungsstatus in einem operativen Projekt-Dashboard. In der Live-Ansicht kann in das Gantt-Layout gewechselt und der Monatsverlauf verfolgt werden.",
-          meta: "Projekt-Dashboard / Partner, Status und Gantt",
+          tag: "MASSGESCHNEIDERT",
+          title: "Ripple Dashboard zur Projektverfolgung.",
+          text: "Ein internes Dashboard zur Verfolgung der Projektumsetzung mit zentraler Übersicht über Arbeitspakete, Aktivitätsstatus und Partner. Zusätzlich gibt es eine Gantt-Ansicht für Planung und Nachverfolgung des Projektverlaufs über Phasen und Monate hinweg.",
+          meta: "Projekt-Dashboard / Gantt / Status / Partner",
           mainToggle: "Informationskarte des Ripple-Projekts anzeigen",
           panelToggle: "Live-Dashboard-Vorschau von Ripple öffnen",
         },
         kota: {
-          tag: "Ausgewähltes Projekt",
-          title: "Kota Samobor Desktop-Webshop.",
-          text: "Eine Desktop-Vorschau des Webshops mit animiertem Hero-Slider, wechselnden Startvisuals und klarer Produktstruktur für professionelle Beauty- und Salonartikel.",
-          meta: "Webshop / Desktop-Ansicht",
+          tag: "WORDPRESS",
+          title: "Kota Samobor Webshop.",
+          text: "Ein Webshop für Kosmetikprodukte und Salonausstattung. Die Struktur führt Nutzerinnen und Nutzer durch Kategorien und Inhalte hin zu einem schnellen und sicheren Kauf.",
+          meta: "WordPress / WooCommerce / individuelle Erweiterungen",
           link: "kotasamobor.hr öffnen",
-          backTag: "Zahlung und Verkauf",
-          backTitle: "Webshop mit integrierten Zahlungen.",
+          backTag: "Marketing und Tracking",
+          backTitle: "Ein Webshop, der mit Werbesystemen verbunden ist.",
           backText:
-            "Katalog, Warenkorb und Online-Checkout sind in einen klaren Verkaufsfluss eingebunden, der tägliche Bestellungen und eine einfache Angebotsverwaltung unterstützt.",
-          backMeta: "Webshop / Zahlung und Checkout",
+            "Die Integration des Meta Pixels macht Nutzerverhalten messbar und hilft dabei, Kampagnen zu optimieren. Daten aus dem Webshop fließen in präzisere Werbung und bessere Conversions entlang des gesamten Verkaufsprozesses.",
+          backMeta: "Meta Pixel / Tracking / Conversions / Werbung",
         },
         juvy: {
-          tag: "Ausgewähltes Projekt",
-          title: "Juvy Skin mobiler Skincare-Webshop.",
-          text: "Eine mobile Skincare-Storefront mit Video-Hero, klarer Navigation und sauberem Einstieg in Shop, Markenstory und Kontaktfluss.",
-          meta: "Skincare-Webshop / mobile Ansicht",
+          tag: "WORDPRESS",
+          title: "Juvy Skin Webshop.",
+          text: "Ein Skincare-Webshop mit Fokus auf Einfachheit, klares Design und das Produkt selbst. Die Seite nimmt alles Überflüssige weg und führt Nutzer direkt über eine klare, elegante Darstellung zum Kauf.",
+          meta: "WordPress / WooCommerce / individuelle Erweiterungen",
           link: "juvyskin.com öffnen",
-          backTag: "Desktop-Erlebnis",
-          backTitle: "Die Desktop-Version ist über den Link verfügbar.",
+          backTag: "Einfachheit und Fokus",
+          backTitle: "Weniger Elemente, ein klareres Erlebnis.",
           backText:
-            "Diese Smartphone-Vorschau zeigt den responsiven mobilen Shop, während die vollständige Desktop-Präsentation mit erweitertem Katalog und Markeninhalten auf juvyskin.com sichtbar ist.",
-          backMeta: "Desktop-Webshop / Live-Vorschau",
+            "Die Struktur des Webshops reduziert den Inhalt auf das Wesentliche und erleichtert schnelle Entscheidungen. Ohne überflüssige Schritte und Ablenkungen bleibt das Nutzererlebnis klar und auf das Produkt ausgerichtet.",
+          backMeta: "UX / Einfachheit / Fokus auf das Produkt",
         },
         keepgoing: {
-          tag: "Ausgewähltes Projekt",
-          title: "Keep Going Desktop-Website.",
-          text: "Eine Desktop-Vorschau einer Therapie- und Personal-Development-Website mit großem Hero-Slider, klarer Navigation und einem langen Content-Fluss zu Über-mich, Leistungen, Blog und Kontakt.",
-          meta: "Personal Brand / Desktop-Ansicht",
+          tag: "MASSGESCHNEIDERT",
+          title: "Keep Going Website und KI-Assistent.",
+          text: "Eine Website für persönliche Entwicklung und Unterstützung mit klarem Inhalt und einem sicheren, ruhigen Nutzererlebnis von Anfang bis Ende. Ein integrierter KI-Assistent und ein Persönlichkeitstest helfen Nutzenden, sich besser zu verstehen und sich auf das erste Gespräch vorzubereiten.",
+          meta: "Persönliche Entwicklung / KI-Unterstützung / Vorbereitung / Web",
           link: "keepgoing.hr öffnen",
-          backTag: "Anfragen und Content",
-          backTitle: "Content-Funnel mit klaren CTA-Wegen.",
+          backTag: "KI und Vorbereitung",
+          backTitle: "Strukturierte Vorbereitung mit KI und Test.",
           backText:
-            "Hero-Bereiche, redaktionelle Inhalte und Kontaktpunkte arbeiten in einem ruhigen, gut lesbaren Flow zusammen und führen Besucher zu Anfragen und zum Verständnis des Therapieprozesses.",
-          backMeta: "Content / CTA und Kontakt",
+            "KI-Chatbot und Persönlichkeitstest führen gemeinsam durch zentrale Fragen und helfen dabei, Gedanken vor dem Gespräch zu ordnen. Auf Basis der Antworten erhalten Nutzende klarere Einblicke, Orientierung und konkrete nächste Schritte für einen leichteren Einstieg ins Gespräch.",
+          backMeta: "KI-Chatbot / Persönlichkeitstest / klare Einblicke",
         },
         almagea: {
-          tag: "Ausgewähltes Projekt",
-          title: "Almagea Desktop-Webshop.",
-          text: "Eine Desktop-Vorschau des Nahrungsergänzungs-Webshops mit klar gegliederten Landing-Sektionen, übersichtlichen Produktkategorien und einer langen Seitenstruktur vom Markenauftritt bis zum Kauf.",
-          meta: "Webshop / Desktop-Ansicht",
+          tag: "WORDPRESS",
+          title: "Almagea Webshop.",
+          text: "Ein Desktop- und Mobile-Webshop für Nahrungsergänzungen, entwickelt in WordPress mit einer Reihe individueller Funktionen und Lösungen. Seitenstruktur, Kategorien und Inhalte führen Nutzende klar vom Markenauftritt bis zum Kauf - ohne unnötige Schritte.",
+          meta: "WordPress / WooCommerce / individuelle Erweiterungen",
           link: "almagea.hr öffnen",
-          backTag: "Verkauf und Checkout",
-          backTitle: "Webshop mit Aktionen, Rabatten und Checkout.",
+          backTag: "Support und Wartung",
+          backTitle: "Ein stabiles System mit laufender Betreuung.",
           backText:
-            "Der Verkaufsfluss verbindet Nahrungsergänzungen, Kampagnenflächen, Loyalty-Vorteile und Online-Zahlung in einer Storefront, die Content und direkte Conversion zusammenführt.",
-          backMeta: "Webshop / Aktionen und Checkout",
+            "Der Webshop wird laufend mit Updates, Sicherheitsprüfungen und einem Backup-System betreut. Zusammen mit technischem Support und schneller Fehlerbehebung sorgt das für Stabilität und einen zuverlässigen Betrieb ohne Unterbrechungen.",
+          backMeta: "Wartung / Sicherheit / Support",
         },
         dfa: {
-          tag: "Ausgewähltes Projekt",
+          tag: "WORDPRESS",
           title: "Designing the Future Academy Plattform.",
-          text: "Eine Desktop-Vorschau einer Bildungsplattform mit Full-Width-Hero-Slider, klar strukturierten Programmsektionen und direkten Wegen zu Inhalten über Akademie, Module und Partnerschaften.",
-          meta: "Bildungsplattform / Desktop-Ansicht",
+          text: "Eine Bildungsplattform mit Fokus auf digitale Kompetenzen, STEM-Themen und Zukunftsvorbereitung. Die Inhaltsstruktur führt durch Programme, Module und Initiativen, die Lernen, Praxis und Community zusammenbringen.",
+          meta: "Bildungsplattform / STEM / digitale Kompetenzen",
           link: "dfa.fablab.hr öffnen",
-          backTag: "Programm und Community",
-          backTitle: "Nationales Projekt für digitale Kompetenzen und Resilienz.",
+          backTag: "Bildung und Community",
+          backTitle: "Eine Plattform, die Wissen und Praxis verbindet.",
           backText:
-            "Die Plattform zeigt die DFA-Initiative, FabAcademy-orientierte Lernpfade und Inhalte, die Innovation, praktische Module und Unterstützung lokaler Communities verbinden.",
-          backMeta: "Bildung / Module und Partner",
+            "Das Projekt stärkt STEM-Bildung, digitale Kompetenzen und Innovation durch zugängliche Programme und Inhalte. Im Mittelpunkt stehen der langfristige Kompetenzaufbau und die Stärkung lokaler Communities durch konkrete Initiativen.",
+          backMeta: "STEM / Bildung / Community",
         },
       },
     },
@@ -921,7 +942,7 @@ const translations = {
       subtitle:
         "Bei Etherr entwickeln wir Websites, Webshops und Anwendungen, integrieren sie mit Marketing- und KI-Tools und schaffen automatisierte Systeme, die mit minimalem Aufwand laufen. Von internen Prozessen bis zu kundenorientierten Lösungen ist unser Ziel, dass alles nahtlos ineinandergreift und als ein System funktioniert. Wir verbinden alle Punkte und machen Ihre Ideen real.",
       primaryCta: "Kontakt aufnehmen",
-      secondaryCta: "Leistungen ansehen",
+      secondaryCta: "Unsere Projekte",
     },
     about: {
       hero: {
@@ -1660,6 +1681,13 @@ function cacheDom() {
     projectSummaryCards: document.querySelectorAll(".project-summary"),
     projectReservationPanels: document.querySelectorAll(".project-reservation-panel"),
     reservationScheduleFrames: document.querySelectorAll("[data-reservation-schedule-frame]"),
+    projectDemoTriggers: document.querySelectorAll("[data-project-demo-trigger]"),
+    projectDemoOverlay: document.getElementById("projectDemoOverlay"),
+    projectDemoTitle: document.querySelector("[data-project-demo-title]"),
+    projectDemoFrame: document.querySelector("[data-project-demo-frame]"),
+    projectDemoFrameSecondary: document.querySelector("[data-project-demo-frame-secondary]"),
+    projectDemoTrack: document.querySelector("[data-project-demo-track]"),
+    projectDemoSlideToggle: document.querySelector("[data-project-demo-slide-toggle]"),
     kotaSlideshows: document.querySelectorAll(".project-kota-slideshow"),
   };
 }
@@ -1685,11 +1713,21 @@ const CONTACT_INTAKE_CONFIG = Object.assign(
 const CONTACT_TURNSTILE_SITE_KEY = String(CONTACT_INTAKE_CONFIG.turnstileSiteKey || "").trim();
 const CONTACT_TURNSTILE_REQUIRED = Boolean(CONTACT_INTAKE_CONFIG.requireTurnstile);
 const APP_ORIGIN = window.location.origin;
+const MOBILE_PROJECT_DEMO_BREAKPOINT = 760;
+const PROJECT_DEMO_SOURCES = {
+  reservation: "reservation-schedule-demo.html",
+  ripple: "assets/ripple/dist/ripple-hosting/wp-partner-overview.html",
+};
+const PROJECT_DEMO_SECONDARY_SOURCES = {
+  reservation: "reservation-calendar-demo.html",
+};
 let eventsInitialized = false;
 let isNavigating = false;
 const kotaSlideshowIntervals = [];
 let contactIntakeState = null;
 let contactIntakeTurnstileWidgetId = null;
+let activeProjectDemoKey = "";
+let activeProjectDemoTrigger = null;
 const prefersReducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 const networkState = {
   ctx: null,
@@ -1744,6 +1782,266 @@ const revealObserver =
 
 function getByPath(source, path) {
   return path.split(".").reduce((value, key) => value && value[key], source);
+}
+
+function isMobileProjectDemoViewport() {
+  return Math.min(window.innerWidth, window.innerHeight) <= MOBILE_PROJECT_DEMO_BREAKPOINT;
+}
+
+function isLandscapeProjectDemoViewport() {
+  return window.innerWidth > window.innerHeight;
+}
+
+function shouldUseProjectMobilePreviews() {
+  return currentPage === "projects" && window.matchMedia("(max-width: 760px)").matches;
+}
+
+function shouldDisableNetworkLayer() {
+  // Pause the network canvas while the demo overlay is open to save memory on mobile
+  if (document.body.classList.contains("has-project-demo-overlay")) {
+    return true;
+  }
+  return false;
+}
+
+function getProjectDemoTitle(projectKey) {
+  const title = getByPath(translations[currentLang], `pages.projects.${projectKey}.title`);
+  return typeof title === "string" ? title : "";
+}
+
+function getProjectDemoFrameTitle(projectKey) {
+  const suffix = getByPath(translations[currentLang], "pages.projects.demo.frameTitleSuffix");
+  const projectTitle = getProjectDemoTitle(projectKey).replace(/\s+/g, " ").trim();
+  return [projectTitle, suffix].filter((part) => typeof part === "string" && part.trim()).join(" ");
+}
+
+function syncProjectDemoFrameLanguage() {
+  if (activeProjectDemoKey !== "reservation") {
+    return;
+  }
+
+  const frame = dom.projectDemoFrame;
+  if (!(frame instanceof HTMLIFrameElement) || !frame.contentWindow) {
+    return;
+  }
+
+  frame.contentWindow.postMessage(
+    {
+      type: "etherr-reservation-lang",
+      lang: currentLang,
+    },
+    "*"
+  );
+}
+
+function closeProjectDemo({ restoreFocus = true } = {}) {
+  const overlay = dom.projectDemoOverlay;
+  const frame = dom.projectDemoFrame;
+  const triggerToRestore = activeProjectDemoTrigger;
+
+  activeProjectDemoKey = "";
+  activeProjectDemoTrigger = null;
+
+  if (overlay instanceof HTMLElement) {
+    overlay.hidden = true;
+    overlay.setAttribute("aria-hidden", "true");
+    overlay.classList.remove("is-landscape");
+    overlay.removeAttribute("data-project-demo");
+  }
+
+  if (dom.projectDemoTitle instanceof HTMLElement) {
+    dom.projectDemoTitle.textContent = "";
+  }
+
+  if (frame instanceof HTMLIFrameElement) {
+    frame.removeAttribute("src");
+    frame.title = "";
+  }
+
+  // Clean up secondary frame and slide state
+  var secondaryFrame = dom.projectDemoFrameSecondary;
+  if (secondaryFrame instanceof HTMLIFrameElement) {
+    secondaryFrame.removeAttribute("src");
+    secondaryFrame.title = "";
+  }
+  var track = dom.projectDemoTrack;
+  if (track instanceof HTMLElement) {
+    track.classList.remove("is-slid");
+  }
+  var slideToggle = dom.projectDemoSlideToggle;
+  if (slideToggle instanceof HTMLElement) {
+    slideToggle.classList.remove("is-slid");
+    slideToggle.hidden = true;
+  }
+
+  document.body.classList.remove("has-project-demo-overlay");
+
+  // Restart the network canvas now that the overlay is closed
+  startNetworkLayer();
+
+  if (restoreFocus && triggerToRestore instanceof HTMLElement && document.contains(triggerToRestore)) {
+    // Scroll to the trigger element to ensure it's visible
+    // Find the parent project card/section
+    const projectCard = triggerToRestore.closest('.project-summary, .project-showcase, .project-device-stage');
+    if (projectCard instanceof HTMLElement) {
+      // Get header height to offset scroll position
+      const header = document.querySelector('.site-header');
+      const headerHeight = header instanceof HTMLElement ? header.offsetHeight : 0;
+      const cardTop = projectCard.getBoundingClientRect().top + window.scrollY;
+      const scrollTarget = Math.max(0, cardTop - headerHeight - 20); // 20px extra padding
+      
+      window.scrollTo({
+        top: scrollTarget,
+        behavior: 'smooth'
+      });
+    }
+    
+    // Focus after a short delay to ensure scroll completes
+    setTimeout(() => {
+      if (document.contains(triggerToRestore)) {
+        triggerToRestore.focus();
+      }
+    }, 100);
+  }
+}
+
+function syncProjectDemoOverlayState() {
+  const overlay = dom.projectDemoOverlay;
+  if (!(overlay instanceof HTMLElement)) {
+    document.body.classList.remove("has-project-demo-overlay");
+    activeProjectDemoKey = "";
+    activeProjectDemoTrigger = null;
+    return;
+  }
+
+  if (overlay.hidden) {
+    overlay.classList.remove("is-landscape");
+    return;
+  }
+
+  // Never auto-close the overlay during resize/rotation — let the user close it manually.
+  // Just update the landscape class so the CSS can show the demo when rotated.
+  overlay.classList.toggle("is-landscape", isLandscapeProjectDemoViewport());
+
+  if (activeProjectDemoKey && dom.projectDemoTitle instanceof HTMLElement) {
+    dom.projectDemoTitle.textContent = getProjectDemoTitle(activeProjectDemoKey);
+  }
+
+  if (activeProjectDemoKey && dom.projectDemoFrame instanceof HTMLIFrameElement) {
+    dom.projectDemoFrame.title = getProjectDemoFrameTitle(activeProjectDemoKey);
+  }
+}
+
+function openProjectDemo(projectKey, trigger = null) {
+  if (!isMobileProjectDemoViewport()) {
+    return;
+  }
+
+  const overlay = dom.projectDemoOverlay;
+  const frame = dom.projectDemoFrame;
+  const source = PROJECT_DEMO_SOURCES[projectKey];
+  if (!(overlay instanceof HTMLElement) || !(frame instanceof HTMLIFrameElement) || !source) {
+    return;
+  }
+
+  // Release the network canvas GPU buffer to free memory for the demo iframe
+  window.cancelAnimationFrame(networkFrame);
+  networkFrame = null;
+  if (dom.networkCanvas) {
+    dom.networkCanvas.width = 0;
+    dom.networkCanvas.height = 0;
+  }
+  networkState.ctx = null;
+
+  activeProjectDemoKey = projectKey;
+  activeProjectDemoTrigger = trigger instanceof HTMLElement ? trigger : null;
+
+  if (dom.projectDemoTitle instanceof HTMLElement) {
+    dom.projectDemoTitle.textContent = getProjectDemoTitle(projectKey);
+  }
+
+  frame.title = getProjectDemoFrameTitle(projectKey);
+  frame.setAttribute("src", source);
+
+  // Load secondary demo if available and show the slide toggle
+  const secondarySource = PROJECT_DEMO_SECONDARY_SOURCES[projectKey];
+  const secondaryFrame = dom.projectDemoFrameSecondary;
+  const slideToggle = dom.projectDemoSlideToggle;
+  const track = dom.projectDemoTrack;
+
+  if (secondarySource && secondaryFrame instanceof HTMLIFrameElement) {
+    // Don't load the secondary iframe yet — lazy load it when the user slides to it
+    secondaryFrame.removeAttribute("src");
+    secondaryFrame.dataset.lazySrc = secondarySource;
+    secondaryFrame.title = getProjectDemoFrameTitle(projectKey) + " (2)";
+    if (slideToggle instanceof HTMLElement) {
+      slideToggle.hidden = false;
+    }
+  } else {
+    if (secondaryFrame instanceof HTMLIFrameElement) {
+      secondaryFrame.removeAttribute("src");
+      delete secondaryFrame.dataset.lazySrc;
+    }
+    if (slideToggle instanceof HTMLElement) {
+      slideToggle.hidden = true;
+    }
+  }
+
+  // Reset slide position
+  if (track instanceof HTMLElement) {
+    track.classList.remove("is-slid");
+  }
+  if (slideToggle instanceof HTMLElement) {
+    slideToggle.classList.remove("is-slid");
+  }
+
+  overlay.hidden = false;
+  overlay.setAttribute("aria-hidden", "false");
+  overlay.dataset.projectDemo = projectKey;
+  document.body.classList.add("has-project-demo-overlay");
+  syncProjectDemoOverlayState();
+}
+
+function initProjectDemoOverlay() {
+  if (dom.projectDemoFrame instanceof HTMLIFrameElement && dom.projectDemoFrame.dataset.demoBound !== "true") {
+    dom.projectDemoFrame.dataset.demoBound = "true";
+    dom.projectDemoFrame.addEventListener("load", () => {
+      syncProjectDemoFrameLanguage();
+    });
+  }
+
+  // Bind secondary frame language sync
+  if (dom.projectDemoFrameSecondary instanceof HTMLIFrameElement && dom.projectDemoFrameSecondary.dataset.demoBound !== "true") {
+    dom.projectDemoFrameSecondary.dataset.demoBound = "true";
+    dom.projectDemoFrameSecondary.addEventListener("load", () => {
+      if (!dom.projectDemoFrameSecondary.contentWindow) return;
+      dom.projectDemoFrameSecondary.contentWindow.postMessage(
+        { type: "etherr-reservation-lang", lang: currentLang },
+        "*"
+      );
+    });
+  }
+
+  // Bind slide toggle
+  var toggle = dom.projectDemoSlideToggle;
+  var track = dom.projectDemoTrack;
+  if (toggle instanceof HTMLElement && track instanceof HTMLElement && toggle.dataset.slideBound !== "true") {
+    toggle.dataset.slideBound = "true";
+    toggle.addEventListener("click", function () {
+      var isSlid = track.classList.toggle("is-slid");
+      toggle.classList.toggle("is-slid", isSlid);
+
+      // Lazy-load the secondary iframe on first slide
+      if (isSlid && dom.projectDemoFrameSecondary instanceof HTMLIFrameElement) {
+        var lazySrc = dom.projectDemoFrameSecondary.dataset.lazySrc;
+        if (lazySrc && !dom.projectDemoFrameSecondary.getAttribute("src")) {
+          dom.projectDemoFrameSecondary.setAttribute("src", lazySrc);
+        }
+      }
+    });
+  }
+
+  syncProjectDemoOverlayState();
 }
 
 function observeReveals(scope = document) {
@@ -2040,6 +2338,14 @@ function applyStaticText(langKey) {
       }
     }
   });
+
+  if (activeProjectDemoKey && dom.projectDemoTitle instanceof HTMLElement) {
+    dom.projectDemoTitle.textContent = getProjectDemoTitle(activeProjectDemoKey);
+  }
+
+  if (activeProjectDemoKey && dom.projectDemoFrame instanceof HTMLIFrameElement) {
+    dom.projectDemoFrame.title = getProjectDemoFrameTitle(activeProjectDemoKey);
+  }
 
   const year = new Date().getFullYear();
   dom.footerCopy.textContent = locale.footer.copy.replace("{year}", String(year));
@@ -2524,14 +2830,6 @@ function activateServiceFromPanel(panelState, serviceIndex) {
     setMobileServicePanelDetail(panelState, panelState.activeIndex);
     return;
   }
-
-  panelState.activeIndex = isTogglingOff ? -1 : boundedIndex;
-  if (isTogglingOff) {
-    panelState.previewIndex = -1;
-  }
-
-  syncServicePanelButtons(panelState);
-  updatePartnerPanelFromSource(panelState, { syncLayout: true });
 }
 
 function createServiceCard(panelState, service, serviceIndex) {
@@ -3820,6 +4118,35 @@ function randomBetween(min, max) {
   return min + Math.random() * (max - min);
 }
 
+// Seeded PRNG (mulberry32) for consistent network node positions across sessions
+function createSeededRandom(seed) {
+  let state = seed | 0;
+  return function () {
+    state = (state + 0x6d2b79f5) | 0;
+    var t = Math.imul(state ^ (state >>> 15), 1 | state);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+// Session-stable seed: same seed for the entire browser session
+var _networkSeed = (function () {
+  var key = "etherr-network-seed";
+  try {
+    var stored = window.sessionStorage.getItem(key);
+    if (stored) return Number(stored);
+  } catch (_e) {}
+  var seed = (Date.now() ^ (Math.random() * 0x7fffffff)) >>> 0;
+  try {
+    window.sessionStorage.setItem(key, String(seed));
+  } catch (_e) {}
+  return seed;
+})();
+
+function seededRandomBetween(rng, min, max) {
+  return min + rng() * (max - min);
+}
+
 function clamp(value, min, max) {
   return Math.min(max, Math.max(min, value));
 }
@@ -3895,8 +4222,9 @@ const HERO_CLOUD_ASSETS = [
       compact: [0.014, 0.024],
       narrow: [0.011, 0.02],
     },
-    opacityRange: [0.18, 0.34],
-    dimOpacityRange: [0.05, 0.14],
+    opacityRange: [0.26, 0.48],
+    dimOpacityRange: [0.08, 0.2],
+    brightOpacityRange: [0.48, 0.72],
     blurRange: [0.25, 0.75],
     zIndex: 2,
   },
@@ -3918,8 +4246,9 @@ const HERO_CLOUD_ASSETS = [
       compact: [0.01, 0.019],
       narrow: [0.008, 0.016],
     },
-    opacityRange: [0.1, 0.22],
-    dimOpacityRange: [0.04, 0.1],
+    opacityRange: [0.15, 0.32],
+    dimOpacityRange: [0.06, 0.15],
+    brightOpacityRange: [0.32, 0.56],
     blurRange: [7.2, 10.4],
     zIndex: 0,
   },
@@ -3941,8 +4270,9 @@ const HERO_CLOUD_ASSETS = [
       compact: [0.016, 0.028],
       narrow: [0.012, 0.022],
     },
-    opacityRange: [0.2, 0.4],
-    dimOpacityRange: [0.06, 0.16],
+    opacityRange: [0.28, 0.55],
+    dimOpacityRange: [0.09, 0.22],
+    brightOpacityRange: [0.55, 0.78],
     blurRange: [0.35, 0.95],
     zIndex: 3,
   },
@@ -3964,8 +4294,9 @@ const HERO_CLOUD_ASSETS = [
       compact: [0.013, 0.022],
       narrow: [0.01, 0.018],
     },
-    opacityRange: [0.14, 0.28],
-    dimOpacityRange: [0.05, 0.12],
+    opacityRange: [0.2, 0.4],
+    dimOpacityRange: [0.08, 0.18],
+    brightOpacityRange: [0.4, 0.64],
     blurRange: [0.2, 0.8],
     zIndex: 1,
   },
@@ -3987,8 +4318,9 @@ const HERO_CLOUD_ASSETS = [
       compact: [0.009, 0.017],
       narrow: [0.007, 0.014],
     },
-    opacityRange: [0.09, 0.2],
-    dimOpacityRange: [0.03, 0.08],
+    opacityRange: [0.14, 0.3],
+    dimOpacityRange: [0.05, 0.12],
+    brightOpacityRange: [0.3, 0.54],
     blurRange: [6.8, 9.8],
     zIndex: 0,
   },
@@ -4078,10 +4410,14 @@ function sampleHeroCloudSpeed(item) {
 }
 
 function assignHeroCloudTargets(item, timestampMs, nearEdge = false) {
-  const shouldDim = Math.random() < 0.2;
+  const roll = Math.random();
+  const shouldDim = roll < 0.2;
+  const shouldBrighten = roll > 0.8;
   item.targetSpeed = sampleHeroCloudSpeed(item);
   item.targetOpacity = shouldDim
     ? randomBetween(item.dimOpacityRange[0], item.dimOpacityRange[1])
+    : shouldBrighten
+    ? randomBetween(item.brightOpacityRange[0], item.brightOpacityRange[1])
     : randomBetween(item.opacityRange[0], item.opacityRange[1]);
   item.nextVariationAt = timestampMs + randomBetween(4000, 9000);
 }
@@ -4094,6 +4430,7 @@ function configureHeroCloudItem(item, geometry, timestampMs, initial = false) {
   item.speedRatioRange = resolveHeroCloudResponsiveRange(item.config.speedRatioRange, layoutMode);
   item.opacityRange = item.config.opacityRange;
   item.dimOpacityRange = item.config.dimOpacityRange;
+  item.brightOpacityRange = item.config.brightOpacityRange;
   item.layerWidth = geometry.layerWidth;
   item.layerHeight = geometry.layerHeight;
 
@@ -4180,13 +4517,13 @@ function stepHeroCloudMotion(timestampMs) {
   heroCloudMotionState.lastFrameMs = timestampMs;
 
   heroCloudMotionState.items.forEach((item) => {
-    // Update speed and opacity smoothly
-    item.speed += (item.targetSpeed - item.speed) * Math.min(1, deltaSeconds * 1.4);
+    // Update speed and opacity smoothly (gradual acceleration/deceleration)
+    item.speed += (item.targetSpeed - item.speed) * Math.min(1, deltaSeconds * 1.8);
     item.currentOpacity +=
-      (item.targetOpacity - item.currentOpacity) * Math.min(1, deltaSeconds * 0.85);
+      (item.targetOpacity - item.currentOpacity) * Math.min(1, deltaSeconds * 0.65);
     
-    // Move cloud from left to right
-    item.x += item.speed * deltaSeconds;
+    // Move cloud from left to right — 20% faster base speed
+    item.x += item.speed * deltaSeconds * 1.2;
 
     // Check if cloud has completely left the screen (last pixel is out)
     if (item.x >= item.maxX) {
@@ -4218,19 +4555,31 @@ function stepHeroCloudMotion(timestampMs) {
 }
 
 function initHeroClouds() {
-  stopHeroCloudMotion();
-
-  const clouds = ensureHeroCloudNodes();
-  const geometry = syncHeroCloudLayerGeometry();
+  var clouds = ensureHeroCloudNodes();
+  var geometry = syncHeroCloudLayerGeometry();
 
   if (!clouds.length || !geometry) {
+    stopHeroCloudMotion();
     return;
   }
 
-  const timestampMs = performance.now();
+  // If clouds are already running, just update geometry without resetting positions
+  if (heroCloudMotionState.items.length === clouds.length && heroCloudFrame !== null) {
+    var timestampMs = performance.now();
+    heroCloudMotionState.items.forEach(function (item) {
+      item.layerWidth = geometry.layerWidth;
+      item.layerHeight = geometry.layerHeight;
+    });
+    return;
+  }
 
-  heroCloudMotionState.items = clouds.map((cloud, index) => {
-    const item = {
+  // First init or cloud count changed — build from scratch
+  stopHeroCloudMotion();
+
+  var timestampMs = performance.now();
+
+  heroCloudMotionState.items = clouds.map(function (cloud, index) {
+    var item = {
       element: cloud,
       config: HERO_CLOUD_ASSETS[index],
       layerWidth: geometry.layerWidth,
@@ -4491,6 +4840,54 @@ function initProjectLaptopEmbedScreens() {
   });
 }
 
+function syncProjectInlineEmbeds() {
+  if (currentPage !== "projects") {
+    return;
+  }
+
+  var isMobile = window.matchMedia("(max-width: 760px)").matches;
+  var inlineFrames = document.querySelectorAll("[data-project-embed-src]");
+
+  inlineFrames.forEach(function (frame) {
+    if (!(frame instanceof HTMLIFrameElement)) {
+      return;
+    }
+
+    var embedSrc = String(frame.dataset.projectEmbedSrc || "").trim();
+    if (!embedSrc) {
+      return;
+    }
+
+    if (isMobile) {
+      // On mobile, use IntersectionObserver to lazy-load when scrolled into view
+      if (frame.dataset.scrollLoadBound === "true") {
+        return;
+      }
+      frame.dataset.scrollLoadBound = "true";
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) {
+            return;
+          }
+          observer.unobserve(frame);
+          var src = String(frame.dataset.projectEmbedSrc || "").trim();
+          if (src && frame.getAttribute("src") !== src) {
+            frame.setAttribute("src", src);
+          }
+        });
+      }, { rootMargin: "200px" });
+
+      observer.observe(frame);
+    } else {
+      // On desktop, load immediately
+      if (frame.getAttribute("src") !== embedSrc) {
+        frame.setAttribute("src", embedSrc);
+      }
+    }
+  });
+}
+
 function initProjectSummaryCards() {
   if (!dom.projectSummaryCards.length) {
     return;
@@ -4653,7 +5050,11 @@ function initReservationScheduleFrames() {
   }
 
   dom.reservationScheduleFrames.forEach((frame) => {
-    if (!(frame instanceof HTMLIFrameElement) || frame.dataset.langBound === "true") {
+    if (!(frame instanceof HTMLIFrameElement)) {
+      return;
+    }
+
+    if (frame.dataset.langBound === "true") {
       return;
     }
 
@@ -4750,9 +5151,6 @@ function syncProjectReservationBannerHeight() {
       const banner = row.querySelector(".project-summary-reservation-main");
       const panel = row.querySelector(".project-reservation-panel");
       row.style.height = "";
-      if (banner instanceof HTMLElement) {
-        banner.style.height = "";
-      }
       if (panel instanceof HTMLElement) {
         panel.style.height = "";
       }
@@ -4833,102 +5231,107 @@ function buildNetworkNodes() {
     return [];
   }
 
-  const BASE_VIEWPORT_AREA = 1920 * 1080;
-  const viewportArea = networkState.width * networkState.height;
-  const areaFactor = clamp(viewportArea / BASE_VIEWPORT_AREA, 0.28, 1.45);
-  const nodeCount = Math.round(
-    NETWORK_NODE_BASE_COUNT * areaFactor * NETWORK_NODE_DENSITY_MULTIPLIER
-  );
-  const squareNodeCount = clamp(
-    Math.round(NETWORK_SQUARE_COUNT * areaFactor * NETWORK_NODE_DENSITY_MULTIPLIER),
-    10,
+  // Use seeded PRNG so nodes stay in the same positions across resizes and page navigations
+  var rng = createSeededRandom(_networkSeed);
+
+  var BASE_VIEWPORT_AREA = 1920 * 1080;
+  var viewportArea = networkState.width * networkState.height;
+  var areaFactor = clamp(viewportArea / BASE_VIEWPORT_AREA, 0.28, 1.45);
+
+  // Cap node count on mobile to prevent crashes
+  var isMobileViewport = window.innerWidth <= 768;
+  var densityMul = isMobileViewport ? 0.585 : NETWORK_NODE_DENSITY_MULTIPLIER;
+  var nodeCount = Math.round(NETWORK_NODE_BASE_COUNT * areaFactor * densityMul);
+  var squareNodeCount = clamp(
+    Math.round(NETWORK_SQUARE_COUNT * areaFactor * densityMul),
+    4,
     NETWORK_SQUARE_COUNT
   );
-  const leftSquareCount = clamp(Math.round(squareNodeCount * 0.62), 4, squareNodeCount - 3);
-  const squareNodeSizes = buildSquareNodeSizeBuckets(squareNodeCount);
-  const nodes = [];
+  var leftSquareCount = clamp(Math.round(squareNodeCount * 0.62), 2, squareNodeCount - 2);
+  var squareNodeSizes = buildSquareNodeSizeBuckets(squareNodeCount);
+  var nodes = [];
 
-  for (let i = 0; i < nodeCount; i += 1) {
-    const zoneRoll = Math.random();
-    let u = 0;
-    let v = 0;
-    let zone = "outside";
+  for (var i = 0; i < nodeCount; i += 1) {
+    var zoneRoll = rng();
+    var u = 0;
+    var v = 0;
+    var zone = "outside";
 
     if (zoneRoll < 0.5) {
-      u = Math.pow(Math.random(), 1.3) * 0.56;
-      v = 0.08 + Math.pow(Math.random(), 0.92) * 0.8;
+      u = Math.pow(rng(), 1.3) * 0.56;
+      v = 0.08 + Math.pow(rng(), 0.92) * 0.8;
       zone = "left";
     } else if (zoneRoll < 0.83) {
-      u = Math.pow(Math.random(), 0.9);
-      v = 0.56 + Math.pow(Math.random(), 0.76) * 0.44;
+      u = Math.pow(rng(), 0.9);
+      v = 0.56 + Math.pow(rng(), 0.76) * 0.44;
       zone = "bottom";
     } else if (zoneRoll < 0.95) {
-      u = 0.18 + Math.random() * 0.66;
-      v = 0.24 + Math.random() * 0.56;
+      u = 0.18 + rng() * 0.66;
+      v = 0.24 + rng() * 0.56;
       zone = "support";
     } else {
-      u = Math.random();
-      v = 0.05 + Math.random() * 0.9;
+      u = rng();
+      v = 0.05 + rng() * 0.9;
       zone = "outside";
     }
 
-    const sizeRoll = Math.random();
-    const radius =
+    var sizeRoll = rng();
+    var radius =
       sizeRoll > 0.94
-        ? randomBetween(4.2, 6.1)
+        ? seededRandomBetween(rng, 4.2, 6.1)
         : sizeRoll > 0.72
-          ? randomBetween(2.2, 4.2)
-          : randomBetween(0.9, 2.4);
-    const driftBase = zone === "outside" ? randomBetween(1.4, 6.4) : randomBetween(3.2, 11.2);
+          ? seededRandomBetween(rng, 2.2, 4.2)
+          : seededRandomBetween(rng, 0.9, 2.4);
+    var driftBase = zone === "outside" ? seededRandomBetween(rng, 1.4, 6.4) : seededRandomBetween(rng, 3.2, 11.2);
 
     nodes.push({
-      u,
-      v,
+      u: u,
+      v: v,
       shape: "circle",
-      radius,
-      driftX: driftBase * randomBetween(0.7, 1.18),
-      driftY: driftBase * randomBetween(0.62, 1.08),
-      speedX: randomBetween(0.12, 0.34),
-      speedY: randomBetween(0.14, 0.36),
-      phaseX: randomBetween(0, Math.PI * 2),
-      phaseY: randomBetween(0, Math.PI * 2),
-      nudgeAmpX: randomBetween(0.45, 1.9),
-      nudgeAmpY: randomBetween(0.45, 1.9),
-      nudgeSpeedX: randomBetween(0.45, 0.92),
-      nudgeSpeedY: randomBetween(0.42, 0.88),
-      nudgePhaseX: randomBetween(0, Math.PI * 2),
-      nudgePhaseY: randomBetween(0, Math.PI * 2),
+      radius: radius,
+      driftX: driftBase * seededRandomBetween(rng, 0.7, 1.18),
+      driftY: driftBase * seededRandomBetween(rng, 0.62, 1.08),
+      speedX: seededRandomBetween(rng, 0.12, 0.34),
+      speedY: seededRandomBetween(rng, 0.14, 0.36),
+      phaseX: seededRandomBetween(rng, 0, Math.PI * 2),
+      phaseY: seededRandomBetween(rng, 0, Math.PI * 2),
+      nudgeAmpX: seededRandomBetween(rng, 0.45, 1.9),
+      nudgeAmpY: seededRandomBetween(rng, 0.45, 1.9),
+      nudgeSpeedX: seededRandomBetween(rng, 0.45, 0.92),
+      nudgeSpeedY: seededRandomBetween(rng, 0.42, 0.88),
+      nudgePhaseX: seededRandomBetween(rng, 0, Math.PI * 2),
+      nudgePhaseY: seededRandomBetween(rng, 0, Math.PI * 2),
       sideWeight: clamp((0.62 - u) / 0.62, 0, 1),
-      zone,
+      zone: zone,
     });
   }
 
-  for (let i = 0; i < squareNodeCount; i += 1) {
-    const inCoreLeft = i < leftSquareCount;
-    const u = inCoreLeft ? randomBetween(0.08, 0.52) : randomBetween(0.58, 0.94);
-    const v = inCoreLeft ? randomBetween(0.16, 0.84) : randomBetween(0.2, 0.76);
-    const size = squareNodeSizes[i] || randomBetween(8, 18);
+  for (var s = 0; s < squareNodeCount; s += 1) {
+    var inCoreLeft = s < leftSquareCount;
+    var su = inCoreLeft ? seededRandomBetween(rng, 0.08, 0.52) : seededRandomBetween(rng, 0.58, 0.94);
+    var sv = inCoreLeft ? seededRandomBetween(rng, 0.16, 0.84) : seededRandomBetween(rng, 0.2, 0.76);
+    var size = squareNodeSizes[s] || seededRandomBetween(rng, 8, 18);
 
     nodes.push({
-      u,
-      v,
+      u: su,
+      v: sv,
       shape: "square",
       squareSize: size,
       cornerRadius: clamp(size * 0.2, 2, 6),
       radius: size * 0.32,
-      driftX: randomBetween(1.2, 3.4),
-      driftY: randomBetween(1.1, 3.2),
-      speedX: randomBetween(0.1, 0.24),
-      speedY: randomBetween(0.12, 0.26),
-      phaseX: randomBetween(0, Math.PI * 2),
-      phaseY: randomBetween(0, Math.PI * 2),
-      nudgeAmpX: randomBetween(0.35, 1.2),
-      nudgeAmpY: randomBetween(0.35, 1.2),
-      nudgeSpeedX: randomBetween(0.36, 0.75),
-      nudgeSpeedY: randomBetween(0.34, 0.72),
-      nudgePhaseX: randomBetween(0, Math.PI * 2),
-      nudgePhaseY: randomBetween(0, Math.PI * 2),
-      sideWeight: clamp((0.62 - u) / 0.62, 0, 1),
+      driftX: seededRandomBetween(rng, 1.2, 3.4),
+      driftY: seededRandomBetween(rng, 1.1, 3.2),
+      speedX: seededRandomBetween(rng, 0.1, 0.24),
+      speedY: seededRandomBetween(rng, 0.12, 0.26),
+      phaseX: seededRandomBetween(rng, 0, Math.PI * 2),
+      phaseY: seededRandomBetween(rng, 0, Math.PI * 2),
+      nudgeAmpX: seededRandomBetween(rng, 0.35, 1.2),
+      nudgeAmpY: seededRandomBetween(rng, 0.35, 1.2),
+      nudgeSpeedX: seededRandomBetween(rng, 0.36, 0.75),
+      nudgeSpeedY: seededRandomBetween(rng, 0.34, 0.72),
+      nudgePhaseX: seededRandomBetween(rng, 0, Math.PI * 2),
+      nudgePhaseY: seededRandomBetween(rng, 0, Math.PI * 2),
+      sideWeight: clamp((0.62 - su) / 0.62, 0, 1),
       zone: inCoreLeft ? "left" : "outside",
     });
   }
@@ -4997,7 +5400,10 @@ function drawRoundedRect(ctx, x, y, width, height, radius) {
 }
 
 function getEdgeKey(indexA, indexB) {
-  return indexA < indexB ? `${indexA}:${indexB}` : `${indexB}:${indexA}`;
+  // Use numeric key instead of string concatenation for better performance
+  var lo = indexA < indexB ? indexA : indexB;
+  var hi = indexA < indexB ? indexB : indexA;
+  return lo * 4096 + hi;
 }
 
 function getNodeLinkCap(node) {
@@ -5017,24 +5423,44 @@ function resizeNetworkLayer() {
     return;
   }
 
-  const ctx = networkState.ctx || dom.networkCanvas.getContext("2d");
+  if (shouldDisableNetworkLayer()) {
+    networkState.ctx = null;
+    networkState.width = 0;
+    networkState.height = 0;
+    networkState.nodes = [];
+    return;
+  }
+
+  var ctx = networkState.ctx || dom.networkCanvas.getContext("2d");
   if (!ctx) {
     return;
   }
 
   networkState.ctx = ctx;
-  networkState.dpr = Math.min(window.devicePixelRatio || 1, 2);
+  // Cap DPR at 1.5 on mobile to reduce canvas memory and prevent crashes
+  var rawDpr = window.devicePixelRatio || 1;
+  var isMobileCanvas = window.innerWidth <= 768;
+  networkState.dpr = Math.min(rawDpr, isMobileCanvas ? 1.5 : 2);
   networkState.width = Math.max(1, window.innerWidth);
   networkState.height = Math.max(1, window.innerHeight);
   dom.networkCanvas.width = Math.round(networkState.width * networkState.dpr);
   dom.networkCanvas.height = Math.round(networkState.height * networkState.dpr);
-  dom.networkCanvas.style.width = `${networkState.width}px`;
-  dom.networkCanvas.style.height = `${networkState.height}px`;
+  dom.networkCanvas.style.width = networkState.width + "px";
+  dom.networkCanvas.style.height = networkState.height + "px";
   networkState.ctx.setTransform(networkState.dpr, 0, 0, networkState.dpr, 0, 0);
-  networkState.nodes = buildNetworkNodes();
+
+  // Only build nodes once per session; resizes just rescale via the u/v coordinates
+  if (!networkState.nodes.length) {
+    networkState.nodes = buildNetworkNodes();
+  }
 }
 
 function drawNetworkLayer(timestamp) {
+  if (shouldDisableNetworkLayer()) {
+    networkFrame = null;
+    return;
+  }
+
   if (!networkState.ctx || !networkState.width || !networkState.height) {
     return;
   }
@@ -5043,75 +5469,82 @@ function drawNetworkLayer(timestamp) {
     networkState.lastFrameMs = timestamp;
   }
 
-  const deltaSeconds = clamp((timestamp - networkState.lastFrameMs) / 1000, 0.001, 0.05);
+  var deltaSeconds = clamp((timestamp - networkState.lastFrameMs) / 1000, 0.001, 0.05);
   networkState.lastFrameMs = timestamp;
-  const pointerTargetStrength = networkState.pointerActive ? 1 : 0;
-  const pointerStrengthSmoothing = clamp(deltaSeconds * 5.8, 0.04, 0.24);
+
+  var isMobile = window.innerWidth <= 768;
+
+  var maxNodes = isMobile ? Math.min(104, networkState.nodes.length) : networkState.nodes.length;
+
+  var pointerTargetStrength = networkState.pointerActive ? 1 : 0;
+  var pointerStrengthSmoothing = clamp(deltaSeconds * 5.8, 0.04, 0.24);
   networkState.pointerStrength +=
     (pointerTargetStrength - networkState.pointerStrength) * pointerStrengthSmoothing;
-  const pointerSmoothing = clamp(deltaSeconds * 9.5, 0.05, 0.32);
+  var pointerSmoothing = clamp(deltaSeconds * 9.5, 0.05, 0.32);
   networkState.pointerSmoothX += (networkState.pointerX - networkState.pointerSmoothX) * pointerSmoothing;
   networkState.pointerSmoothY += (networkState.pointerY - networkState.pointerSmoothY) * pointerSmoothing;
 
-  const scrollY = window.scrollY;
-  const scrollDelta = scrollY - networkState.lastScrollY;
+  var scrollY = window.scrollY;
+  var scrollDelta = scrollY - networkState.lastScrollY;
   networkState.lastScrollY = scrollY;
-  const scrollSpeed = Math.abs(scrollDelta) / Math.max(deltaSeconds, 0.001);
-  const injectedEnergy = clamp(scrollSpeed / 1200, 0, 2.8);
-  const energyDecay = Math.exp(-deltaSeconds * 6);
+  var scrollSpeed = Math.abs(scrollDelta) / Math.max(deltaSeconds, 0.001);
+  var injectedEnergy = clamp(scrollSpeed / 1200, 0, 2.8);
+  var energyDecay = Math.exp(-deltaSeconds * 6);
   networkState.scrollEnergy = clamp(
     networkState.scrollEnergy * energyDecay + injectedEnergy,
     0,
     14
   );
-  const targetScale = 1 + networkState.scrollEnergy * 0.08 * NETWORK_SCROLL_BOOST_MULTIPLIER;
-  const smoothing = clamp(deltaSeconds * 7, 0.04, 0.3);
+  var targetScale = 1 + networkState.scrollEnergy * 0.08 * NETWORK_SCROLL_BOOST_MULTIPLIER;
+  var smoothing = clamp(deltaSeconds * 7, 0.04, 0.3);
   networkState.motionScale += (targetScale - networkState.motionScale) * smoothing;
   networkState.motionTime += deltaSeconds * networkState.motionScale;
-  const { ctx, nodes } = networkState;
-  const width = networkState.width;
-  const height = networkState.height;
-  const positions = new Array(nodes.length);
+  var ctx = networkState.ctx;
+  var nodes = networkState.nodes;
+  var width = networkState.width;
+  var height = networkState.height;
+  var nodesToProcess = Math.min(nodes.length, maxNodes);
+  var positions = new Array(nodesToProcess);
 
   ctx.clearRect(0, 0, width, height);
 
-  for (let i = 0; i < nodes.length; i += 1) {
+  for (var i = 0; i < nodesToProcess; i += 1) {
     positions[i] = getNetworkNodePosition(nodes[i], networkState.motionTime);
   }
 
-  const maxDistance = clamp(width * 0.108, 78, 188);
-  const maxDistanceSq = maxDistance * maxDistance;
-  const linkCounts = new Uint8Array(nodes.length);
-  const edgeSet = new Set();
+  var maxDistance = clamp(width * 0.108, 78, 188);
+  var maxDistanceSq = maxDistance * maxDistance;
+  var linkCounts = new Uint8Array(nodesToProcess);
+  var edgeSet = new Set();
   ctx.lineWidth = 1.05;
 
-  const drawEdge = (indexA, indexB, forced = false) => {
-    if (indexA === indexB) {
+  var drawEdge = function (indexA, indexB, forced) {
+    if (indexA === indexB || indexA >= nodesToProcess || indexB >= nodesToProcess) {
       return false;
     }
 
-    const key = getEdgeKey(indexA, indexB);
+    var key = getEdgeKey(indexA, indexB);
     if (edgeSet.has(key)) {
       return false;
     }
 
-    const pointA = positions[indexA];
-    const pointB = positions[indexB];
-    const dx = pointA.x - pointB.x;
-    const dy = pointA.y - pointB.y;
-    const distanceSq = dx * dx + dy * dy;
+    var pointA = positions[indexA];
+    var pointB = positions[indexB];
+    var dx = pointA.x - pointB.x;
+    var dy = pointA.y - pointB.y;
+    var distanceSq = dx * dx + dy * dy;
 
     if (!forced && distanceSq > maxDistanceSq) {
       return false;
     }
 
-    const distance = Math.sqrt(distanceSq);
-    const leftBoost = (pointA.leftBoost + pointB.leftBoost) * 0.5;
-    let alpha = 0;
+    var distance = Math.sqrt(distanceSq);
+    var leftBoost = (pointA.leftBoost + pointB.leftBoost) * 0.5;
+    var alpha = 0;
 
     if (forced) {
-      const farRange = maxDistance * 2.8;
-      const distanceFactor = clamp(1 - (distance - maxDistance) / (farRange - maxDistance), 0.14, 1);
+      var farRange = maxDistance * 2.8;
+      var distanceFactor = clamp(1 - (distance - maxDistance) / (farRange - maxDistance), 0.14, 1);
       alpha =
         0.12 *
         Math.min(pointA.fade, pointB.fade) *
@@ -5129,7 +5562,7 @@ function drawNetworkLayer(timestamp) {
       return false;
     }
 
-    ctx.strokeStyle = `rgba(25, 183, 177, ${alpha.toFixed(3)})`;
+    ctx.strokeStyle = "rgba(25, 183, 177, " + alpha.toFixed(3) + ")";
     ctx.beginPath();
     ctx.moveTo(pointA.x, pointA.y);
     ctx.lineTo(pointB.x, pointB.y);
@@ -5141,103 +5574,106 @@ function drawNetworkLayer(timestamp) {
     return true;
   };
 
-  for (let i = 0; i < nodes.length; i += 1) {
-    const nodeA = nodes[i];
-    const nodeALinkCap = getNodeLinkCap(nodeA);
+  // Primary edge pass
+  for (var a = 0; a < nodesToProcess; a += 1) {
+    var nodeALinkCap = getNodeLinkCap(nodes[a]);
 
-    for (let j = i + 1; j < nodes.length; j += 1) {
-      if (linkCounts[i] >= nodeALinkCap) {
+    for (var b = a + 1; b < nodesToProcess; b += 1) {
+      if (linkCounts[a] >= nodeALinkCap) {
         break;
       }
 
-      const nodeB = nodes[j];
-      const nodeBLinkCap = getNodeLinkCap(nodeB);
-      if (linkCounts[j] >= nodeBLinkCap) {
+      var nodeBLinkCap = getNodeLinkCap(nodes[b]);
+      if (linkCounts[b] >= nodeBLinkCap) {
         continue;
       }
 
-      drawEdge(i, j, false);
+      drawEdge(a, b, false);
     }
   }
 
-  for (let i = 0; i < nodes.length; i += 1) {
-    const minLinks = getNodeMinLinks(nodes[i]);
-    const nodeCap = getNodeLinkCap(nodes[i]);
+  // Forced-edge pass: skip on mobile to save CPU
+  if (!isMobile) {
+    for (var f = 0; f < nodesToProcess; f += 1) {
+      var minLinks = getNodeMinLinks(nodes[f]);
+      var nodeCap = getNodeLinkCap(nodes[f]);
 
-    while (linkCounts[i] < minLinks && linkCounts[i] < nodeCap) {
-      let bestTarget = -1;
-      let bestScore = Number.POSITIVE_INFINITY;
-      let fallbackTarget = -1;
-      let fallbackScore = Number.POSITIVE_INFINITY;
+      while (linkCounts[f] < minLinks && linkCounts[f] < nodeCap) {
+        var bestTarget = -1;
+        var bestScore = Number.POSITIVE_INFINITY;
+        var fallbackTarget = -1;
+        var fallbackScore = Number.POSITIVE_INFINITY;
 
-      for (let j = 0; j < nodes.length; j += 1) {
-        if (j === i) {
-          continue;
+        for (var g = 0; g < nodesToProcess; g += 1) {
+          if (g === f) {
+            continue;
+          }
+
+          var key = getEdgeKey(f, g);
+          if (edgeSet.has(key)) {
+            continue;
+          }
+
+          var fdx = positions[f].x - positions[g].x;
+          var fdy = positions[f].y - positions[g].y;
+          var fdist = Math.hypot(fdx, fdy);
+          var zonePenalty = nodes[g].zone === "outside" ? 18 : 0;
+          var score = fdist + zonePenalty;
+          var tCap = getNodeLinkCap(nodes[g]);
+
+          if (linkCounts[g] < tCap && score < bestScore) {
+            bestScore = score;
+            bestTarget = g;
+          }
+
+          if (score < fallbackScore) {
+            fallbackScore = score;
+            fallbackTarget = g;
+          }
         }
 
-        const key = getEdgeKey(i, j);
-        if (edgeSet.has(key)) {
-          continue;
+        var target = bestTarget !== -1 ? bestTarget : fallbackTarget;
+        if (target === -1) {
+          break;
         }
 
-        const dx = positions[i].x - positions[j].x;
-        const dy = positions[i].y - positions[j].y;
-        const distance = Math.hypot(dx, dy);
-        const zonePenalty = nodes[j].zone === "outside" ? 18 : 0;
-        const score = distance + zonePenalty;
-        const targetCap = getNodeLinkCap(nodes[j]);
-
-        if (linkCounts[j] < targetCap && score < bestScore) {
-          bestScore = score;
-          bestTarget = j;
+        if (!drawEdge(f, target, true)) {
+          break;
         }
-
-        if (score < fallbackScore) {
-          fallbackScore = score;
-          fallbackTarget = j;
-        }
-      }
-
-      const target = bestTarget !== -1 ? bestTarget : fallbackTarget;
-      if (target === -1) {
-        break;
-      }
-
-      if (!drawEdge(i, target, true)) {
-        break;
       }
     }
   }
 
-  for (let i = 0; i < nodes.length; i += 1) {
-    const node = nodes[i];
-    const point = positions[i];
-    const nodeAlpha = (node.radius > 2.9 ? 0.48 : node.radius > 1.8 ? 0.34 : 0.2) * point.fade;
+  // Draw nodes
+  for (var n = 0; n < nodesToProcess; n += 1) {
+    var node = nodes[n];
+    var point = positions[n];
+    var nodeAlpha = (node.radius > 2.9 ? 0.48 : node.radius > 1.8 ? 0.34 : 0.2) * point.fade;
 
     if (node.shape === "square") {
-      const size = node.squareSize || 14;
-      const half = size * 0.5;
-      const corner = node.cornerRadius || 3;
-      const squareAlpha = Math.min(0.48 * point.fade, 0.5);
-      const haloSize = size * 1.95;
-      const haloHalf = haloSize * 0.5;
-      const haloRadius = Math.max(corner * 1.75, corner + 2);
+      var sqSize = node.squareSize || 14;
+      var half = sqSize * 0.5;
+      var corner = node.cornerRadius || 3;
+      var squareAlpha = Math.min(0.48 * point.fade, 0.5);
+      var haloSize = sqSize * 1.95;
+      var haloHalf = haloSize * 0.5;
+      var haloRadius = Math.max(corner * 1.75, corner + 2);
 
-      ctx.fillStyle = `rgba(25, 183, 177, ${(0.085 * point.fade).toFixed(3)})`;
+      ctx.fillStyle = "rgba(25, 183, 177, " + (0.085 * point.fade).toFixed(3) + ")";
       drawRoundedRect(ctx, point.x - haloHalf, point.y - haloHalf, haloSize, haloSize, haloRadius);
       ctx.fill();
 
-      ctx.fillStyle = `rgba(25, 183, 177, ${squareAlpha.toFixed(3)})`;
-      drawRoundedRect(ctx, point.x - half, point.y - half, size, size, corner);
+      ctx.fillStyle = "rgba(25, 183, 177, " + squareAlpha.toFixed(3) + ")";
+      drawRoundedRect(ctx, point.x - half, point.y - half, sqSize, sqSize, corner);
       ctx.fill();
     } else {
-      ctx.fillStyle = `rgba(25, 183, 177, ${Math.min(nodeAlpha, 0.5).toFixed(3)})`;
+      ctx.fillStyle = "rgba(25, 183, 177, " + Math.min(nodeAlpha, 0.5).toFixed(3) + ")";
       ctx.beginPath();
       ctx.arc(point.x, point.y, node.radius, 0, Math.PI * 2);
       ctx.fill();
 
       if (node.radius > 3.6) {
-        ctx.fillStyle = `rgba(25, 183, 177, ${(0.09 * point.fade).toFixed(3)})`;
+        ctx.fillStyle = "rgba(25, 183, 177, " + (0.09 * point.fade).toFixed(3) + ")";
         ctx.beginPath();
         ctx.arc(point.x, point.y, node.radius * 2.3, 0, Math.PI * 2);
         ctx.fill();
@@ -5260,6 +5696,13 @@ function startNetworkLayer() {
 
   window.cancelAnimationFrame(networkFrame);
   networkFrame = null;
+
+  if (shouldDisableNetworkLayer()) {
+    networkState.ctx = null;
+    networkState.nodes = [];
+    return;
+  }
+
   networkState.scrollEnergy = 0;
   networkState.motionScale = 1;
   networkState.lastFrameMs = 0;
@@ -5449,7 +5892,13 @@ function scrollToHash(hash, { smooth = true } = {}) {
 
   const target = document.querySelector(hash);
   if (target instanceof HTMLElement) {
-    target.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "start" });
+    const header = document.querySelector(".site-header");
+    const headerHeight = header instanceof HTMLElement ? header.offsetHeight : 0;
+    const targetTop = target.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({
+      top: Math.max(0, targetTop - headerHeight),
+      behavior: smooth ? "smooth" : "auto",
+    });
     return;
   }
 
@@ -5479,8 +5928,10 @@ function initPageContent() {
   initProjectSummaryCards();
   initProjectReservationPanels();
   initReservationScheduleFrames();
+  syncProjectInlineEmbeds();
   initProjectKotaSlideshows();
   applyStaticText(currentLang);
+  initProjectDemoOverlay();
   renderServices(currentLang);
   renderContactIntake(currentLang);
   updateLanguageButtons();
@@ -5494,7 +5945,14 @@ function initPageContent() {
       initHeroClouds();
       syncProjectCardLayout();
       syncServicePanelHeights();
+      // Scroll to the initial hash once layout is stable
+      if (window.location.hash) {
+        scrollToHash(window.location.hash, { smooth: false });
+      }
     });
+  } else if (window.location.hash) {
+    // Fallback if fonts API is unavailable
+    setTimeout(() => scrollToHash(window.location.hash, { smooth: false }), 120);
   }
 }
 
@@ -5581,6 +6039,8 @@ function initEvents() {
     const menuToggle = element?.closest(".menu-toggle");
     const langButton = element?.closest(".lang-btn");
     const popupClose = element?.closest("[data-contact-popup-close]");
+    const projectDemoTrigger = element?.closest("[data-project-demo-trigger]");
+    const projectDemoClose = element?.closest("[data-project-demo-close]");
     const contactSelectRoot = element?.closest("[data-contact-select]");
     const navLink = element?.closest("a");
 
@@ -5596,6 +6056,18 @@ function initEvents() {
 
     if (popupClose instanceof HTMLButtonElement) {
       dismissContactStatusPopup();
+      return;
+    }
+
+    if (projectDemoTrigger instanceof HTMLButtonElement && projectDemoTrigger.dataset.projectDemoTrigger) {
+      event.preventDefault();
+      openProjectDemo(projectDemoTrigger.dataset.projectDemoTrigger, projectDemoTrigger);
+      return;
+    }
+
+    if (projectDemoClose instanceof HTMLButtonElement) {
+      event.preventDefault();
+      closeProjectDemo();
       return;
     }
 
@@ -5636,11 +6108,85 @@ function initEvents() {
 
   });
 
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && dom.projectDemoOverlay instanceof HTMLElement && !dom.projectDemoOverlay.hidden) {
+      closeProjectDemo();
+    }
+  });
+
   window.addEventListener(
     "scroll",
     () => {
       updateHeaderState();
       updateHeaderLogoDocking();
+
+      // Collapse any open service panel whose active button has scrolled out of view
+      if (servicePanels.length) {
+        const viewportTop = 0;
+        const viewportBottom = window.innerHeight;
+        servicePanels.forEach((panelState) => {
+          if (!isLiveServicePanelState(panelState)) {
+            return;
+          }
+          if (isMobileServiceLayout()) {
+            if (panelState.activeIndex < 0) {
+              return;
+            }
+            const activeButton = panelState.buttons[panelState.activeIndex];
+            if (!(activeButton instanceof HTMLElement)) {
+              return;
+            }
+            const rect = activeButton.getBoundingClientRect();
+            const isOutOfView = rect.bottom < viewportTop || rect.top > viewportBottom;
+            if (isOutOfView) {
+              panelState.activeIndex = -1;
+              panelState.previewIndex = -1;
+              syncServicePanelButtons(panelState);
+              clearMobileServicePanelDetail(panelState);
+            }
+          } else {
+            if (panelState.activeIndex < 0) {
+              return;
+            }
+            const activeButton = panelState.buttons[panelState.activeIndex];
+            if (!(activeButton instanceof HTMLElement)) {
+              return;
+            }
+            const rect = activeButton.getBoundingClientRect();
+            const isOutOfView = rect.bottom < viewportTop || rect.top > viewportBottom;
+            if (isOutOfView) {
+              panelState.activeIndex = -1;
+              panelState.previewIndex = -1;
+              syncServicePanelButtons(panelState);
+              updatePartnerPanelFromSource(panelState, { syncLayout: true });
+            }
+          }
+        });
+      }
+
+    },
+    { passive: true }
+  );
+
+  // Throttle scroll for network animation to prevent mobile crashes
+  let scrollThrottleTimer = null;
+  let lastScrollTime = 0;
+  window.addEventListener(
+    "scroll",
+    () => {
+      const now = Date.now();
+      // Throttle to max 30fps on mobile for better performance
+      if (now - lastScrollTime < 33) {
+        return;
+      }
+      lastScrollTime = now;
+      
+      if (scrollThrottleTimer) {
+        return;
+      }
+      scrollThrottleTimer = setTimeout(() => {
+        scrollThrottleTimer = null;
+      }, 16);
     },
     { passive: true }
   );
@@ -5680,18 +6226,44 @@ function initEvents() {
   });
 
   let resizeTimer = null;
+  let demoSyncTimer = null;
   window.addEventListener("resize", () => {
+    // Debounce the demo overlay sync — 250ms to let iOS rotation animation finish
+    window.clearTimeout(demoSyncTimer);
+    demoSyncTimer = window.setTimeout(() => {
+      syncProjectDemoOverlayState();
+    }, 250);
+
     window.clearTimeout(resizeTimer);
     resizeTimer = window.setTimeout(() => {
-      startNetworkLayer();
+      // Skip heavy re-init while demo overlay is open to prevent crashes
+      if (!document.body.classList.contains("has-project-demo-overlay")) {
+        startNetworkLayer();
+        syncProjectInlineEmbeds();
+        initProjectPhoneScreens();
+        initProjectLaptopEmbedScreens();
+        initHeroClouds();
+      }
       updateHeaderLogoDocking();
-      initHeroClouds();
       syncProjectCardLayout();
       syncServicePanelHeights();
     }, 160);
   });
 
+  // iOS-reliable orientation change handler — fires after rotation animation completes
+  window.addEventListener("orientationchange", () => {
+    setTimeout(() => {
+      syncProjectDemoOverlayState();
+    }, 350);
+  });
+
   document.addEventListener("visibilitychange", () => {
+    if (shouldDisableNetworkLayer()) {
+      window.cancelAnimationFrame(networkFrame);
+      networkFrame = null;
+      return;
+    }
+
     if (document.hidden) {
       window.cancelAnimationFrame(networkFrame);
       networkFrame = null;
@@ -5714,18 +6286,63 @@ function initEvents() {
   });
 }
 
-function init() {
+function getLanguageFromCountry(countryCode) {
+  const code = String(countryCode || "").trim().toUpperCase();
+  const hrCountries = new Set(["HR", "BA", "RS", "ME", "XK"]);
+  const deCountries = new Set(["DE", "AT", "CH"]);
+  if (hrCountries.has(code)) return "hr";
+  if (deCountries.has(code)) return "de";
+  return "en";
+}
+
+async function detectGeoLanguage() {
+  try {
+    const response = await window.fetch("https://ipapi.co/country/", {
+      headers: { Accept: "text/plain" },
+    });
+    if (!response.ok) return null;
+    const country = (await response.text()).trim();
+    return getLanguageFromCountry(country);
+  } catch (_error) {
+    return null;
+  }
+}
+
+async function init() {
+  // Prevent the browser's native hash scroll — we handle it ourselves
+  // after dynamic content (services, contact form) has been rendered.
+  if (history.scrollRestoration) {
+    history.scrollRestoration = "manual";
+  }
   enforceCanonicalHomePath();
   const bootLanguage =
     translations[window.ETHERR_BOOT_LANG] ? window.ETHERR_BOOT_LANG : null;
   const storedLanguage = getStoredLanguage();
-  currentLang = bootLanguage || storedLanguage || getAutoDetectedLanguage();
-  if (!storedLanguage) {
-    persistLanguagePreference(currentLang);
+
+  if (storedLanguage || bootLanguage) {
+    // User has an explicit preference — honour it, no geo needed.
+    currentLang = bootLanguage || storedLanguage;
+    initPageContent();
+    startNetworkLayer();
+    initEvents();
+    return;
   }
+
+  // First visit: start rendering immediately with browser-locale guess,
+  // then silently correct with geo result if it differs.
+  const browserLang = getAutoDetectedLanguage();
+  currentLang = browserLang;
   initPageContent();
   startNetworkLayer();
   initEvents();
+
+  const geoLang = await detectGeoLanguage();
+  if (geoLang && geoLang !== currentLang) {
+    setLanguage(geoLang);
+  } else {
+    // Persist whichever language we ended up with so geo isn't called again.
+    persistLanguagePreference(currentLang);
+  }
 }
 
 init();

@@ -2,7 +2,7 @@
 <html lang="hr">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <script>
       (function () {
         var supported = { hr: true, en: true, de: true };
@@ -95,7 +95,7 @@
       }
 
       .sr-months {
-        display: inline-flex;
+        display: flex;
         flex-wrap: wrap;
         gap: 6px;
       }
@@ -372,6 +372,7 @@
         z-index: 3;
         cursor: grab;
         user-select: none;
+        touch-action: none; /* Allow custom touch handling for drag */
         transition:
           box-shadow 180ms ease,
           transform 180ms ease,
@@ -722,7 +723,7 @@
               sampleNotes: "Demo prikaz izrade rezervacije (staticki prikaz).",
             },
             services: ["Sisanje", "Bojanje kose", "Njega lica", "Manikura"],
-            months: ["SIJ", "VELJ", "OŽU", "TRA", "SVI", "LIP", "SRP", "KOL", "RUJ", "LI", "STU", "PRO"],
+            months: ["SIJ", "VELJ", "OŽU", "TRA", "SVI", "LIP", "SRP", "KOL", "RUJ", "LIS", "STU", "PRO"],
             days: ["PON", "UTO", "SRI", "CET", "PET", "SUB", "NED"],
             employees: ["Mia", "Luka", "Marta", "Dino"],
             clientFirst: [
@@ -996,6 +997,7 @@
           LOCALES[window.ETHERR_BOOT_LANG] ? window.ETHERR_BOOT_LANG : LOCALES[params.get("lang")] ? params.get("lang") : "hr";
         let currentWeekStart = new Date(2026, 2, 23);
         let selectedYear = currentWeekStart.getFullYear();
+        let selectedMonth = currentWeekStart.getMonth();
         let activeEmployeeId = 1;
         let visibleEmployeeId = 1;
         let nextShiftId = 1;
@@ -1216,10 +1218,11 @@
             button.type = "button";
             button.className = "sr-month";
             button.textContent = l.months[month];
-            if (month === currentWeekStart.getMonth()) {
+            if (month === selectedMonth) {
               button.classList.add("is-current");
             }
             button.addEventListener("click", () => {
+              selectedMonth = month;
               currentWeekStart = firstMondayOfMonth(selectedYear, month);
               renderAll();
             });
@@ -1446,7 +1449,15 @@
         }
 
         function findDayBodyFromPoint(clientX, clientY) {
+          // Temporarily hide any dragging element so elementFromPoint can see through it
+          const dragging = document.querySelector(".is-dragging");
+          if (dragging) {
+            dragging.style.visibility = "hidden";
+          }
           const target = document.elementFromPoint(clientX, clientY);
+          if (dragging) {
+            dragging.style.visibility = "";
+          }
           return target ? target.closest(".sr-day-body") : null;
         }
 
@@ -1685,6 +1696,99 @@
             document.addEventListener("mousemove", onMove);
             document.addEventListener("mouseup", onUp);
           });
+
+          // Add touch support for mobile drag-and-drop
+          block.addEventListener("touchstart", (event) => {
+            collapseReservationBlock(block);
+
+            const reservationId = Number(block.dataset.reservationId);
+            const reservation = reservationById(reservationId);
+            if (!reservation) {
+              return;
+            }
+
+            const touch = event.touches[0];
+            if (!touch) {
+              return;
+            }
+
+            const duration = Math.max(MIN_RES_MINUTES, reservation.end - reservation.start);
+            const rect = block.getBoundingClientRect();
+            const pointerOffset = touch.clientY - rect.top;
+            block.classList.add("is-dragging");
+
+            // Detach block from normal flow so we can move it freely
+            const origParent = block.parentNode;
+            const origStyle = block.style.cssText;
+            block.style.position = "fixed";
+            block.style.zIndex = "9999";
+            block.style.width = rect.width + "px";
+            block.style.height = rect.height + "px";
+            block.style.left = rect.left + "px";
+            block.style.top = rect.top + "px";
+            block.style.margin = "0";
+            document.body.appendChild(block);
+
+            const onTouchMove = (moveEvent) => {
+              moveEvent.preventDefault();
+              const moveTouch = moveEvent.touches[0];
+              if (!moveTouch) {
+                return;
+              }
+
+              // Move the block visually to follow the finger
+              block.style.left = (moveTouch.clientX - rect.width / 2) + "px";
+              block.style.top = (moveTouch.clientY - pointerOffset) + "px";
+
+              // Update the data model
+              const targetBody = findDayBodyFromPoint(moveTouch.clientX, moveTouch.clientY) || dayBodyByIndex(reservation.day);
+              if (!targetBody) {
+                return;
+              }
+
+              const dayIdx = Number(targetBody.dataset.dayIndex);
+              const rectDay = targetBody.getBoundingClientRect();
+              const y = moveTouch.clientY - rectDay.top - pointerOffset;
+              const totalMinutes = (END_HOUR - START_HOUR) * 60;
+              const minutes = START_HOUR * 60 + (clamp(y, 0, rectDay.height) / rectDay.height) * totalMinutes;
+              const desiredStart = roundToStep(minutes, SNAP_MINUTES);
+
+              const placement = resolveReservationPlacement(
+                dayIdx,
+                desiredStart,
+                duration,
+                moveTouch.clientX,
+                reservation.id,
+                reservation.employeeId
+              );
+
+              if (!placement) {
+                return;
+              }
+
+              reservation.day = dayIdx;
+              reservation.shiftId = placement.shift.id;
+              reservation.employeeId = placement.shift.employeeId;
+              reservation.start = placement.start;
+              reservation.end = placement.end;
+              // Do NOT call renderDays() here — it would destroy the block mid-drag
+            };
+
+            const onTouchEnd = () => {
+              document.removeEventListener("touchmove", onTouchMove);
+              document.removeEventListener("touchend", onTouchEnd);
+              document.removeEventListener("touchcancel", onTouchEnd);
+              // Remove the floating block and re-render everything in place
+              if (block.parentNode) {
+                block.parentNode.removeChild(block);
+              }
+              renderDays();
+            };
+
+            document.addEventListener("touchmove", onTouchMove, { passive: false });
+            document.addEventListener("touchend", onTouchEnd);
+            document.addEventListener("touchcancel", onTouchEnd);
+          }, { passive: false });
         }
 
         function createReservation(preferredEmployeeId, preferredDay = 0, preferredMinute = null, viaClientX = null) {
@@ -1876,16 +1980,19 @@
 
         weekPrev.addEventListener("click", () => {
           currentWeekStart = new Date(currentWeekStart.getFullYear(), currentWeekStart.getMonth(), currentWeekStart.getDate() - 7);
+          selectedMonth = currentWeekStart.getMonth();
           renderAll();
         });
 
         weekNext.addEventListener("click", () => {
           currentWeekStart = new Date(currentWeekStart.getFullYear(), currentWeekStart.getMonth(), currentWeekStart.getDate() + 7);
+          selectedMonth = currentWeekStart.getMonth();
           renderAll();
         });
 
         weekLabel.addEventListener("click", () => {
           currentWeekStart = weekStartForDate(new Date());
+          selectedMonth = currentWeekStart.getMonth();
           renderAll();
         });
 

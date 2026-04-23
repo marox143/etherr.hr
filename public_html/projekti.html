@@ -3,6 +3,28 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <script>
+      (function () {
+        var search = "";
+        var debugEnabled = false;
+        try {
+          search = String(window.location.search || "");
+          debugEnabled =
+            /(?:^|[?&])debug-mobile=1(?:&|$)/.test(search) ||
+            window.localStorage.getItem("etherr-debug-mobile") === "1";
+        } catch (_error) {}
+
+        if (!debugEnabled) {
+          return;
+        }
+
+        var script = document.createElement("script");
+        script.src = "debug-archive/error-logger.js";
+        document.head.appendChild(script);
+      })();
+    </script>
+
     <script>
       (function () {
         var supported = { hr: true, en: true, de: true };
@@ -60,91 +82,22 @@
       <section class="page-shell section project-showcase project-showcase-secondary">
         <div class="container page-shell-inner">
           <div class="project-device-stage">
-            <div class="project-showcase-layout project-showcase-layout-reversed">
-              <article class="project-summary reveal" aria-labelledby="project-almagea-title">
-                <div class="project-summary-card">
-                  <div class="project-summary-face project-summary-face-front">
-                    <div class="project-summary-content">
-                      <p class="project-summary-tag" data-i18n="pages.projects.almagea.tag"></p>
-                      <div class="project-summary-copy">
-                        <h2 id="project-almagea-title" data-i18n="pages.projects.almagea.title"></h2>
-                        <p data-i18n="pages.projects.almagea.text"></p>
-                      </div>
-                      <div class="project-summary-meta">
-                        <span data-i18n="pages.projects.almagea.meta"></span>
-                        <a
-                          class="project-summary-link"
-                          href="https://www.almagea.hr/"
-                          target="_blank"
-                          rel="noreferrer"
-                          data-i18n="pages.projects.almagea.link"
-                        ></a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="project-summary-face project-summary-face-back" aria-hidden="true">
-                    <div class="project-summary-content">
-                      <p class="project-summary-tag" data-i18n="pages.projects.almagea.backTag"></p>
-                      <div class="project-summary-copy">
-                        <h2 data-i18n="pages.projects.almagea.backTitle"></h2>
-                        <p data-i18n="pages.projects.almagea.backText"></p>
-                      </div>
-                      <div class="project-summary-meta">
-                        <span data-i18n="pages.projects.almagea.backMeta"></span>
-                        <a
-                          class="project-summary-link"
-                          href="https://www.almagea.hr/"
-                          target="_blank"
-                          rel="noreferrer"
-                          data-i18n="pages.projects.almagea.link"
-                        ></a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <button class="project-summary-flip-trigger" type="button" aria-pressed="false">
-                  <span class="project-summary-flip-rail" aria-hidden="true"></span>
-                  <span class="sr-only" data-i18n="pages.projects.flip"></span>
-                </button>
-              </article>
-              <div class="project-laptop-stage reveal">
-                <div class="project-laptop project-laptop-almagea" aria-label="Almagea desktop website preview">
-                  <div class="project-laptop-screen project-laptop-screen-static" tabindex="0" aria-label="Scrollable Almagea desktop website preview">
-                    <div class="project-almagea-page">
-                      <img
-                        class="project-almagea-screenshot"
-                        src="assets/almagea/almagea.jpeg"
-                        alt=""
-                        width="1904"
-                        height="10264"
-                        loading="lazy"
-                      />
-                    </div>
-                  </div>
-                  <img
-                    class="project-laptop-frame"
-                    src="assets/images/laptop.png"
-                    alt="Laptop mockup displaying the Almagea website"
-                    width="1000"
-                    height="600"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="page-shell section project-showcase project-showcase-secondary">
-        <div class="container page-shell-inner">
-          <div class="project-device-stage">
             <div class="project-showcase-layout">
               <div class="project-phone-stage reveal">
-                <div class="project-phone" aria-label="Keef mobile bar price list preview">
+                <div class="project-phone project-phone-live" aria-label="Keef mobile bar price list preview">
                   <div class="project-phone-screen">
+                    <img
+                      class="project-device-mobile-preview"
+                      src="assets/projects-mobile/keef-preview.jpg"
+                      alt=""
+                      width="430"
+                      height="932"
+                      loading="lazy"
+                      decoding="async"
+                    />
                     <iframe
                       class="project-phone-iframe"
-                      src="keef-demo.html"
+                      data-project-embed-src="keef-demo.html"
                       title="Keef mobile bar price list"
                       loading="lazy"
                       scrolling="auto"
@@ -210,6 +163,91 @@
         </div>
       </section>
 
+      <section class="page-shell section project-showcase project-showcase-secondary">
+        <div class="container page-shell-inner">
+          <div class="project-device-stage">
+            <div class="project-showcase-layout project-showcase-layout-reversed">
+              <article class="project-summary reveal" aria-labelledby="project-keepgoing-title">
+                <div class="project-summary-card">
+                  <div class="project-summary-face project-summary-face-front">
+                    <div class="project-summary-content">
+                      <p class="project-summary-tag" data-i18n="pages.projects.keepgoing.tag"></p>
+                      <div class="project-summary-copy">
+                        <h2 id="project-keepgoing-title" data-i18n="pages.projects.keepgoing.title"></h2>
+                        <p data-i18n="pages.projects.keepgoing.text"></p>
+                      </div>
+                      <div class="project-summary-meta">
+                        <span data-i18n="pages.projects.keepgoing.meta"></span>
+                        <a
+                          class="project-summary-link"
+                          href="https://keepgoing.hr/"
+                          target="_blank"
+                          rel="noreferrer"
+                          data-i18n="pages.projects.keepgoing.link"
+                        ></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="project-summary-face project-summary-face-back" aria-hidden="true">
+                    <div class="project-summary-content">
+                      <p class="project-summary-tag" data-i18n="pages.projects.keepgoing.backTag"></p>
+                      <div class="project-summary-copy">
+                        <h2 data-i18n="pages.projects.keepgoing.backTitle"></h2>
+                        <p data-i18n="pages.projects.keepgoing.backText"></p>
+                      </div>
+                      <div class="project-summary-meta">
+                        <span data-i18n="pages.projects.keepgoing.backMeta"></span>
+                        <a
+                          class="project-summary-link"
+                          href="https://keepgoing.hr/"
+                          target="_blank"
+                          rel="noreferrer"
+                          data-i18n="pages.projects.keepgoing.link"
+                        ></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button class="project-summary-flip-trigger" type="button" aria-pressed="false">
+                  <span class="project-summary-flip-rail" aria-hidden="true"></span>
+                  <span class="sr-only" data-i18n="pages.projects.flip"></span>
+                </button>
+              </article>
+              <div class="project-laptop-stage reveal">
+                <div class="project-laptop project-laptop-live project-laptop-keepgoing" aria-label="Keep Going desktop website preview">
+                  <div class="project-laptop-screen project-laptop-screen-embed" aria-label="Scrollable Keep Going desktop website preview">
+                    <div class="project-keepgoing-page">
+                      <img
+                        class="project-keepgoing-screenshot"
+                        src="assets/projects-mobile/keepgoing-full.png"
+                        alt=""
+                        width="1896"
+                        height="2627"
+                        loading="lazy"
+                      />
+                    </div>
+                    <iframe
+                      class="project-laptop-iframe"
+                      data-project-embed-src="keepgoing-demo.html"
+                      title="Keep Going desktop website"
+                      loading="lazy"
+                      scrolling="auto"
+                    ></iframe>
+                  </div>
+                  <img
+                    class="project-laptop-frame"
+                    src="assets/images/laptop.png"
+                    alt="Laptop mockup displaying the Keep Going website"
+                    width="1000"
+                    height="600"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="page-shell section project-showcase">
         <div class="container page-shell-inner">
           <div class="project-device-stage">
@@ -229,6 +267,7 @@
                         </div>
                         <div class="project-summary-meta">
                           <span data-i18n="pages.projects.reservation.meta"></span>
+                          <button class="project-summary-link project-summary-demo-trigger" type="button" data-project-demo-trigger="reservation" data-i18n="pages.projects.demo.button"></button>
                         </div>
                       </div>
                       <span class="project-summary-glyph project-summary-glyph-calendar" aria-hidden="true"></span>
@@ -247,7 +286,7 @@
                           <iframe
                             class="project-reservation-live-embed"
                             data-reservation-schedule-frame
-                            src="reservation-schedule-demo.html"
+                            data-project-embed-src="reservation-schedule-demo.html"
                             title="Reservation schedule demo"
                             loading="lazy"
                           ></iframe>
@@ -264,7 +303,7 @@
                           <iframe
                             class="project-reservation-live-embed"
                             data-reservation-schedule-frame
-                            src="reservation-calendar-demo.html"
+                            data-project-embed-src="reservation-calendar-demo.html"
                             title="Reservation calendar demo"
                             loading="lazy"
                           ></iframe>
@@ -291,42 +330,42 @@
         <div class="container page-shell-inner">
           <div class="project-device-stage">
             <div class="project-showcase-layout project-showcase-layout-reversed">
-              <article class="project-summary project-summary-kota reveal" aria-labelledby="project-kota-title">
+              <article class="project-summary reveal" aria-labelledby="project-almagea-title">
                 <div class="project-summary-card">
                   <div class="project-summary-face project-summary-face-front">
                     <div class="project-summary-content">
-                      <p class="project-summary-tag" data-i18n="pages.projects.kota.tag"></p>
+                      <p class="project-summary-tag" data-i18n="pages.projects.almagea.tag"></p>
                       <div class="project-summary-copy">
-                        <h2 id="project-kota-title" data-i18n="pages.projects.kota.title"></h2>
-                        <p data-i18n="pages.projects.kota.text"></p>
+                        <h2 id="project-almagea-title" data-i18n="pages.projects.almagea.title"></h2>
+                        <p data-i18n="pages.projects.almagea.text"></p>
                       </div>
                       <div class="project-summary-meta">
-                        <span data-i18n="pages.projects.kota.meta"></span>
+                        <span data-i18n="pages.projects.almagea.meta"></span>
                         <a
                           class="project-summary-link"
-                          href="https://kotasamobor.hr/"
+                          href="https://www.almagea.hr/"
                           target="_blank"
                           rel="noreferrer"
-                          data-i18n="pages.projects.kota.link"
+                          data-i18n="pages.projects.almagea.link"
                         ></a>
                       </div>
                     </div>
                   </div>
                   <div class="project-summary-face project-summary-face-back" aria-hidden="true">
                     <div class="project-summary-content">
-                      <p class="project-summary-tag" data-i18n="pages.projects.kota.backTag"></p>
+                      <p class="project-summary-tag" data-i18n="pages.projects.almagea.backTag"></p>
                       <div class="project-summary-copy">
-                        <h2 data-i18n="pages.projects.kota.backTitle"></h2>
-                        <p data-i18n="pages.projects.kota.backText"></p>
+                        <h2 data-i18n="pages.projects.almagea.backTitle"></h2>
+                        <p data-i18n="pages.projects.almagea.backText"></p>
                       </div>
                       <div class="project-summary-meta">
-                        <span data-i18n="pages.projects.kota.backMeta"></span>
+                        <span data-i18n="pages.projects.almagea.backMeta"></span>
                         <a
                           class="project-summary-link"
-                          href="https://kotasamobor.hr/"
+                          href="https://www.almagea.hr/"
                           target="_blank"
                           rel="noreferrer"
-                          data-i18n="pages.projects.kota.link"
+                          data-i18n="pages.projects.almagea.link"
                         ></a>
                       </div>
                     </div>
@@ -338,121 +377,25 @@
                 </button>
               </article>
               <div class="project-laptop-stage reveal">
-                <div class="project-laptop" aria-label="Kota Samobor desktop website preview">
-                  <div class="project-laptop-screen" aria-hidden="true">
-                    <div class="project-kota-scroll">
-                      <div class="project-kota-showcase">
-                        <div class="project-kota-hero-shell">
-                          <div class="project-kota-slideshow">
-                            <img
-                              class="project-kota-slide is-active"
-                              src="assets/kota/kota-samobor-slider1.jpg"
-                              alt=""
-                              width="1500"
-                              height="630"
-                            />
-                            <img
-                              class="project-kota-slide"
-                              src="assets/kota/kota-samobor-slider2.jpg"
-                              alt=""
-                              width="1500"
-                              height="630"
-                            />
-                            <img
-                              class="project-kota-slide"
-                              src="assets/kota/kota-samobor-slider3.jpg"
-                              alt=""
-                              width="1500"
-                              height="630"
-                            />
-                            <img
-                              class="project-kota-slide"
-                              src="assets/kota/kota-samobor-slider4.jpg"
-                              alt=""
-                              width="1500"
-                              height="630"
-                            />
-                          </div>
-                          <div class="project-kota-ui">
-                            <div class="project-kota-notice">
-                              SVIM REGISTRIRANIM KUPCIMA OMOGUĆUJEMO 10% TRAJNOG POPUSTA. ZA NARUDŽBE VEĆE OD 85 € DOSTAVA JE BESPLATNA.
-                            </div>
-                            <div class="project-kota-header">
-                              <div class="project-kota-brand">
-                                <div class="project-kota-brand-line">
-                                  <span class="project-kota-brand-mark">KS</span>
-                                  <span class="project-kota-brand-separator">|</span>
-                                  <span class="project-kota-brand-name">KOTA SAMOBOR</span>
-                                </div>
-                                <p>Vaš partner u svijetu ljepote i njege</p>
-                              </div>
-                              <div class="project-kota-nav">
-                                <span class="is-active">NASLOVNA</span>
-                                <span>WEBSHOP</span>
-                                <span>O NAMA</span>
-                                <span>KONTAKT</span>
-                                <span>KORISNIČKI RAČUN</span>
-                                <span class="project-kota-cart" aria-hidden="true">🛒</span>
-                              </div>
-                            </div>
-                            <div class="project-kota-hero-copy">
-                              <h3>VAŠ PARTNER U SVIJETU LJEPOTE I NJEGE</h3>
-                              <p>Vrhunski proizvodi i oprema za kozmetičke i frizerske salone na jednom mjestu.</p>
-                              <div class="project-kota-actions">
-                                <span class="project-kota-button is-outline">ISTRAŽI PONUDU</span>
-                                <span class="project-kota-button is-solid">PRIJAVA I REGISTRACIJA</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="project-kota-benefits">
-                          <div class="project-kota-benefit">
-                            <strong>ŠIROK ASORTIMAN</strong>
-                            <span>Više od 500 proizvoda za kozmetičare i frizere</span>
-                          </div>
-                          <div class="project-kota-benefit">
-                            <strong>BRZA DOSTAVA</strong>
-                            <span>Narudžbe šaljemo unutar 24h</span>
-                          </div>
-                          <div class="project-kota-benefit">
-                            <strong>PROVJERENI BRANDOVI</strong>
-                            <span>Proizvodi koje koriste profesionalci</span>
-                          </div>
-                          <div class="project-kota-benefit">
-                            <strong>PODRŠKA I SAVJETOVANJE</strong>
-                            <span>Pomažemo vam odabrati najbolje za vaš salon</span>
-                          </div>
-                          <div class="project-kota-benefit is-highlight">
-                            <strong>10% TRAJNOG POPUSTA</strong>
-                            <span>Za registrirane kupce i dostavu besplatnu za narudžbe veće od 85 €</span>
-                          </div>
-                        </div>
-                        <div class="project-kota-story">
-                          <div class="project-kota-story-copy">
-                            <span class="project-kota-story-tag">PROFESIONALNA PONUDA</span>
-                            <h4>Brandovi, savjetovanje i webshop u jednom toku.</h4>
-                            <p>
-                              Kota Samobor povezuje pregledan katalog, brzu narudžbu i podršku pri odabiru asortimana za kozmetičke
-                              i frizerske salone.
-                            </p>
-                            <span class="project-kota-button is-outline">SAZNAJ VIŠE</span>
-                          </div>
-                          <div class="project-kota-story-visual" aria-hidden="true">
-                            <img
-                              src="assets/kota/kota-samobor-slider2.jpg"
-                              alt=""
-                              width="1500"
-                              height="630"
-                            />
-                          </div>
-                        </div>
-                      </div>
+                <div class="project-laptop project-laptop-almagea" aria-label="Almagea desktop website preview">
+                  <div class="project-laptop-screen project-laptop-screen-static" tabindex="0" aria-label="Scrollable Almagea desktop website preview">
+                    <div class="project-almagea-page">
+                      <img
+                        class="project-almagea-screenshot"
+                        src="assets/almagea/almagea.jpeg"
+                        srcset="assets/projects-mobile/almagea-preview.jpg 222w, assets/almagea/almagea.jpeg 1904w"
+                        sizes="(max-width: 760px) 222px, 100vw"
+                        alt=""
+                        width="1904"
+                        height="10264"
+                        loading="lazy"
+                      />
                     </div>
                   </div>
                   <img
                     class="project-laptop-frame"
                     src="assets/images/laptop.png"
-                    alt="Laptop mockup displaying the Kota Samobor website"
+                    alt="Laptop mockup displaying the Almagea website"
                     width="1000"
                     height="600"
                   />
@@ -470,9 +413,18 @@
               <div class="project-phone-stage reveal">
                 <div class="project-phone project-phone-live" aria-label="Juvy Skin mobile skincare webshop preview">
                   <div class="project-phone-screen">
+                    <img
+                      class="project-device-mobile-preview"
+                      src="assets/projects-mobile/juvy-preview.jpg"
+                      alt=""
+                      width="430"
+                      height="932"
+                      loading="lazy"
+                      decoding="async"
+                    />
                     <iframe
                       class="project-phone-iframe"
-                      src="juvy-demo.html"
+                      data-project-embed-src="juvy-demo.html"
                       title="Juvy Skin mobile skincare webshop"
                       loading="lazy"
                       scrolling="auto"
@@ -539,6 +491,64 @@
         </div>
       </section>
 
+      <section class="page-shell section project-showcase">
+        <div class="container page-shell-inner">
+          <div class="project-device-stage">
+            <div class="project-showcase-banner">
+              <div class="project-reservation-row project-reservation-row-no-flip">
+                <aside class="project-reservation-panel reveal" aria-label="Project timeline live preview">
+                  <div class="project-reservation-panel-card">
+                    <div class="project-reservation-panel-face project-reservation-panel-face-front">
+                      <div class="project-reservation-panel-content">
+                        <div class="project-reservation-panel-frame project-reservation-panel-frame-live" aria-hidden="true">
+                          <iframe
+                            class="project-reservation-live-embed"
+                            data-reservation-schedule-frame
+                            data-project-embed-src="assets/ripple/dist/ripple-hosting/wp-partner-overview.html"
+                            title="Project timeline partner overview demo"
+                            loading="lazy"
+                            scrolling="yes"
+                          ></iframe>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="project-reservation-panel-trigger" type="button" aria-expanded="false">
+                    <span class="project-reservation-panel-rail" aria-hidden="true"></span>
+                    <span class="sr-only" data-i18n="pages.projects.ripple.panelToggle"></span>
+                  </button>
+                </aside>
+
+                <article
+                  class="project-summary project-summary-wide project-summary-reservation-main reveal"
+                  aria-labelledby="project-reservation-title-copy"
+                >
+                  <div class="project-summary-card">
+                    <div class="project-summary-face project-summary-face-front">
+                      <div class="project-summary-content">
+                        <p class="project-summary-tag" data-i18n="pages.projects.ripple.tag"></p>
+                        <div class="project-summary-copy">
+                          <h2 id="project-reservation-title-copy" data-i18n="pages.projects.ripple.title"></h2>
+                          <p data-i18n="pages.projects.ripple.text"></p>
+                        </div>
+                        <div class="project-summary-meta">
+                          <span data-i18n="pages.projects.ripple.meta"></span>
+                          <button class="project-summary-link project-summary-demo-trigger" type="button" data-project-demo-trigger="ripple" data-i18n="pages.projects.demo.button"></button>
+                        </div>
+                      </div>
+                      <span class="project-summary-glyph project-summary-glyph-dashboard" aria-hidden="true"></span>
+                    </div>
+                  </div>
+                  <button class="project-reservation-main-trigger" type="button" aria-expanded="true">
+                    <span class="sr-only" data-i18n="pages.projects.ripple.mainToggle"></span>
+                  </button>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="page-shell section project-showcase project-showcase-secondary">
         <div class="container page-shell-inner">
           <div class="project-device-stage">
@@ -596,6 +606,8 @@
                       <img
                         class="project-almagea-screenshot"
                         src="assets/dfa/dfa_screen.jpg"
+                        srcset="assets/projects-mobile/dfa-preview.jpg 429w, assets/dfa/dfa_screen.jpg 1902w"
+                        sizes="(max-width: 760px) 429px, 100vw"
                         alt=""
                         width="1902"
                         height="5322"
@@ -617,137 +629,32 @@
         </div>
       </section>
 
-      <section class="page-shell section project-showcase">
-        <div class="container page-shell-inner">
-          <div class="project-device-stage">
-            <div class="project-showcase-banner">
-              <div class="project-reservation-row project-reservation-row-no-flip">
-                <aside class="project-reservation-panel reveal" aria-label="Project timeline live preview">
-                  <div class="project-reservation-panel-card">
-                    <div class="project-reservation-panel-face project-reservation-panel-face-front">
-                      <div class="project-reservation-panel-content">
-                        <div class="project-reservation-panel-frame project-reservation-panel-frame-live" aria-hidden="true">
-                          <iframe
-                            class="project-reservation-live-embed"
-                            data-reservation-schedule-frame
-                            src="assets/ripple/dist/ripple-hosting/wp-partner-overview.html"
-                            title="Project timeline partner overview demo"
-                            loading="lazy"
-                            scrolling="yes"
-                          ></iframe>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <button class="project-reservation-panel-trigger" type="button" aria-expanded="false">
-                    <span class="project-reservation-panel-rail" aria-hidden="true"></span>
-                    <span class="sr-only" data-i18n="pages.projects.ripple.panelToggle"></span>
-                  </button>
-                </aside>
-
-                <article
-                  class="project-summary project-summary-wide project-summary-reservation-main reveal"
-                  aria-labelledby="project-reservation-title-copy"
-                >
-                  <div class="project-summary-card">
-                    <div class="project-summary-face project-summary-face-front">
-                      <div class="project-summary-content">
-                        <p class="project-summary-tag" data-i18n="pages.projects.ripple.tag"></p>
-                        <div class="project-summary-copy">
-                          <h2 id="project-reservation-title-copy" data-i18n="pages.projects.ripple.title"></h2>
-                          <p data-i18n="pages.projects.ripple.text"></p>
-                        </div>
-                        <div class="project-summary-meta">
-                          <span data-i18n="pages.projects.ripple.meta"></span>
-                        </div>
-                      </div>
-                      <span class="project-summary-glyph project-summary-glyph-dashboard" aria-hidden="true"></span>
-                    </div>
-                  </div>
-                  <button class="project-reservation-main-trigger" type="button" aria-expanded="true">
-                    <span class="sr-only" data-i18n="pages.projects.ripple.mainToggle"></span>
-                  </button>
-                </article>
-              </div>
+      <div class="project-demo-overlay" id="projectDemoOverlay" hidden aria-hidden="true">
+        <button class="project-demo-backdrop" type="button" data-project-demo-close tabindex="-1" aria-hidden="true"></button>
+        <div class="project-demo-shell" role="dialog" aria-modal="true" aria-labelledby="projectDemoOverlayTitle">
+          <button class="project-demo-close" type="button" data-project-demo-close>
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only" data-i18n="pages.projects.demo.close"></span>
+          </button>
+          <div class="project-demo-rotate">
+            <div class="project-demo-rotate-icon" aria-hidden="true">
+              <span class="project-demo-rotate-phone"></span>
             </div>
+            <p class="project-demo-rotate-eyebrow" data-i18n="pages.projects.demo.rotateEyebrow"></p>
+            <h2 class="project-demo-rotate-title" id="projectDemoOverlayTitle" data-project-demo-title></h2>
+            <p class="project-demo-rotate-text" data-i18n="pages.projects.demo.rotateText"></p>
+          </div>
+          <div class="project-demo-stage">
+            <div class="project-demo-slide-track" data-project-demo-track>
+              <iframe class="project-demo-frame project-demo-frame-primary" data-project-demo-frame title="" loading="lazy" scrolling="auto"></iframe>
+              <iframe class="project-demo-frame project-demo-frame-secondary" data-project-demo-frame-secondary title="" loading="lazy" scrolling="auto"></iframe>
+            </div>
+            <button class="project-demo-slide-toggle" type="button" data-project-demo-slide-toggle aria-label="Switch demo view" hidden>
+              <span class="project-demo-slide-arrow" aria-hidden="true"></span>
+            </button>
           </div>
         </div>
-      </section>
-
-      <section class="page-shell section project-showcase project-showcase-secondary">
-        <div class="container page-shell-inner">
-          <div class="project-device-stage">
-            <div class="project-showcase-layout project-showcase-layout-reversed">
-              <article class="project-summary reveal" aria-labelledby="project-keepgoing-title">
-                <div class="project-summary-card">
-                  <div class="project-summary-face project-summary-face-front">
-                    <div class="project-summary-content">
-                      <p class="project-summary-tag" data-i18n="pages.projects.keepgoing.tag"></p>
-                      <div class="project-summary-copy">
-                        <h2 id="project-keepgoing-title" data-i18n="pages.projects.keepgoing.title"></h2>
-                        <p data-i18n="pages.projects.keepgoing.text"></p>
-                      </div>
-                      <div class="project-summary-meta">
-                        <span data-i18n="pages.projects.keepgoing.meta"></span>
-                        <a
-                          class="project-summary-link"
-                          href="https://keepgoing.hr/"
-                          target="_blank"
-                          rel="noreferrer"
-                          data-i18n="pages.projects.keepgoing.link"
-                        ></a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="project-summary-face project-summary-face-back" aria-hidden="true">
-                    <div class="project-summary-content">
-                      <p class="project-summary-tag" data-i18n="pages.projects.keepgoing.backTag"></p>
-                      <div class="project-summary-copy">
-                        <h2 data-i18n="pages.projects.keepgoing.backTitle"></h2>
-                        <p data-i18n="pages.projects.keepgoing.backText"></p>
-                      </div>
-                      <div class="project-summary-meta">
-                        <span data-i18n="pages.projects.keepgoing.backMeta"></span>
-                        <a
-                          class="project-summary-link"
-                          href="https://keepgoing.hr/"
-                          target="_blank"
-                          rel="noreferrer"
-                          data-i18n="pages.projects.keepgoing.link"
-                        ></a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <button class="project-summary-flip-trigger" type="button" aria-pressed="false">
-                  <span class="project-summary-flip-rail" aria-hidden="true"></span>
-                  <span class="sr-only" data-i18n="pages.projects.flip"></span>
-                </button>
-              </article>
-              <div class="project-laptop-stage reveal">
-                <div class="project-laptop project-laptop-live project-laptop-keepgoing" aria-label="Keep Going desktop website preview">
-                  <div class="project-laptop-screen project-laptop-screen-embed" aria-label="Scrollable Keep Going desktop website preview">
-                    <iframe
-                      class="project-laptop-iframe"
-                      src="keepgoing-demo.html"
-                      title="Keep Going desktop website"
-                      loading="lazy"
-                      scrolling="auto"
-                    ></iframe>
-                  </div>
-                  <img
-                    class="project-laptop-frame"
-                    src="assets/images/laptop.png"
-                    alt="Laptop mockup displaying the Keep Going website"
-                    width="1000"
-                    height="600"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      </div>
 
     </main>
 
