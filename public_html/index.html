@@ -31,6 +31,24 @@
     <meta name="description" content="Etherr je digitalni studio koji spaja web stranice, webshopove, marketing, automatizaciju i AI u sustave koji stvarno rade. Radimo s klijentima u Hrvatskoj, regiji i inozemstvu." />
     <link rel="icon" href="assets/images/logo.png" type="image/png" />
     <link rel="apple-touch-icon" href="assets/images/logo.png" />
+    <link rel="canonical" href="https://etherr.hr/" />
+    <link rel="alternate" hreflang="x-default" href="https://etherr.hr/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://etherr.hr/" />
+    <meta property="og:title" content="Etherr – Web, automatizacija i AI | Digitalni studio" />
+    <meta property="og:description" content="Etherr je digitalni studio koji spaja web stranice, webshopove, marketing, automatizaciju i AI u sustave koji stvarno rade." />
+    <meta property="og:image" content="https://etherr.hr/assets/images/logo.png" />
+    <meta property="og:locale" content="hr_HR" />
+    <meta property="og:site_name" content="Etherr" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Etherr – Web, automatizacija i AI | Digitalni studio" />
+    <meta name="twitter:description" content="Etherr je digitalni studio koji spaja web stranice, webshopove, marketing, automatizaciju i AI u sustave koji stvarno rade." />
+    <meta name="twitter:image" content="https://etherr.hr/assets/images/logo.png" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -39,7 +57,6 @@
     />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="assets/assistant/assistant.css" />
-      <link rel="canonical" href="https://etherr.hr/" />
   </head>
   <body data-page="home">
     <div class="floating-grid" id="floatingGrid" aria-hidden="true">
@@ -314,5 +331,45 @@
     <script src="shared-header.js"></script>
     <script src="script.js"></script>
     <script src="assets/assistant/assistant.js"></script>
+
+    <!-- Structured Data: Organization + WebSite -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://etherr.hr/#organization",
+          "name": "Etherr",
+          "url": "https://etherr.hr",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://etherr.hr/assets/images/logo.png"
+          },
+          "email": "info@etherr.hr",
+          "description": "Digitalni studio koji spaja web stranice, webshopove, marketing, automatizaciju i AI u sustave koji stvarno rade.",
+          "areaServed": ["HR", "DE", "AT", "CH"],
+          "knowsLanguage": ["hr", "en", "de"]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://etherr.hr/#website",
+          "name": "Etherr",
+          "url": "https://etherr.hr",
+          "publisher": { "@id": "https://etherr.hr/#organization" },
+          "inLanguage": ["hr", "en", "de"]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://etherr.hr/",
+          "url": "https://etherr.hr/",
+          "name": "Etherr – Web, automatizacija i AI | Digitalni studio",
+          "isPartOf": { "@id": "https://etherr.hr/#website" },
+          "about": { "@id": "https://etherr.hr/#organization" },
+          "inLanguage": "hr"
+        }
+      ]
+    }
+    </script>
   </body>
 </html>

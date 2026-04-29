@@ -17,5 +17,6 @@ Disallow: /nodes-export.html
 Disallow: /nodes-preview.html
 Disallow: /reservation-calendar-demo.html
 Disallow: /reservation-schedule-demo.html
+Disallow: /game/
 
 Sitemap: https://etherr.hr/sitemap.xml

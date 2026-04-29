@@ -1,33 +1,33 @@
 const translations = {
   hr: {
     meta: {
-      title: "Etherr | Digitalni sustavi, automatizacija i podaci",
+      title: "Etherr – Web, automatizacija i AI | Digitalni studio",
       description:
         "Etherr razvija web sustave, automatizacije i AI integracije za tvrtke koje trebaju pouzdanu digitalnu infrastrukturu.",
     },
     pages: {
       about: {
         meta: {
-          title: "O nama | Etherr – web, automatizacija i AI",
+          title: "O nama – web, automatizacija i AI rješenja | Etherr",
           description:
             "Etherr povezuje web, marketing, automatizaciju i AI u digitalne sustave koji imaju smisla i podržavaju rast poslovanja.",
         },
       },
       privacy: {
         meta: {
-          title: "Etherr | Pravila privatnosti",
+          title: "Pravila privatnosti – zaštita osobnih podataka | Etherr",
           description: "Informacije o obradi osobnih podataka i pravilima privatnosti za Etherr kontakt formu.",
         },
       },
       faq: {
         meta: {
-          title: "Etherr | Često postavljana pitanja (FAQ)",
+          title: "FAQ – web, automatizacija i AI usluge | Etherr",
           description: "Odgovori na najčešća pitanja o izradi web stranica, webshopova, AI integracijama, automatizaciji i digitalnom marketingu.",
         },
       },
       projects: {
         meta: {
-          title: "Etherr | Projekti",
+          title: "Projekti – web stranice, webshopovi i AI rješenja | Etherr",
           description: "Pregled Etherr projekata, demo rješenja i digitalnih proizvoda.",
         },
         flip: "Okreni karticu projekta",
@@ -645,33 +645,33 @@ const translations = {
   },
   en: {
     meta: {
-      title: "Etherr | Digital Systems, Automation and Data",
+      title: "Etherr – Web, Automation and AI | Digital Studio",
       description:
         "Etherr builds web systems, automation workflows and AI integrations for companies that need dependable digital infrastructure.",
     },
     pages: {
       about: {
         meta: {
-          title: "About | Etherr – web, automation and AI",
+          title: "About Us – Web, Automation and AI Solutions | Etherr",
           description:
             "Etherr combines web, marketing, automation and AI into digital systems that make sense and support business growth.",
         },
       },
       privacy: {
         meta: {
-          title: "Etherr | Privacy Policy",
+          title: "Privacy Policy – Data Protection | Etherr",
           description: "Information about personal data processing and privacy rules for the Etherr contact form.",
         },
       },
       faq: {
         meta: {
-          title: "Etherr | Frequently Asked Questions (FAQ)",
+          title: "FAQ – Web, Automation and AI Services | Etherr",
           description: "Answers to common questions about website development, webshops, AI integrations, automation and digital marketing.",
         },
       },
       projects: {
         meta: {
-          title: "Etherr | Projects",
+          title: "Projects – Websites, Webshops and AI Solutions | Etherr",
           description: "A look at Etherr projects, demo solutions and digital products.",
         },
         flip: "Flip project card",
@@ -1290,33 +1290,33 @@ const translations = {
   },
   de: {
     meta: {
-      title: "Etherr | Digitale Systeme, Automatisierung und Daten",
+      title: "Etherr – Web, Automatisierung und KI | Digitales Studio",
       description:
         "Etherr entwickelt Websysteme, Automatisierung und AI-Integrationen für Unternehmen mit hohen Anforderungen an digitale Stabilität.",
     },
     pages: {
       about: {
         meta: {
-          title: "Über uns | Etherr – Web, Automatisierung und KI",
+          title: "Über uns – Web, Automatisierung und KI-Lösungen | Etherr",
           description:
             "Etherr verbindet Web, Marketing, Automatisierung und KI zu digitalen Systemen, die sinnvoll aufgebaut sind und Wachstum unterstützen.",
         },
       },
       privacy: {
         meta: {
-          title: "Etherr | Datenschutzerklärung",
+          title: "Datenschutzerklärung – Schutz personenbezogener Daten | Etherr",
           description: "Informationen zur Verarbeitung personenbezogener Daten und zu den Datenschutzregeln für das Etherr-Kontaktformular.",
         },
       },
       faq: {
         meta: {
-          title: "Etherr | Häufig gestellte Fragen (FAQ)",
+          title: "FAQ – Web, Automatisierung und KI-Dienstleistungen | Etherr",
           description: "Antworten auf häufige Fragen zur Website-Entwicklung, Webshops, AI-Integrationen, Automatisierung und digitalem Marketing.",
         },
       },
       projects: {
         meta: {
-          title: "Etherr | Projekte",
+          title: "Projekte – Webseiten, Webshops und KI-Lösungen | Etherr",
           description: "Einblick in Etherr Projekte, Demo-Loesungen und digitale Produkte.",
         },
         flip: "Projektkarte drehen",
