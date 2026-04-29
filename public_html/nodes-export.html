@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta name="robots" content="noindex, nofollow" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nodes PNG Export</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      background: #f5f5f5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      font-family: system-ui, sans-serif;
+    }
+    
+    .preview {
+      background: repeating-conic-gradient(#ccc 0% 25%, #fff 0% 50%) 50% / 16px 16px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+    
+    .nodes-canvas {
+      display: block;
+    }
+    
+    .download-btn {
+      padding: 12px 24px;
+      background: #19b7b1;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    
+    .download-btn:hover {
+      background: #15a09b;
+    }
+    
+    p {
+      color: #666;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <p>Preview (checkerboard shows transparency):</p>
+  <div class="preview">
+    <canvas class="nodes-canvas" id="nodesCanvas"></canvas>
+  </div>
+  <button class="download-btn" id="downloadBtn">Download PNG</button>
+
+  <script>
+    (function() {
+      function createSeededRandom(seed) {
+        var state = seed;
+        return function() {
+          state = (state * 1103515245 + 12345) & 0x7fffffff;
+          return state / 0x7fffffff;
+        };
+      }
+
+      function seededRandomBetween(rng, min, max) {
+        return min + rng() * (max - min);
+      }
+
+      function clamp(value, min, max) {
+        return Math.max(min, Math.min(max, value));
+      }
+
+      function drawRoundedRect(ctx, x, y, width, height, radius) {
+        var safeRadius = Math.min(radius, width * 0.5, height * 0.5);
+        var right = x + width;
+        var bottom = y + height;
+
+        ctx.beginPath();
+        ctx.moveTo(x + safeRadius, y);
+        ctx.lineTo(right - safeRadius, y);
+        ctx.quadraticCurveTo(right, y, right, y + safeRadius);
+        ctx.lineTo(right, bottom - safeRadius);
+        ctx.quadraticCurveTo(right, bottom, right - safeRadius, bottom);
+        ctx.lineTo(x + safeRadius, bottom);
+        ctx.quadraticCurveTo(x, bottom, x, bottom - safeRadius);
+        ctx.lineTo(x, y + safeRadius);
+        ctx.quadraticCurveTo(x, y, x + safeRadius, y);
+        ctx.closePath();
+      }
+
+      var canvas = document.getElementById('nodesCanvas');
+      var ctx = canvas.getContext('2d');
+      var width = 160;
+      var height = 140;
+
+      // Use 2x resolution for crisp export
+      var scale = 2;
+      canvas.width = width * scale;
+      canvas.height = height * scale;
+      canvas.style.width = width + 'px';
+      canvas.style.height = height + 'px';
+      ctx.scale(scale, scale);
+
+      // Build nodes with spacing
+      var rng = createSeededRandom(42);
+      var nodes = [];
+      var minSpacing = 18;
+
+      function isTooClose(x, y, nodeRadius) {
+        for (var i = 0; i < nodes.length; i++) {
+          var other = nodes[i];
+          var otherRadius = other.shape === 'square' ? other.squareSize * 0.5 : other.radius;
+          var minDist = nodeRadius + otherRadius + minSpacing;
+          var dx = x - other.x;
+          var dy = y - other.y;
+          if (dx * dx + dy * dy < minDist * minDist) {
+            return true;
+          }
+        }
+        return false;
+      }
+
+      function findSpacedPosition(rng, nodeRadius, margin) {
+        var attempts = 0;
+        var maxAttempts = 50;
+        var x, y;
+        do {
+          x = seededRandomBetween(rng, margin, width - margin);
+          y = seededRandomBetween(rng, margin, height - margin);
+          attempts++;
+        } while (isTooClose(x, y, nodeRadius) && attempts < maxAttempts);
+        return { x: x, y: y };
+      }
+
+      // Square nodes first
+      var squareSizes = [14, 12, 10, 8];
+      for (var s = 0; s < 4; s++) {
+        var size = squareSizes[s];
+        var pos = findSpacedPosition(rng, size * 0.5, 14);
+        nodes.push({
+          x: pos.x,
+          y: pos.y,
+          shape: 'square',
+          squareSize: size,
+          cornerRadius: clamp(size * 0.2, 2, 5)
+        });
+      }
+
+      // Circle nodes
+      var circleCount = 14;
+      for (var i = 0; i < circleCount; i++) {
+        var sizeRoll = rng();
+        var radius = sizeRoll > 0.8
+          ? seededRandomBetween(rng, 3.5, 5.0)
+          : sizeRoll > 0.5
+            ? seededRandomBetween(rng, 2.0, 3.5)
+            : seededRandomBetween(rng, 1.0, 2.0);
+
+        var pos = findSpacedPosition(rng, radius, 10);
+        nodes.push({
+          x: pos.x,
+          y: pos.y,
+          shape: 'circle',
+          radius: radius
+        });
+      }
+
+      function getEdgeKey(a, b) {
+        var lo = a < b ? a : b;
+        var hi = a < b ? b : a;
+        return lo * 1000 + hi;
+      }
+
+      function draw() {
+        // Clear with transparency
+        ctx.clearRect(0, 0, width, height);
+
+        // Draw connecting lines
+        var maxDistance = 42;
+        var maxDistanceSq = maxDistance * maxDistance;
+        var edgeSet = new Set();
+
+        ctx.lineWidth = 0.9;
+
+        for (var a = 0; a < nodes.length; a++) {
+          for (var b = a + 1; b < nodes.length; b++) {
+            var key = getEdgeKey(a, b);
+            if (edgeSet.has(key)) continue;
+
+            var dx = nodes[a].x - nodes[b].x;
+            var dy = nodes[a].y - nodes[b].y;
+            var distSq = dx * dx + dy * dy;
+
+            if (distSq > maxDistanceSq) continue;
+
+            var dist = Math.sqrt(distSq);
+            var alpha = (1 - dist / maxDistance) * 0.25;
+
+            if (alpha < 0.02) continue;
+
+            ctx.strokeStyle = 'rgba(25, 183, 177, ' + alpha.toFixed(3) + ')';
+            ctx.beginPath();
+            ctx.moveTo(nodes[a].x, nodes[a].y);
+            ctx.lineTo(nodes[b].x, nodes[b].y);
+            ctx.stroke();
+
+            edgeSet.add(key);
+          }
+        }
+
+        // Draw nodes
+        for (var n = 0; n < nodes.length; n++) {
+          var node = nodes[n];
+
+          if (node.shape === 'square') {
+            var sqSize = node.squareSize;
+            var half = sqSize * 0.5;
+            var corner = node.cornerRadius;
+
+            // Halo
+            var haloSize = sqSize * 1.9;
+            var haloHalf = haloSize * 0.5;
+            var haloRadius = Math.max(corner * 1.7, corner + 2);
+            ctx.fillStyle = 'rgba(25, 183, 177, 0.08)';
+            drawRoundedRect(ctx, node.x - haloHalf, node.y - haloHalf, haloSize, haloSize, haloRadius);
+            ctx.fill();
+
+            // Square
+            ctx.fillStyle = 'rgba(25, 183, 177, 0.45)';
+            drawRoundedRect(ctx, node.x - half, node.y - half, sqSize, sqSize, corner);
+            ctx.fill();
+          } else {
+            var nodeAlpha = node.radius > 2.9 ? 0.45 : node.radius > 1.8 ? 0.32 : 0.2;
+
+            // Circle
+            ctx.fillStyle = 'rgba(25, 183, 177, ' + nodeAlpha.toFixed(3) + ')';
+            ctx.beginPath();
+            ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Halo for larger circles
+            if (node.radius > 3.5) {
+              ctx.fillStyle = 'rgba(25, 183, 177, 0.08)';
+              ctx.beginPath();
+              ctx.arc(node.x, node.y, node.radius * 2.2, 0, Math.PI * 2);
+              ctx.fill();
+            }
+          }
+        }
+      }
+
+      draw();
+
+      // Download button
+      document.getElementById('downloadBtn').addEventListener('click', function() {
+        var link = document.createElement('a');
+        link.download = 'nodes-160x140.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -6,3 +6,12 @@
 /var/contact-intake-log.ndjson
 /var/contact-rate-limit.json
 INFO.png
+
+# Backup archives
+etherr-hosting.zip
+etherr-public_html.zip
+/dist/
+/test-results/
+/public_html/debug-archive/
+.vscode/
+public_html/.vscode/

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="hr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>Connect the Nodes | Etherr</title>
+    <meta name="description" content="A network-building mini-game by Etherr." />
+    <link rel="icon" href="../assets/images/logo.png" type="image/png" />
+    <link rel="apple-touch-icon" href="../assets/images/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Background network canvas (decorative) -->
+    <canvas id="bgCanvas" aria-hidden="true"></canvas>
+
+    <!-- Top HUD bar -->
+    <header id="hud" class="hud" aria-label="Game status">
+      <div class="hud-item">
+        <span class="hud-label" data-i18n="hud.level">Level</span>
+        <span class="hud-value" id="hudLevel">1</span>
+      </div>
+      <div class="hud-item">
+        <span class="hud-label" data-i18n="hud.score">Score</span>
+        <span class="hud-value" id="hudScore">0</span>
+      </div>
+      <div class="hud-item">
+        <span class="hud-label" data-i18n="hud.time">Time</span>
+        <span class="hud-value" id="hudTime">00:00</span>
+      </div>
+    </header>
+
+    <!-- Game canvas -->
+    <canvas id="gameCanvas" aria-label="Game board"></canvas>
+
+    <!-- Level info bar (lines used / minimum) -->
+    <div id="levelInfo" class="level-info" aria-live="polite">
+      <span id="lineCount">0</span> / <span id="lineMin">0</span>
+      <span class="level-info-label" data-i18n="levelInfo.lines">lines</span>
+    </div>
+
+    <!-- Reset level button -->
+    <button id="btnReset" class="btn-icon" aria-label="Reset level" title="Reset level">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+    </button>
+
+    <!-- Overlays -->
+    <div id="overlayIntro" class="overlay active" role="dialog" aria-modal="true" aria-labelledby="introTitle">
+      <div class="overlay-card intro-card">
+        <div class="etherr-wordmark">etherr</div>
+        <h1 id="introTitle" class="overlay-title" data-i18n="intro.title">Connect the Nodes</h1>
+        <p class="overlay-body" data-i18n="intro.body">Build one complete network by connecting all nodes. Use as few lines as possible. The cleaner the system, the better the score.</p>
+        <button id="btnStart" class="btn-primary" data-i18n="intro.start">Start</button>
+      </div>
+    </div>
+
+    <div id="overlayPreLevel" class="overlay" role="dialog" aria-modal="true" aria-labelledby="preLevelTitle">
+      <div class="overlay-card">
+        <p class="overlay-tag" id="preLevelTag">Level 1</p>
+        <h2 id="preLevelTitle" class="overlay-title">5 nodes</h2>
+        <p class="overlay-body" id="preLevelMin"></p>
+        <button id="btnBeginLevel" class="btn-primary" data-i18n="preLevel.go">Go</button>
+      </div>
+    </div>
+
+    <div id="overlayLevelComplete" class="overlay" role="dialog" aria-modal="true" aria-labelledby="levelCompleteTitle">
+      <div class="overlay-card">
+        <h2 id="levelCompleteTitle" class="overlay-title" data-i18n="levelComplete.title">Level Complete</h2>
+        <div class="stats-grid" id="levelStats"></div>
+        <div class="score-display" id="levelScoreDisplay"></div>
+        <button id="btnNextLevel" class="btn-primary" data-i18n="levelComplete.next">Next Level</button>
+      </div>
+    </div>
+
+    <div id="overlayGameOver" class="overlay" role="dialog" aria-modal="true" aria-labelledby="gameOverTitle">
+      <div class="overlay-card game-over-card">
+        <div class="etherr-wordmark">etherr</div>
+        <h2 id="gameOverTitle" class="overlay-title" data-i18n="gameOver.title">Network Complete</h2>
+        <div class="stats-grid" id="gameStats"></div>
+        <div class="score-display" id="gameScoreDisplay"></div>
+        <div class="cta-section">
+          <p class="cta-tagline" data-i18n="gameOver.tagline">Clean systems work better.</p>
+          <p class="cta-body" data-i18n="gameOver.body">Etherr builds websites, automations, digital experiences, and connected systems.</p>
+          <a id="ctaVisit" href="https://etherr.hr" class="btn-primary" data-i18n="gameOver.cta">Visit Etherr</a>
+          <a id="ctaAudit" href="https://etherr.hr/#contact" class="btn-secondary" data-i18n="gameOver.ctaAudit">Request a free mini audit</a>
+        </div>
+        <button id="btnRestart" class="btn-text" data-i18n="gameOver.restart">Play Again</button>
+      </div>
+    </div>
+
+    <!-- Confetti canvas -->
+    <canvas id="confettiCanvas" aria-hidden="true"></canvas>
+
+    <script src="game.js"></script>
+  </body>
+</html>

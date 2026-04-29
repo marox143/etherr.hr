@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta name="robots" content="noindex, nofollow" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nodes Preview</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      background: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .nodes-container {
+      width: 160px;
+      height: 140px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .nodes-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="nodes-container">
+    <canvas class="nodes-canvas" id="nodesCanvas"></canvas>
+  </div>
+
+  <script>
+    (function() {
+      // Seeded random for consistent node positions
+      function createSeededRandom(seed) {
+        var state = seed;
+        return function() {
+          state = (state * 1103515245 + 12345) & 0x7fffffff;
+          return state / 0x7fffffff;
+        };
+      }
+
+      function seededRandomBetween(rng, min, max) {
+        return min + rng() * (max - min);
+      }
+
+      function clamp(value, min, max) {
+        return Math.max(min, Math.min(max, value));
+      }
+
+      // Draw rounded rectangle helper
+      function drawRoundedRect(ctx, x, y, width, height, radius) {
+        var safeRadius = Math.min(radius, width * 0.5, height * 0.5);
+        var right = x + width;
+        var bottom = y + height;
+
+        ctx.beginPath();
+        ctx.moveTo(x + safeRadius, y);
+        ctx.lineTo(right - safeRadius, y);
+        ctx.quadraticCurveTo(right, y, right, y + safeRadius);
+        ctx.lineTo(right, bottom - safeRadius);
+        ctx.quadraticCurveTo(right, bottom, right - safeRadius, bottom);
+        ctx.lineTo(x + safeRadius, bottom);
+        ctx.quadraticCurveTo(x, bottom, x, bottom - safeRadius);
+        ctx.lineTo(x, y + safeRadius);
+        ctx.quadraticCurveTo(x, y, x + safeRadius, y);
+        ctx.closePath();
+      }
+
+      var canvas = document.getElementById('nodesCanvas');
+      var ctx = canvas.getContext('2d');
+      var dpr = window.devicePixelRatio || 1;
+      var width = 160;
+      var height = 140;
+
+      canvas.width = Math.round(width * dpr);
+      canvas.height = Math.round(height * dpr);
+      canvas.style.width = width + 'px';
+      canvas.style.height = height + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      // Build nodes with spacing to avoid overlap
+      var rng = createSeededRandom(42);
+      var nodes = [];
+      var minSpacing = 18; // Minimum distance between node centers
+
+      function isTooClose(x, y, nodeRadius) {
+        for (var i = 0; i < nodes.length; i++) {
+          var other = nodes[i];
+          var otherRadius = other.shape === 'square' ? other.squareSize * 0.5 : other.radius;
+          var minDist = nodeRadius + otherRadius + minSpacing;
+          var dx = x - other.x;
+          var dy = y - other.y;
+          if (dx * dx + dy * dy < minDist * minDist) {
+            return true;
+          }
+        }
+        return false;
+      }
+
+      function findSpacedPosition(rng, nodeRadius, margin) {
+        var attempts = 0;
+        var maxAttempts = 50;
+        var x, y;
+        do {
+          x = seededRandomBetween(rng, margin, width - margin);
+          y = seededRandomBetween(rng, margin, height - margin);
+          attempts++;
+        } while (isTooClose(x, y, nodeRadius) && attempts < maxAttempts);
+        return { x: x, y: y };
+      }
+
+      // Square nodes first (they're larger, place them first)
+      var squareSizes = [14, 12, 10, 8];
+      for (var s = 0; s < 4; s++) {
+        var size = squareSizes[s];
+        var pos = findSpacedPosition(rng, size * 0.5, 14);
+        nodes.push({
+          x: pos.x,
+          y: pos.y,
+          shape: 'square',
+          squareSize: size,
+          cornerRadius: clamp(size * 0.2, 2, 5),
+          driftX: seededRandomBetween(rng, 1.2, 2.5),
+          driftY: seededRandomBetween(rng, 1.2, 2.5),
+          speedX: seededRandomBetween(rng, 0.12, 0.25),
+          speedY: seededRandomBetween(rng, 0.12, 0.25),
+          phaseX: seededRandomBetween(rng, 0, Math.PI * 2),
+          phaseY: seededRandomBetween(rng, 0, Math.PI * 2)
+        });
+      }
+
+      // Circle nodes - various sizes (larger first)
+      var circleCount = 14;
+      for (var i = 0; i < circleCount; i++) {
+        var sizeRoll = rng();
+        var radius = sizeRoll > 0.8
+          ? seededRandomBetween(rng, 3.5, 5.0)
+          : sizeRoll > 0.5
+            ? seededRandomBetween(rng, 2.0, 3.5)
+            : seededRandomBetween(rng, 1.0, 2.0);
+
+        var pos = findSpacedPosition(rng, radius, 10);
+        nodes.push({
+          x: pos.x,
+          y: pos.y,
+          shape: 'circle',
+          radius: radius,
+          driftX: seededRandomBetween(rng, 1.5, 4),
+          driftY: seededRandomBetween(rng, 1.5, 3.5),
+          speedX: seededRandomBetween(rng, 0.15, 0.35),
+          speedY: seededRandomBetween(rng, 0.15, 0.35),
+          phaseX: seededRandomBetween(rng, 0, Math.PI * 2),
+          phaseY: seededRandomBetween(rng, 0, Math.PI * 2)
+        });
+      }
+
+      var motionTime = 0;
+      var lastTime = 0;
+
+      function getNodePosition(node, time) {
+        var driftX = Math.sin(time * node.speedX + node.phaseX) * node.driftX;
+        var driftY = Math.cos(time * node.speedY + node.phaseY) * node.driftY;
+        return {
+          x: node.x + driftX,
+          y: node.y + driftY
+        };
+      }
+
+      function getEdgeKey(a, b) {
+        var lo = a < b ? a : b;
+        var hi = a < b ? b : a;
+        return lo * 1000 + hi;
+      }
+
+      function draw(timestamp) {
+        if (!lastTime) lastTime = timestamp;
+        var delta = clamp((timestamp - lastTime) / 1000, 0.001, 0.05);
+        lastTime = timestamp;
+        motionTime += delta;
+
+        ctx.clearRect(0, 0, width, height);
+
+        // Calculate positions
+        var positions = nodes.map(function(node) {
+          return getNodePosition(node, motionTime);
+        });
+
+        // Draw connecting lines
+        var maxDistance = 42;
+        var maxDistanceSq = maxDistance * maxDistance;
+        var edgeSet = new Set();
+
+        ctx.lineWidth = 0.9;
+
+        for (var a = 0; a < nodes.length; a++) {
+          for (var b = a + 1; b < nodes.length; b++) {
+            var key = getEdgeKey(a, b);
+            if (edgeSet.has(key)) continue;
+
+            var dx = positions[a].x - positions[b].x;
+            var dy = positions[a].y - positions[b].y;
+            var distSq = dx * dx + dy * dy;
+
+            if (distSq > maxDistanceSq) continue;
+
+            var dist = Math.sqrt(distSq);
+            var alpha = (1 - dist / maxDistance) * 0.25;
+
+            if (alpha < 0.02) continue;
+
+            ctx.strokeStyle = 'rgba(25, 183, 177, ' + alpha.toFixed(3) + ')';
+            ctx.beginPath();
+            ctx.moveTo(positions[a].x, positions[a].y);
+            ctx.lineTo(positions[b].x, positions[b].y);
+            ctx.stroke();
+
+            edgeSet.add(key);
+          }
+        }
+
+        // Draw nodes
+        for (var n = 0; n < nodes.length; n++) {
+          var node = nodes[n];
+          var pos = positions[n];
+
+          if (node.shape === 'square') {
+            var sqSize = node.squareSize;
+            var half = sqSize * 0.5;
+            var corner = node.cornerRadius;
+
+            // Halo
+            var haloSize = sqSize * 1.9;
+            var haloHalf = haloSize * 0.5;
+            var haloRadius = Math.max(corner * 1.7, corner + 2);
+            ctx.fillStyle = 'rgba(25, 183, 177, 0.08)';
+            drawRoundedRect(ctx, pos.x - haloHalf, pos.y - haloHalf, haloSize, haloSize, haloRadius);
+            ctx.fill();
+
+            // Square
+            ctx.fillStyle = 'rgba(25, 183, 177, 0.45)';
+            drawRoundedRect(ctx, pos.x - half, pos.y - half, sqSize, sqSize, corner);
+            ctx.fill();
+          } else {
+            var nodeAlpha = node.radius > 2.9 ? 0.45 : node.radius > 1.8 ? 0.32 : 0.2;
+
+            // Circle
+            ctx.fillStyle = 'rgba(25, 183, 177, ' + nodeAlpha.toFixed(3) + ')';
+            ctx.beginPath();
+            ctx.arc(pos.x, pos.y, node.radius, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Halo for larger circles
+            if (node.radius > 3.5) {
+              ctx.fillStyle = 'rgba(25, 183, 177, 0.08)';
+              ctx.beginPath();
+              ctx.arc(pos.x, pos.y, node.radius * 2.2, 0, Math.PI * 2);
+              ctx.fill();
+            }
+          }
+        }
+
+        requestAnimationFrame(draw);
+      }
+
+      requestAnimationFrame(draw);
+    })();
+  </script>
+</body>
+</html>

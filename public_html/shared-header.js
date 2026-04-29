@@ -9,6 +9,7 @@
   const isHome = page === "home";
   const isProjects = page === "projects";
   const isAbout = page === "about";
+  const isFaq = page === "faq";
 
   const links =
     page === "home"
@@ -37,6 +38,15 @@
 
   mount.innerHTML = `
     <div class="container header-inner">
+      <button class="header-ai-dock" type="button" aria-label="AI assistant" data-header-ai-dock hidden>
+        <span class="etherr-ai-face-icon etherr-ai-face-icon-dock" aria-hidden="true">
+          <img class="etherr-ai-face-icon-base" src="/assets/assistant/icon/ai.png" alt="" decoding="async" />
+          <span class="etherr-ai-face-eyes">
+            <span class="etherr-ai-face-eye etherr-ai-face-eye-left"></span>
+            <span class="etherr-ai-face-eye etherr-ai-face-eye-right"></span>
+          </span>
+        </span>
+      </button>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="headerPanel">
         <span class="menu-icon" aria-hidden="true"></span>
         <span class="sr-only" data-i18n="menu.toggle"></span>

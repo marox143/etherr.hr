@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+
+# Block backend and internal paths
+Disallow: /api/
+Disallow: /admin/
+Disallow: /var/
+Disallow: /assets/content/
+Disallow: /signature/
+
+# Block demo and internal pages
+Disallow: /dfa-demo.html
+Disallow: /juvy-demo.html
+Disallow: /keef-demo.html
+Disallow: /keepgoing-demo.html
+Disallow: /nodes-export.html
+Disallow: /nodes-preview.html
+Disallow: /reservation-calendar-demo.html
+Disallow: /reservation-schedule-demo.html
+
+Sitemap: https://etherr.hr/sitemap.xml

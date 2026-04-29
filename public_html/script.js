@@ -19,6 +19,12 @@ const translations = {
           description: "Informacije o obradi osobnih podataka i pravilima privatnosti za Etherr kontakt formu.",
         },
       },
+      faq: {
+        meta: {
+          title: "Etherr | Često postavljana pitanja (FAQ)",
+          description: "Odgovori na najčešća pitanja o izradi web stranica, webshopova, AI integracijama, automatizaciji i digitalnom marketingu.",
+        },
+      },
       projects: {
         meta: {
           title: "Etherr | Projekti",
@@ -159,21 +165,28 @@ const translations = {
       primaryCta: "Kontaktirajte nas",
       secondaryCta: "Naši projekti",
     },
+    assistantPrompt: {
+      tag: "Niste sigurni odakle krenuti?",
+      text:
+        "Prije kontakta, porazgovarajte s našim digitalnim savjetnikom - pomoći će vam posložiti ideju i pokazati sljedeće korake.",
+    },
     about: {
       hero: {
         tag: "O NAMA",
-        title: "Etherr — web, automatizacija i AI, složeni kako treba.",
-        p1: "Etherr je obrt za digitalne usluge koji spaja web, marketing, automatizaciju i AI u sustave koji stvarno imaju smisla. Ne gledamo sve kao odvojene usluge, nego kao dijelove jedne cjeline koja treba dobro raditi zajedno.",
-        p2: "Radimo s poduzetnicima i tvrtkama kojima treba više od “još jedne stranice” — treba im postav koji je jasan, održiv i spreman za daljnji rast.",
+        title: "Etherr - pouzdano povezujemo tehnologiju, procese i rezultate",
+        p1: "Etherr je digitalni studio iz Hrvatske fokusiran na izradu kvalitetnih i konkretnih rješenja - od web stranica i dizajna do marketinga, automatizacije i obrade podataka. Cilj nam je pojednostaviti digitalni dio poslovanja klijentima i maknuti nepotrebnu kompleksnost kroz jasna, učinkovita rješenja.",
+        p2: "Radimo direktno s klijentima na hrvatskom (i regionalnom), njemačkom i engleskom govornom području. Brzo razumijemo problem i gradimo rješenja koja imaju stvarnu vrijednost. Fokus nam je na kvaliteti, dugoročnoj suradnji i rezultatima.",
       },
       identity: {
         tag: "TKO SMO",
-        title: "Digitalna rješenja koja su povezana, jasna i korisna.",
-        text: "Spajamo web stranice, webshopove, WordPress rješenja, marketing, automatizaciju i AI u sustav koji nije nepotrebno kompliciran. Cilj nije dodati što više alata, nego složiti ono što stvarno pomaže poslovanju.",
+        title: "Rješenja koja su povezana, jasna i jednostavna korisnicima.",
+        text: "Spajamo web stranice, webshopove, WordPress i custom rješenja, marketing, automatizaciju i AI u sustav koji nije nepotrebno kompliciran. Cilj nije dodati što više alata, nego složiti ono što stvarno pomaže poslovanju.",
         bullet1: "Web, sadržaj i marketing trebaju raditi zajedno",
-        bullet2: "Automatizacija treba štedjeti vrijeme, ne stvarati kaos",
+        bullet2: "Automatizacija treba štedjeti vrijeme",
         bullet3: "AI ima smisla kad rješava konkretan problem",
         bullet4: "Sve postavljamo tako da se može dalje nadograđivati",
+        projectsNote: "Primjeri iz prakse govore više od opisa - sve što radimo možete vidjeti u sekciji projekata.",
+        projectsBtn: "Pogledajte naše projekte →",
         pill1: "Web stranice i webshopovi",
         pill2: "WordPress i prilagođena rješenja",
         pill3: "Digitalni marketing",
@@ -202,7 +215,7 @@ const translations = {
           "Svaki projekt može biti drugačiji, ali pristup nam je uvijek isti: prvo shvatiti što stvarno treba riješiti, pa tek onda slagati rješenje.",
         card1: {
           title: "Upoznamo što treba",
-          text: "Prvo hvatamo širu sliku — što već postoji, što ne radi i što zapravo treba postići.",
+          text: "Prvo hvatamo širu sliku — što već postoji, što ne radi kako treba i što zapravo treba postići.",
         },
         card2: {
           title: "Složimo pravi pristup",
@@ -210,20 +223,20 @@ const translations = {
         },
         card3: {
           title: "Gradimo i povezujemo",
-          text: "Radimo web, sadržaj, funkcionalnosti i povezivanja tako da sve radi kao jedna cjelina.",
+          text: "Radimo web, aplikacije, sadržaj, funkcionalnosti i povezivanja tako da sve radi kao jedna cjelina.",
         },
         card4: {
-          title: "Testiramo i dorađujemo",
-          text: "Provjeravamo detalje, čistimo višak i popravljamo ono što treba prije puštanja dalje.",
+          title: "Testiramo",
+          text: "Provjeravamo detalje, čistimo višak i popravljamo ono što treba prije puštanja u produkciju.",
         },
         card5: {
-          title: "Održavamo i razvijamo dalje",
+          title: "Održavamo i razvijamo",
           text: "Po potrebi ostajemo uključeni kroz podršku, izmjene, nadogradnje i nove ideje.",
         },
       },
       approach: {
         tag: "NAŠ PRISTUP",
-        title: "Ne radimo više stvari. Radimo ih povezano.",
+        title: "Ne izrađujemo samo rješenja - usklađujemo sve dijelove u mrežu koja radi kao jedno, stabilno i dugoročno.",
         text: "Puno projekata zapne jer su web, oglasi, sadržaj, podaci i alati složeni svaki za sebe. Mi to pokušavamo izbjeći od početka.",
         bullet1: "Krećemo od stvarnog problema, ne od buzzworda",
         bullet2: "Ne kompliciramo bez razloga",
@@ -231,36 +244,38 @@ const translations = {
         bullet4: "Gradimo sustav koji se može širiti s vremenom",
       },
       projectsView: {
-        tag: "KAKO GLEDAMO NA PROJEKTE",
-        title: "Dobar digitalni sustav nije skup odvojenih dijelova.",
-        text: "Najviše smisla ima kad su web, sadržaj, marketing i alati povezani tako da se međusobno podržavaju. Zato projekte ne gledamo usko, nego kao cjelinu koja treba biti jasna, korisna i spremna za dalje.",
-        link: "Pogledajte usluge",
+        tag: "DIGITALNI ASISTENT",
+        title: "Za jasniju sliku onoga što vam treba, ili ako imate pitanje - možete krenuti s našim digitalnim asistentom.",
+        text: "Etherr asistent pomaže vam razjasniti ideju, odabrati smjer i bolje razumjeti koje digitalno rješenje ima smisla za vaš projekt. Može objasniti usluge, povezati vas s primjerima projekata, dati odgovore na pitanja i pripremiti vas za prvi razgovor.",
+        support: "Ujedno je i konkretan primjer AI asistenta za web stranicu koji možemo prilagoditi vašem poslovanju, sadržaju i korisnicima.",
+        faq: 'Neda vam se tipkati i volite scrollati? Pogledajte naš <a href="/faq.html" class="about-assistant-faq-link">FAQ</a> za odgovore na najčešća pitanja.',
       },
       values: {
-        tag: "ZAŠTO TAKO RADIMO",
-        title: "Bitno nam je da stvari rade i nakon launch-a.",
+        tag: "ŠTO JE CILJ?",
+        title: "Zadovoljni klijenti, dobra komunikacija, stabilna i kvalitetna rješenja.",
         card1: {
           title: "Jasna komunikacija",
-          text: "Bez “black box” procesa i bez nepotrebnog kompliciranja.",
+          text: "Klijent ima potpuni uvid u proces, podatke i sve odluke. Sve je jasno, dokumentirano i bez skrivenih koraka ili nejasnih procesa.",
         },
         card2: {
-          title: "Rješenja s razlogom",
-          text: "Ne ubacujemo alate i funkcije samo zato što zvuče dobro.",
+          title: "Potvrda kvalitete",
+          text: "Ne uvjeravamo riječima - rješenja govore sama za sebe. Cilj je da kroz suradnju i rezultate klijent jasno prepozna stvarnu vrijednost.",
         },
         card3: {
           title: "Dugoročno održivo",
-          text: "Sve treba imati smisla i za danas i za kasnije.",
+          text: "Gradimo rješenja koja imaju smisla i danas i sutra. Stabilna su, skalabilna i spremna za daljnje nadogradnje bez potrebe za ponovnim početkom.",
         },
         card4: {
           title: "Fokus na rezultat",
-          text: "Na kraju je bitno pomaže li to stvarno poslovanju.",
+          text: "Svaka odluka ima jasan cilj. Mjerimo uspjeh kroz konkretne rezultate koji imaju stvaran utjecaj na poslovanje.",
         },
       },
       cta: {
-        title: "Imate ideju, problem ili projekt?",
-        text: "Pošaljite nam kratko o čemu se radi, a mi ćemo javiti kako to ima smisla složiti.",
+        title: "Imate ideju, pitanje, problem ili projekt?",
+        text: "Pošaljite nam kratko o čemu se radi, a mi ćemo javiti kako to najbolje oživjeti.",
         primary: "Kontaktirajte nas →",
         secondary: "Pogledajte usluge",
+        faq: "Imate pitanja? Pogledajte FAQ",
       },
     },
     services: {
@@ -362,6 +377,7 @@ const translations = {
     footer: {
       copy: "{year} © Etherr",
       privacyLink: "Pravila privatnosti",
+      faqLink: "FAQ",
     },
     privacy: {
       eyebrow: "GDPR i obrada podataka",
@@ -384,11 +400,247 @@ const translations = {
       recipientsTitle: "6. Primatelji podataka",
       recipientsItem1: "Hosting provider: SETCOR d.o.o.",
       recipientsItem2: "Email provider: Microsoft",
+      recipientsItem3: "AI partner: OpenAI",
       rightsTitle: "7. Prava korisnika",
       rightsBody:
         "Imate pravo zatražiti pristup, ispravak ili brisanje svojih osobnih podataka, kao i ograničenje obrade. Također imate pravo podnijeti pritužbu Agenciji za zaštitu osobnih podataka (AZOP).",
       contactTitle: "8. Kontakt",
       contactBody: "info@etherr.hr",
+    },
+    faq: {
+      eyebrow: "ČESTO POSTAVLJANA PITANJA",
+      title: "FAQ",
+      subtitle: "Odgovori na najčešća pitanja o izradi web stranica, webshopova, AI integracijama, automatizaciji i digitalnom marketingu.",
+      cta: {
+        title: "Niste pronašli odgovor?",
+        text: "Javite nam se direktno i odgovorit ćemo na sva vaša pitanja.",
+        button: "Kontaktirajte nas →",
+      },
+      sections: {
+        general: {
+          title: "Općenito",
+          q1: {
+            question: "Što je Etherr i čime se bavite?",
+            answer: "<p>Etherr je obrt za digitalne usluge koji spaja web razvoj, automatizaciju, AI integracije i digitalni marketing u povezane sustave.</p><p>Ne radimo samo web stranice — gradimo cjelovita digitalna rješenja koja uključuju:</p><ul><li>Web stranice i webshopove</li><li>AI chatbotove i asistente</li><li>Automatizaciju poslovnih procesa</li><li>Digitalni marketing i SEO</li><li>Analitiku i izvještavanje</li></ul><p>Cilj nam je da sve komponente rade zajedno, a ne kao odvojeni dijelovi.</p>",
+          },
+          q2: {
+            question: "Za koga su vaše usluge namijenjene?",
+            answer: "<p>Radimo s malim i srednjim tvrtkama, poduzetnicima i startupima kojima treba više od \"još jedne web stranice\".</p><p>Naši klijenti obično trebaju:</p><ul><li>Novi web ili webshop s jasnom strukturom</li><li>Automatizaciju koja štedi vrijeme</li><li>AI rješenja za podršku ili prodaju</li><li>Povezivanje postojećih alata u jednu cjelinu</li></ul><p>Primjeri projekata: Almagea webshop, Keef Bar mobilni cjenik, Keep Going platforma s AI asistentom.</p>",
+          },
+          q3: {
+            question: "Radite li samo s klijentima iz Hrvatske?",
+            answer: "<p>Ne, radimo s klijentima iz cijele regije i šire.</p><p>Komunikacija može biti na hrvatskom, engleskom ili njemačkom jeziku. Svi projekti se vode online, tako da lokacija nije ograničenje.</p>",
+          },
+          q4: {
+            question: "Mogu li dobiti sve usluge na jednom mjestu?",
+            answer: "<p>Da, to je upravo naš pristup.</p><p>Umjesto da angažirate različite agencije za web, marketing, automatizaciju i AI, sve možete dobiti kod nas. Prednost je što su svi dijelovi sustava povezani od početka i rade zajedno.</p>",
+          },
+          q5: {
+            question: "Kako mogu stupiti u kontakt s vama?",
+            answer: "<p>Najjednostavnije je ispuniti kontakt formu na našoj stranici ili poslati email na info@etherr.hr.</p><p>Možete i porazgovarati s našim AI asistentom koji će vam pomoći strukturirati upit prije nego što nam se javite.</p>",
+          },
+        },
+        websites: {
+          title: "Web stranice",
+          q1: {
+            question: "Koliko košta izrada web stranice?",
+            answer: "<p>Cijena ovisi o opsegu projekta, funkcionalnostima i kompleksnosti dizajna.</p><p>Jednostavna prezentacijska stranica kreće od 800€, dok kompleksniji projekti s prilagođenim funkcionalnostima mogu koštati 2.000€ i više.</p><p>Nakon inicijalnog razgovora dajemo konkretnu procjenu s jasnim opsegom rada.</p>",
+          },
+          q2: {
+            question: "Koliko dugo traje izrada web stranice?",
+            answer: "<p>Standardna web stranica je gotova za 2-4 tjedna.</p><p>Kompleksniji projekti s prilagođenim funkcionalnostima mogu trajati 4-8 tjedana. Točan rok ovisi o opsegu projekta i brzini dostave materijala (tekstovi, slike, logotip).</p>",
+          },
+          q3: {
+            question: "Radite li u WordPressu ili custom rješenja?",
+            answer: "<p>Radimo oboje, ovisno o potrebama projekta.</p><p><strong>WordPress</strong> koristimo za stranice gdje klijent želi samostalno uređivati sadržaj — blogove, portfolije, manje webshopove.</p><p><strong>Custom rješenja</strong> radimo kad projekt zahtijeva specifične funkcionalnosti, bolje performanse ili integracije koje WordPress ne podržava optimalno.</p><p>Primjeri: Almagea i Kota Samobor su WordPress/WooCommerce, dok je Keef Bar mobilni cjenik custom rješenje.</p>",
+          },
+          q4: {
+            question: "Hoću li moći sam uređivati sadržaj na stranici?",
+            answer: "<p>Da, sve stranice koje radimo imaju admin sučelje za uređivanje sadržaja.</p><p>Kod WordPress stranica to je standardni WordPress admin. Kod custom rješenja radimo prilagođeno sučelje koje je jednostavno za korištenje.</p><p>Nakon predaje projekta dobivate kratku obuku za korištenje sustava.</p>",
+          },
+          q5: {
+            question: "Što je uključeno u cijenu izrade web stranice?",
+            answer: "<p>Standardno uključujemo:</p><ul><li>Dizajn i razvoj stranice</li><li>Responzivan prikaz (mobitel, tablet, desktop)</li><li>Osnovnu SEO optimizaciju</li><li>SSL certifikat i sigurnosne postavke</li><li>Povezivanje s Google Analytics</li><li>Obuku za korištenje admin sučelja</li></ul><p>Hosting i domena se obično plaćaju zasebno, ali možemo pomoći s odabirom i postavkama.</p>",
+          },
+          q6: {
+            question: "Trebam li imati pripremljen sadržaj prije početka?",
+            answer: "<p>Idealno je imati barem osnovne tekstove i slike, ali nije nužno.</p><p>Možemo pomoći s:</p><ul><li>Strukturiranjem sadržaja</li><li>Pisanjem tekstova (uz vašu suradnju)</li><li>Odabirom i obradom slika</li><li>AI-generiranim sadržajem kao polazištem</li></ul><p>Projekt ide brže ako materijali postoje, ali možemo raditi i iterativno.</p>",
+          },
+        },
+        webshops: {
+          title: "Webshopovi",
+          q1: {
+            question: "Treba li mi webshop ili je dovoljna web stranica?",
+            answer: "<p>Ovisi o tome prodajete li proizvode ili usluge online.</p><p><strong>Webshop trebate ako:</strong></p><ul><li>Prodajete fizičke proizvode s dostavom</li><li>Imate više od 10-ak proizvoda</li><li>Želite online plaćanje i automatsku obradu narudžbi</li></ul><p><strong>Web stranica je dovoljna ako:</strong></p><ul><li>Prodajete usluge ili imate mali broj proizvoda</li><li>Narudžbe primate putem forme ili emaila</li><li>Ne trebate online plaćanje</li></ul>",
+          },
+          q2: {
+            question: "Koliko košta izrada webshopa?",
+            answer: "<p>Webshop kreće od 1.500€ za osnovnu verziju s WooCommerce platformom.</p><p>Kompleksniji webshopovi s prilagođenim funkcionalnostima, integracijama plaćanja i naprednim filterima koštaju 3.000-6.000€.</p><p>Primjer: Almagea webshop uključuje CorvusPay integraciju, subscription logiku i napredne funkcionalnosti.</p>",
+          },
+          q3: {
+            question: "Koje platforme za webshop koristite?",
+            answer: "<p>Najčešće radimo s <strong>WooCommerce</strong> (WordPress) jer nudi fleksibilnost i niže troškove održavanja.</p><p>Za specifične potrebe radimo i custom rješenja ili integracije s postojećim sustavima.</p><p>Ne radimo na Shopify platformi, ali možemo pomoći s migracijom na WooCommerce.</p>",
+          },
+          q4: {
+            question: "Možete li povezati webshop s plaćanjem karticama?",
+            answer: "<p>Da, integriramo sve uobičajene payment providere:</p><ul><li>CorvusPay</li><li>Stripe</li><li>PayPal</li><li>Monri</li></ul><p>Također postavljamo pouzeće i virmansko plaćanje. Primjer: Almagea webshop koristi CorvusPay s potpunom integracijom i debuggingom payment flowa.</p>",
+          },
+          q5: {
+            question: "Kako funkcionira dostava i praćenje narudžbi?",
+            answer: "<p>Webshop automatski šalje obavijesti kupcu o statusu narudžbe.</p><p>Za dostavu možemo integrirati:</p><ul><li>Fiksne cijene dostave po zonama</li><li>Besplatnu dostavu iznad određenog iznosa</li><li>Integraciju s kurirskim službama (GLS, DPD, HP)</li><li>Praćenje pošiljki</li></ul><p>Admin sučelje omogućuje jednostavno upravljanje narudžbama i statusima.</p>",
+          },
+          q6: {
+            question: "Mogu li imati webshop na više jezika?",
+            answer: "<p>Da, radimo višejezične webshopove.</p><p>Najčešće koristimo WPML plugin za WordPress/WooCommerce koji omogućuje:</p><ul><li>Prijevod svih stranica i proizvoda</li><li>Različite cijene po tržištima</li><li>Automatsko prepoznavanje jezika posjetitelja</li></ul><p>Primjer: Juvy Skin webshop ima hrvatsku i englesku verziju.</p>",
+          },
+        },
+        ai: {
+          title: "AI i automatizacija",
+          q1: {
+            question: "Kako funkcionira AI chatbot na web stranici?",
+            answer: "<p>AI chatbot je digitalni asistent koji odgovara na pitanja posjetitelja u realnom vremenu.</p><p>Chatbot može:</p><ul><li>Odgovarati na česta pitanja</li><li>Voditi posjetitelje kroz ponudu</li><li>Prikupljati kontakt podatke</li><li>Kvalificirati leadove prije kontakta</li></ul><p>Primjer: Keep Going platforma ima AI asistenta koji pomaže korisnicima strukturirati misli prije prvog razgovora.</p>",
+          },
+          q2: {
+            question: "Koliko košta implementacija AI chatbota?",
+            answer: "<p>Osnovni AI chatbot kreće od 1500€ za implementaciju.</p><p>Cijena ovisi o:</p><ul><li>Kompleksnosti razgovora i scenarija</li><li>Količini sadržaja za treniranje</li><li>Integracijama s drugim sustavima</li><li>Mjesečnim troškovima API poziva (OpenAI)</li></ul><p>Mjesečni troškovi API-ja ovise o prometu, ali za većinu stranica iznose 10-50€.</p><p>Radimo isključivo s najboljim modelima i providerima (OpenAI), čime garantiramo najvišu kvalitetu i prirodne odgovore.</p>",
+          },
+          q3: {
+            question: "Što je automatizacija poslovnih procesa?",
+            answer: "<p>Automatizacija znači da računalo obavlja ponavljajuće zadatke umjesto vas.</p><p>Primjeri automatizacije:</p><ul><li>Automatsko slanje emailova nakon narudžbe</li><li>Prijenos podataka između sustava (CRM, email, tablice)</li><li>Generiranje izvještaja</li><li>Obavijesti o novim leadovima</li><li>Automatsko ažuriranje zaliha</li></ul><p>Koristimo alate poput Make (Integromat), Zapier ili custom rješenja.</p>",
+          },
+          q4: {
+            question: "Mogu li povezati AI s mojim postojećim sustavima?",
+            answer: "<p>Da, AI se može povezati s većinom modernih sustava koji imaju API.</p><p>Česte integracije:</p><ul><li>CRM sustavi (HubSpot, Pipedrive)</li><li>Email marketing (Mailchimp, Brevo)</li><li>Helpdesk (Zendesk, Freshdesk)</li><li>Vlastite baze podataka</li></ul><p>AI može čitati podatke iz vaših sustava i davati personalizirane odgovore.</p>",
+          },
+          q5: {
+            question: "Je li AI siguran za korištenje s osjetljivim podacima?",
+            answer: "<p>Sigurnost ovisi o implementaciji i odabiru providera.</p><p>Naše prakse:</p><ul><li>Koristimo provjerene providere (OpenAI, Anthropic)</li><li>Ne šaljemo osjetljive podatke bez potrebe</li><li>Implementiramo kontrolu pristupa</li><li>Poštujemo GDPR zahtjeve</li></ul><p>Za posebno osjetljive podatke možemo postaviti lokalne AI modele.</p>",
+          },
+          q6: {
+            question: "Trebam li tehničko znanje za korištenje AI alata?",
+            answer: "<p>Ne, naša rješenja su dizajnirana za korisnike bez tehničkog znanja.</p><p>Dobivate:</p><ul><li>Jednostavno sučelje za upravljanje</li><li>Obuku za korištenje</li><li>Dokumentaciju</li><li>Podršku za pitanja</li></ul><p>Vi definirate što AI treba raditi, mi se brinemo za tehničku implementaciju.</p>",
+          },
+        },
+        marketing: {
+          title: "Marketing i SEO",
+          q1: {
+            question: "Što uključuje SEO optimizacija?",
+            answer: "<p>SEO optimizacija pomaže da vas ljudi pronađu na Googleu.</p><p>Naš SEO uključuje:</p><ul><li>Tehničku optimizaciju (brzina, struktura, mobile)</li><li>Optimizaciju sadržaja (naslovi, opisi, ključne riječi)</li><li>Strukturirane podatke (schema markup)</li><li>Interno povezivanje</li><li>Optimizaciju za AI pretraživače (GEO)</li></ul><p>Osnovna SEO optimizacija je uključena u izradu svake stranice.</p>",
+          },
+          q2: {
+            question: "Radite li Google i Meta oglašavanje?",
+            answer: "<p>Da, postavljamo i vodimo kampanje na:</p><ul><li>Google Ads (pretraživanje, display, shopping)</li><li>Meta (Facebook i Instagram)</li></ul><p>Uključujemo praćenje konverzija, A/B testiranje i optimizaciju kampanja.</p><p>Primjer: Kota Samobor webshop ima integriran Meta Pixel za praćenje i remarketing.</p>",
+          },
+          q3: {
+            question: "Koliko vremena treba da SEO pokaže rezultate?",
+            answer: "<p>SEO je dugoročna strategija — prvi rezultati su vidljivi nakon 2-3 mjeseca, a značajniji pomaci nakon 6+ mjeseci.</p><p>Brzina ovisi o:</p><ul><li>Konkurenciji u vašoj niši</li><li>Trenutnom stanju stranice</li><li>Kvaliteti sadržaja</li><li>Autoritetu domene</li></ul><p>Za brže rezultate kombiniramo SEO s plaćenim oglašavanjem.</p>",
+          },
+          q4: {
+            question: "Što je GEO (Generative Engine Optimization)?",
+            answer: "<p>GEO je optimizacija sadržaja za AI sustave poput ChatGPT-a, Perplexity-ja i Google AI Overviews.</p><p>Cilj je da AI sustavi citiraju vaš sadržaj kad korisnici postavljaju pitanja.</p><p>GEO uključuje:</p><ul><li>Strukturiranje sadržaja za AI razumijevanje</li><li>Jasne i potpune odgovore na česta pitanja</li><li>Semantičku optimizaciju</li><li>FAQ stranice poput ove</li></ul>",
+          },
+          q5: {
+            question: "Mogu li pratiti rezultate marketinga?",
+            answer: "<p>Da, postavljamo kompletno praćenje i izvještavanje.</p><p>Standardno uključujemo:</p><ul><li>Google Analytics 4</li><li>Google Search Console</li><li>Praćenje konverzija</li><li>Meta Pixel (za oglašavanje)</li></ul><p>Možemo postaviti i custom dashboarde za praćenje KPI-jeva. Primjer: Ripple dashboard za praćenje projektnih metrika.</p>",
+          },
+        },
+        process: {
+          title: "Proces suradnje",
+          q1: {
+            question: "Kako izgleda proces suradnje od početka do kraja?",
+            answer: "<p>Naš proces ima 5 koraka:</p><ul><li><strong>1. Upoznavanje</strong> — razumijemo vaše potrebe i ciljeve</li><li><strong>2. Prijedlog</strong> — dajemo konkretnu ponudu s opsegom i cijenom</li><li><strong>3. Izrada</strong> — gradimo rješenje uz redovitu komunikaciju</li><li><strong>4. Testiranje</strong> — provjeravamo sve prije puštanja</li><li><strong>5. Lansiranje i podrška</strong> — puštamo uživo i ostajemo dostupni</li></ul>",
+          },
+          q2: {
+            question: "Koliko ću biti uključen u proces izrade?",
+            answer: "<p>Onoliko koliko želite i koliko projekt zahtijeva.</p><p>Minimalno trebamo:</p><ul><li>Inicijalni razgovor o ciljevima</li><li>Povratne informacije na dizajn</li><li>Dostavu materijala (tekstovi, slike)</li><li>Završnu provjeru prije lansiranja</li></ul><p>Možete biti uključeni u svaki korak ili nam prepustiti većinu odluka — prilagođavamo se vašem stilu rada.</p>",
+          },
+          q3: {
+            question: "Kako komuniciramo tijekom projekta?",
+            answer: "<p>Prilagođavamo se vašim preferencijama.</p><p>Najčešće koristimo:</p><ul><li>Email za dokumentaciju i formalne dogovore</li><li>Video pozive za prezentacije i veće rasprave</li><li>Chat (WhatsApp, Slack) za brza pitanja</li></ul><p>Za veće projekte možemo postaviti zajednički prostor za praćenje napretka.</p>",
+          },
+          q4: {
+            question: "Što ako nisam zadovoljan s rezultatom?",
+            answer: "<p>Radimo iterativno upravo zato da izbjegnemo nezadovoljstvo.</p><p>Naš pristup:</p><ul><li>Pokazujemo napredak u fazama</li><li>Tražimo povratne informacije prije nastavka</li><li>Uključujemo revizije u cijenu</li></ul><p>Ako nakon svih revizija niste zadovoljni, tražimo kompromis ili vraćamo dio uplate — ovisno o situaciji.</p>",
+          },
+          q5: {
+            question: "Mogu li naknadno proširiti projekt?",
+            answer: "<p>Da, većina naših projekata se razvija kroz vrijeme.</p><p>Gradimo sustave koji se mogu nadograđivati:</p><ul><li>Nove funkcionalnosti</li><li>Dodatne integracije</li><li>Proširenje na nova tržišta</li><li>AI i automatizacija</li></ul><p>Primjer: Almagea webshop je krenuo kao osnovni shop, a danas uključuje subscription logiku i napredne integracije.</p>",
+          },
+        },
+        pricing: {
+          title: "Cijene i rokovi",
+          q1: {
+            question: "Kako formirate cijene?",
+            answer: "<p>Cijene formiramo na temelju opsega rada, kompleksnosti i potrebnog vremena.</p><p>Za svaki projekt dajemo fiksnu ponudu s jasno definiranim opsegom. Nema skrivenih troškova.</p><p>Ako se opseg promijeni tijekom projekta, dogovaramo nove uvjete prije nastavka.</p>",
+          },
+          q2: {
+            question: "Kako funkcionira plaćanje?",
+            answer: "<p>Standardni model:</p><ul><li>50% avans prije početka rada</li><li>50% prije lansiranja</li></ul><p>Za veće projekte možemo dogovoriti plaćanje u više rata vezanih uz milestoneove.</p><p>Prihvaćamo virmansko plaćanje. Za strane klijente moguće je plaćanje putem Wise ili PayPal.</p>",
+          },
+          q3: {
+            question: "Postoje li mjesečni troškovi nakon izrade?",
+            answer: "<p>Ovisi o projektu i vašim potrebama.</p><p>Mogući mjesečni troškovi:</p><ul><li><strong>Hosting</strong> — 10-50€/mj ovisno o prometu</li><li><strong>Domena</strong> — 10-20€/god</li><li><strong>Održavanje</strong> — opcionalno, od 50€/mj</li><li><strong>AI API troškovi</strong> — ovisno o korištenju</li></ul><p>Sve troškove transparentno komuniciramo prije početka.</p>",
+          },
+          q4: {
+            question: "Dajete li popust za veće projekte?",
+            answer: "<p>Da, za veće projekte ili dugoročnu suradnju nudimo povoljnije uvjete.</p><p>Također nudimo pakete koji kombiniraju više usluga po povoljnijoj cijeni nego pojedinačno.</p>",
+          },
+          q5: {
+            question: "Koliko unaprijed trebam rezervirati termin?",
+            answer: "<p>Ovisi o trenutnoj zauzetosti, ali obično možemo krenuti unutar 1-2 tjedna.</p><p>Za veće projekte preporučujemo javljanje barem mjesec dana unaprijed kako bismo osigurali termin.</p>",
+          },
+          q6: {
+            question: "Što ako trebam nešto hitno?",
+            answer: "<p>Za hitne projekte možemo ubrzati proces uz dodatnu naknadu.</p><p>Hitni projekti obično uključuju:</p><ul><li>Prioritetni tretman</li><li>Rad izvan standardnog radnog vremena</li><li>Brže vrijeme odgovora</li></ul><p>Javite nam se i vidjet ćemo što možemo napraviti.</p>",
+          },
+        },
+        technical: {
+          title: "Tehnička pitanja",
+          q1: {
+            question: "Koje tehnologije koristite?",
+            answer: "<p>Odabiremo tehnologiju prema potrebama projekta.</p><p>Najčešće koristimo:</p><ul><li><strong>Web:</strong> WordPress, custom PHP, HTML/CSS/JS</li><li><strong>Webshop:</strong> WooCommerce</li><li><strong>AI:</strong> OpenAI API, custom integracije</li><li><strong>Automatizacija:</strong> Make, Zapier, custom skripte</li><li><strong>Hosting:</strong> cPanel, cloud rješenja</li></ul>",
+          },
+          q2: {
+            question: "Hoće li moja stranica biti brza?",
+            answer: "<p>Da, performanse su nam prioritet.</p><p>Standardno optimiziramo:</p><ul><li>Veličinu i format slika</li><li>Caching i kompresiju</li><li>Minimizaciju koda</li><li>Lazy loading</li><li>CDN gdje je potrebno</li></ul><p>Cilj je postići Core Web Vitals ocjenu \"Good\" na Google PageSpeed Insights.</p>",
+          },
+          q3: {
+            question: "Je li stranica sigurna od hakera?",
+            answer: "<p>Implementiramo standardne sigurnosne mjere:</p><ul><li>SSL certifikat (HTTPS)</li><li>Redovite nadogradnje</li><li>Sigurne lozinke i 2FA</li><li>Backup sustav</li><li>Firewall i zaštita od brute force napada</li></ul><p>Za WordPress koristimo provjerene pluginove i pratimo sigurnosne preporuke.</p>",
+          },
+          q4: {
+            question: "Mogu li dobiti pristup kodu i hosting računu?",
+            answer: "<p>Da, sve što napravimo je vaše vlasništvo.</p><p>Dobivate:</p><ul><li>Pristup hosting računu</li><li>Admin pristup stranici</li><li>Izvorni kod (ako je custom razvoj)</li><li>Dokumentaciju</li></ul><p>Možete nastaviti raditi s nama ili prenijeti projekt drugom developeru.</p>",
+          },
+          q5: {
+            question: "Što ako nešto prestane raditi?",
+            answer: "<p>Ovisno o tome imate li ugovor o održavanju:</p><ul><li><strong>S održavanjem:</strong> rješavamo u okviru dogovorenog SLA</li><li><strong>Bez održavanja:</strong> naplaćujemo po satu za popravke</li></ul><p>Za kritične probleme (stranica ne radi) reagiramo prioritetno bez obzira na ugovor.</p>",
+          },
+        },
+        support: {
+          title: "Održavanje i podrška",
+          q1: {
+            question: "Nudite li održavanje nakon izrade?",
+            answer: "<p>Da, nudimo mjesečne pakete održavanja.</p><p>Održavanje uključuje:</p><ul><li>Redovite nadogradnje (WordPress, pluginovi)</li><li>Sigurnosne provjere</li><li>Backup</li><li>Manje izmjene sadržaja</li><li>Tehničku podršku</li></ul><p>Paketi kreću od 50€/mjesečno ovisno o opsegu.</p>",
+          },
+          q2: {
+            question: "Što ako ne želim paket održavanja?",
+            answer: "<p>Održavanje nije obavezno.</p><p>Bez paketa održavanja:</p><ul><li>Sami ste odgovorni za nadogradnje</li><li>Popravke naplaćujemo po satu</li><li>Nema garantiranog vremena odgovora</li></ul><p>Preporučujemo barem osnovni paket za WordPress stranice zbog sigurnosnih nadogradnji.</p>",
+          },
+          q3: {
+            question: "Koliko brzo odgovarate na upite?",
+            answer: "<p>Ovisi o vrsti upita i ugovoru:</p><ul><li><strong>S održavanjem:</strong> odgovor unutar 24h (radnim danom)</li><li><strong>Bez održavanja:</strong> odgovor unutar 48-72h</li><li><strong>Hitni problemi:</strong> isti dan kad je moguće</li></ul><p>Za kritične probleme (stranica ne radi) reagiramo prioritetno.</p>",
+          },
+          q4: {
+            question: "Mogu li sam raditi izmjene na stranici?",
+            answer: "<p>Da, sve stranice imaju admin sučelje za uređivanje.</p><p>Možete samostalno:</p><ul><li>Mijenjati tekstove i slike</li><li>Dodavati nove stranice i postove</li><li>Upravljati proizvodima (webshop)</li><li>Pregledavati statistike</li></ul><p>Za veće strukturalne promjene preporučujemo da nas kontaktirate.</p>",
+          },
+          q5: {
+            question: "Što uključuje tehnička podrška?",
+            answer: "<p>Tehnička podrška pokriva:</p><ul><li>Odgovore na pitanja o korištenju</li><li>Rješavanje tehničkih problema</li><li>Savjete za optimizaciju</li><li>Pomoć s integracijom novih alata</li></ul><p>Podrška ne uključuje izradu novih funkcionalnosti — to se dogovara i naplaćuje zasebno.</p>",
+          },
+        },
+      },
     },
   },
   en: {
@@ -409,6 +661,12 @@ const translations = {
         meta: {
           title: "Etherr | Privacy Policy",
           description: "Information about personal data processing and privacy rules for the Etherr contact form.",
+        },
+      },
+      faq: {
+        meta: {
+          title: "Etherr | Frequently Asked Questions (FAQ)",
+          description: "Answers to common questions about website development, webshops, AI integrations, automation and digital marketing.",
         },
       },
       projects: {
@@ -538,7 +796,7 @@ const translations = {
     },
     nav: {
       home: "Home",
-      about: "About",
+      about: "About us",
       services: "Services",
       projects: "Projects",
       contact: "Contact",
@@ -551,21 +809,28 @@ const translations = {
       primaryCta: "Contact us",
       secondaryCta: "Our projects",
     },
+    assistantPrompt: {
+      tag: "Not sure where to start?",
+      text:
+        "Before reaching out, talk to our digital advisor - it will help you shape the idea and show you the next steps.",
+    },
     about: {
       hero: {
-        tag: "ABOUT",
-        title: "Etherr — web, automation and AI, put together the way they should be.",
-        p1: "Etherr is a digital services studio that brings web, marketing, automation and AI together into systems that actually make sense. We don’t treat them as separate services, but as parts of one setup that should work well together.",
-        p2: "We work with founders and companies who need more than just another website — they need a setup that is clear, maintainable and ready to grow.",
+        tag: "ABOUT US",
+        title: "Etherr - reliably connecting technology, processes and results",
+        p1: "Etherr is a digital studio from Croatia focused on building quality, concrete solutions - from websites and design to marketing, automation and data processing. Our goal is to simplify the digital side of business for our clients and remove unnecessary complexity through clear, effective solutions.",
+        p2: "We work directly with clients in Croatian (and regional), German and English-speaking markets. We quickly understand the problem and build solutions that deliver real value. Our focus is on quality, long-term collaboration and results.",
       },
       identity: {
         tag: "WHO WE ARE",
-        title: "Digital solutions that are connected, clear and useful.",
-        text: "We combine websites, webshops, WordPress solutions, marketing, automation and AI into a system that isn’t unnecessarily complicated. The goal isn’t to add as many tools as possible, but to put together what genuinely helps the business.",
+        title: "Solutions that are connected, clear and simple for users.",
+        text: "We combine websites, webshops, WordPress and custom solutions, marketing, automation and AI into a system that isn’t unnecessarily complicated. The goal isn’t to add as many tools as possible, but to put together what genuinely helps the business.",
         bullet1: "Web, content and marketing should work together",
-        bullet2: "Automation should save time, not create chaos",
+        bullet2: "Automation should save time",
         bullet3: "AI only makes sense when it solves a real problem",
         bullet4: "Everything is set up so it can keep evolving",
+        projectsNote: "Real examples say more than any description - everything we build is in the projects section.",
+        projectsBtn: "See our projects →",
         pill1: "Websites and webshops",
         pill2: "WordPress and custom solutions",
         pill3: "Digital marketing",
@@ -594,7 +859,7 @@ const translations = {
           "Every project is different, but our approach stays the same: first understand what actually needs solving, then build the right solution around it.",
         card1: {
           title: "We understand what’s needed",
-          text: "We start with the wider picture — what already exists, what is not working and what the project really needs to achieve.",
+          text: "We start with the wider picture - what already exists, what is not working properly and what the project really needs to achieve.",
         },
         card2: {
           title: "We shape the right approach",
@@ -602,20 +867,20 @@ const translations = {
         },
         card3: {
           title: "We build and connect",
-          text: "We work on the website, content, functionality and integrations so everything runs as one whole.",
+          text: "We work on the website, applications, content, functionality and integrations so everything runs as one whole.",
         },
         card4: {
-          title: "We test and refine",
-          text: "We check the details, remove the excess and fix what needs polishing before anything goes further.",
+          title: "We test",
+          text: "We check the details, remove the excess and fix what needs polishing before going to production.",
         },
         card5: {
-          title: "We support and develop further",
+          title: "We support and develop",
           text: "When needed, we stay involved through support, changes, upgrades and new ideas.",
         },
       },
       approach: {
         tag: "OUR APPROACH",
-        title: "We don’t do more things. We make them work together.",
+        title: "We don't just build solutions - we align all parts into a network that works as one, stable and built for the long term.",
         text: "A lot of projects get stuck because the website, ads, content, data and tools are all set up separately. We try to avoid that from the start.",
         bullet1: "We start from the real problem, not the buzzword",
         bullet2: "We do not complicate things without a reason",
@@ -623,36 +888,38 @@ const translations = {
         bullet4: "We build systems that can grow over time",
       },
       projectsView: {
-        tag: "HOW WE SEE PROJECTS",
-        title: "A good digital setup is not a pile of disconnected parts.",
-        text: "It works best when your website, content, marketing and tools support each other. That’s why we don’t look at projects in isolation, but as one system that should be clear, useful and ready to grow.",
-        link: "View services",
+        tag: "DIGITAL ASSISTANT",
+        title: "For a clearer picture of what you need, or if you have a question - you can start with our digital assistant.",
+        text: "The Etherr assistant helps you clarify the idea, choose a direction and better understand which digital solution makes sense for your project. It can explain services, connect you with project examples, answer questions and prepare you for the first conversation.",
+        support: "It is also a concrete example of an AI assistant for a website that we can tailor to your business, content and users.",
+        faq: "Don't feel like typing and prefer scrolling? Check our <a href=\"/faq.html\" class=\"about-assistant-faq-link\">FAQ</a> for answers to the most common questions.",
       },
       values: {
-        tag: "WHY WE WORK THIS WAY",
-        title: "It matters to us that things still work after launch.",
+        tag: "WHAT IS THE GOAL?",
+        title: "Satisfied clients, good communication, stable and quality solutions.",
         card1: {
           title: "Clear communication",
-          text: "No black-box process and no unnecessary complications.",
+          text: "The client has full visibility into the process, data and all decisions. Everything is clear, documented and without hidden steps or unclear processes.",
         },
         card2: {
-          title: "Solutions with a reason",
-          text: "We do not add tools or features just because they sound impressive.",
+          title: "Quality assurance",
+          text: "We don't convince with words - solutions speak for themselves. The goal is for the client to clearly recognise real value through collaboration and results.",
         },
         card3: {
           title: "Built to last",
-          text: "Everything should make sense both now and later on.",
+          text: "We build solutions that make sense today and tomorrow. They are stable, scalable and ready for further upgrades without needing to start over.",
         },
         card4: {
           title: "Focus on outcome",
-          text: "In the end, what matters is whether it genuinely helps the business.",
+          text: "Every decision has a clear goal. We measure success through concrete results that have a real impact on the business.",
         },
       },
       cta: {
-        title: "Have an idea, a problem or a project?",
-        text: "Send us a short outline and we’ll tell you what makes sense and how we’d approach it.",
+        title: "Have an idea, a question, a problem or a project?",
+        text: "Send us a short outline and we'll get back to you on how to best bring it to life.",
         primary: "Contact us →",
         secondary: "View services",
+        faq: "Have questions? Check our FAQ",
       },
     },
     services: {
@@ -754,6 +1021,7 @@ const translations = {
     footer: {
       copy: "{year} © Etherr",
       privacyLink: "Privacy Policy",
+      faqLink: "FAQ",
     },
     privacy: {
       eyebrow: "GDPR and data processing",
@@ -777,11 +1045,247 @@ const translations = {
       recipientsTitle: "6. Recipients",
       recipientsItem1: "Hosting provider: SETCOR d.o.o.",
       recipientsItem2: "Email provider: Microsoft",
+      recipientsItem3: "AI partner: OpenAI",
       rightsTitle: "7. User Rights",
       rightsBody:
         "You have the right to request access, rectification or deletion of your personal data, as well as restriction of processing. You also have the right to lodge a complaint with the Croatian Personal Data Protection Agency (AZOP).",
       contactTitle: "8. Contact",
       contactBody: "info@etherr.hr",
+    },
+    faq: {
+      eyebrow: "FREQUENTLY ASKED QUESTIONS",
+      title: "FAQ",
+      subtitle: "Answers to common questions about website development, webshops, AI integrations, automation and digital marketing.",
+      cta: {
+        title: "Didn't find your answer?",
+        text: "Contact us directly and we'll answer all your questions.",
+        button: "Contact us →",
+      },
+      sections: {
+        general: {
+          title: "General",
+          q1: {
+            question: "What is Etherr and what do you do?",
+            answer: "<p>Etherr is a digital services studio that combines web development, automation, AI integrations and digital marketing into connected systems.</p><p>We don't just build websites — we create complete digital solutions including:</p><ul><li>Websites and webshops</li><li>AI chatbots and assistants</li><li>Business process automation</li><li>Digital marketing and SEO</li><li>Analytics and reporting</li></ul><p>Our goal is to make all components work together, not as separate parts.</p>",
+          },
+          q2: {
+            question: "Who are your services for?",
+            answer: "<p>We work with small and medium businesses, entrepreneurs and startups who need more than \"just another website\".</p><p>Our clients typically need:</p><ul><li>A new website or webshop with clear structure</li><li>Automation that saves time</li><li>AI solutions for support or sales</li><li>Integration of existing tools into one system</li></ul><p>Project examples: Almagea webshop, Keef Bar mobile menu, Keep Going platform with AI assistant.</p>",
+          },
+          q3: {
+            question: "Do you only work with clients from Croatia?",
+            answer: "<p>No, we work with clients from the entire region and beyond.</p><p>Communication can be in Croatian, English or German. All projects are managed online, so location is not a limitation.</p>",
+          },
+          q4: {
+            question: "Can I get all services in one place?",
+            answer: "<p>Yes, that's exactly our approach.</p><p>Instead of hiring different agencies for web, marketing, automation and AI, you can get everything from us. The advantage is that all parts of the system are connected from the start and work together.</p>",
+          },
+          q5: {
+            question: "How can I contact you?",
+            answer: "<p>The easiest way is to fill out the contact form on our website or send an email to info@etherr.hr.</p><p>You can also chat with our AI assistant who will help you structure your inquiry before contacting us.</p>",
+          },
+        },
+        websites: {
+          title: "Websites",
+          q1: {
+            question: "How much does a website cost?",
+            answer: "<p>The price depends on the project scope, features and design complexity.</p><p>A simple presentation website starts from €800, while more complex projects with custom features can cost €2,000 and more.</p><p>After an initial conversation, we provide a specific estimate with a clear scope of work.</p>",
+          },
+          q2: {
+            question: "How long does it take to build a website?",
+            answer: "<p>A standard website is completed in 2-4 weeks.</p><p>More complex projects with custom features can take 4-8 weeks. The exact timeline depends on the project scope and how quickly materials are delivered (texts, images, logo).</p>",
+          },
+          q3: {
+            question: "Do you work with WordPress or custom solutions?",
+            answer: "<p>We do both, depending on project needs.</p><p><strong>WordPress</strong> is used for sites where the client wants to edit content independently — blogs, portfolios, smaller webshops.</p><p><strong>Custom solutions</strong> are built when the project requires specific features, better performance or integrations that WordPress doesn't support optimally.</p><p>Examples: Almagea and Kota Samobor are WordPress/WooCommerce, while Keef Bar mobile menu is a custom solution.</p>",
+          },
+          q4: {
+            question: "Will I be able to edit content on the website myself?",
+            answer: "<p>Yes, all websites we build have an admin interface for content editing.</p><p>For WordPress sites, this is the standard WordPress admin. For custom solutions, we create a tailored interface that's easy to use.</p><p>After project delivery, you receive a brief training on how to use the system.</p>",
+          },
+          q5: {
+            question: "What's included in the website price?",
+            answer: "<p>Standard inclusions:</p><ul><li>Design and development</li><li>Responsive display (mobile, tablet, desktop)</li><li>Basic SEO optimization</li><li>SSL certificate and security settings</li><li>Google Analytics integration</li><li>Training for admin interface use</li></ul><p>Hosting and domain are usually paid separately, but we can help with selection and setup.</p>",
+          },
+          q6: {
+            question: "Do I need to have content prepared before starting?",
+            answer: "<p>Ideally, you should have at least basic texts and images, but it's not required.</p><p>We can help with:</p><ul><li>Content structuring</li><li>Writing texts (with your collaboration)</li><li>Image selection and processing</li><li>AI-generated content as a starting point</li></ul><p>The project moves faster if materials exist, but we can also work iteratively.</p>",
+          },
+        },
+        webshops: {
+          title: "Webshops",
+          q1: {
+            question: "Do I need a webshop or is a website enough?",
+            answer: "<p>It depends on whether you sell products or services online.</p><p><strong>You need a webshop if:</strong></p><ul><li>You sell physical products with delivery</li><li>You have more than 10 products</li><li>You want online payment and automatic order processing</li></ul><p><strong>A website is enough if:</strong></p><ul><li>You sell services or have a small number of products</li><li>You receive orders via form or email</li><li>You don't need online payment</li></ul>",
+          },
+          q2: {
+            question: "How much does a webshop cost?",
+            answer: "<p>A webshop starts from €1,500 for a basic version with WooCommerce platform.</p><p>More complex webshops with custom features, payment integrations and advanced filters cost €3,000-6,000.</p><p>Example: Almagea webshop includes CorvusPay integration, subscription logic and advanced features.</p>",
+          },
+          q3: {
+            question: "Which webshop platforms do you use?",
+            answer: "<p>We most commonly work with <strong>WooCommerce</strong> (WordPress) because it offers flexibility and lower maintenance costs.</p><p>For specific needs, we also build custom solutions or integrations with existing systems.</p><p>We don't work on the Shopify platform, but we can help with migration to WooCommerce.</p>",
+          },
+          q4: {
+            question: "Can you integrate card payments with the webshop?",
+            answer: "<p>Yes, we integrate all common payment providers:</p><ul><li>CorvusPay</li><li>Stripe</li><li>PayPal</li><li>Monri</li></ul><p>We also set up cash on delivery and bank transfer payments. Example: Almagea webshop uses CorvusPay with full integration and payment flow debugging.</p>",
+          },
+          q5: {
+            question: "How does delivery and order tracking work?",
+            answer: "<p>The webshop automatically sends notifications to customers about order status.</p><p>For delivery, we can integrate:</p><ul><li>Fixed delivery prices by zone</li><li>Free delivery above a certain amount</li><li>Integration with courier services (GLS, DPD, HP)</li><li>Shipment tracking</li></ul><p>The admin interface allows easy order and status management.</p>",
+          },
+          q6: {
+            question: "Can I have a multilingual webshop?",
+            answer: "<p>Yes, we build multilingual webshops.</p><p>We most commonly use the WPML plugin for WordPress/WooCommerce which enables:</p><ul><li>Translation of all pages and products</li><li>Different prices per market</li><li>Automatic visitor language detection</li></ul><p>Example: Juvy Skin webshop has Croatian and English versions.</p>",
+          },
+        },
+        ai: {
+          title: "AI and Automation",
+          q1: {
+            question: "How does an AI chatbot work on a website?",
+            answer: "<p>An AI chatbot is a digital assistant that answers visitor questions in real time.</p><p>The chatbot can:</p><ul><li>Answer frequently asked questions</li><li>Guide visitors through the offer</li><li>Collect contact information</li><li>Qualify leads before contact</li></ul><p>Example: Keep Going platform has an AI assistant that helps users structure their thoughts before the first conversation.</p>",
+          },
+          q2: {
+            question: "How much does AI chatbot implementation cost?",
+            answer: "<p>A basic AI chatbot starts from €1,500 for implementation.</p><p>The price depends on:</p><ul><li>Conversation and scenario complexity</li><li>Amount of training content</li><li>Integrations with other systems</li><li>Monthly API call costs (OpenAI)</li></ul><p>Monthly API costs depend on traffic, but for most websites they amount to €10-50.</p><p>We build exclusively with the best models and providers (OpenAI), guaranteeing the highest quality and natural responses.</p>",
+          },
+          q3: {
+            question: "What is business process automation?",
+            answer: "<p>Automation means the computer performs repetitive tasks instead of you.</p><p>Automation examples:</p><ul><li>Automatic email sending after an order</li><li>Data transfer between systems (CRM, email, spreadsheets)</li><li>Report generation</li><li>New lead notifications</li><li>Automatic inventory updates</li></ul><p>We use tools like Make (Integromat), Zapier or custom solutions.</p>",
+          },
+          q4: {
+            question: "Can I connect AI with my existing systems?",
+            answer: "<p>Yes, AI can be connected to most modern systems that have an API.</p><p>Common integrations:</p><ul><li>CRM systems (HubSpot, Pipedrive)</li><li>Email marketing (Mailchimp, Brevo)</li><li>Helpdesk (Zendesk, Freshdesk)</li><li>Custom databases</li></ul><p>AI can read data from your systems and provide personalized responses.</p>",
+          },
+          q5: {
+            question: "Is AI safe to use with sensitive data?",
+            answer: "<p>Security depends on implementation and provider selection.</p><p>Our practices:</p><ul><li>We use verified providers (OpenAI, Anthropic)</li><li>We don't send sensitive data unnecessarily</li><li>We implement access control</li><li>We comply with GDPR requirements</li></ul><p>For particularly sensitive data, we can set up local AI models.</p>",
+          },
+          q6: {
+            question: "Do I need technical knowledge to use AI tools?",
+            answer: "<p>No, our solutions are designed for users without technical knowledge.</p><p>You receive:</p><ul><li>Simple management interface</li><li>Usage training</li><li>Documentation</li><li>Support for questions</li></ul><p>You define what AI should do, we take care of the technical implementation.</p>",
+          },
+        },
+        marketing: {
+          title: "Marketing and SEO",
+          q1: {
+            question: "What does SEO optimization include?",
+            answer: "<p>SEO optimization helps people find you on Google.</p><p>Our SEO includes:</p><ul><li>Technical optimization (speed, structure, mobile)</li><li>Content optimization (titles, descriptions, keywords)</li><li>Structured data (schema markup)</li><li>Internal linking</li><li>Optimization for AI search engines (GEO)</li></ul><p>Basic SEO optimization is included in every website we build.</p>",
+          },
+          q2: {
+            question: "Do you do Google and Meta advertising?",
+            answer: "<p>Yes, we set up and manage campaigns on:</p><ul><li>Google Ads (search, display, shopping)</li><li>Meta (Facebook and Instagram)</li></ul><p>We include conversion tracking, A/B testing and campaign optimization.</p><p>Example: Kota Samobor webshop has integrated Meta Pixel for tracking and remarketing.</p>",
+          },
+          q3: {
+            question: "How long does it take for SEO to show results?",
+            answer: "<p>SEO is a long-term strategy — first results are visible after 2-3 months, and significant improvements after 6+ months.</p><p>Speed depends on:</p><ul><li>Competition in your niche</li><li>Current website state</li><li>Content quality</li><li>Domain authority</li></ul><p>For faster results, we combine SEO with paid advertising.</p>",
+          },
+          q4: {
+            question: "What is GEO (Generative Engine Optimization)?",
+            answer: "<p>GEO is content optimization for AI systems like ChatGPT, Perplexity and Google AI Overviews.</p><p>The goal is for AI systems to cite your content when users ask questions.</p><p>GEO includes:</p><ul><li>Structuring content for AI understanding</li><li>Clear and complete answers to common questions</li><li>Semantic optimization</li><li>FAQ pages like this one</li></ul>",
+          },
+          q5: {
+            question: "Can I track marketing results?",
+            answer: "<p>Yes, we set up complete tracking and reporting.</p><p>Standard inclusions:</p><ul><li>Google Analytics 4</li><li>Google Search Console</li><li>Conversion tracking</li><li>Meta Pixel (for advertising)</li></ul><p>We can also set up custom dashboards for KPI tracking. Example: Ripple dashboard for project metrics tracking.</p>",
+          },
+        },
+        process: {
+          title: "Collaboration Process",
+          q1: {
+            question: "What does the collaboration process look like from start to finish?",
+            answer: "<p>Our process has 5 steps:</p><ul><li><strong>1. Discovery</strong> — we understand your needs and goals</li><li><strong>2. Proposal</strong> — we provide a specific offer with scope and price</li><li><strong>3. Development</strong> — we build the solution with regular communication</li><li><strong>4. Testing</strong> — we check everything before launch</li><li><strong>5. Launch and support</strong> — we go live and remain available</li></ul>",
+          },
+          q2: {
+            question: "How involved will I be in the development process?",
+            answer: "<p>As much as you want and as much as the project requires.</p><p>Minimum we need:</p><ul><li>Initial conversation about goals</li><li>Feedback on design</li><li>Material delivery (texts, images)</li><li>Final review before launch</li></ul><p>You can be involved in every step or leave most decisions to us — we adapt to your working style.</p>",
+          },
+          q3: {
+            question: "How do we communicate during the project?",
+            answer: "<p>We adapt to your preferences.</p><p>We most commonly use:</p><ul><li>Email for documentation and formal agreements</li><li>Video calls for presentations and larger discussions</li><li>Chat (WhatsApp, Slack) for quick questions</li></ul><p>For larger projects, we can set up a shared space for progress tracking.</p>",
+          },
+          q4: {
+            question: "What if I'm not satisfied with the result?",
+            answer: "<p>We work iteratively precisely to avoid dissatisfaction.</p><p>Our approach:</p><ul><li>We show progress in phases</li><li>We ask for feedback before continuing</li><li>We include revisions in the price</li></ul><p>If after all revisions you're not satisfied, we seek a compromise or refund part of the payment — depending on the situation.</p>",
+          },
+          q5: {
+            question: "Can I expand the project later?",
+            answer: "<p>Yes, most of our projects evolve over time.</p><p>We build systems that can be upgraded:</p><ul><li>New features</li><li>Additional integrations</li><li>Expansion to new markets</li><li>AI and automation</li></ul><p>Example: Almagea webshop started as a basic shop and now includes subscription logic and advanced integrations.</p>",
+          },
+        },
+        pricing: {
+          title: "Pricing and Timelines",
+          q1: {
+            question: "How do you set prices?",
+            answer: "<p>We set prices based on work scope, complexity and required time.</p><p>For each project, we provide a fixed quote with a clearly defined scope. No hidden costs.</p><p>If the scope changes during the project, we agree on new terms before continuing.</p>",
+          },
+          q2: {
+            question: "How does payment work?",
+            answer: "<p>Standard model:</p><ul><li>50% advance before work begins</li><li>50% before launch</li></ul><p>For larger projects, we can arrange payment in multiple installments tied to milestones.</p><p>We accept bank transfer. For foreign clients, payment via Wise or PayPal is possible.</p>",
+          },
+          q3: {
+            question: "Are there monthly costs after development?",
+            answer: "<p>It depends on the project and your needs.</p><p>Possible monthly costs:</p><ul><li><strong>Hosting</strong> — €10-50/month depending on traffic</li><li><strong>Domain</strong> — €10-20/year</li><li><strong>Maintenance</strong> — optional, from €50/month</li><li><strong>AI API costs</strong> — depending on usage</li></ul><p>We transparently communicate all costs before starting.</p>",
+          },
+          q4: {
+            question: "Do you offer discounts for larger projects?",
+            answer: "<p>Yes, for larger projects or long-term collaboration, we offer better terms.</p><p>We also offer packages that combine multiple services at a better price than individually.</p>",
+          },
+          q5: {
+            question: "How far in advance do I need to book?",
+            answer: "<p>It depends on current workload, but usually we can start within 1-2 weeks.</p><p>For larger projects, we recommend contacting us at least a month in advance to secure a slot.</p>",
+          },
+          q6: {
+            question: "What if I need something urgently?",
+            answer: "<p>For urgent projects, we can speed up the process for an additional fee.</p><p>Urgent projects usually include:</p><ul><li>Priority treatment</li><li>Work outside standard hours</li><li>Faster response time</li></ul><p>Contact us and we'll see what we can do.</p>",
+          },
+        },
+        technical: {
+          title: "Technical Questions",
+          q1: {
+            question: "What technologies do you use?",
+            answer: "<p>We choose technology based on project needs.</p><p>We most commonly use:</p><ul><li><strong>Web:</strong> WordPress, custom PHP, HTML/CSS/JS</li><li><strong>Webshop:</strong> WooCommerce</li><li><strong>AI:</strong> OpenAI API, custom integrations</li><li><strong>Automation:</strong> Make, Zapier, custom scripts</li><li><strong>Hosting:</strong> cPanel, cloud solutions</li></ul>",
+          },
+          q2: {
+            question: "Will my website be fast?",
+            answer: "<p>Yes, performance is our priority.</p><p>We standardly optimize:</p><ul><li>Image size and format</li><li>Caching and compression</li><li>Code minimization</li><li>Lazy loading</li><li>CDN where needed</li></ul><p>The goal is to achieve a \"Good\" Core Web Vitals score on Google PageSpeed Insights.</p>",
+          },
+          q3: {
+            question: "Is the website secure from hackers?",
+            answer: "<p>We implement standard security measures:</p><ul><li>SSL certificate (HTTPS)</li><li>Regular updates</li><li>Secure passwords and 2FA</li><li>Backup system</li><li>Firewall and brute force protection</li></ul><p>For WordPress, we use verified plugins and follow security recommendations.</p>",
+          },
+          q4: {
+            question: "Can I get access to the code and hosting account?",
+            answer: "<p>Yes, everything we create is your property.</p><p>You receive:</p><ul><li>Hosting account access</li><li>Admin access to the website</li><li>Source code (if custom development)</li><li>Documentation</li></ul><p>You can continue working with us or transfer the project to another developer.</p>",
+          },
+          q5: {
+            question: "What if something stops working?",
+            answer: "<p>Depending on whether you have a maintenance contract:</p><ul><li><strong>With maintenance:</strong> we resolve within the agreed SLA</li><li><strong>Without maintenance:</strong> we charge hourly for repairs</li></ul><p>For critical issues (website down), we respond with priority regardless of contract.</p>",
+          },
+        },
+        support: {
+          title: "Maintenance and Support",
+          q1: {
+            question: "Do you offer maintenance after development?",
+            answer: "<p>Yes, we offer monthly maintenance packages.</p><p>Maintenance includes:</p><ul><li>Regular updates (WordPress, plugins)</li><li>Security checks</li><li>Backup</li><li>Minor content changes</li><li>Technical support</li></ul><p>Packages start from €50/month depending on scope.</p>",
+          },
+          q2: {
+            question: "What if I don't want a maintenance package?",
+            answer: "<p>Maintenance is not mandatory.</p><p>Without a maintenance package:</p><ul><li>You're responsible for updates yourself</li><li>We charge hourly for repairs</li><li>No guaranteed response time</li></ul><p>We recommend at least a basic package for WordPress sites due to security updates.</p>",
+          },
+          q3: {
+            question: "How quickly do you respond to inquiries?",
+            answer: "<p>It depends on the type of inquiry and contract:</p><ul><li><strong>With maintenance:</strong> response within 24h (business days)</li><li><strong>Without maintenance:</strong> response within 48-72h</li><li><strong>Urgent issues:</strong> same day when possible</li></ul><p>For critical issues (website down), we respond with priority.</p>",
+          },
+          q4: {
+            question: "Can I make changes to the website myself?",
+            answer: "<p>Yes, all websites have an admin interface for editing.</p><p>You can independently:</p><ul><li>Change texts and images</li><li>Add new pages and posts</li><li>Manage products (webshop)</li><li>View statistics</li></ul><p>For larger structural changes, we recommend contacting us.</p>",
+          },
+          q5: {
+            question: "What does technical support include?",
+            answer: "<p>Technical support covers:</p><ul><li>Answers to usage questions</li><li>Resolving technical issues</li><li>Optimization advice</li><li>Help with new tool integration</li></ul><p>Support does not include creating new features — that is agreed and charged separately.</p>",
+          },
+        },
+      },
     },
   },
   de: {
@@ -802,6 +1306,12 @@ const translations = {
         meta: {
           title: "Etherr | Datenschutzerklärung",
           description: "Informationen zur Verarbeitung personenbezogener Daten und zu den Datenschutzregeln für das Etherr-Kontaktformular.",
+        },
+      },
+      faq: {
+        meta: {
+          title: "Etherr | Häufig gestellte Fragen (FAQ)",
+          description: "Antworten auf häufige Fragen zur Website-Entwicklung, Webshops, AI-Integrationen, Automatisierung und digitalem Marketing.",
         },
       },
       projects: {
@@ -944,21 +1454,28 @@ const translations = {
       primaryCta: "Kontakt aufnehmen",
       secondaryCta: "Unsere Projekte",
     },
+    assistantPrompt: {
+      tag: "Sie sind nicht sicher, wo Sie anfangen sollen?",
+      text:
+        "Bevor Sie Kontakt aufnehmen, sprechen Sie mit unserem digitalen Berater - er hilft Ihnen, die Idee zu ordnen und die nächsten Schritte zu sehen.",
+    },
     about: {
       hero: {
         tag: "ÜBER UNS",
-        title: "Etherr — Web, Automatisierung und KI, so aufgebaut, wie es sein sollte.",
-        p1: "Etherr ist ein digitales Studio, das Web, Marketing, Automatisierung und KI in Systeme verbindet, die wirklich Sinn ergeben. Wir sehen das nicht als einzelne Leistungen, sondern als Teile eines Setups, das sauber zusammenspielen soll.",
-        p2: "Wir arbeiten mit Selbstständigen und Unternehmen, die mehr brauchen als nur noch eine Website — sie brauchen ein klares, wartbares Setup, das für den nächsten Schritt bereit ist.",
+        title: "Etherr - wir verbinden Technologie, Prozesse und Ergebnisse zuverlässig",
+        p1: "Etherr ist ein digitales Studio aus Kroatien, das sich auf die Entwicklung hochwertiger und konkreter Lösungen konzentriert - von Websites und Design bis hin zu Marketing, Automatisierung und Datenverarbeitung. Unser Ziel ist es, den digitalen Teil des Geschäfts für unsere Kunden zu vereinfachen und unnötige Komplexität durch klare, effektive Lösungen zu beseitigen.",
+        p2: "Wir arbeiten direkt mit Kunden im kroatischen (und regionalen), deutschen und englischsprachigen Raum. Wir verstehen das Problem schnell und entwickeln Lösungen, die echten Mehrwert liefern. Unser Fokus liegt auf Qualität, langfristiger Zusammenarbeit und Ergebnissen.",
       },
       identity: {
         tag: "WER WIR SIND",
-        title: "Digitale Lösungen, die verbunden, klar und nützlich sind.",
-        text: "Wir verbinden Websites, Webshops, WordPress-Lösungen, Marketing, Automatisierung und KI zu einem System, das nicht unnötig kompliziert ist. Ziel ist nicht, möglichst viele Tools einzubauen, sondern das zusammenzustellen, was dem Business wirklich hilft.",
+        title: "Lösungen, die vernetzt, klar und einfach für Nutzer sind.",
+        text: "Wir verbinden Websites, Webshops, WordPress und individuelle Lösungen, Marketing, Automatisierung und KI zu einem System, das nicht unnötig kompliziert ist. Ziel ist nicht, möglichst viele Tools einzubauen, sondern das zusammenzustellen, was dem Business wirklich hilft.",
         bullet1: "Web, Inhalte und Marketing sollen zusammenspielen",
-        bullet2: "Automatisierung soll Zeit sparen, nicht Chaos schaffen",
+        bullet2: "Automatisierung soll Zeit sparen",
         bullet3: "KI macht Sinn, wenn sie ein konkretes Problem löst",
         bullet4: "Alles wird so aufgebaut, dass es weiter wachsen kann",
+        projectsNote: "Praxisbeispiele sagen mehr als jede Beschreibung - alles, was wir gebaut haben, finden Sie im Projektbereich.",
+        projectsBtn: "Unsere Projekte ansehen →",
         pill1: "Websites und Webshops",
         pill2: "WordPress und individuelle Lösungen",
         pill3: "Digitales Marketing",
@@ -987,7 +1504,7 @@ const translations = {
           "Jedes Projekt ist anders, unser Ansatz bleibt gleich: erst verstehen, was wirklich gelöst werden muss, und dann die passende Lösung bauen.",
         card1: {
           title: "Wir verstehen, was gebraucht wird",
-          text: "Wir starten mit dem Gesamtbild — was schon da ist, was nicht funktioniert und was das Projekt wirklich erreichen soll.",
+          text: "Wir starten mit dem Gesamtbild - was schon da ist, was nicht richtig funktioniert und was das Projekt wirklich erreichen soll.",
         },
         card2: {
           title: "Wir wählen den richtigen Ansatz",
@@ -995,20 +1512,20 @@ const translations = {
         },
         card3: {
           title: "Wir bauen und verbinden",
-          text: "Wir entwickeln Website, Inhalte, Funktionen und Anbindungen so, dass alles als ein Ganzes funktioniert.",
+          text: "Wir entwickeln Website, Anwendungen, Inhalte, Funktionen und Anbindungen so, dass alles als ein Ganzes funktioniert.",
         },
         card4: {
-          title: "Wir testen und verfeinern",
-          text: "Wir prüfen die Details, nehmen Überflüssiges raus und verbessern alles, was vor dem Go-live noch sauberer werden muss.",
+          title: "Wir testen",
+          text: "Wir prüfen die Details, nehmen Überflüssiges raus und beheben, was vor dem Go-live noch korrigiert werden muss.",
         },
         card5: {
-          title: "Wir begleiten und entwickeln weiter",
+          title: "Wir begleiten und entwickeln",
           text: "Wenn es sinnvoll ist, bleiben wir über Support, Änderungen, Erweiterungen und neue Ideen weiter an Bord.",
         },
       },
       approach: {
         tag: "UNSER ANSATZ",
-        title: "Wir machen nicht einfach mehr Dinge. Wir verbinden sie sinnvoll.",
+        title: "Wir entwickeln nicht nur Lösungen - wir stimmen alle Teile zu einem Netzwerk ab, das als Einheit funktioniert, stabil und langfristig.<br>",
         text: "Viele Projekte haken, weil Website, Ads, Inhalte, Daten und Tools jeweils für sich aufgebaut sind. Genau das versuchen wir von Anfang an zu vermeiden.",
         bullet1: "Wir starten beim echten Problem, nicht beim Buzzword",
         bullet2: "Wir verkomplizieren nichts ohne Grund",
@@ -1016,36 +1533,38 @@ const translations = {
         bullet4: "Wir bauen Systeme, die mit der Zeit wachsen können",
       },
       projectsView: {
-        tag: "WIE WIR PROJEKTE SEHEN",
-        title: "Ein gutes digitales Setup ist kein Haufen einzelner Teile.",
-        text: "Am meisten bringt es, wenn Website, Inhalte, Marketing und Tools sauber zusammenspielen. Deshalb betrachten wir Projekte nicht isoliert, sondern als ein System, das klar, nützlich und bereit für den nächsten Schritt sein sollte.",
-        link: "Leistungen ansehen",
+        tag: "DIGITALER ASSISTENT",
+        title: "Für ein klareres Bild, oder wenn Sie eine Frage haben - können Sie mit unserem digitalen Assistenten starten.",
+        text: "Der Etherr-Assistent hilft Ihnen, Ihre Idee zu schärfen, eine Richtung zu wählen und besser zu verstehen, welche digitale Lösung für Ihr Projekt sinnvoll ist. Er kann Leistungen erklären, Sie mit Projektbeispielen verbinden, Fragen beantworten und Sie auf das erste Gespräch vorbereiten.",
+        support: "Gleichzeitig ist er ein konkretes Beispiel für einen KI-Assistenten für eine Website, den wir auf Ihr Unternehmen, Ihre Inhalte und Ihre Nutzer anpassen können.",
+        faq: 'Keine Lust zu tippen und lieber scrollen? Schauen Sie in unsere <a href="/faq.html" class="about-assistant-faq-link">FAQ</a> für Antworten auf die häufigsten Fragen.',
       },
       values: {
-        tag: "WARUM WIR SO ARBEITEN",
-        title: "Uns ist wichtig, dass Dinge auch nach dem Launch funktionieren.",
+        tag: "WAS IST DAS ZIEL?",
+        title: "Zufriedene Kunden, gute Kommunikation, stabile und qualitativ hochwertige Lösungen.",
         card1: {
           title: "Klare Kommunikation",
-          text: "Keine Black-Box-Prozesse und keine unnötige Komplexität.",
+          text: "Der Kunde hat vollständigen Einblick in den Prozess, die Daten und alle Entscheidungen. Alles ist klar, dokumentiert und ohne versteckte Schritte oder unklare Prozesse.",
         },
         card2: {
-          title: "Lösungen mit Sinn",
-          text: "Wir bauen keine Tools oder Funktionen ein, nur weil sie gut klingen.",
+          title: "Qualitätssicherung",
+          text: "Wir überzeugen nicht mit Worten - Lösungen sprechen für sich. Das Ziel ist, dass der Kunde durch Zusammenarbeit und Ergebnisse den echten Mehrwert klar erkennt.",
         },
         card3: {
-          title: "Langfristig tragfähig",
-          text: "Alles sollte heute Sinn ergeben und morgen noch funktionieren.",
+          title: "Langfristig nachhaltig",
+          text: "Wir bauen Lösungen, die heute und morgen Sinn ergeben. Sie sind stabil, skalierbar und bereit für weitere Upgrades, ohne von vorne beginnen zu müssen.",
         },
         card4: {
-          title: "Fokus auf Wirkung",
-          text: "Am Ende zählt, ob es dem Business wirklich hilft.",
+          title: "Fokus auf Ergebnis",
+          text: "Jede Entscheidung hat ein klares Ziel. Wir messen den Erfolg an konkreten Ergebnissen, die einen echten Einfluss auf das Geschäft haben.",
         },
       },
       cta: {
-        title: "Haben Sie eine Idee, ein Problem oder ein Projekt?",
-        text: "Schicken Sie uns kurz, worum es geht, und wir sagen Ihnen, wie man es sinnvoll angehen kann.",
+        title: "Haben Sie eine Idee, eine Frage, ein Problem oder ein Projekt?",
+        text: "Schicken Sie uns eine kurze Beschreibung und wir melden uns, wie wir es am besten umsetzen können.",
         primary: "Kontakt aufnehmen →",
         secondary: "Leistungen ansehen",
+        faq: "Haben Sie Fragen? Schauen Sie in unsere FAQ",
       },
     },
     services: {
@@ -1147,6 +1666,7 @@ const translations = {
     footer: {
       copy: "{year} © Etherr",
       privacyLink: "Datenschutzerklärung",
+      faqLink: "FAQ",
     },
     privacy: {
       eyebrow: "DSGVO und Datenverarbeitung",
@@ -1171,11 +1691,247 @@ const translations = {
       recipientsTitle: "6. Empfänger",
       recipientsItem1: "Hosting provider: SETCOR d.o.o.",
       recipientsItem2: "Email provider: Microsoft",
+      recipientsItem3: "AI-Partner: OpenAI",
       rightsTitle: "7. Rechte der betroffenen Person",
       rightsBody:
         "Sie haben das Recht auf Auskunft, Berichtigung oder Löschung Ihrer personenbezogenen Daten sowie auf Einschränkung der Verarbeitung. Außerdem haben Sie das Recht, eine Beschwerde bei der kroatischen Datenschutzbehörde (AZOP) einzureichen.",
       contactTitle: "8. Kontakt",
       contactBody: "info@etherr.hr",
+    },
+    faq: {
+      eyebrow: "HÄUFIG GESTELLTE FRAGEN",
+      title: "FAQ",
+      subtitle: "Antworten auf häufige Fragen zur Website-Entwicklung, Webshops, AI-Integrationen, Automatisierung und digitalem Marketing.",
+      cta: {
+        title: "Keine Antwort gefunden?",
+        text: "Kontaktieren Sie uns direkt und wir beantworten alle Ihre Fragen.",
+        button: "Kontaktieren Sie uns →",
+      },
+      sections: {
+        general: {
+          title: "Allgemein",
+          q1: {
+            question: "Was ist Etherr und was machen Sie?",
+            answer: "<p>Etherr ist ein Studio für digitale Dienstleistungen, das Webentwicklung, Automatisierung, AI-Integrationen und digitales Marketing zu verbundenen Systemen kombiniert.</p><p>Wir bauen nicht nur Websites — wir erstellen komplette digitale Lösungen einschließlich:</p><ul><li>Websites und Webshops</li><li>AI-Chatbots und Assistenten</li><li>Geschäftsprozessautomatisierung</li><li>Digitales Marketing und SEO</li><li>Analytik und Berichterstattung</li></ul><p>Unser Ziel ist es, dass alle Komponenten zusammenarbeiten, nicht als separate Teile.</p>",
+          },
+          q2: {
+            question: "Für wen sind Ihre Dienstleistungen gedacht?",
+            answer: "<p>Wir arbeiten mit kleinen und mittleren Unternehmen, Unternehmern und Startups, die mehr als \"nur eine weitere Website\" brauchen.</p><p>Unsere Kunden benötigen typischerweise:</p><ul><li>Eine neue Website oder einen Webshop mit klarer Struktur</li><li>Automatisierung, die Zeit spart</li><li>AI-Lösungen für Support oder Vertrieb</li><li>Integration bestehender Tools in ein System</li></ul>",
+          },
+          q3: {
+            question: "Arbeiten Sie nur mit Kunden aus Kroatien?",
+            answer: "<p>Nein, wir arbeiten mit Kunden aus der gesamten Region und darüber hinaus.</p><p>Die Kommunikation kann auf Kroatisch, Englisch oder Deutsch erfolgen. Alle Projekte werden online verwaltet, sodass der Standort keine Einschränkung darstellt.</p>",
+          },
+          q4: {
+            question: "Kann ich alle Dienstleistungen an einem Ort bekommen?",
+            answer: "<p>Ja, das ist genau unser Ansatz.</p><p>Anstatt verschiedene Agenturen für Web, Marketing, Automatisierung und AI zu beauftragen, können Sie alles von uns bekommen. Der Vorteil ist, dass alle Teile des Systems von Anfang an verbunden sind und zusammenarbeiten.</p>",
+          },
+          q5: {
+            question: "Wie kann ich Sie kontaktieren?",
+            answer: "<p>Am einfachsten ist es, das Kontaktformular auf unserer Website auszufüllen oder eine E-Mail an info@etherr.hr zu senden.</p><p>Sie können auch mit unserem AI-Assistenten chatten, der Ihnen hilft, Ihre Anfrage zu strukturieren, bevor Sie uns kontaktieren.</p>",
+          },
+        },
+        websites: {
+          title: "Websites",
+          q1: {
+            question: "Wie viel kostet eine Website?",
+            answer: "<p>Der Preis hängt vom Projektumfang, den Funktionen und der Designkomplexität ab.</p><p>Eine einfache Präsentationswebsite beginnt ab 800€, während komplexere Projekte mit benutzerdefinierten Funktionen 2.000€ und mehr kosten können.</p><p>Nach einem ersten Gespräch geben wir eine konkrete Schätzung mit einem klaren Arbeitsumfang.</p>",
+          },
+          q2: {
+            question: "Wie lange dauert die Erstellung einer Website?",
+            answer: "<p>Eine Standard-Website ist in 2-4 Wochen fertig.</p><p>Komplexere Projekte mit benutzerdefinierten Funktionen können 4-8 Wochen dauern. Der genaue Zeitrahmen hängt vom Projektumfang und der Geschwindigkeit der Materiallieferung ab (Texte, Bilder, Logo).</p>",
+          },
+          q3: {
+            question: "Arbeiten Sie mit WordPress oder Custom-Lösungen?",
+            answer: "<p>Wir machen beides, je nach Projektanforderungen.</p><p><strong>WordPress</strong> wird für Seiten verwendet, bei denen der Kunde Inhalte selbstständig bearbeiten möchte — Blogs, Portfolios, kleinere Webshops.</p><p><strong>Custom-Lösungen</strong> werden erstellt, wenn das Projekt spezifische Funktionen, bessere Leistung oder Integrationen erfordert, die WordPress nicht optimal unterstützt.</p>",
+          },
+          q4: {
+            question: "Kann ich Inhalte auf der Website selbst bearbeiten?",
+            answer: "<p>Ja, alle Websites, die wir erstellen, haben eine Admin-Oberfläche zur Inhaltsbearbeitung.</p><p>Bei WordPress-Seiten ist dies der Standard-WordPress-Admin. Bei Custom-Lösungen erstellen wir eine maßgeschneiderte Oberfläche, die einfach zu bedienen ist.</p><p>Nach der Projektübergabe erhalten Sie eine kurze Schulung zur Nutzung des Systems.</p>",
+          },
+          q5: {
+            question: "Was ist im Website-Preis enthalten?",
+            answer: "<p>Standardmäßig enthalten:</p><ul><li>Design und Entwicklung</li><li>Responsive Darstellung (Mobil, Tablet, Desktop)</li><li>Grundlegende SEO-Optimierung</li><li>SSL-Zertifikat und Sicherheitseinstellungen</li><li>Google Analytics-Integration</li><li>Schulung zur Admin-Nutzung</li></ul><p>Hosting und Domain werden normalerweise separat bezahlt, aber wir können bei der Auswahl und Einrichtung helfen.</p>",
+          },
+          q6: {
+            question: "Muss ich Inhalte vor dem Start vorbereitet haben?",
+            answer: "<p>Idealerweise sollten Sie zumindest grundlegende Texte und Bilder haben, aber es ist nicht erforderlich.</p><p>Wir können helfen mit:</p><ul><li>Inhaltsstrukturierung</li><li>Texterstellung (mit Ihrer Zusammenarbeit)</li><li>Bildauswahl und -bearbeitung</li><li>AI-generiertem Inhalt als Ausgangspunkt</li></ul><p>Das Projekt geht schneller, wenn Materialien vorhanden sind, aber wir können auch iterativ arbeiten.</p>",
+          },
+        },
+        webshops: {
+          title: "Webshops",
+          q1: {
+            question: "Brauche ich einen Webshop oder reicht eine Website?",
+            answer: "<p>Es hängt davon ab, ob Sie Produkte oder Dienstleistungen online verkaufen.</p><p><strong>Sie brauchen einen Webshop, wenn:</strong></p><ul><li>Sie physische Produkte mit Lieferung verkaufen</li><li>Sie mehr als 10 Produkte haben</li><li>Sie Online-Zahlung und automatische Bestellabwicklung wünschen</li></ul><p><strong>Eine Website reicht, wenn:</strong></p><ul><li>Sie Dienstleistungen verkaufen oder wenige Produkte haben</li><li>Sie Bestellungen per Formular oder E-Mail erhalten</li><li>Sie keine Online-Zahlung benötigen</li></ul>",
+          },
+          q2: {
+            question: "Wie viel kostet ein Webshop?",
+            answer: "<p>Ein Webshop beginnt ab 1.500€ für eine Basisversion mit WooCommerce-Plattform.</p><p>Komplexere Webshops mit benutzerdefinierten Funktionen, Zahlungsintegrationen und erweiterten Filtern kosten 3.000-6.000€.</p>",
+          },
+          q3: {
+            question: "Welche Webshop-Plattformen verwenden Sie?",
+            answer: "<p>Wir arbeiten am häufigsten mit <strong>WooCommerce</strong> (WordPress), da es Flexibilität und niedrigere Wartungskosten bietet.</p><p>Für spezifische Anforderungen erstellen wir auch Custom-Lösungen oder Integrationen mit bestehenden Systemen.</p><p>Wir arbeiten nicht auf der Shopify-Plattform, können aber bei der Migration zu WooCommerce helfen.</p>",
+          },
+          q4: {
+            question: "Können Sie Kartenzahlung mit dem Webshop integrieren?",
+            answer: "<p>Ja, wir integrieren alle gängigen Zahlungsanbieter:</p><ul><li>CorvusPay</li><li>Stripe</li><li>PayPal</li><li>Monri</li></ul><p>Wir richten auch Nachnahme und Banküberweisung ein.</p>",
+          },
+          q5: {
+            question: "Wie funktioniert Lieferung und Bestellverfolgung?",
+            answer: "<p>Der Webshop sendet automatisch Benachrichtigungen an Kunden über den Bestellstatus.</p><p>Für die Lieferung können wir integrieren:</p><ul><li>Feste Lieferpreise nach Zone</li><li>Kostenlose Lieferung ab einem bestimmten Betrag</li><li>Integration mit Kurierdiensten</li><li>Sendungsverfolgung</li></ul>",
+          },
+          q6: {
+            question: "Kann ich einen mehrsprachigen Webshop haben?",
+            answer: "<p>Ja, wir erstellen mehrsprachige Webshops.</p><p>Wir verwenden am häufigsten das WPML-Plugin für WordPress/WooCommerce, das ermöglicht:</p><ul><li>Übersetzung aller Seiten und Produkte</li><li>Unterschiedliche Preise pro Markt</li><li>Automatische Spracherkennung des Besuchers</li></ul>",
+          },
+        },
+        ai: {
+          title: "AI und Automatisierung",
+          q1: {
+            question: "Wie funktioniert ein AI-Chatbot auf einer Website?",
+            answer: "<p>Ein AI-Chatbot ist ein digitaler Assistent, der Besucherfragen in Echtzeit beantwortet.</p><p>Der Chatbot kann:</p><ul><li>Häufig gestellte Fragen beantworten</li><li>Besucher durch das Angebot führen</li><li>Kontaktinformationen sammeln</li><li>Leads vor dem Kontakt qualifizieren</li></ul>",
+          },
+          q2: {
+            question: "Wie viel kostet die AI-Chatbot-Implementierung?",
+            answer: "<p>Ein grundlegender AI-Chatbot beginnt ab 1.500€ für die Implementierung.</p><p>Der Preis hängt ab von:</p><ul><li>Gesprächs- und Szenariokomplexität</li><li>Menge des Trainingsinhalts</li><li>Integrationen mit anderen Systemen</li><li>Monatlichen API-Kosten (OpenAI)</li></ul><p>Monatliche API-Kosten hängen vom Traffic ab, betragen aber für die meisten Websites 10-50€.</p><p>Wir arbeiten ausschließlich mit den besten Modellen und Anbietern (OpenAI) und garantieren so höchste Qualität und natürliche Antworten.</p>",
+          },
+          q3: {
+            question: "Was ist Geschäftsprozessautomatisierung?",
+            answer: "<p>Automatisierung bedeutet, dass der Computer wiederkehrende Aufgaben anstelle von Ihnen erledigt.</p><p>Automatisierungsbeispiele:</p><ul><li>Automatischer E-Mail-Versand nach einer Bestellung</li><li>Datentransfer zwischen Systemen (CRM, E-Mail, Tabellen)</li><li>Berichtserstellung</li><li>Benachrichtigungen über neue Leads</li><li>Automatische Bestandsaktualisierungen</li></ul>",
+          },
+          q4: {
+            question: "Kann ich AI mit meinen bestehenden Systemen verbinden?",
+            answer: "<p>Ja, AI kann mit den meisten modernen Systemen verbunden werden, die eine API haben.</p><p>Häufige Integrationen:</p><ul><li>CRM-Systeme (HubSpot, Pipedrive)</li><li>E-Mail-Marketing (Mailchimp, Brevo)</li><li>Helpdesk (Zendesk, Freshdesk)</li><li>Eigene Datenbanken</li></ul>",
+          },
+          q5: {
+            question: "Ist AI sicher für sensible Daten?",
+            answer: "<p>Die Sicherheit hängt von der Implementierung und der Anbieterauswahl ab.</p><p>Unsere Praktiken:</p><ul><li>Wir verwenden verifizierte Anbieter (OpenAI, Anthropic)</li><li>Wir senden keine sensiblen Daten unnötig</li><li>Wir implementieren Zugangskontrolle</li><li>Wir erfüllen DSGVO-Anforderungen</li></ul>",
+          },
+          q6: {
+            question: "Brauche ich technisches Wissen, um AI-Tools zu nutzen?",
+            answer: "<p>Nein, unsere Lösungen sind für Benutzer ohne technisches Wissen konzipiert.</p><p>Sie erhalten:</p><ul><li>Einfache Verwaltungsoberfläche</li><li>Nutzungsschulung</li><li>Dokumentation</li><li>Support für Fragen</li></ul>",
+          },
+        },
+        marketing: {
+          title: "Marketing und SEO",
+          q1: {
+            question: "Was beinhaltet SEO-Optimierung?",
+            answer: "<p>SEO-Optimierung hilft Menschen, Sie bei Google zu finden.</p><p>Unser SEO umfasst:</p><ul><li>Technische Optimierung (Geschwindigkeit, Struktur, Mobil)</li><li>Inhaltsoptimierung (Titel, Beschreibungen, Keywords)</li><li>Strukturierte Daten (Schema-Markup)</li><li>Interne Verlinkung</li><li>Optimierung für AI-Suchmaschinen (GEO)</li></ul>",
+          },
+          q2: {
+            question: "Machen Sie Google- und Meta-Werbung?",
+            answer: "<p>Ja, wir richten Kampagnen ein und verwalten sie auf:</p><ul><li>Google Ads (Suche, Display, Shopping)</li><li>Meta (Facebook und Instagram)</li></ul><p>Wir beinhalten Conversion-Tracking, A/B-Tests und Kampagnenoptimierung.</p>",
+          },
+          q3: {
+            question: "Wie lange dauert es, bis SEO Ergebnisse zeigt?",
+            answer: "<p>SEO ist eine langfristige Strategie — erste Ergebnisse sind nach 2-3 Monaten sichtbar, und signifikante Verbesserungen nach 6+ Monaten.</p><p>Die Geschwindigkeit hängt ab von:</p><ul><li>Wettbewerb in Ihrer Nische</li><li>Aktuellem Website-Zustand</li><li>Inhaltsqualität</li><li>Domain-Autorität</li></ul>",
+          },
+          q4: {
+            question: "Was ist GEO (Generative Engine Optimization)?",
+            answer: "<p>GEO ist Inhaltsoptimierung für AI-Systeme wie ChatGPT, Perplexity und Google AI Overviews.</p><p>Das Ziel ist, dass AI-Systeme Ihren Inhalt zitieren, wenn Benutzer Fragen stellen.</p><p>GEO umfasst:</p><ul><li>Strukturierung von Inhalten für AI-Verständnis</li><li>Klare und vollständige Antworten auf häufige Fragen</li><li>Semantische Optimierung</li><li>FAQ-Seiten wie diese</li></ul>",
+          },
+          q5: {
+            question: "Kann ich Marketing-Ergebnisse verfolgen?",
+            answer: "<p>Ja, wir richten vollständiges Tracking und Reporting ein.</p><p>Standardmäßig enthalten:</p><ul><li>Google Analytics 4</li><li>Google Search Console</li><li>Conversion-Tracking</li><li>Meta Pixel (für Werbung)</li></ul>",
+          },
+        },
+        process: {
+          title: "Zusammenarbeitsprozess",
+          q1: {
+            question: "Wie sieht der Zusammenarbeitsprozess von Anfang bis Ende aus?",
+            answer: "<p>Unser Prozess hat 5 Schritte:</p><ul><li><strong>1. Kennenlernen</strong> — wir verstehen Ihre Bedürfnisse und Ziele</li><li><strong>2. Angebot</strong> — wir geben ein konkretes Angebot mit Umfang und Preis</li><li><strong>3. Entwicklung</strong> — wir bauen die Lösung mit regelmäßiger Kommunikation</li><li><strong>4. Testen</strong> — wir prüfen alles vor dem Launch</li><li><strong>5. Launch und Support</strong> — wir gehen live und bleiben verfügbar</li></ul>",
+          },
+          q2: {
+            question: "Wie stark werde ich in den Entwicklungsprozess einbezogen?",
+            answer: "<p>So viel wie Sie möchten und wie das Projekt erfordert.</p><p>Mindestens brauchen wir:</p><ul><li>Erstes Gespräch über Ziele</li><li>Feedback zum Design</li><li>Materiallieferung (Texte, Bilder)</li><li>Endprüfung vor dem Launch</li></ul>",
+          },
+          q3: {
+            question: "Wie kommunizieren wir während des Projekts?",
+            answer: "<p>Wir passen uns Ihren Präferenzen an.</p><p>Wir verwenden am häufigsten:</p><ul><li>E-Mail für Dokumentation und formelle Vereinbarungen</li><li>Videoanrufe für Präsentationen und größere Diskussionen</li><li>Chat (WhatsApp, Slack) für schnelle Fragen</li></ul>",
+          },
+          q4: {
+            question: "Was ist, wenn ich mit dem Ergebnis nicht zufrieden bin?",
+            answer: "<p>Wir arbeiten iterativ, um Unzufriedenheit zu vermeiden.</p><p>Unser Ansatz:</p><ul><li>Wir zeigen Fortschritte in Phasen</li><li>Wir bitten um Feedback, bevor wir fortfahren</li><li>Wir schließen Revisionen im Preis ein</li></ul>",
+          },
+          q5: {
+            question: "Kann ich das Projekt später erweitern?",
+            answer: "<p>Ja, die meisten unserer Projekte entwickeln sich im Laufe der Zeit weiter.</p><p>Wir bauen Systeme, die erweitert werden können:</p><ul><li>Neue Funktionen</li><li>Zusätzliche Integrationen</li><li>Expansion in neue Märkte</li><li>AI und Automatisierung</li></ul>",
+          },
+        },
+        pricing: {
+          title: "Preise und Zeitrahmen",
+          q1: {
+            question: "Wie setzen Sie Preise fest?",
+            answer: "<p>Wir setzen Preise basierend auf Arbeitsumfang, Komplexität und erforderlicher Zeit fest.</p><p>Für jedes Projekt geben wir ein Festpreisangebot mit klar definiertem Umfang. Keine versteckten Kosten.</p><p>Wenn sich der Umfang während des Projekts ändert, vereinbaren wir neue Bedingungen, bevor wir fortfahren.</p>",
+          },
+          q2: {
+            question: "Wie funktioniert die Zahlung?",
+            answer: "<p>Standardmodell:</p><ul><li>50% Anzahlung vor Arbeitsbeginn</li><li>50% vor dem Launch</li></ul><p>Für größere Projekte können wir Zahlung in mehreren Raten vereinbaren, die an Meilensteine gebunden sind.</p>",
+          },
+          q3: {
+            question: "Gibt es monatliche Kosten nach der Entwicklung?",
+            answer: "<p>Es hängt vom Projekt und Ihren Bedürfnissen ab.</p><p>Mögliche monatliche Kosten:</p><ul><li><strong>Hosting</strong> — 10-50€/Monat je nach Traffic</li><li><strong>Domain</strong> — 10-20€/Jahr</li><li><strong>Wartung</strong> — optional, ab 50€/Monat</li><li><strong>AI-API-Kosten</strong> — je nach Nutzung</li></ul>",
+          },
+          q4: {
+            question: "Bieten Sie Rabatte für größere Projekte?",
+            answer: "<p>Ja, für größere Projekte oder langfristige Zusammenarbeit bieten wir bessere Konditionen.</p><p>Wir bieten auch Pakete an, die mehrere Dienstleistungen zu einem besseren Preis kombinieren als einzeln.</p>",
+          },
+          q5: {
+            question: "Wie weit im Voraus muss ich buchen?",
+            answer: "<p>Es hängt von der aktuellen Auslastung ab, aber normalerweise können wir innerhalb von 1-2 Wochen beginnen.</p><p>Für größere Projekte empfehlen wir, uns mindestens einen Monat im Voraus zu kontaktieren, um einen Termin zu sichern.</p>",
+          },
+          q6: {
+            question: "Was ist, wenn ich etwas dringend brauche?",
+            answer: "<p>Für dringende Projekte können wir den Prozess gegen eine zusätzliche Gebühr beschleunigen.</p><p>Dringende Projekte beinhalten normalerweise:</p><ul><li>Prioritätsbehandlung</li><li>Arbeit außerhalb der Standardzeiten</li><li>Schnellere Reaktionszeit</li></ul>",
+          },
+        },
+        technical: {
+          title: "Technische Fragen",
+          q1: {
+            question: "Welche Technologien verwenden Sie?",
+            answer: "<p>Wir wählen Technologie basierend auf Projektanforderungen.</p><p>Wir verwenden am häufigsten:</p><ul><li><strong>Web:</strong> WordPress, Custom PHP, HTML/CSS/JS</li><li><strong>Webshop:</strong> WooCommerce</li><li><strong>AI:</strong> OpenAI API, Custom-Integrationen</li><li><strong>Automatisierung:</strong> Make, Zapier, Custom-Skripte</li><li><strong>Hosting:</strong> cPanel, Cloud-Lösungen</li></ul>",
+          },
+          q2: {
+            question: "Wird meine Website schnell sein?",
+            answer: "<p>Ja, Leistung ist unsere Priorität.</p><p>Wir optimieren standardmäßig:</p><ul><li>Bildgröße und -format</li><li>Caching und Komprimierung</li><li>Code-Minimierung</li><li>Lazy Loading</li><li>CDN wo nötig</li></ul>",
+          },
+          q3: {
+            question: "Ist die Website sicher vor Hackern?",
+            answer: "<p>Wir implementieren Standard-Sicherheitsmaßnahmen:</p><ul><li>SSL-Zertifikat (HTTPS)</li><li>Regelmäßige Updates</li><li>Sichere Passwörter und 2FA</li><li>Backup-System</li><li>Firewall und Brute-Force-Schutz</li></ul>",
+          },
+          q4: {
+            question: "Kann ich Zugang zum Code und Hosting-Konto bekommen?",
+            answer: "<p>Ja, alles, was wir erstellen, ist Ihr Eigentum.</p><p>Sie erhalten:</p><ul><li>Hosting-Kontozugang</li><li>Admin-Zugang zur Website</li><li>Quellcode (bei Custom-Entwicklung)</li><li>Dokumentation</li></ul>",
+          },
+          q5: {
+            question: "Was ist, wenn etwas nicht mehr funktioniert?",
+            answer: "<p>Je nachdem, ob Sie einen Wartungsvertrag haben:</p><ul><li><strong>Mit Wartung:</strong> wir lösen innerhalb des vereinbarten SLA</li><li><strong>Ohne Wartung:</strong> wir berechnen stundenweise für Reparaturen</li></ul><p>Bei kritischen Problemen (Website down) reagieren wir prioritär unabhängig vom Vertrag.</p>",
+          },
+        },
+        support: {
+          title: "Wartung und Support",
+          q1: {
+            question: "Bieten Sie Wartung nach der Entwicklung an?",
+            answer: "<p>Ja, wir bieten monatliche Wartungspakete an.</p><p>Wartung umfasst:</p><ul><li>Regelmäßige Updates (WordPress, Plugins)</li><li>Sicherheitsprüfungen</li><li>Backup</li><li>Kleinere Inhaltsänderungen</li><li>Technischer Support</li></ul><p>Pakete beginnen ab 50€/Monat je nach Umfang.</p>",
+          },
+          q2: {
+            question: "Was ist, wenn ich kein Wartungspaket möchte?",
+            answer: "<p>Wartung ist nicht obligatorisch.</p><p>Ohne Wartungspaket:</p><ul><li>Sie sind selbst für Updates verantwortlich</li><li>Wir berechnen stundenweise für Reparaturen</li><li>Keine garantierte Reaktionszeit</li></ul>",
+          },
+          q3: {
+            question: "Wie schnell antworten Sie auf Anfragen?",
+            answer: "<p>Es hängt von der Art der Anfrage und dem Vertrag ab:</p><ul><li><strong>Mit Wartung:</strong> Antwort innerhalb von 24h (Werktage)</li><li><strong>Ohne Wartung:</strong> Antwort innerhalb von 48-72h</li><li><strong>Dringende Probleme:</strong> am selben Tag wenn möglich</li></ul>",
+          },
+          q4: {
+            question: "Kann ich selbst Änderungen an der Website vornehmen?",
+            answer: "<p>Ja, alle Websites haben eine Admin-Oberfläche zur Bearbeitung.</p><p>Sie können selbstständig:</p><ul><li>Texte und Bilder ändern</li><li>Neue Seiten und Beiträge hinzufügen</li><li>Produkte verwalten (Webshop)</li><li>Statistiken einsehen</li></ul>",
+          },
+          q5: {
+            question: "Was beinhaltet technischer Support?",
+            answer: "<p>Technischer Support umfasst:</p><ul><li>Antworten auf Nutzungsfragen</li><li>Lösung technischer Probleme</li><li>Optimierungsberatung</li><li>Hilfe bei der Integration neuer Tools</li></ul><p>Support beinhaltet nicht die Erstellung neuer Funktionen — das wird separat vereinbart und berechnet.</p>",
+          },
+        },
+      },
     },
   },
 };
@@ -1673,6 +2429,9 @@ function cacheDom() {
     heroLogoMark: document.querySelector(".hero-logo-mark"),
     heroLogoImg: document.querySelector(".hero-logo-mark img"),
     heroClouds: document.querySelectorAll(".hero-cloud"),
+    headerAiDock: document.querySelector("[data-header-ai-dock]"),
+    assistantHomeSlot: document.querySelector("[data-etherr-ai-home-slot]"),
+    assistantAboutSlot: document.querySelector("[data-about-ai-dock-slot]"),
     serviceCategories: document.getElementById("serviceCategories"),
     contactIntakeForm: document.getElementById("contactIntakeForm"),
     projectPhoneScreens: document.querySelectorAll(".project-phone-screen"),
@@ -1713,6 +2472,9 @@ const CONTACT_INTAKE_CONFIG = Object.assign(
 const CONTACT_TURNSTILE_SITE_KEY = String(CONTACT_INTAKE_CONFIG.turnstileSiteKey || "").trim();
 const CONTACT_TURNSTILE_REQUIRED = Boolean(CONTACT_INTAKE_CONFIG.requireTurnstile);
 const APP_ORIGIN = window.location.origin;
+const ANCHOR_SCROLL_EXTRA_OFFSET = 14;
+const ANCHOR_SCROLL_SETTLE_DELAYS_MS = [80, 220, 520];
+const ANCHOR_SCROLL_SMOOTH_SETTLE_DELAYS_MS = [700, 1200];
 const MOBILE_PROJECT_DEMO_BREAKPOINT = 760;
 const PROJECT_DEMO_SOURCES = {
   reservation: "reservation-schedule-demo.html",
@@ -1723,6 +2485,7 @@ const PROJECT_DEMO_SECONDARY_SOURCES = {
 };
 let eventsInitialized = false;
 let isNavigating = false;
+let anchorScrollRequestId = 0;
 const kotaSlideshowIntervals = [];
 let contactIntakeState = null;
 let contactIntakeTurnstileWidgetId = null;
@@ -2279,6 +3042,374 @@ function updateHeaderLogoDocking() {
   setHeaderLogoDocked(shouldDock, { animate: true });
 }
 
+// --- Chatbot icon docking (mirrors logo docking) ---
+var isAiIconDocked = false;
+var aiMorphClone = null;
+var aiMorphAnimation = null;
+var aiMorphCleanupTimer = null;
+
+function cleanupAiMorph() {
+  if (aiMorphAnimation) {
+    aiMorphAnimation.cancel();
+    aiMorphAnimation = null;
+  }
+  if (aiMorphClone) {
+    aiMorphClone.remove();
+    aiMorphClone = null;
+  }
+  if (aiMorphCleanupTimer) {
+    clearTimeout(aiMorphCleanupTimer);
+    aiMorphCleanupTimer = null;
+  }
+}
+
+function setAiHomeIconHidden(hidden) {
+  if (dom.assistantHomeSlot) {
+    dom.assistantHomeSlot.classList.toggle("assistant-home-slot--icon-hidden", Boolean(hidden));
+  }
+}
+
+function getAiHomeIcon() {
+  return dom.assistantHomeSlot
+    ? dom.assistantHomeSlot.querySelector(".etherr-ai-face-icon-launcher")
+    : null;
+}
+
+function getAiDockIcon() {
+  return dom.headerAiDock
+    ? dom.headerAiDock.querySelector(".etherr-ai-face-icon-dock")
+    : null;
+}
+
+function hasAboutAssistantDockSlot() {
+  return currentPage === "about" && dom.assistantAboutSlot instanceof HTMLElement;
+}
+
+function isAssistantPanelOpen() {
+  return document.body.classList.contains("etherr-ai-panel-open");
+}
+
+function computeShouldDockAboutAssistantCard() {
+  if (!hasAboutAssistantDockSlot()) {
+    return false;
+  }
+
+  var slotRect = dom.assistantAboutSlot.getBoundingClientRect();
+  var headerBottom = dom.header ? dom.header.getBoundingClientRect().bottom : 0;
+  var viewportBottom = window.innerHeight || document.documentElement.clientHeight || 0;
+  return slotRect.bottom > headerBottom + 20 && slotRect.top < viewportBottom - 20;
+}
+
+function moveAiDockToFloatingParent(dock) {
+  if (!dock) {
+    return;
+  }
+
+  var isMobile = window.innerWidth <= 980;
+  if (!isMobile) {
+    if (dock.parentElement !== document.body) {
+      document.body.appendChild(dock);
+    }
+    return;
+  }
+
+  var headerInner = document.querySelector(".header-inner");
+  if (headerInner && dock.parentElement !== headerInner) {
+    headerInner.insertBefore(dock, headerInner.firstChild);
+  }
+}
+
+function computeShouldDockAiIcon() {
+  if (hasAboutAssistantDockSlot()) {
+    return computeShouldDockAboutAssistantCard();
+  }
+  if (currentPage !== "home" || !dom.assistantHomeSlot || !dom.header) {
+    return currentPage !== "home";
+  }
+  var slotRect = dom.assistantHomeSlot.getBoundingClientRect();
+  var headerRect = dom.header.getBoundingClientRect();
+  var triggerLine = headerRect.bottom + 8;
+  if (!isAiIconDocked) {
+    return slotRect.bottom <= triggerLine;
+  }
+  return slotRect.bottom <= triggerLine + slotRect.height * 0.35;
+}
+
+function animateAiMorph(fromRect, toRect, toElement, onDone, sourceElement) {
+  cleanupAiMorph();
+  if (!fromRect || !toRect) { onDone(); return; }
+
+  var sourceIcon = sourceElement || getAiHomeIcon() || getAiDockIcon();
+  if (!sourceIcon) { onDone(); return; }
+
+  var clone = sourceIcon.cloneNode(true);
+  clone.classList.remove("is-blinking");
+  clone.style.cssText = "position:fixed;display:block;left:0;top:0;width:0;height:0;z-index:88;pointer-events:none;opacity:0.92;filter:drop-shadow(0 8px 14px rgba(11,48,49,0.12));will-change:left,top,width,height,opacity;";
+  clone.style.left = fromRect.left + "px";
+  clone.style.top = fromRect.top + "px";
+  clone.style.width = fromRect.width + "px";
+  clone.style.height = fromRect.height + "px";
+  document.body.appendChild(clone);
+  aiMorphClone = clone;
+
+  var startTime = 0;
+  var isCancelled = false;
+  var durationMs = 480;
+  var isMobileView = window.innerWidth <= 980;
+
+  function step(timestamp) {
+    if (isCancelled) return;
+    if (!startTime) startTime = timestamp;
+    var raw = clamp((timestamp - startTime) / durationMs, 0, 1);
+    var t = 1 - Math.pow(1 - raw, 3); // ease-out cubic
+    var liveTarget = (toElement && toElement.getBoundingClientRect()) || toRect;
+    var left = fromRect.left + (liveTarget.left - fromRect.left) * t;
+    var top = fromRect.top + (liveTarget.top - fromRect.top) * t;
+    // On mobile, keep the original size throughout the animation
+    var width = isMobileView ? fromRect.width : fromRect.width + (liveTarget.width - fromRect.width) * t;
+    var height = isMobileView ? fromRect.height : fromRect.height + (liveTarget.height - fromRect.height) * t;
+    clone.style.left = left + "px";
+    clone.style.top = top + "px";
+    clone.style.width = width + "px";
+    clone.style.height = height + "px";
+    clone.style.opacity = (0.92).toFixed(3);
+    if (raw < 1) {
+      requestAnimationFrame(step);
+      return;
+    }
+    aiMorphAnimation = null;
+    onDone();
+    clone.style.opacity = "0";
+    aiMorphCleanupTimer = setTimeout(function () {
+      if (aiMorphClone === clone) { clone.remove(); aiMorphClone = null; }
+      aiMorphCleanupTimer = null;
+    }, 60);
+  }
+
+  aiMorphAnimation = {
+    cancel: function () {
+      if (isCancelled) return;
+      isCancelled = true;
+      if (aiMorphClone === clone) { clone.remove(); aiMorphClone = null; }
+    }
+  };
+  requestAnimationFrame(step);
+}
+
+function setAiIconDocked(nextDocked) {
+  if (nextDocked === isAiIconDocked) return;
+  var dock = dom.headerAiDock;
+  var slot = dom.assistantHomeSlot;
+  var aboutSlot = dom.assistantAboutSlot;
+  if (!dock) return;
+
+  if (hasAboutAssistantDockSlot()) {
+    var shouldAnimateAbout = !prefersReducedMotionQuery.matches;
+    var aboutDockIcon = getAiDockIcon() || dock;
+    var aboutSourceRect = aboutDockIcon.getBoundingClientRect();
+    var aboutWidgetLauncher = document.querySelector("[data-etherr-ai-widget]:not(.etherr-ai-widget--inline)");
+    if (aboutWidgetLauncher) aboutWidgetLauncher.style.display = "none";
+
+    if (nextDocked) {
+      if (aboutSlot && dock.parentElement !== aboutSlot) {
+        dock.style.visibility = "hidden";
+        aboutSlot.appendChild(dock);
+      }
+      dock.hidden = false;
+      dock.classList.add("is-docked", "header-ai-dock-inline-card");
+      var aboutInlineTargetRect = dock.getBoundingClientRect();
+      if (shouldAnimateAbout && aboutSourceRect && aboutInlineTargetRect) {
+        animateAiMorph(aboutSourceRect, aboutInlineTargetRect, dock, function () {
+          dock.style.visibility = "";
+        }, aboutDockIcon);
+      } else {
+        dock.style.visibility = "";
+      }
+    } else {
+      dock.style.visibility = "hidden";
+      dock.classList.remove("header-ai-dock-inline-card");
+      moveAiDockToFloatingParent(dock);
+      dock.hidden = false;
+      dock.classList.add("is-docked");
+      var aboutFloatingTargetRect = dock.getBoundingClientRect();
+      if (shouldAnimateAbout && aboutSourceRect && aboutFloatingTargetRect) {
+        animateAiMorph(aboutSourceRect, aboutFloatingTargetRect, dock, function () {
+          dock.style.visibility = "";
+        }, aboutDockIcon);
+      } else {
+        dock.style.visibility = "";
+      }
+    }
+    isAiIconDocked = nextDocked;
+    return;
+  }
+
+  dock.classList.remove("header-ai-dock-inline-card");
+
+  // On desktop, move dock to body so it escapes header's backdrop-filter containing block
+  moveAiDockToFloatingParent(dock);
+  if (nextDocked && window.innerWidth > 980) {
+    dock.style.top = "50%";
+    dock.style.bottom = "auto";
+    dock.style.transform = "translateY(-50%)";
+  } else if (nextDocked) {
+    dock.style.top = "";
+    dock.style.bottom = "";
+    dock.style.transform = "";
+  }
+
+  var shouldAnimate = !prefersReducedMotionQuery.matches;
+  if (nextDocked && dock.hidden) {
+    dock.hidden = false;
+  }
+  var homeIcon = getAiHomeIcon();
+  var dockIcon = getAiDockIcon();
+  var slotRect = slot ? slot.getBoundingClientRect() : null;
+  var dockRect = dock.getBoundingClientRect();
+  var homeIconRect = homeIcon ? homeIcon.getBoundingClientRect() : slotRect;
+  var dockIconRect = dockIcon ? dockIcon.getBoundingClientRect() : dockRect;
+
+  if (nextDocked) {
+    setAiHomeIconHidden(true);
+    if (shouldAnimate && homeIconRect && dockIconRect) {
+      animateAiMorph(homeIconRect, dockIconRect, dockIcon || dock, function () {
+        dock.hidden = false;
+        dock.classList.add("is-docked");
+      }, homeIcon);
+    } else {
+      dock.hidden = false;
+      dock.classList.add("is-docked");
+    }
+    // On non-home pages, hide the widget launcher so only the dock icon shows
+    if (currentPage !== "home") {
+      var widgetLauncher = document.querySelector("[data-etherr-ai-widget]:not(.etherr-ai-widget--inline)");
+      if (widgetLauncher) widgetLauncher.style.display = "none";
+    }
+  } else {
+    setAiHomeIconHidden(true);
+    if (shouldAnimate && dockIconRect && homeIconRect) {
+      dock.classList.remove("is-docked");
+      animateAiMorph(dockIconRect, homeIconRect, homeIcon || slot, function () {
+        dock.hidden = true;
+        setAiHomeIconHidden(false);
+      }, dockIcon || homeIcon);
+    } else {
+      dock.hidden = true;
+      dock.classList.remove("is-docked");
+      setAiHomeIconHidden(false);
+    }
+    // Restore widget launcher visibility
+    var widgetLauncher = document.querySelector("[data-etherr-ai-widget]");
+    if (widgetLauncher) widgetLauncher.style.display = "";
+  }
+  isAiIconDocked = nextDocked;
+}
+
+function updateAiIconDocking() {
+  if (isAssistantPanelOpen()) {
+    return;
+  }
+  setAiIconDocked(computeShouldDockAiIcon());
+}
+
+window.etherrAiDockController = {
+  onPanelOpen: function (dock) {
+    if (!(dock instanceof HTMLElement)) {
+      return { pinnedInlineToFloating: false };
+    }
+
+    var shouldMorphFromHomeLauncher =
+      currentPage === "home"
+      && window.innerWidth > 640
+      && !computeShouldDockAiIcon();
+    if (shouldMorphFromHomeLauncher) {
+      var homeIcon = getAiHomeIcon();
+      var homeIconRect = homeIcon ? homeIcon.getBoundingClientRect() : null;
+      var dockIcon = getAiDockIcon() || dock;
+
+      dock.classList.remove("header-ai-dock-inline-card");
+      moveAiDockToFloatingParent(dock);
+      dock.hidden = false;
+      dock.classList.add("is-docked");
+      dock.style.visibility = "hidden";
+      dock.style.top = "auto";
+      dock.style.bottom = "28px";
+      dock.style.transform = "translateY(0)";
+      setAiHomeIconHidden(true);
+      isAiIconDocked = true;
+
+      if (!prefersReducedMotionQuery.matches && homeIconRect) {
+        animateAiMorph(homeIconRect, dockIcon.getBoundingClientRect(), dockIcon, function () {
+          dock.style.visibility = "";
+        }, homeIcon);
+      } else {
+        dock.style.visibility = "";
+      }
+
+      return { pinnedInlineToFloating: true };
+    }
+
+    if (!hasAboutAssistantDockSlot()) {
+      return { pinnedInlineToFloating: false };
+    }
+
+    var wasInline = dock.classList.contains("header-ai-dock-inline-card");
+    if (wasInline) {
+      var aboutDockIcon = getAiDockIcon() || dock;
+      var aboutSourceRect = aboutDockIcon.getBoundingClientRect();
+      dock.classList.remove("header-ai-dock-inline-card");
+      moveAiDockToFloatingParent(dock);
+      dock.hidden = false;
+      dock.classList.add("is-docked");
+      dock.style.visibility = "hidden";
+      dock.style.top = "auto";
+      dock.style.bottom = "28px";
+      dock.style.transform = "translateY(0)";
+
+      if (!prefersReducedMotionQuery.matches && window.innerWidth > 640 && aboutSourceRect) {
+        animateAiMorph(aboutSourceRect, aboutDockIcon.getBoundingClientRect(), aboutDockIcon, function () {
+          dock.style.visibility = "";
+        }, aboutDockIcon);
+      } else {
+        dock.style.visibility = "";
+      }
+
+      isAiIconDocked = false;
+    }
+
+    return { pinnedInlineToFloating: wasInline };
+  },
+  onPanelClose: function () {
+    if (currentPage === "home") {
+      if (computeShouldDockAiIcon()) {
+        setAiHomeIconHidden(true);
+        isAiIconDocked = true;
+        return false;
+      }
+
+      // Panel was opened from center (home launcher). Let the panel close animation
+      // collapse toward the dock icon (bottom-right), then move the icon to center.
+      // Return true to suppress animateDockToCenter in assistant.js, then delay
+      // updateAiIconDocking so it runs after the panel close animation (~400ms).
+      window.setTimeout(function () {
+        updateAiIconDocking();
+      }, 420);
+      return true;
+    }
+
+    if (!hasAboutAssistantDockSlot()) {
+      return false;
+    }
+
+    if (computeShouldDockAiIcon()) {
+      updateAiIconDocking();
+      return true;
+    }
+
+    return false;
+  },
+};
+
 function openMenu() {
   dom.header.classList.add("menu-open");
   dom.menuToggle.setAttribute("aria-expanded", "true");
@@ -2334,8 +3465,20 @@ function applyStaticText(langKey) {
           }
         });
       } else {
-        node.textContent = text;
+        if (/<(?:a\s|br\s*\/?>)/i.test(text)) {
+          node.innerHTML = text;
+        } else {
+          node.textContent = text;
+        }
       }
+    }
+  });
+
+  // Handle HTML content translations (for FAQ answers)
+  document.querySelectorAll("[data-i18n-html]").forEach((node) => {
+    const html = getByPath(locale, node.dataset.i18nHtml);
+    if (typeof html === "string") {
+      node.innerHTML = html;
     }
   });
 
@@ -2349,6 +3492,39 @@ function applyStaticText(langKey) {
 
   const year = new Date().getFullYear();
   dom.footerCopy.textContent = locale.footer.copy.replace("{year}", String(year));
+
+  // Generate FAQ JSON-LD schema when on the FAQ page
+  if (currentPage === "faq") {
+    const schemaEl = document.getElementById("faqSchema");
+    if (schemaEl) {
+      const faqData = locale.faq;
+      const entities = [];
+      if (faqData && faqData.sections) {
+        Object.values(faqData.sections).forEach((section) => {
+          Object.keys(section).forEach((key) => {
+            if (key.startsWith("q") && section[key].question && section[key].answer) {
+              // Strip HTML tags from answer for schema
+              const div = document.createElement("div");
+              div.innerHTML = section[key].answer;
+              entities.push({
+                "@type": "Question",
+                "name": section[key].question,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": div.textContent || div.innerText || "",
+                },
+              });
+            }
+          });
+        });
+      }
+      schemaEl.textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": entities,
+      });
+    }
+  }
 }
 
 function updateLanguageButtons() {
@@ -4212,11 +5388,6 @@ const HERO_CLOUD_ASSETS = [
       compact: [1.26, 1.48],
       narrow: [1.34, 1.62],
     },
-    topRange: {
-      desktop: [0, 0.04],
-      compact: [0, 0.06],
-      narrow: [0, 0.08],
-    },
     speedRatioRange: {
       desktop: [0.018, 0.03],
       compact: [0.014, 0.024],
@@ -4235,11 +5406,6 @@ const HERO_CLOUD_ASSETS = [
       desktop: [1.12, 1.28],
       compact: [1.2, 1.4],
       narrow: [1.28, 1.52],
-    },
-    topRange: {
-      desktop: [0.1, 0.18],
-      compact: [0.08, 0.18],
-      narrow: [0.06, 0.18],
     },
     speedRatioRange: {
       desktop: [0.012, 0.022],
@@ -4260,11 +5426,6 @@ const HERO_CLOUD_ASSETS = [
       compact: [1.24, 1.44],
       narrow: [1.3, 1.56],
     },
-    topRange: {
-      desktop: [0, 0.06],
-      compact: [0, 0.08],
-      narrow: [0, 0.1],
-    },
     speedRatioRange: {
       desktop: [0.02, 0.034],
       compact: [0.016, 0.028],
@@ -4284,11 +5445,6 @@ const HERO_CLOUD_ASSETS = [
       compact: [1.22, 1.4],
       narrow: [1.28, 1.5],
     },
-    topRange: {
-      desktop: [0.03, 0.1],
-      compact: [0.02, 0.1],
-      narrow: [0.02, 0.12],
-    },
     speedRatioRange: {
       desktop: [0.016, 0.028],
       compact: [0.013, 0.022],
@@ -4307,11 +5463,6 @@ const HERO_CLOUD_ASSETS = [
       desktop: [1.1, 1.24],
       compact: [1.18, 1.34],
       narrow: [1.24, 1.46],
-    },
-    topRange: {
-      desktop: [0.08, 0.16],
-      compact: [0.06, 0.16],
-      narrow: [0.05, 0.18],
     },
     speedRatioRange: {
       desktop: [0.011, 0.02],
@@ -4425,7 +5576,6 @@ function assignHeroCloudTargets(item, timestampMs, nearEdge = false) {
 function configureHeroCloudItem(item, geometry, timestampMs, initial = false) {
   const layoutMode = getHeroCloudLayoutMode();
   const widthRange = resolveHeroCloudResponsiveRange(item.config.widthRange, layoutMode);
-  const topRange = resolveHeroCloudResponsiveRange(item.config.topRange, layoutMode);
 
   item.speedRatioRange = resolveHeroCloudResponsiveRange(item.config.speedRatioRange, layoutMode);
   item.opacityRange = item.config.opacityRange;
@@ -4466,7 +5616,7 @@ function configureHeroCloudItem(item, geometry, timestampMs, initial = false) {
   item.currentOpacity = 0;
   item.targetOpacity = 0;
 
-  item.element.style.top = `${(geometry.layerHeight * randomBetween(topRange[0], topRange[1]) - 30).toFixed(2)}px`;
+  item.element.style.top = "0px";
   item.element.style.width = `${widthPx.toFixed(2)}px`;
   item.element.style.zIndex = String(item.config.zIndex);
   item.element.style.filter = `blur(${randomBetween(item.config.blurRange[0], item.config.blurRange[1]).toFixed(2)}px)`;
@@ -5257,15 +6407,20 @@ function buildNetworkNodes() {
     var v = 0;
     var zone = "outside";
 
-    if (zoneRoll < 0.5) {
+    if (zoneRoll < 0.3) {
       u = Math.pow(rng(), 1.3) * 0.56;
       v = 0.08 + Math.pow(rng(), 0.92) * 0.8;
       zone = "left";
+    } else if (zoneRoll < 0.7) {
+      // Dense cluster in the right-center area (below buttons, right of content)
+      u = 0.52 + Math.pow(rng(), 0.85) * 0.42;
+      v = 0.28 + Math.pow(rng(), 0.8) * 0.55;
+      zone = "right-core";
     } else if (zoneRoll < 0.83) {
       u = Math.pow(rng(), 0.9);
       v = 0.56 + Math.pow(rng(), 0.76) * 0.44;
       zone = "bottom";
-    } else if (zoneRoll < 0.95) {
+    } else if (zoneRoll < 0.93) {
       u = 0.18 + rng() * 0.66;
       v = 0.24 + rng() * 0.56;
       zone = "support";
@@ -5303,6 +6458,42 @@ function buildNetworkNodes() {
       nudgePhaseY: seededRandomBetween(rng, 0, Math.PI * 2),
       sideWeight: clamp((0.62 - u) / 0.62, 0, 1),
       zone: zone,
+    });
+  }
+
+  // Extra cluster in the upper-right corner (next to the logo)
+  var upperRightCount = isMobileViewport ? 8 : 20;
+  for (var ur = 0; ur < upperRightCount; ur += 1) {
+    var urU = 0.74 + rng() * 0.24;
+    var urV = 0.04 + Math.pow(rng(), 1.2) * 0.30;
+    var urSizeRoll = rng();
+    var urRadius =
+      urSizeRoll > 0.9
+        ? seededRandomBetween(rng, 3.8, 5.6)
+        : urSizeRoll > 0.65
+          ? seededRandomBetween(rng, 2.0, 3.8)
+          : seededRandomBetween(rng, 0.8, 2.2);
+    var urDrift = seededRandomBetween(rng, 2.8, 9.0);
+
+    nodes.push({
+      u: urU,
+      v: urV,
+      shape: "circle",
+      radius: urRadius,
+      driftX: urDrift * seededRandomBetween(rng, 0.7, 1.18),
+      driftY: urDrift * seededRandomBetween(rng, 0.62, 1.08),
+      speedX: seededRandomBetween(rng, 0.12, 0.34),
+      speedY: seededRandomBetween(rng, 0.14, 0.36),
+      phaseX: seededRandomBetween(rng, 0, Math.PI * 2),
+      phaseY: seededRandomBetween(rng, 0, Math.PI * 2),
+      nudgeAmpX: seededRandomBetween(rng, 0.45, 1.9),
+      nudgeAmpY: seededRandomBetween(rng, 0.45, 1.9),
+      nudgeSpeedX: seededRandomBetween(rng, 0.45, 0.92),
+      nudgeSpeedY: seededRandomBetween(rng, 0.42, 0.88),
+      nudgePhaseX: seededRandomBetween(rng, 0, Math.PI * 2),
+      nudgePhaseY: seededRandomBetween(rng, 0, Math.PI * 2),
+      sideWeight: 0,
+      zone: "upper-right",
     });
   }
 
@@ -5838,7 +7029,24 @@ function normalizePathnameForCompare(pathname) {
 }
 
 function isSameDocumentHashNavigation(url) {
-  return normalizePathnameForCompare(url.pathname) === normalizePathnameForCompare(window.location.pathname) && Boolean(url.hash);
+  return (
+    url.origin === APP_ORIGIN &&
+    normalizePathnameForCompare(url.pathname) === normalizePathnameForCompare(window.location.pathname) &&
+    Boolean(url.hash)
+  );
+}
+
+function navigateToSameDocumentHash(url, { smoothScroll = true } = {}) {
+  const targetPath = normalizePathname(url.pathname);
+  const currentPath = normalizePathname(window.location.pathname);
+  const nextHref = `${targetPath}${url.hash}`;
+
+  if (nextHref !== `${currentPath}${window.location.hash}`) {
+    window.history.pushState({}, "", nextHref);
+  }
+
+  scrollToHashWhenStable(url.hash, { smooth: smoothScroll });
+  closeMenu();
 }
 
 function enforceCanonicalHomePath() {
@@ -5884,36 +7092,130 @@ function isInternalNavigationLink(link) {
   return true;
 }
 
+function getAnchorScrollOffset() {
+  const header = document.querySelector(".site-header");
+  const headerHeight = header instanceof HTMLElement ? header.offsetHeight : 0;
+  return headerHeight + ANCHOR_SCROLL_EXTRA_OFFSET;
+}
+
+function getHashTarget(hash) {
+  const rawHash = String(hash || "");
+  const rawId = rawHash.startsWith("#") ? rawHash.slice(1) : rawHash;
+  if (!rawId) {
+    return null;
+  }
+
+  let decodedId = rawId;
+  try {
+    decodedId = decodeURIComponent(rawId);
+  } catch (_error) {}
+
+  const directTarget = document.getElementById(decodedId) || document.getElementById(rawId);
+  if (directTarget instanceof HTMLElement) {
+    return directTarget;
+  }
+
+  if (window.CSS?.escape) {
+    return document.querySelector(`#${window.CSS.escape(decodedId)}`);
+  }
+
+  try {
+    return document.querySelector(rawHash);
+  } catch (_error) {
+    return null;
+  }
+}
+
+function getElementLayoutTop(element) {
+  let top = 0;
+  let current = element;
+
+  while (current instanceof HTMLElement) {
+    top += current.offsetTop;
+    current = current.offsetParent;
+  }
+
+  return top;
+}
+
 function scrollToHash(hash, { smooth = true } = {}) {
-  if (!hash) {
-    window.scrollTo({ top: 0, behavior: smooth ? "smooth" : "auto" });
-    return;
+  const normalizedHash = String(hash || "");
+  const behavior = smooth ? "smooth" : "auto";
+
+  if (!normalizedHash || normalizedHash === "#top") {
+    window.scrollTo({ top: 0, behavior });
+    return true;
   }
 
-  const target = document.querySelector(hash);
+  const target = getHashTarget(normalizedHash);
   if (target instanceof HTMLElement) {
-    const header = document.querySelector(".site-header");
-    const headerHeight = header instanceof HTMLElement ? header.offsetHeight : 0;
-    const targetTop = target.getBoundingClientRect().top + window.scrollY;
     window.scrollTo({
-      top: Math.max(0, targetTop - headerHeight),
-      behavior: smooth ? "smooth" : "auto",
+      top: Math.max(0, getElementLayoutTop(target) - getAnchorScrollOffset()),
+      behavior,
     });
-    return;
+    return true;
   }
 
-  window.scrollTo({ top: 0, behavior: smooth ? "smooth" : "auto" });
+  window.scrollTo({ top: 0, behavior });
+  return false;
+}
+
+function scrollToHashWhenStable(hash, { smooth = true } = {}) {
+  const requestId = (anchorScrollRequestId += 1);
+  const normalizedHash = String(hash || "");
+  scrollToHash(normalizedHash, { smooth });
+
+  const correctScroll = () => {
+    if (requestId !== anchorScrollRequestId) {
+      return;
+    }
+    scrollToHash(normalizedHash, { smooth: false });
+  };
+
+  if (!smooth) {
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(correctScroll);
+    });
+  }
+
+  const settleDelays = smooth ? ANCHOR_SCROLL_SMOOTH_SETTLE_DELAYS_MS : ANCHOR_SCROLL_SETTLE_DELAYS_MS;
+  settleDelays.forEach((delay) => {
+    window.setTimeout(correctScroll, delay);
+  });
 }
 
 function refreshSharedShell() {
+  // Clean up any dock button that was moved to document.body
+  var oldBodyDock = document.body.querySelector(":scope > [data-header-ai-dock]");
+  if (oldBodyDock) oldBodyDock.remove();
+
   if (typeof window.renderSharedHeader === "function") {
     window.renderSharedHeader();
   }
   cacheDom();
+
+  // Reset AI icon docking state so it re-initializes on the new page
+  isAiIconDocked = false;
+  cleanupAiMorph();
 }
 
 function initPageContent() {
   cacheDom();
+
+  // Re-insert the chatbot inline launcher into the home slot after SPA navigation
+  var chatWidget = document.querySelector("[data-etherr-ai-widget]");
+  if (currentPage === "home") {
+    var homeSlot = document.querySelector("[data-etherr-ai-home-slot]");
+    if (homeSlot && chatWidget) {
+      chatWidget.style.display = "";
+      chatWidget.className = "etherr-ai-widget etherr-ai-widget--inline";
+      homeSlot.appendChild(chatWidget);
+    }
+  } else if (chatWidget && chatWidget.parentElement !== document.body) {
+    chatWidget.className = "etherr-ai-widget";
+    document.body.appendChild(chatWidget);
+  }
+
   if (!(dom.contactIntakeForm instanceof HTMLFormElement)) {
     hideContactStatusPopup();
   }
@@ -5940,6 +7242,45 @@ function initPageContent() {
   syncServicePanelHeights();
   updateHeaderState();
   setHeaderLogoDocked(computeShouldDockHeaderLogo(), { animate: false });
+  // Initial AI icon docking (no animation on page load)
+  isAiIconDocked = false;
+  var shouldDockAi = computeShouldDockAiIcon();
+  if (dom.headerAiDock && hasAboutAssistantDockSlot()) {
+    var aboutInitWidgetLauncher = document.querySelector("[data-etherr-ai-widget]:not(.etherr-ai-widget--inline)");
+    if (aboutInitWidgetLauncher) aboutInitWidgetLauncher.style.display = "none";
+    dom.headerAiDock.hidden = false;
+    dom.headerAiDock.classList.add("is-docked");
+    dom.headerAiDock.style.visibility = "";
+
+    if (shouldDockAi) {
+      if (dom.assistantAboutSlot && dom.headerAiDock.parentElement !== dom.assistantAboutSlot) {
+        dom.assistantAboutSlot.appendChild(dom.headerAiDock);
+      }
+      dom.headerAiDock.classList.add("header-ai-dock-inline-card");
+    } else {
+      dom.headerAiDock.classList.remove("header-ai-dock-inline-card");
+      moveAiDockToFloatingParent(dom.headerAiDock);
+    }
+
+    isAiIconDocked = shouldDockAi;
+  } else if (shouldDockAi && dom.headerAiDock) {
+    dom.headerAiDock.classList.remove("header-ai-dock-inline-card");
+    dom.headerAiDock.hidden = false;
+    dom.headerAiDock.classList.add("is-docked");
+    isAiIconDocked = true;
+    moveAiDockToFloatingParent(dom.headerAiDock);
+    // On non-home pages, hide the widget launcher so only the dock shows
+    if (currentPage !== "home") {
+      var initWidgetLauncher = document.querySelector("[data-etherr-ai-widget]:not(.etherr-ai-widget--inline)");
+      if (initWidgetLauncher) initWidgetLauncher.style.display = "none";
+    }
+  } else if (dom.headerAiDock) {
+    dom.headerAiDock.classList.remove("header-ai-dock-inline-card");
+  }
+  setAiHomeIconHidden(shouldDockAi);
+  if (window.location.hash) {
+    scrollToHashWhenStable(window.location.hash, { smooth: false });
+  }
   if (document.fonts?.ready) {
     document.fonts.ready.then(() => {
       initHeroClouds();
@@ -5947,12 +7288,12 @@ function initPageContent() {
       syncServicePanelHeights();
       // Scroll to the initial hash once layout is stable
       if (window.location.hash) {
-        scrollToHash(window.location.hash, { smooth: false });
+        scrollToHashWhenStable(window.location.hash, { smooth: false });
       }
     });
   } else if (window.location.hash) {
     // Fallback if fonts API is unavailable
-    setTimeout(() => scrollToHash(window.location.hash, { smooth: false }), 120);
+    setTimeout(() => scrollToHashWhenStable(window.location.hash, { smooth: false }), 120);
   }
 }
 
@@ -5970,7 +7311,7 @@ async function navigateTo(urlLike, { replace = false, smoothScroll = false } = {
     } else if (nextHref !== `${currentPath}${window.location.hash}`) {
       window.history.pushState({}, "", nextHref);
     }
-    scrollToHash(targetUrl.hash, { smooth: smoothScroll });
+    scrollToHashWhenStable(targetUrl.hash, { smooth: smoothScroll });
     closeMenu();
     return;
   }
@@ -6007,6 +7348,14 @@ async function navigateTo(urlLike, { replace = false, smoothScroll = false } = {
     }
 
     document.body.dataset.page = nextDocument.body?.dataset?.page || "home";
+
+    // Rescue chatbot widget from <main> before it gets destroyed by the swap
+    var chatWidgetInMain = currentMain.querySelector("[data-etherr-ai-widget]");
+    if (chatWidgetInMain) {
+      chatWidgetInMain.className = "etherr-ai-widget";
+      document.body.appendChild(chatWidgetInMain);
+    }
+
     currentMain.replaceWith(document.importNode(nextMain, true));
 
     if (replace) {
@@ -6017,7 +7366,7 @@ async function navigateTo(urlLike, { replace = false, smoothScroll = false } = {
 
     refreshSharedShell();
     initPageContent();
-    scrollToHash(targetUrl.hash, { smooth: smoothScroll });
+    scrollToHashWhenStable(targetUrl.hash, { smooth: smoothScroll });
     closeMenu();
   } catch (_error) {
     window.location.href = targetUrl.href;
@@ -6088,13 +7437,17 @@ function initEvents() {
         return;
       }
 
+      const targetUrl = new URL(navLink.href, window.location.href);
+      if (isSameDocumentHashNavigation(targetUrl)) {
+        event.preventDefault();
+        navigateToSameDocumentHash(targetUrl, { smoothScroll: true });
+        return;
+      }
+
       if (isInternalNavigationLink(navLink)) {
-        const targetUrl = new URL(navLink.href, window.location.href);
-        if (!isSameDocumentHashNavigation(targetUrl)) {
-          event.preventDefault();
-          navigateTo(targetUrl.href, { smoothScroll: false });
-          return;
-        }
+        event.preventDefault();
+        navigateTo(targetUrl.href, { smoothScroll: false });
+        return;
       }
 
       if (isHeaderNavLink) {
@@ -6119,6 +7472,7 @@ function initEvents() {
     () => {
       updateHeaderState();
       updateHeaderLogoDocking();
+      updateAiIconDocking();
 
       // Collapse any open service panel whose active button has scrolled out of view
       if (servicePanels.length) {
@@ -6245,6 +7599,7 @@ function initEvents() {
         initHeroClouds();
       }
       updateHeaderLogoDocking();
+      updateAiIconDocking();
       syncProjectCardLayout();
       syncServicePanelHeights();
     }, 160);

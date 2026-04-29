@@ -86,6 +86,26 @@ function sanitizeHeaderText(string $value): string
     return trim(str_replace(["\r", "\n"], ' ', $value));
 }
 
+function escapeHtml(string $value): string
+{
+    return htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+}
+
+function formatDisplayDate(string $value, string $timezone): string
+{
+    if ($value === '') {
+        return '-';
+    }
+
+    try {
+        $date = new DateTimeImmutable($value);
+        $displayTimezone = new DateTimeZone($timezone !== '' ? $timezone : 'Europe/Zagreb');
+        return $date->setTimezone($displayTimezone)->format('d.m.Y. H:i');
+    } catch (\Throwable $e) {
+        return $value;
+    }
+}
+
 function isAbsolutePath(string $path): bool
 {
     if ($path === '') {
@@ -127,6 +147,25 @@ function resolveClientIp(): string
     }
 
     return '0.0.0.0';
+}
+
+function resolveClientCountry(): string
+{
+    $headers = [
+        'HTTP_CF_IPCOUNTRY',
+        'HTTP_X_COUNTRY_CODE',
+        'GEOIP_COUNTRY_CODE',
+        'HTTP_X_APPENGINE_COUNTRY',
+    ];
+
+    foreach ($headers as $header) {
+        $value = strtoupper(trim((string)($_SERVER[$header] ?? '')));
+        if ($value !== '') {
+            return $value === 'XX' ? 'Nepoznato' : $value;
+        }
+    }
+
+    return '-';
 }
 
 /**
@@ -244,15 +283,23 @@ function verifyTurnstileToken(string $secret, string $token, string $clientIp): 
 /**
  * @return array{sent: bool, transport: string, error: string}
  */
-function sendMessage(array $env, string $subject, string $body, string $replyEmail, string $replyName): array
+function sendMessage(
+    array $env,
+    string $subject,
+    string $body,
+    string $replyEmail,
+    string $replyName,
+    string $htmlBody = '',
+    string $recipientOverride = ''
+): array
 {
     $transport = strtolower(envValue($env, 'MAIL_TRANSPORT', 'smtp'));
-    $recipient = envValue($env, 'MAIL_TO', 'info@etherr.hr');
+    $recipient = $recipientOverride !== '' ? $recipientOverride : envValue($env, 'MAIL_TO', 'info@etherr.hr');
     $from = envValue($env, 'MAIL_FROM', 'noreply@etherr.hr');
     $fromName = envValue($env, 'MAIL_FROM_NAME', 'Etherr Website');
 
     if (!filter_var($recipient, FILTER_VALIDATE_EMAIL)) {
-        return ['sent' => false, 'transport' => $transport, 'error' => 'MAIL_TO is not a valid email'];
+        return ['sent' => false, 'transport' => $transport, 'error' => 'Recipient is not a valid email'];
     }
     if (!filter_var($from, FILTER_VALIDATE_EMAIL)) {
         return ['sent' => false, 'transport' => $transport, 'error' => 'MAIL_FROM is not a valid email'];
@@ -262,10 +309,10 @@ function sendMessage(array $env, string $subject, string $body, string $replyEma
         $headers = [
             'From: ' . sanitizeHeaderText($fromName) . ' <' . $from . '>',
             'Reply-To: ' . sanitizeHeaderText($replyName) . ' <' . $replyEmail . '>',
-            'Content-Type: text/plain; charset=UTF-8',
+            $htmlBody !== '' ? 'Content-Type: text/html; charset=UTF-8' : 'Content-Type: text/plain; charset=UTF-8',
         ];
 
-        $sent = @mail($recipient, $subject, $body, implode("\r\n", $headers));
+        $sent = @mail($recipient, $subject, $htmlBody !== '' ? $htmlBody : $body, implode("\r\n", $headers));
         return [
             'sent' => $sent,
             'transport' => 'mail',
@@ -324,8 +371,11 @@ function sendMessage(array $env, string $subject, string $body, string $replyEma
         $mail->addAddress($recipient);
         $mail->addReplyTo($replyEmail, $replyName);
         $mail->Subject = $subject;
-        $mail->isHTML(false);
-        $mail->Body = $body;
+        $mail->isHTML($htmlBody !== '');
+        $mail->Body = $htmlBody !== '' ? $htmlBody : $body;
+        if ($htmlBody !== '') {
+            $mail->AltBody = $body;
+        }
 
         $sent = $mail->send();
         return [
@@ -340,6 +390,32 @@ function sendMessage(array $env, string $subject, string $body, string $replyEma
             'error' => $e->getMessage(),
         ];
     }
+}
+
+function renderEmailRows(array $rows): string
+{
+    $html = '';
+    foreach ($rows as $row) {
+        if (!is_array($row)) {
+            continue;
+        }
+
+        $label = escapeHtml((string)($row['label'] ?? ''));
+        $value = trim((string)($row['value'] ?? ''));
+        $displayValue = $value !== '' ? $value : '-';
+        $href = trim((string)($row['href'] ?? ''));
+        $valueHtml = escapeHtml($displayValue);
+        if ($href !== '' && $value !== '') {
+            $valueHtml = '<a href="' . escapeHtml($href) . '" style="color:#0f1720;text-decoration:none;">' . $valueHtml . '</a>';
+        }
+
+        $html .= '<tr>'
+            . '<td style="padding:9px 12px 9px 0;border-bottom:1px solid #dceaea;color:#118a85;font-size:11px;line-height:16px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap;vertical-align:top;">' . $label . '</td>'
+            . '<td style="padding:9px 0;border-bottom:1px solid #dceaea;color:#0f1720;font-size:14px;line-height:20px;font-weight:600;vertical-align:top;overflow-wrap:anywhere;word-break:break-word;">' . $valueHtml . '</td>'
+            . '</tr>';
+    }
+
+    return $html;
 }
 
 function appendLog(string $logFile, array $entry): void
@@ -537,6 +613,8 @@ foreach ($services as $entry) {
 
     $title = trim((string)($entry['title'] ?? ''));
     $category = trim((string)($entry['category'] ?? ''));
+    $title = preg_replace('/\s+/', ' ', $title) ?? $title;
+    $category = preg_replace('/\s+/', ' ', $category) ?? $category;
     if ($title === '') {
         continue;
     }
@@ -549,43 +627,321 @@ $source = is_array($data['source'] ?? null) ? $data['source'] : [];
 $sourceUrl = trim((string)($source['url'] ?? ''));
 $sourcePage = trim((string)($source['page'] ?? ''));
 $sourceReferrer = trim((string)($source['referrer'] ?? ''));
+$timezone = envValue($env, 'APP_TIMEZONE', 'Europe/Zagreb');
+$displaySubmittedAt = formatDisplayDate($submittedAt, $timezone);
+$servicesValue = !empty($servicesText) ? implode(', ', $servicesText) : '-';
+$phoneHref = $safePhone !== '' ? 'tel:' . preg_replace('/[^\d+]/', '', $safePhone) : '';
+$websiteHref = '';
+if ($safeWebsite !== '') {
+    if (filter_var($safeWebsite, FILTER_VALIDATE_URL)) {
+        $websiteHref = $safeWebsite;
+    } elseif (preg_match('/^[a-z0-9.-]+\.[a-z]{2,}/i', $safeWebsite) === 1) {
+        $websiteHref = 'https://' . $safeWebsite;
+    }
+}
+$sourceUrlHref = filter_var($sourceUrl, FILTER_VALIDATE_URL) ? $sourceUrl : '';
+$clientCountry = resolveClientCountry();
 
 $messageLines = [
-    'Etherr contact intake',
-    '====================',
+    'Etherr - novi upit s web stranice',
+    '================================',
     '',
-    'Request ID: ' . $requestId,
-    'Company: ' . $company,
-    'Contact: ' . $name,
-    'Email: ' . $email,
-    'Phone: ' . ($safePhone !== '' ? $safePhone : '-'),
-    'Website: ' . ($safeWebsite !== '' ? $safeWebsite : '-'),
-    'Preferred contact: ' . ($contactMethodLabel !== '' ? $contactMethodLabel : '-'),
-    'Project type: ' . ($projectTypeLabel !== '' ? $projectTypeLabel : '-'),
-    'Timeline: ' . ($timelineLabel !== '' ? $timelineLabel : '-'),
-    'Services: ' . (!empty($servicesText) ? implode(', ', $servicesText) : '-'),
+    'ID upita: ' . $requestId,
+    'Tvrtka: ' . $company,
+    'Kontakt osoba: ' . $name,
+    'E-mail: ' . $email,
+    'Telefon: ' . ($safePhone !== '' ? $safePhone : '-'),
+    'Web stranica: ' . ($safeWebsite !== '' ? $safeWebsite : '-'),
+    'Preferirani kontakt: ' . ($contactMethodLabel !== '' ? $contactMethodLabel : '-'),
+    'Vrsta projekta: ' . ($projectTypeLabel !== '' ? $projectTypeLabel : '-'),
+    'Rok: ' . ($timelineLabel !== '' ? $timelineLabel : '-'),
+    'Usluge: ' . $servicesValue,
     '',
-    'Details:',
+    'Detalji:',
     $details,
     '',
     'Meta',
     '----',
-    'Locale: ' . ($locale !== '' ? $locale : '-'),
-    'Submitted at: ' . ($submittedAt !== '' ? $submittedAt : '-'),
-    'Page: ' . ($sourcePage !== '' ? $sourcePage : '-'),
+    'Jezik: ' . ($locale !== '' ? $locale : '-'),
+    'Poslano: ' . $displaySubmittedAt,
+    'Stranica: ' . ($sourcePage !== '' ? $sourcePage : '-'),
     'URL: ' . ($sourceUrl !== '' ? $sourceUrl : '-'),
     'Referrer: ' . ($sourceReferrer !== '' ? $sourceReferrer : '-'),
-    'Client IP: ' . $clientIp,
+    'IP adresa: ' . $clientIp,
+    'Država: ' . $clientCountry,
 ];
 
 $message = implode("\n", $messageLines);
-$subject = sprintf('[Etherr] Intake: %s', $company !== '' ? $company : $name);
+$contactRowsHtml = renderEmailRows([
+    ['label' => 'Tvrtka', 'value' => $company],
+    ['label' => 'Kontakt osoba', 'value' => $name],
+    ['label' => 'E-mail', 'value' => $email, 'href' => 'mailto:' . $email],
+    ['label' => 'Telefon', 'value' => $safePhone, 'href' => $phoneHref],
+    ['label' => 'Web stranica', 'value' => $safeWebsite, 'href' => $websiteHref],
+    ['label' => 'Preferirani kontakt', 'value' => $contactMethodLabel],
+]);
+$projectRowsHtml = renderEmailRows([
+    ['label' => 'Vrsta projekta', 'value' => $projectTypeLabel],
+    ['label' => 'Rok', 'value' => $timelineLabel],
+    ['label' => 'Usluge', 'value' => $servicesValue],
+]);
+$metaRowsHtml = renderEmailRows([
+    ['label' => 'ID upita', 'value' => $requestId],
+    ['label' => 'Jezik', 'value' => $locale],
+    ['label' => 'Poslano', 'value' => $displaySubmittedAt],
+    ['label' => 'Stranica', 'value' => $sourcePage],
+    ['label' => 'URL', 'value' => $sourceUrl, 'href' => $sourceUrlHref],
+    ['label' => 'Referrer', 'value' => $sourceReferrer],
+    ['label' => 'IP adresa', 'value' => $clientIp],
+    ['label' => 'Država', 'value' => $clientCountry],
+]);
+$detailsHtml = nl2br(escapeHtml($details));
+$clientLocale = strtolower(substr($locale !== '' ? $locale : 'hr', 0, 2));
+if (!in_array($clientLocale, ['hr', 'en', 'de'], true)) {
+    $clientLocale = 'hr';
+}
+$clientCopy = [
+    'hr' => [
+        'subject' => 'Zaprimili smo vaš upit',
+        'message' => 'Zaprimili smo vaš upit. Javit ćemo vam se u najkraćem roku.',
+        'summaryTitle' => 'Kratki sažetak',
+        'detailsTitle' => 'Detalji upita',
+        'company' => 'Tvrtka',
+        'name' => 'Kontakt osoba',
+        'email' => 'E-mail',
+        'phone' => 'Telefon',
+        'website' => 'Web stranica',
+        'preferredContact' => 'Preferirani kontakt',
+        'projectType' => 'Vrsta projekta',
+        'timeline' => 'Rok',
+        'services' => 'Usluge',
+        'slogan' => 'Sva rješenja na jednom mjestu',
+        'footerLine' => 'Gradimo i povezujemo sve dijelove vašeg digitalnog sustava.',
+    ],
+    'en' => [
+        'subject' => 'We received your inquiry',
+        'message' => 'We have received your inquiry. We will get back to you as soon as possible.',
+        'summaryTitle' => 'Short summary',
+        'detailsTitle' => 'Inquiry details',
+        'company' => 'Company',
+        'name' => 'Contact person',
+        'email' => 'Email',
+        'phone' => 'Phone',
+        'website' => 'Website',
+        'preferredContact' => 'Preferred contact',
+        'projectType' => 'Project type',
+        'timeline' => 'Timeline',
+        'services' => 'Services',
+        'slogan' => 'All solutions in one place',
+        'footerLine' => 'We build and connect all parts of your digital setup.',
+    ],
+    'de' => [
+        'subject' => 'Wir haben Ihre Anfrage erhalten',
+        'message' => 'Wir haben Ihre Anfrage erhalten. Wir melden uns so schnell wie möglich bei Ihnen.',
+        'summaryTitle' => 'Kurze Zusammenfassung',
+        'detailsTitle' => 'Details der Anfrage',
+        'company' => 'Unternehmen',
+        'name' => 'Kontaktperson',
+        'email' => 'E-Mail',
+        'phone' => 'Telefon',
+        'website' => 'Webseite',
+        'preferredContact' => 'Bevorzugter Kontakt',
+        'projectType' => 'Projekttyp',
+        'timeline' => 'Zeitrahmen',
+        'services' => 'Leistungen',
+        'slogan' => 'Alle Lösungen an einem Ort',
+        'footerLine' => 'Wir entwickeln und verbinden Ihr gesamtes digitales Setup.',
+    ],
+][$clientLocale];
+
+$clientSummaryRowsHtml = renderEmailRows([
+    ['label' => $clientCopy['company'], 'value' => $company],
+    ['label' => $clientCopy['name'], 'value' => $name],
+    ['label' => $clientCopy['email'], 'value' => $email, 'href' => 'mailto:' . $email],
+    ['label' => $clientCopy['phone'], 'value' => $safePhone, 'href' => $phoneHref],
+    ['label' => $clientCopy['website'], 'value' => $safeWebsite, 'href' => $websiteHref],
+    ['label' => $clientCopy['preferredContact'], 'value' => $contactMethodLabel],
+    ['label' => $clientCopy['projectType'], 'value' => $projectTypeLabel],
+    ['label' => $clientCopy['timeline'], 'value' => $timelineLabel],
+    ['label' => $clientCopy['services'], 'value' => $servicesValue],
+]);
+$clientPlainLines = [
+    $clientCopy['subject'],
+    str_repeat('=', strlen($clientCopy['subject'])),
+    '',
+    $clientCopy['message'],
+    '',
+    $clientCopy['summaryTitle'],
+    '----',
+    $clientCopy['company'] . ': ' . ($company !== '' ? $company : '-'),
+    $clientCopy['name'] . ': ' . ($name !== '' ? $name : '-'),
+    $clientCopy['email'] . ': ' . $email,
+    $clientCopy['phone'] . ': ' . ($safePhone !== '' ? $safePhone : '-'),
+    $clientCopy['website'] . ': ' . ($safeWebsite !== '' ? $safeWebsite : '-'),
+    $clientCopy['preferredContact'] . ': ' . ($contactMethodLabel !== '' ? $contactMethodLabel : '-'),
+    $clientCopy['projectType'] . ': ' . ($projectTypeLabel !== '' ? $projectTypeLabel : '-'),
+    $clientCopy['timeline'] . ': ' . ($timelineLabel !== '' ? $timelineLabel : '-'),
+    $clientCopy['services'] . ': ' . $servicesValue,
+    '',
+    $clientCopy['detailsTitle'] . ':',
+    $details,
+];
+$clientMessage = implode("\n", $clientPlainLines);
+$emailSignatureFooter = '<table role="presentation" cellpadding="0" cellspacing="0" border="0" align="left" style="border-collapse:collapse;font-family:\'Space Grotesk\',\'Segoe UI\',Arial,Helvetica,sans-serif;color:#0f1720;margin:0;">
+  <tr>
+    <td valign="middle" style="vertical-align:middle;padding:0 18px 0 0;">
+      <a href="https://etherr.hr" style="text-decoration:none;border:0;">
+        <img src="https://etherr.hr/assets/images/logo.png" width="128" alt="Etherr" style="display:block;width:128px;height:auto;border:0;outline:none;text-decoration:none;">
+      </a>
+    </td>
+    <td valign="middle" style="vertical-align:middle;padding:0 0 0 18px;border-left:1px solid #dceaea;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:\'Space Grotesk\',\'Segoe UI\',Arial,Helvetica,sans-serif;">
+        <tr>
+          <td style="padding:0 0 6px 0;font-size:10px;line-height:13px;mso-line-height-rule:exactly;font-weight:700;letter-spacing:1.7px;color:#118a85;font-family:\'Space Grotesk\',\'Segoe UI\',Arial,Helvetica,sans-serif;">' . escapeHtml($clientCopy['slogan']) . '</td>
+        </tr>
+        <tr>
+          <td style="padding:16px 0 16px 0;">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:\'Space Grotesk\',\'Segoe UI\',Arial,Helvetica,sans-serif;">
+              <tr>
+                <td valign="middle" style="vertical-align:middle;padding:0 0 2px 0;font-size:13px;line-height:17px;mso-line-height-rule:exactly;font-weight:700;color:#14313a;font-family:\'Space Grotesk\',\'Segoe UI\',Arial,Helvetica,sans-serif;">
+                  <a href="tel:+385916309013" style="color:#14313a;text-decoration:none;">+385 91 6309 013</a>
+                </td>
+              </tr>
+              <tr>
+                <td valign="middle" style="vertical-align:middle;padding:0 0 2px 0;font-size:13px;line-height:17px;mso-line-height-rule:exactly;font-weight:700;color:#14313a;font-family:\'Space Grotesk\',\'Segoe UI\',Arial,Helvetica,sans-serif;">
+                  <a href="mailto:info@etherr.hr" style="color:#14313a;text-decoration:none;">info@etherr.hr</a>
+                </td>
+              </tr>
+              <tr>
+                <td valign="middle" style="vertical-align:middle;padding:0;font-size:13px;line-height:17px;mso-line-height-rule:exactly;font-weight:700;color:#14313a;font-family:\'Space Grotesk\',\'Segoe UI\',Arial,Helvetica,sans-serif;">
+                  <a href="https://www.etherr.hr" style="color:#14313a;text-decoration:none;">www.etherr.hr</a>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:0;font-size:11px;line-height:15px;mso-line-height-rule:exactly;font-weight:500;letter-spacing:0;color:#118a85;font-family:\'Space Grotesk\',\'Segoe UI\',Arial,Helvetica,sans-serif;">
+            ' . escapeHtml($clientCopy['footerLine']) . '
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td valign="middle" style="vertical-align:middle;padding:0 0 0 18px;">
+      <img src="https://etherr.hr/signature/nodes.png" width="160" height="140" alt="" style="display:block;width:160px;height:140px;border:0;outline:none;text-decoration:none;">
+    </td>
+  </tr>
+</table>';
+$clientEmailSignatureFooter = $emailSignatureFooter;
+$internalEmailSignatureFooter = str_replace(
+    [escapeHtml($clientCopy['slogan']), escapeHtml($clientCopy['footerLine'])],
+    ['Sva rješenja na jednom mjestu', 'Gradimo i povezujemo sve dijelove vašeg digitalnog sustava.'],
+    $emailSignatureFooter
+);
+$clientHtmlMessage = '<!doctype html>
+<html lang="' . escapeHtml($clientLocale) . '">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+  </head>
+  <body style="margin:0;padding:0;background:#f7fbfb;font-family:\'Space Grotesk\',\'Segoe UI\',Arial,Helvetica,sans-serif;color:#0f1720;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;border-collapse:collapse;background:#f7fbfb;">
+      <tr>
+        <td align="center" style="padding:28px 14px;">
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="680" style="width:100%;max-width:680px;border-collapse:separate;border-spacing:0;background:transparent;border:0;">
+            <tr>
+              <td style="padding:26px 28px 22px 28px;background:#0f2a2c;border-radius:22px 22px 0 0;">
+                <div style="font-size:16px;line-height:24px;font-weight:600;color:#ecf8f8;">' . escapeHtml($clientCopy['message']) . '</div>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:22px 28px 8px 28px;background:#ffffff;">
+                <div style="font-size:16px;line-height:22px;font-weight:700;color:#0f1720;">' . escapeHtml($clientCopy['summaryTitle']) . '</div>
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;border-collapse:collapse;margin-top:8px;">' . $clientSummaryRowsHtml . '</table>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:18px 28px 22px 28px;background:#ffffff;">
+                <div style="font-size:16px;line-height:22px;font-weight:700;color:#0f1720;">' . escapeHtml($clientCopy['detailsTitle']) . '</div>
+                <div style="margin-top:10px;padding:15px 16px;background:#f1f7f7;border:1px solid #dceaea;border-radius:14px;color:#14313a;font-size:14px;line-height:22px;font-weight:500;overflow-wrap:anywhere;word-break:break-word;">' . $detailsHtml . '</div>
+              </td>
+            </tr>
+            <tr>
+              <td align="left" style="padding:22px 28px 24px 28px;background:#f1f7f7;border-top:1px solid #dceaea;border-radius:0 0 22px 22px;">
+                ' . $clientEmailSignatureFooter . '
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>';
+$htmlMessage = '<!doctype html>
+<html lang="hr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+  </head>
+  <body style="margin:0;padding:0;background:#f7fbfb;font-family:\'Space Grotesk\',\'Segoe UI\',Arial,Helvetica,sans-serif;color:#0f1720;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;border-collapse:collapse;background:#f7fbfb;">
+      <tr>
+        <td align="center" style="padding:28px 14px;">
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="680" style="width:100%;max-width:680px;border-collapse:separate;border-spacing:0;background:transparent;border:0;">
+            <tr>
+              <td style="padding:22px 28px 8px 28px;background:#ffffff;border-radius:22px 22px 0 0;">
+                <div style="font-size:16px;line-height:22px;font-weight:700;color:#0f1720;">Kontakt podaci</div>
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;border-collapse:collapse;margin-top:8px;">' . $contactRowsHtml . '</table>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:18px 28px 8px 28px;background:#ffffff;">
+                <div style="font-size:16px;line-height:22px;font-weight:700;color:#0f1720;">Projekt</div>
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;border-collapse:collapse;margin-top:8px;">' . $projectRowsHtml . '</table>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:18px 28px 8px 28px;background:#ffffff;">
+                <div style="font-size:16px;line-height:22px;font-weight:700;color:#0f1720;">Detalji upita</div>
+                <div style="margin-top:10px;padding:15px 16px;background:#f1f7f7;border:1px solid #dceaea;border-radius:14px;color:#14313a;font-size:14px;line-height:22px;font-weight:500;overflow-wrap:anywhere;word-break:break-word;">' . $detailsHtml . '</div>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:18px 28px 22px 28px;background:#ffffff;">
+                <div style="font-size:16px;line-height:22px;font-weight:700;color:#0f1720;">Tehnički podaci</div>
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;border-collapse:collapse;margin-top:8px;">' . $metaRowsHtml . '</table>
+              </td>
+            </tr>
+            <tr>
+              <td align="left" style="padding:22px 28px 24px 28px;background:#f1f7f7;border-top:1px solid #dceaea;border-radius:0 0 22px 22px;">
+                ' . $internalEmailSignatureFooter . '
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>';
+$subject = sprintf('[Etherr] Upit: %s', sanitizeHeaderText($company !== '' ? $company : $name));
 $mailResult = sendMessage(
     $env,
     $subject,
     $message,
     $email,
-    $name
+    $name,
+    $htmlMessage
+);
+$clientMailResult = sendMessage(
+    $env,
+    '[Etherr] ' . $clientCopy['subject'],
+    $clientMessage,
+    envValue($env, 'MAIL_TO', 'info@etherr.hr'),
+    envValue($env, 'MAIL_FROM_NAME', 'Etherr'),
+    $clientHtmlMessage,
+    $email
 );
 
 if ($storeSubmissions) {
@@ -596,6 +952,9 @@ if ($storeSubmissions) {
         'mailSent' => $mailResult['sent'],
         'mailTransport' => $mailResult['transport'],
         'mailError' => $mailResult['error'],
+        'clientMailSent' => $clientMailResult['sent'],
+        'clientMailTransport' => $clientMailResult['transport'],
+        'clientMailError' => $clientMailResult['error'],
         'payload' => $data,
     ]);
 }

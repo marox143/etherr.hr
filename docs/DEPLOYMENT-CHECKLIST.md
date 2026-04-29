@@ -77,6 +77,9 @@ Create `.env` in project root (OUTSIDE `public_html/`) from `.env.example` and f
 - `ALLOWED_ORIGINS` (exact domain list)
 - `TURNSTILE_SECRET_KEY` (recommended)
 - `TURNSTILE_ENFORCED=true`
+- `DB_HOST`, `DB_NAME`, `DB_USER`, `DB_PASSWORD` for the AI assistant MariaDB tables
+- `OPENAI_API_KEY` for server-side assistant responses
+- `ASSISTANT_ADMIN_USERNAME` and `ASSISTANT_ADMIN_PASSWORD_HASH` for `/admin/assistant/`
 
 ## 5) Frontend Turnstile Key
 
@@ -106,6 +109,16 @@ chmod 755 var/
 ```
 
 Runtime files (rate limit, logs) will be created automatically with appropriate permissions.
+
+### 6.3 Install AI Assistant Tables
+
+After `.env` database credentials are configured, visit `/admin/assistant/`, log in, and click **Install / repair tables**.
+
+You can also run the installer from SSH:
+
+```bash
+php public_html/api/assistant/install.php
+```
 
 **Security Note**: The `var/` directory is outside `public_html/` and is not web-accessible. This protects rate limit data and submission logs from public access.
 

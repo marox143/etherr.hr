@@ -35,6 +35,17 @@ Implemented:
 - SMTP transport with authentication support
 - Structured API error codes
 
+## AI Assistant
+
+Implemented:
+
+- Server-side OpenAI API calls only
+- MariaDB-backed sessions, conversations, messages, settings and logs
+- Same-origin checks on public assistant endpoints
+- IP-based assistant message rate limiting
+- Admin panel protected by `.env` username and password hash
+- Admin CSRF protection and HTTP-only session cookie
+
 ## Required Before Production
 
 1. Set `ALLOWED_ORIGINS` in `.env` to exact production domains.
@@ -45,6 +56,7 @@ Implemented:
 4. Ensure `var/` is not publicly readable (stored outside `public_html/`).
 5. Ensure SMTP credentials are app-specific and least-privilege.
 6. Set `STORE_SUBMISSIONS=true/false` based on privacy policy.
+7. Configure `OPENAI_API_KEY`, database credentials, and assistant admin credentials for `/admin/assistant/`.
 
 ## File Location Security
 

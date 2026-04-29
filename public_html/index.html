@@ -27,8 +27,8 @@
         }
       })();
     </script>
-    <title>Etherr</title>
-    <meta name="description" content="" />
+    <title>Etherr – Web, automatizacija i AI | Digitalni studio</title>
+    <meta name="description" content="Etherr je digitalni studio koji spaja web stranice, webshopove, marketing, automatizaciju i AI u sustave koji stvarno rade. Radimo s klijentima u Hrvatskoj, regiji i inozemstvu." />
     <link rel="icon" href="assets/images/logo.png" type="image/png" />
     <link rel="apple-touch-icon" href="assets/images/logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -38,6 +38,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="assets/assistant/assistant.css" />
+      <link rel="canonical" href="https://etherr.hr/" />
   </head>
   <body data-page="home">
     <div class="floating-grid" id="floatingGrid" aria-hidden="true">
@@ -77,9 +79,21 @@
         </div>
       </section>
 
-      <section class="services section" id="services">
+      <section class="services section">
         <div class="container">
-          <div class="section-intro reveal">
+          <div class="assistant-home-card reveal">
+            <span class="assistant-home-badge" aria-hidden="true"></span>
+            <div class="assistant-home-prompt">
+              <div class="assistant-home-copy">
+                <p class="assistant-home-title" data-i18n="assistantPrompt.tag"></p>
+                <p class="assistant-home-body" data-i18n="assistantPrompt.text"></p>
+              </div>
+
+              <div class="assistant-home-slot" data-etherr-ai-home-slot></div>
+            </div>
+          </div>
+
+          <div class="section-intro reveal" id="services">
             <p class="section-tag" data-i18n="services.tag"></p>
             <h2 data-i18n="services.title"></h2>
             <p class="section-note" data-i18n="services.intro"></p>
@@ -282,6 +296,8 @@
             <span data-footer-copy></span>
             <span class="footer-divider" aria-hidden="true">·</span>
             <a class="footer-inline-link" href="/privacy.html" data-i18n="footer.privacyLink"></a>
+            <span class="footer-divider" aria-hidden="true">·</span>
+            <a class="footer-inline-link" href="/faq.html" data-i18n="footer.faqLink"></a>
           </p>
         </div>
       </div>
@@ -297,5 +313,6 @@
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
     <script src="shared-header.js"></script>
     <script src="script.js"></script>
+    <script src="assets/assistant/assistant.js"></script>
   </body>
 </html>

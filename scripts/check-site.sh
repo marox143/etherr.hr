@@ -18,9 +18,13 @@ fi
 
 echo " - JS syntax"
 node --check public_html/script.js
+node --check public_html/assets/assistant/assistant.js
 
 echo " - PHP syntax"
 php -l public_html/api/contact-intake.php >/dev/null
+for file in public_html/api/assistant/*.php public_html/admin/assistant/*.php; do
+  php -l "$file" >/dev/null
+done
 php -l var/index.php >/dev/null
 
 echo " - Shell scripts syntax"
@@ -30,7 +34,7 @@ bash -n scripts/check-site.sh
 bash -n scripts/smoke-contact-api.sh
 
 echo " - Core files in public_html/"
-for file in public_html/index.html public_html/projekti.html public_html/about.html public_html/style.css public_html/script.js public_html/shared-header.js public_html/api/contact-intake.php; do
+for file in public_html/index.html public_html/projekti.html public_html/about.html public_html/style.css public_html/script.js public_html/shared-header.js public_html/api/contact-intake.php public_html/assets/assistant/assistant.js public_html/assets/assistant/assistant.css public_html/api/assistant/common.php public_html/admin/assistant/index.php; do
   if [[ ! -f "$file" ]]; then
     echo "ERROR: missing $file"
     exit 1
